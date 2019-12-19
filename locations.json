@@ -1,0 +1,19 @@
+[
+  {
+    "uuid": "c5d52efb-f535-4f64-a1bd-7168af13e717",
+    "name": "Bamhani",
+    "level": 2.0,
+    "type": "Cluster",
+    "addressLevelTypeUUID": "92e3306e-07cf-439f-be33-f9565026910a"
+  },
+  {
+    "uuid": "68ac30d5-3b70-4eed-8bc8-d71e1218c206",
+    "name": "Atariya",
+    "level": 1.0,
+    "parent": {
+      "uuid": "c5d52efb-f535-4f64-a1bd-7168af13e717"
+    },
+    "type": "Village",
+    "addressLevelTypeUUID": "0e2cd5f9-5efd-404b-95de-8a7832a4afb8"
+  }
+]

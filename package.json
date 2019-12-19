@@ -1,0 +1,16 @@
+{
+  "name": "jsscp",
+  "version": "0.0.1",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/avniproject/jsscp.git"
+  },
+  "license": "AGPL-3.0",
+  "scripts": {},
+  "dependencies": {
+    "webpack": "^4.12.0",
+    "rules-config": "github:openchs/rules-config#68b0da32c98fb599d19b7266f78a2ec3eb10e29c",
+    "openchs-idi": "github:openchs/openchs-idi#950376ac50ad66b4d2559226bda1eea3ed8da3ed"
+  }
+}

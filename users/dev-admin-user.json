@@ -1,0 +1,13 @@
+[
+  {
+    "uuid": "55bbb990-1a52-41e3-866e-4ea619497581",
+    "name": "admin@jsscp",
+    "password": "password",
+    "email": "openchssupport+jsscp+admin@samanvayfoundation.org",
+    "phoneNumber": "+919999999999",
+    "organisationUUID": "d3a75adf-e5fb-4262-8681-c5f5eb36a88b",
+    "operatingIndividualScope": "None",
+    "admin": false,
+    "orgAdmin": true
+  }
+]

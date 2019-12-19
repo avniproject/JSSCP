@@ -1,0 +1,16 @@
+{
+  "organisation": "JSSCP",
+  "catchments": [
+    {
+      "name": "Test1",
+      "uuid": "ff06182a-de04-45c0-acc4-31ab211c0807",
+      "type": "Sample",
+      "locations": [
+        {
+          "uuid": "c5d52efb-f535-4f64-a1bd-7168af13e717"
+        }
+      ],
+      "voided": false
+    }
+  ]
+}
