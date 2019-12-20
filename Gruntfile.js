@@ -47,7 +47,7 @@ module.exports = IDI.configure({
             "dev": ["users/dev-users.json"]
         },
         "rules": [
-            "rules/index.js",
+            // "./rules/index.js",
         ],
         "organisationSql": [
             /* "create_organisation.sql"*/

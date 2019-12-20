@@ -8,10 +8,11 @@ const [concepts, ...forms] = process.argv.slice(2)
 
 concepts.json.forEach(concept => {
     const oldUuid = concept.uuid;
-    concept.uuid = uuidv4();
+    const newUuid = uuidv4();
     const updateConcept = c => {
-        if (c.uuid === oldUuid) c.uuid = concept.uuid;
+        if (c.uuid === oldUuid) c.uuid = newUuid;
     };
+    updateConcept(concept);
 
     forms.forEach(f =>
         f.json.formElementGroups.forEach(feg =>
