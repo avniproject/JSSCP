@@ -4,44 +4,50 @@ const IDI = require('openchs-idi');
 module.exports = IDI.configure({
     "name": "jsscp",
     "chs-admin": "admin",
-    "org-name": "JSS CP",
+    "org-name": "JSSCP",
     "org-admin": "admin@jsscp",
     "secrets": '../secrets.json',
     "files": {
         "adminUsers": {
             // "prod": [],
-            "dev": ["./users/dev-admin-user.json"],
+            "dev": ["users/dev-admin-user.json"],
         },
         "forms": [
-            "./child/albendazoleTrackingForm.json",
-            "./registrationForm.json",
+            'forms/Albendazole Tracking.json',
+            'forms/Anthropometry Assessment.json',
+            'forms/Birth form.json',
+            'forms/Child Enrolment.json',
+            'forms/Child Exit.json',
+            'forms/Child PNC.json',
+            'forms/Default Program Encounter Cancellation Form.json',
+            'forms/Exit.json',
+            'forms/JSS Registration Form.json',
         ],
-        "formMappings": ["./formMappings.json"],
+        "formMappings": ["formMappings.json"],
         "catchments": {
             "dev": ["catchments.json"],
             "staging": ["catchments.json"],
         },
         "checklistDetails": [],
         "concepts": [
-            "./concepts.json",
-            "./registrationConcepts.json",
-            "./child/enrolmentConcepts.json",
+            "concepts.json",
         ],
         "addressLevelTypes" : ["addressLevelTypes.json"],
         "locations": {
-            "dev": ["./locations.json"],
-            "staging": ["./locations.json"],
+            "dev": ["locations.json"],
+            "staging": ["locations.json"],
         },
-        "programs": [],
-        "encounterTypes": ["./encounterTypes.json"],
-        "operationalEncounterTypes": ["./operationalModules/operationalEncounterTypes.json"],
-        "operationalPrograms": ["./operationalModules/operationalPrograms.json"],
-        "operationalSubjectTypes": ["./operationalModules/operationalSubjectTypes.json"],
+        "programs": ["programs.json"],
+        "encounterTypes": ["encounterTypes.json"],
+        "subjectTypes": ["subjectTypes.json"],
+        "operationalEncounterTypes": ["operationalEncounterTypes.json"],
+        "operationalPrograms": ["operationalPrograms.json"],
+        "operationalSubjectTypes": ["operationalSubjectTypes.json"],
         "users": {
-            "dev": ["./users/dev-users.json"]
+            "dev": ["users/dev-users.json"]
         },
         "rules": [
-            "./rules/index.js",
+            "rules/index.js",
         ],
         "organisationSql": [
             /* "create_organisation.sql"*/
