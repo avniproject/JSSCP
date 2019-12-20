@@ -1,9 +1,10 @@
 import {FormElementsStatusHelper, FormElementStatusBuilder, RuleFactory, VisitScheduleBuilder} from "rules-config";
 import {albendazole} from "./visitSchedulingUtils";
 import VILLAGE_PHULWARI_MAPPING from '../data/villagePhulwariMapping';
+import childEnrolment from '../../forms/Child Enrolment';
 
-const EnrolmentViewFilter = RuleFactory("1608c2c0-0334-41a6-aab0-5c61ea1eb069", "ViewFilter");
-const EnrolmentVisitSchedule = RuleFactory("1608c2c0-0334-41a6-aab0-5c61ea1eb069", "VisitSchedule");
+const EnrolmentViewFilter = RuleFactory(childEnrolment.uuid, "ViewFilter");
+const EnrolmentVisitSchedule = RuleFactory(childEnrolment.uuid, "VisitSchedule");
 
 @EnrolmentViewFilter("520bf19c-cce8-4db5-8ab8-1b8ad57d0b75", "JSS Child Enrolment View Filter", 10.0)
 class ChildEnrolmentHandlerJSS {

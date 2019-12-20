@@ -1,7 +1,8 @@
 import {FormElementsStatusHelper, FormElementStatusBuilder, RuleFactory} from "rules-config";
 import VILLAGE_GRAMPANCHAYAT_MAPPING from '../data/villageGrampanchayatMapping';
+import regForm from '../../forms/JSS Registration Form';
 
-const RegistrationViewFilter = RuleFactory("e0b78ca2-1205-4e84-9f9b-d97c9b78a917", "ViewFilter");
+const RegistrationViewFilter = RuleFactory(regForm.uuid, "ViewFilter");
 
 @RegistrationViewFilter("c2e89483-4bdd-4d39-adf3-88a69579d07d", "JSS Registration View Filter", 1.0, {})
 class RegistrationHandlerJSS {

@@ -1,11 +1,12 @@
 import {AlbendazoleVisitScheduleJSS} from "./albendazoleTrackingHandler";
 import {RuleFactory, VisitScheduleBuilder} from "rules-config";
+import defCancelForm from '../../forms/Default Program Encounter Cancellation Form';
 
 const postVisitMap = {
     'Anthropometry Assessment': GMCancelVisitScheduleJSS,
     'Albendazole': AlbendazoleVisitScheduleJSS
 };
-const CancelVisitSchedules = RuleFactory("aac5c57a-aa01-49bb-ad20-70536dd2907f", "VisitSchedule");
+const CancelVisitSchedules = RuleFactory(defCancelForm.uuid, "VisitSchedule");
 
 class GMCancelVisitScheduleJSS {
     static exec(programEncounter, visitSchedule = [], scheduleConfig) {

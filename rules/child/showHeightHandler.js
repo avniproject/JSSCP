@@ -8,13 +8,14 @@ import {
 import {WithName} from "rules-config";
 import moment from 'moment';
 import _ from 'lodash';
+import anthroAss from '../../forms/Anthropometry Assessment';
 
 const WithStatusBuilder = StatusBuilderAnnotationFactory('programEncounter', 'formElement');
 
 @FormElementRule({
     name: 'JSS Growth Monitoring rules',
     uuid: 'e6c03ec8-fb2d-40e4-a0a0-50fb3c91c53e',
-    formUUID: 'd062907a-690c-44ca-b699-f8b2f688b075',
+    formUUID: anthroAss.uuid,
     executionOrder: 100.0,
     metadata: {}
 })

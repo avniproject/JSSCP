@@ -1,9 +1,9 @@
 {
-  "organisationName" : "JSS",
+  "organisationName" : "JSS CP",
   "operationalPrograms" : [ {
-    "uuid" : "9bc1c576-61be-409e-823b-4e03b9b6e390",
+    "uuid" : "fb9e889a-e537-4513-a3e2-34aa720c7cd2",
     "program" : {
-      "uuid" : "352d906c-b386-496c-ba23-91b1468a5613"
+      "uuid" : "eb4d392a-87a0-4673-9176-dbd4101505ab"
     },
     "name" : "Phulwari"
   } ]

@@ -1,8 +1,10 @@
 import {RuleFactory, VisitScheduleBuilder} from "rules-config";
 import moment from 'moment';
+import anthropom from '../../forms/Anthropometry Assessment';
+import defCancel from '../../forms/Default Program Encounter Cancellation Form';
 
-const GMVisitSchedule = RuleFactory("d062907a-690c-44ca-b699-f8b2f688b075", "VisitSchedule");
-const GMVisitScheduleCan = RuleFactory("aac5c57a-aa01-49bb-ad20-70536dd2907f", "VisitSchedule");
+const GMVisitSchedule = RuleFactory(anthropom.uuid, "VisitSchedule");
+const GMVisitScheduleCan = RuleFactory(defCancel.uuid, "VisitSchedule");
 
 @GMVisitSchedule("44160e78-23fc-46c1-8764-4c84a5847522", "JSS Growth Monitoring Recurring Visit", 100.0)
 class GMVisitScheduleJSS {
