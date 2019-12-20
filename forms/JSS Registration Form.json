@@ -1,215 +1,241 @@
 {
-  "name" : "JSS Registration Form",
-  "uuid" : "e0b78ca2-1205-4e84-9f9b-d97c9b78a917",
-  "formType" : "IndividualProfile",
-  "formElementGroups" : [ {
-    "uuid" : "81c6d146-9904-42e5-bf35-d6ec9614b2c0",
-    "name" : "Address Details",
-    "displayOrder" : 1.0,
-    "display" : "Address Details",
-    "formElements" : [ {
-      "name" : "Mohalla",
-      "uuid" : "1b2af780-1b37-4d92-9851-735a7a038204",
-      "keyValues" : [ ],
-      "concept" : {
-        "uuid" : "3d95a3b6-b6a2-4335-a680-e14095cd9dfb"
-      },
-      "displayOrder" : 1.0,
-      "type" : "SingleSelect",
-      "mandatory" : true
-    }, {
-      "name" : "Gram Panchayat",
-      "uuid" : "d95addb4-137d-4181-8b49-a5fb46f8a66f",
-      "keyValues" : [ ],
-      "concept" : {
-        "uuid" : "d6bb1543-0c1c-4c01-bd47-3883701d945b"
-      },
-      "displayOrder" : 2.0,
-      "type" : "SingleSelect",
-      "mandatory" : true
-    }, {
-      "name" : "Other Gram panchayat (Please specify)",
-      "uuid" : "4bca7345-4676-402b-91e4-0cd9e483050c",
-      "keyValues" : [ ],
-      "concept" : {
-        "uuid" : "d7e88b8c-77c0-4643-a852-4398d681d37f"
-      },
-      "displayOrder" : 2.1,
-      "type" : "SingleSelect",
-      "mandatory" : true
-    } ]
-  }, {
-    "uuid" : "a3a20e49-ef6c-4748-9cf3-c01ed9c8bdd8",
-    "name" : "Personal Details",
-    "displayOrder" : 2.0,
-    "display" : "Personal Details",
-    "formElements" : [ {
-      "name" : "Birth Order",
-      "uuid" : "a98eafb0-3a88-493e-87e2-25718d24dd54",
-      "keyValues" : [ ],
-      "concept" : {
-        "uuid" : "c218b516-a47f-411a-ad82-c3f1f446d9b0"
-      },
-      "displayOrder" : 1.0,
-      "type" : "SingleSelect",
-      "mandatory" : true
-    }, {
-      "name" : "Father's Name",
-      "uuid" : "45668f20-0429-4869-a97f-e3be3b1e7c3e",
-      "keyValues" : [ ],
-      "concept" : {
-        "uuid" : "cc4e6c8f-99ea-4d47-a672-a6e5b513806d"
-      },
-      "displayOrder" : 2.0,
-      "type" : "SingleSelect",
-      "mandatory" : true
-    }, {
-      "name" : "Mother's Name",
-      "uuid" : "07bacf0e-206b-4bdb-ba29-179e95380c3f",
-      "keyValues" : [ ],
-      "concept" : {
-        "uuid" : "36525e7b-575f-4b34-aae8-9a031adb84eb"
-      },
-      "displayOrder" : 3.0,
-      "type" : "SingleSelect",
-      "mandatory" : true
-    }, {
-      "name" : "Father's Occupation",
-      "uuid" : "d3748d28-5e95-49e5-8743-cfefb5fb4cd4",
-      "keyValues" : [ ],
-      "concept" : {
-        "uuid" : "fb3214f4-d040-40bc-bd38-883ad5e0cae7"
-      },
-      "displayOrder" : 4.0,
-      "type" : "SingleSelect",
-      "mandatory" : false
-    }, {
-      "name" : "Mother's Occupation",
-      "uuid" : "e4b88091-20af-4438-9632-1a25cc1142b2",
-      "keyValues" : [ ],
-      "concept" : {
-        "uuid" : "dc9882a4-ceff-4dc9-b6fc-3e2ba7e9b197"
-      },
-      "displayOrder" : 5.0,
-      "type" : "SingleSelect",
-      "mandatory" : false
-    }, {
-      "name" : "Mother's Education",
-      "uuid" : "930668c9-73b9-4dbe-b2cf-5f4f8ef9a223",
-      "keyValues" : [ ],
-      "concept" : {
-        "uuid" : "ffd6b888-b2b5-4fcb-82fc-1f81c4c5e620"
-      },
-      "displayOrder" : 6.0,
-      "type" : "SingleSelect",
-      "mandatory" : false
-    }, {
-      "name" : "Caste",
-      "uuid" : "3d02f8f9-fae1-4d80-8f48-1d8bf3c5ab3e",
-      "keyValues" : [ ],
-      "concept" : {
-        "uuid" : "61ab6413-5c6a-4512-ab6e-7d5cd1439569"
-      },
-      "displayOrder" : 7.0,
-      "type" : "SingleSelect",
-      "mandatory" : false
-    }, {
-      "name" : "Sub caste",
-      "uuid" : "6a13af65-96c1-4387-9872-1f80cead9ddb",
-      "keyValues" : [ ],
-      "concept" : {
-        "uuid" : "00c7aa50-aabb-465f-be09-408c94734004"
-      },
-      "displayOrder" : 8.0,
-      "type" : "SingleSelect",
-      "mandatory" : false
-    }, {
-      "name" : "Other sub caste (please specify)",
-      "uuid" : "f8f87b7c-8b62-4e5d-867f-c0b34b6074c4",
-      "keyValues" : [ ],
-      "concept" : {
-        "uuid" : "1f605949-1359-49aa-8d04-ac5f653864c7"
-      },
-      "displayOrder" : 9.0,
-      "type" : "SingleSelect",
-      "mandatory" : true
-    } ]
-  }, {
-    "uuid" : "600d3e05-756b-4bf4-803c-004fac749531",
-    "name" : "Socio-Economic Details",
-    "displayOrder" : 3.0,
-    "display" : "Socio-Economic Details",
-    "formElements" : [ {
-      "name" : "Any owned land?",
-      "uuid" : "6d8cfcad-2bd6-45c8-9950-8ff039567e2d",
-      "keyValues" : [ ],
-      "concept" : {
-        "uuid" : "6a0d80bf-e271-4012-a8e1-9d9c91b18a14"
-      },
-      "displayOrder" : 2.0,
-      "type" : "SingleSelect",
-      "mandatory" : true
-    }, {
-      "name" : "Land area",
-      "uuid" : "5e2e1ec2-75b7-4b99-80d7-14353f796305",
-      "keyValues" : [ ],
-      "concept" : {
-        "uuid" : "6a6b6d30-45f3-4076-a108-0514aabe3886"
-      },
-      "displayOrder" : 3.0,
-      "type" : "SingleSelect",
-      "mandatory" : false
-    }, {
-      "name" : "Type of residence",
-      "uuid" : "4fe4bfde-8968-40bf-8f29-87021c68f3c7",
-      "keyValues" : [ ],
-      "concept" : {
-        "uuid" : "f1aec43b-c985-442a-97dd-70cbe00e3643"
-      },
-      "displayOrder" : 4.0,
-      "type" : "SingleSelect",
-      "mandatory" : false
-    }, {
-      "name" : "Religion",
-      "uuid" : "8b119d96-5978-4e0c-98bd-cc1ca7696357",
-      "keyValues" : [ ],
-      "concept" : {
-        "uuid" : "c922c13c-1fa2-42dd-a7e8-d234b0324870"
-      },
-      "displayOrder" : 5.0,
-      "type" : "SingleSelect",
-      "mandatory" : false,
-      "voided" : true
-    }, {
-      "name" : "Economic Status",
-      "uuid" : "91f28fbd-e096-4c3b-98f4-a29325031b91",
-      "keyValues" : [ ],
-      "concept" : {
-        "uuid" : "476a0b71-485b-4a0a-ba6f-4f3cf13568ca"
-      },
-      "displayOrder" : 6.0,
-      "type" : "SingleSelect",
-      "mandatory" : false
-    }, {
-      "name" : "Any property?",
-      "uuid" : "424b7436-4eaa-400b-9c64-52a5603878a1",
-      "keyValues" : [ ],
-      "concept" : {
-        "uuid" : "beef9533-cfa1-4efa-bed3-d14169468c1c"
-      },
-      "displayOrder" : 7.0,
-      "type" : "MultiSelect",
-      "mandatory" : true
-    }, {
-      "name" : "Other property (please specify)",
-      "uuid" : "58f1fdac-adec-4f6f-8360-529e605e564a",
-      "keyValues" : [ ],
-      "concept" : {
-        "uuid" : "84d72d0d-20d6-471b-9d76-c139f9eccc55"
-      },
-      "displayOrder" : 8.0,
-      "type" : "SingleSelect",
-      "mandatory" : true
-    } ]
-  } ]
+  "name": "JSS Registration Form",
+  "uuid": "e0b78ca2-1205-4e84-9f9b-d97c9b78a917",
+  "formType": "IndividualProfile",
+  "formElementGroups": [
+    {
+      "uuid": "81c6d146-9904-42e5-bf35-d6ec9614b2c0",
+      "name": "Address Details",
+      "displayOrder": 1,
+      "display": "Address Details",
+      "formElements": [
+        {
+          "name": "Mohalla",
+          "uuid": "1b2af780-1b37-4d92-9851-735a7a038204",
+          "keyValues": [],
+          "concept": {
+            "uuid": "3d95a3b6-b6a2-4335-a680-e14095cd9dfb"
+          },
+          "displayOrder": 1,
+          "type": "SingleSelect",
+          "mandatory": true
+        },
+        {
+          "name": "Gram Panchayat",
+          "uuid": "d95addb4-137d-4181-8b49-a5fb46f8a66f",
+          "keyValues": [],
+          "concept": {
+            "uuid": "d6bb1543-0c1c-4c01-bd47-3883701d945b"
+          },
+          "displayOrder": 2,
+          "type": "SingleSelect",
+          "mandatory": true
+        },
+        {
+          "name": "Other Gram panchayat (Please specify)",
+          "uuid": "4bca7345-4676-402b-91e4-0cd9e483050c",
+          "keyValues": [],
+          "concept": {
+            "uuid": "d7e88b8c-77c0-4643-a852-4398d681d37f"
+          },
+          "displayOrder": 2.1,
+          "type": "SingleSelect",
+          "mandatory": true
+        }
+      ]
+    },
+    {
+      "uuid": "a3a20e49-ef6c-4748-9cf3-c01ed9c8bdd8",
+      "name": "Personal Details",
+      "displayOrder": 2,
+      "display": "Personal Details",
+      "formElements": [
+        {
+          "name": "Birth Order",
+          "uuid": "a98eafb0-3a88-493e-87e2-25718d24dd54",
+          "keyValues": [],
+          "concept": {
+            "uuid": "c218b516-a47f-411a-ad82-c3f1f446d9b0"
+          },
+          "displayOrder": 1,
+          "type": "SingleSelect",
+          "mandatory": true
+        },
+        {
+          "name": "Father's Name",
+          "uuid": "45668f20-0429-4869-a97f-e3be3b1e7c3e",
+          "keyValues": [],
+          "concept": {
+            "uuid": "cc4e6c8f-99ea-4d47-a672-a6e5b513806d"
+          },
+          "displayOrder": 2,
+          "type": "SingleSelect",
+          "mandatory": true
+        },
+        {
+          "name": "Mother's Name",
+          "uuid": "07bacf0e-206b-4bdb-ba29-179e95380c3f",
+          "keyValues": [],
+          "concept": {
+            "uuid": "36525e7b-575f-4b34-aae8-9a031adb84eb"
+          },
+          "displayOrder": 3,
+          "type": "SingleSelect",
+          "mandatory": true
+        },
+        {
+          "name": "Father's Occupation",
+          "uuid": "d3748d28-5e95-49e5-8743-cfefb5fb4cd4",
+          "keyValues": [],
+          "concept": {
+            "uuid": "fb3214f4-d040-40bc-bd38-883ad5e0cae7"
+          },
+          "displayOrder": 4,
+          "type": "SingleSelect",
+          "mandatory": false
+        },
+        {
+          "name": "Mother's Occupation",
+          "uuid": "e4b88091-20af-4438-9632-1a25cc1142b2",
+          "keyValues": [],
+          "concept": {
+            "uuid": "dc9882a4-ceff-4dc9-b6fc-3e2ba7e9b197"
+          },
+          "displayOrder": 5,
+          "type": "SingleSelect",
+          "mandatory": false
+        },
+        {
+          "name": "Mother's Education",
+          "uuid": "930668c9-73b9-4dbe-b2cf-5f4f8ef9a223",
+          "keyValues": [],
+          "concept": {
+            "uuid": "ffd6b888-b2b5-4fcb-82fc-1f81c4c5e620"
+          },
+          "displayOrder": 6,
+          "type": "SingleSelect",
+          "mandatory": false
+        },
+        {
+          "name": "Caste",
+          "uuid": "3d02f8f9-fae1-4d80-8f48-1d8bf3c5ab3e",
+          "keyValues": [],
+          "concept": {
+            "uuid": "61ab6413-5c6a-4512-ab6e-7d5cd1439569"
+          },
+          "displayOrder": 7,
+          "type": "SingleSelect",
+          "mandatory": false
+        },
+        {
+          "name": "Sub caste",
+          "uuid": "6a13af65-96c1-4387-9872-1f80cead9ddb",
+          "keyValues": [],
+          "concept": {
+            "uuid": "00c7aa50-aabb-465f-be09-408c94734004"
+          },
+          "displayOrder": 8,
+          "type": "SingleSelect",
+          "mandatory": false
+        },
+        {
+          "name": "Other sub caste (please specify)",
+          "uuid": "f8f87b7c-8b62-4e5d-867f-c0b34b6074c4",
+          "keyValues": [],
+          "concept": {
+            "uuid": "1f605949-1359-49aa-8d04-ac5f653864c7"
+          },
+          "displayOrder": 9,
+          "type": "SingleSelect",
+          "mandatory": true
+        }
+      ]
+    },
+    {
+      "uuid": "600d3e05-756b-4bf4-803c-004fac749531",
+      "name": "Socio-Economic Details",
+      "displayOrder": 3,
+      "display": "Socio-Economic Details",
+      "formElements": [
+        {
+          "name": "Any owned land?",
+          "uuid": "6d8cfcad-2bd6-45c8-9950-8ff039567e2d",
+          "keyValues": [],
+          "concept": {
+            "uuid": "6a0d80bf-e271-4012-a8e1-9d9c91b18a14"
+          },
+          "displayOrder": 2,
+          "type": "SingleSelect",
+          "mandatory": true
+        },
+        {
+          "name": "Land area",
+          "uuid": "5e2e1ec2-75b7-4b99-80d7-14353f796305",
+          "keyValues": [],
+          "concept": {
+            "uuid": "6a6b6d30-45f3-4076-a108-0514aabe3886"
+          },
+          "displayOrder": 3,
+          "type": "SingleSelect",
+          "mandatory": false
+        },
+        {
+          "name": "Type of residence",
+          "uuid": "4fe4bfde-8968-40bf-8f29-87021c68f3c7",
+          "keyValues": [],
+          "concept": {
+            "uuid": "f1aec43b-c985-442a-97dd-70cbe00e3643"
+          },
+          "displayOrder": 4,
+          "type": "SingleSelect",
+          "mandatory": false
+        },
+        {
+          "name": "Religion",
+          "uuid": "8b119d96-5978-4e0c-98bd-cc1ca7696357",
+          "keyValues": [],
+          "concept": {
+            "uuid": "c922c13c-1fa2-42dd-a7e8-d234b0324870"
+          },
+          "displayOrder": 5,
+          "type": "SingleSelect",
+          "mandatory": false,
+          "voided": true
+        },
+        {
+          "name": "Economic Status",
+          "uuid": "91f28fbd-e096-4c3b-98f4-a29325031b91",
+          "keyValues": [],
+          "concept": {
+            "uuid": "476a0b71-485b-4a0a-ba6f-4f3cf13568ca"
+          },
+          "displayOrder": 6,
+          "type": "SingleSelect",
+          "mandatory": false
+        },
+        {
+          "name": "Any property?",
+          "uuid": "424b7436-4eaa-400b-9c64-52a5603878a1",
+          "keyValues": [],
+          "concept": {
+            "uuid": "beef9533-cfa1-4efa-bed3-d14169468c1c"
+          },
+          "displayOrder": 7,
+          "type": "MultiSelect",
+          "mandatory": true
+        },
+        {
+          "name": "Other property (please specify)",
+          "uuid": "58f1fdac-adec-4f6f-8360-529e605e564a",
+          "keyValues": [],
+          "concept": {
+            "uuid": "84d72d0d-20d6-471b-9d76-c139f9eccc55"
+          },
+          "displayOrder": 8,
+          "type": "SingleSelect",
+          "mandatory": true
+        }
+      ]
+    }
+  ]
 }

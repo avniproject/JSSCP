@@ -17,12 +17,6 @@ module.exports = IDI.configure({
             "./registrationForm.json",
         ],
         "formMappings": ["./formMappings.json"],
-        "formDeletions": [
-            "./child/enrolmentDeletions.json",
-        ],
-        "formAdditions": [
-            "./child/enrolmentAdditions.json",
-        ],
         "catchments": {
             "dev": ["catchments.json"],
             "staging": ["catchments.json"],
