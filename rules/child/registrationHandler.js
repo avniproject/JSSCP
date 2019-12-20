@@ -1,5 +1,5 @@
 import {FormElementsStatusHelper, FormElementStatusBuilder, RuleFactory} from "rules-config";
-import VILLAGE_GRAMPANCHAYAT_MAPPING from '../../shared/data/villageGrampanchayatMapping';
+import VILLAGE_GRAMPANCHAYAT_MAPPING from '../data/villageGrampanchayatMapping';
 
 const RegistrationViewFilter = RuleFactory("e0b78ca2-1205-4e84-9f9b-d97c9b78a917", "ViewFilter");
 

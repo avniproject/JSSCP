@@ -1,4 +1,4 @@
-import RuleHelper from "../../RuleHelper";
+import RuleHelper from "../RuleHelper";
 import {
     FormElementsStatusHelper,
     FormElementStatus,
@@ -6,7 +6,7 @@ import {
     RuleFactory,
     VisitScheduleBuilder
 } from 'rules-config/rules';
-import {albendazole} from '../../shared/rules/visitSchedulingUtils';
+import {albendazole} from './visitSchedulingUtils';
 
 const VisitSchedule = RuleFactory("dc386316-a5fa-440d-88de-5cd49a1ddc1d", "VisitSchedule");
 

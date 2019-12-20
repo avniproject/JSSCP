@@ -1,4 +1,4 @@
-import {AlbendazoleVisitScheduleJSS} from "../../child/rules/albendazoleTrackingHandler";
+import {AlbendazoleVisitScheduleJSS} from "./albendazoleTrackingHandler";
 import {RuleFactory, VisitScheduleBuilder} from "rules-config";
 
 const postVisitMap = {

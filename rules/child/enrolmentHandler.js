@@ -1,6 +1,6 @@
 import {FormElementsStatusHelper, FormElementStatusBuilder, RuleFactory, VisitScheduleBuilder} from "rules-config";
-import {albendazole} from "../../shared/rules/visitSchedulingUtils";
-import VILLAGE_PHULWARI_MAPPING from '../../shared/data/villagePhulwariMapping';
+import {albendazole} from "./visitSchedulingUtils";
+import VILLAGE_PHULWARI_MAPPING from '../data/villagePhulwariMapping';
 
 const EnrolmentViewFilter = RuleFactory("1608c2c0-0334-41a6-aab0-5c61ea1eb069", "ViewFilter");
 const EnrolmentVisitSchedule = RuleFactory("1608c2c0-0334-41a6-aab0-5c61ea1eb069", "VisitSchedule");
