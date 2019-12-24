@@ -3,11 +3,11 @@ import moment from 'moment';
 import anthropom from '../../forms/Anthropometry Assessment';
 import defCancel from '../../forms/Default Program Encounter Cancellation Form';
 
-const GMVisitSchedule = RuleFactory(anthropom.uuid, "VisitSchedule");
-const GMVisitScheduleCan = RuleFactory(defCancel.uuid, "VisitSchedule");
+const GMVisitScheduleAnn = RuleFactory(anthropom.uuid, "VisitSchedule");
+const GMVisitScheduleCancelledAnn = RuleFactory(defCancel.uuid, "VisitSchedule");
 
-@GMVisitSchedule("44160e78-23fc-46c1-8764-4c84a5847522", "JSS Growth Monitoring Recurring Visit", 100.0)
-export class GMVisitScheduleJSS {
+@GMVisitScheduleAnn("d537df03-f9ac-467a-91b3-32ab0ce2589d", "JSSCP GMVisitSchedule", 100.0)
+class GMVisitSchedule {
     static exec(programEncounter, visitSchedule = [], scheduleConfig) {
 
         //not scheduling next visit when recording unplanned visit
@@ -41,8 +41,8 @@ export class GMVisitScheduleJSS {
     }
 }
 
-@GMVisitScheduleCan("9f3b2ad9-ece4-4e99-b56a-4d2b8a183aa9", "JSS Growth Monitoring Cancel Visit", 100.0)
-export class GMVisitScheduleCancelled {
+@GMVisitScheduleCancelledAnn("0cc7c4cd-335d-4caf-92f2-8bbdb2ea443e", "JSSCP GMVisitScheduleCancelled", 100.0)
+class GMVisitScheduleCancelled {
 
     static exec(programEncounter, visitSchedule = [], scheduleConfig) {
 
@@ -69,4 +69,8 @@ export class GMVisitScheduleCancelled {
         );
         return scheduleBuilder.getAllUnique("encounterType");
     }
+}
+export {
+    GMVisitSchedule,
+    GMVisitScheduleCancelled
 }

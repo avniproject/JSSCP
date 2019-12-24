@@ -4,8 +4,8 @@ import regForm from '../../forms/JSS Registration Form';
 
 const RegistrationViewFilterAnn = RuleFactory(regForm.uuid, "ViewFilter");
 
-@RegistrationViewFilterAnn("c2e89483-4bdd-4d39-adf3-88a69579d07d", "JSSCP Registration View Filter", 1.0, {})
-export class RegistrationViewFilter {
+@RegistrationViewFilterAnn("3f3fe5fa-b331-4ce5-8a10-a29fd6ba8f36", "JSSCP Registration View Filter", 1.0, {})
+class RegistrationViewFilter {
     static exec(individual, formElementGroup) {
         return FormElementsStatusHelper
             .getFormElementsStatuses(new RegistrationViewFilter(), individual, formElementGroup);
@@ -50,4 +50,8 @@ export class RegistrationViewFilter {
     _getStatusBuilder(individual, formElement) {
         return new FormElementStatusBuilder({individual, formElement});
     }
+}
+
+export {
+    RegistrationViewFilter
 }

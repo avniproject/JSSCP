@@ -3,12 +3,12 @@ import BirthForm from '../../forms/Birth form';
 
 @FormElementRule({
     name: 'JSSCP BirthViewFilter',
-    uuid: 'c48fb8c9-b4f6-4daa-b8d0-07bde4896cc9',
+    uuid: 'b34cc4da-2fdd-4a07-ba19-2f1fea7cdd5c',
     formUUID: BirthForm.uuid,
     executionOrder: 100.0,
     metadata: {}
 })
-export class BirthViewFilter {
+class BirthViewFilter {
     static exec(programEncounter, formElementGroup, today) {
         return FormElementsStatusHelper
             .getFormElementsStatusesWithoutDefaults(new BirthViewFilter(), programEncounter, formElementGroup, today);
@@ -37,4 +37,8 @@ export class BirthViewFilter {
         statusBuilder.show().when.valueInEnrolment('Birth Weight').is.not.defined;
         return statusBuilder.build();
     }
+}
+
+export {
+    BirthViewFilter
 }

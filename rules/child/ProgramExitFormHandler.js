@@ -3,12 +3,12 @@ import ChildExitForm from '../../forms/Child Exit';
 
 @FormElementRule({
     name: 'JSSCP Child Exit',
-    uuid: '49254135-27b5-43cb-ae51-1acf99e7b9f8',
+    uuid: '2135d7cb-e1d2-415a-a4bf-e755f076cf50',
     formUUID: ChildExitForm.uuid,
     executionOrder: 100.0,
     metadata: {}
 })
-export class ProgramExitFormHandler {
+class ProgramExitFormHandler {
     static exec(programExit, formElementGroup, today) {
         return FormElementsStatusHelper
             .getFormElementsStatusesWithoutDefaults(new ProgramExitFormHandler(), programExit, formElementGroup, today);
@@ -45,4 +45,7 @@ export class ProgramExitFormHandler {
             formElement
         });
     }
+}
+export {
+    ProgramExitFormHandler
 }

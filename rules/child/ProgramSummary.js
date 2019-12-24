@@ -1,14 +1,16 @@
 import {ProgramRule} from 'rules-config/rules';
-import {ProgramEnrolment} from '../../forms/Child Enrolment';
+import Programs from '../../programs.json';
+
+const ChildProgram = Programs.find(x => x.name === 'Child');
 
 @ProgramRule({
     name: "JSSCP ChildProgramSummary",
     uuid: "7846a51b-cee9-4f07-ad71-58ef8ae64e46",
-    programUUID: ProgramEnrolment.uuid,
+    programUUID: ChildProgram.uuid,
     executionOrder: 100.0,
     metadata: {}
 })
-export class ChildProgramSummary {
+class ChildProgramSummary {
     static exec(programEnrolment, summaries, context, today) {
         summaryForObservation("Weight for age z-score", programEnrolment, summaries);
         summaryForObservation("Weight for age Grade", programEnrolment, summaries);
@@ -30,3 +32,7 @@ const summaryForObservation = function (conceptName, programEnrolment, summaries
         summaries.push({name: conceptName, value: observationValue.getValue()});
     }
 };
+
+export {
+    ChildProgramSummary
+}

@@ -1,13 +1,13 @@
 import {FormElementsStatusHelper, FormElementStatusBuilder, RuleFactory, VisitScheduleBuilder} from "rules-config";
-import {albendazole} from "./visitSchedulingUtils";
+import {albendazole} from "./utils/visitSchedulingUtils";
 import VILLAGE_PHULWARI_MAPPING from '../../data/villagePhulwariMapping';
 import childEnrolment from '../../forms/Child Enrolment';
 
 const EnrolmentViewFilter = RuleFactory(childEnrolment.uuid, "ViewFilter");
 const EnrolmentVisitSchedule = RuleFactory(childEnrolment.uuid, "VisitSchedule");
 
-@EnrolmentViewFilter("520bf19c-cce8-4db5-8ab8-1b8ad57d0b75", "JSS Child Enrolment View Filter", 10.0)
-export class ChildEnrolmentViewFilter {
+@EnrolmentViewFilter("040feaa9-df53-4b9f-8d8a-d22f4320b149", "JSSCP ChildEnrolmentViewFilter", 10.0)
+class ChildEnrolmentViewFilter {
     static exec(programEnrolment, formElementGroup) {
         return FormElementsStatusHelper
             .getFormElementsStatusesWithoutDefaults(new ChildEnrolmentViewFilter(), programEnrolment, formElementGroup);
@@ -57,8 +57,8 @@ export class ChildEnrolmentViewFilter {
     }
 }
 
-@EnrolmentVisitSchedule("4603fabd-b1f0-4106-9673-2ce397cbdf2c", "JSS Growth Monitoring First Visit", 100.0)
-export class ChildEnrolmentVisitSchedules {
+@EnrolmentVisitSchedule("5224600e-a9bd-46b6-819e-578669566119", "JSSCP ChildEnrolmentVisitSchedules", 100.0)
+class ChildEnrolmentVisitSchedules {
     static exec(programEnrolment, visitSchedule = [], scheduleConfig) {
         const scheduleBuilder = new VisitScheduleBuilder({
             programEnrolment: programEnrolment
@@ -76,4 +76,8 @@ export class ChildEnrolmentVisitSchedules {
         scheduleBuilder.add(albendazole.getVisitSchedule(albendazole.findSlot(programEnrolment.enrolmentDateTime)));
         return scheduleBuilder.getAllUnique("encounterType");
     }
+}
+export {
+    ChildEnrolmentViewFilter,
+    ChildEnrolmentVisitSchedules
 }

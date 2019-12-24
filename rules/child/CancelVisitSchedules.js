@@ -34,8 +34,8 @@ class GMCancelVisitSchedule {
     }
 }
 
-@CancelVisitSchedulesAnn("f58963fe-87d5-4344-ad5e-9770f89d60cf", "JSS Growth Monitoring Next Visit", 100.0)
-export class CancelVisitSchedules {
+@CancelVisitSchedulesAnn("7d8ef038-724d-4571-8a04-6a9a0c609242", "JSS Growth Monitoring Next Visit", 100.0)
+class CancelVisitSchedules {
     static exec(programEncounter, visitSchedule = [], scheduleConfig) {
         let visitCancelReason = programEncounter.findCancelEncounterObservationReadableValue('Visit cancel reason');
         if (visitCancelReason === 'Program exit') {
@@ -47,4 +47,8 @@ export class CancelVisitSchedules {
         }
         return visitSchedule;
     }
+}
+
+export {
+    CancelVisitSchedules
 }

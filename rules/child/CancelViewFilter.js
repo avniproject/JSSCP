@@ -3,7 +3,7 @@ import DefCancelForm from '../../forms/Default Program Encounter Cancellation Fo
 
 @FormElementRule({
     name: 'JSSCP CancellationFormFilters',
-    uuid: '89b9178d-775a-4463-9978-cd7b09960f39',
+    uuid: '17b68675-f261-47d4-8d93-414ac37bf330',
     formUUID: DefCancelForm.uuid,
     executionOrder: 100.0,
     metadata: {}
@@ -20,4 +20,8 @@ class CancellationFormFilters {
         return new FormElementStatus(formElement.uuid, answer === 'Other');
     }
 
+}
+
+export {
+    CancellationFormFilters
 }

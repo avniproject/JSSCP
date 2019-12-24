@@ -1,10 +1,11 @@
 import {FormElementsStatusHelper, RuleFactory} from "rules-config/rules";
 import {FormElementStatusBuilder} from "rules-config";
+import ChildEnrolmentForm from '../../forms/Child Enrolment';
 
-const EnrolmentChecklists = RuleFactory("1608c2c0-0334-41a6-aab0-5c61ea1eb069", "Checklists");
+const EnrolmentChecklists = RuleFactory(ChildEnrolmentForm.uuid, "Checklists");
 
-@EnrolmentChecklists("5cd0bf6d-1e62-499b-80f4-c72538992abb", "Child vaccination schedule", 1.0)
-export class ChildVaccinationChecklist {
+@EnrolmentChecklists("fb060d4f-6b75-434e-b398-587d04e765bf", "Child vaccination schedule", 1.0)
+class ChildVaccinationChecklist {
     static exec(enrolment, checklistDetails) {
         const vaccinationDetails = checklistDetails.find(cd => cd.name === 'Vaccination');
         if (vaccinationDetails === undefined) return [];
@@ -17,4 +18,8 @@ export class ChildVaccinationChecklist {
         };
         return [vaccinationList];
     }
+}
+
+export {
+    ChildVaccinationChecklist
 }

@@ -16,21 +16,21 @@ const Birth = RuleFactory(BirhtForm.uuid, "Decision");
 const Anthro = RuleFactory(AnthropometryAssessmentForm.uuid, "Decision");
 
 @ChildPNC("79a9f14a-1e8c-40b1-850c-1ff39923b2fd", "JSSCP ChildPNCDecisions", 1.0, {})
-export class ChildPNCDecisions {
+class ChildPNCDecisions {
     static exec(programEncounter, decisions, context, today) {
         return getDecisions(programEncounter, today);
     }
 }
 
 @Birth("241078cd-49ed-4a65-a78c-65ce35007416", "JSSCP BirthDecisions", 1.0, {})
-export class BirthDecisions {
+class BirthDecisions {
     static exec(programEncounter, decisions, context, today) {
         return getDecisions(programEncounter, today);
     }
 }
 
 @Anthro("4f06dc33-981a-4439-b5a6-56934c272526", "JSSCP AnthroDecisions", 1.0, {})
-export class AnthroDecisions {
+class AnthroDecisions {
     static exec(programEncounter, _decisions, context, today) {
         const decisions = getDecisions(programEncounter, today);
         const weight = findObs(programEncounter, "Weight");
@@ -97,3 +97,9 @@ const recommendations = (enrolment, encounter) => {
 
     return recommendationBuilder.getComplications();
 };
+
+export {
+    ChildPNCDecisions,
+    BirthDecisions,
+    AnthroDecisions
+}

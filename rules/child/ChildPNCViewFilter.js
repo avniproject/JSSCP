@@ -3,12 +3,12 @@ import PNCForm from '../../forms/Child PNC';
 
 @FormElementRule({
     name: 'JSSCP ChildPNCViewFilter',
-    uuid: '6ed35d31-fe87-4405-a781-2997ca8ff84d',
+    uuid: 'e8f154d5-3060-4671-9a40-7e53b5ce83e5',
     formUUID: PNCForm.uuid,
     executionOrder: 100.0,
     metadata: {}
 })
-export class ChildPNCViewFilter {
+class ChildPNCViewFilter {
     static exec(programEncounter, formElementGroup, today) {
         return FormElementsStatusHelper
             .getFormElementsStatusesWithoutDefaults(new ChildPNCViewFilter(), programEncounter, formElementGroup, today);
@@ -81,4 +81,8 @@ export class ChildPNCViewFilter {
         return statusBuilder.build();
     }
 
+}
+
+export {
+    ChildPNCViewFilter
 }

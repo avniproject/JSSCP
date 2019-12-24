@@ -8,7 +8,7 @@ import AAForm from '../../forms/Anthropometry Assessment';
     executionOrder: 100.0,
     metadata: {}
 })
-export class AnthropometryAssessmentViewFilter {
+class AnthropometryAssessmentViewFilter {
     static exec(programEncounter, formElementGroup, today) {
         return FormElementsStatusHelper
             .getFormElementsStatusesWithoutDefaults(new AnthropometryAssessmentViewFilter(), programEncounter, formElementGroup, today);
@@ -31,4 +31,8 @@ export class AnthropometryAssessmentViewFilter {
         statusBuilder.show().when.valueInEncounter("Skip capturing height").is.yes;
         return statusBuilder.build();
     }
+}
+
+export {
+    AnthropometryAssessmentViewFilter
 }

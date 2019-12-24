@@ -14,12 +14,12 @@ const WithStatusBuilder = StatusBuilderAnnotationFactory('programEncounter', 'fo
 
 @FormElementRule({
     name: 'JSS Growth Monitoring rules',
-    uuid: 'e6c03ec8-fb2d-40e4-a0a0-50fb3c91c53e',
+    uuid: '074121f0-d328-498c-b940-31c087bc0e04',
     formUUID: anthroAss.uuid,
     executionOrder: 100.0,
     metadata: {}
 })
-export class GrowthMonitoringViewFilter {
+class GrowthMonitoringViewFilter {
     static exec(encounter, formElementGroup, today) {
         return FormElementsStatusHelper
             .getFormElementsStatusesWithoutDefaults(new GrowthMonitoringViewFilter(), encounter, formElementGroup, today);
@@ -57,4 +57,8 @@ export class GrowthMonitoringViewFilter {
             statusBuilder.show().whenItem(1 === 2).is.truthy;
         }
     }
+}
+
+export {
+    GrowthMonitoringViewFilter
 }
