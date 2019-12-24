@@ -13,7 +13,7 @@ import anthroAss from '../../forms/Anthropometry Assessment';
 const WithStatusBuilder = StatusBuilderAnnotationFactory('programEncounter', 'formElement');
 
 @FormElementRule({
-    name: 'JSS Growth Monitoring rules',
+    name: 'JSSCP GrowthMonitoringViewFilter',
     uuid: '074121f0-d328-498c-b940-31c087bc0e04',
     formUUID: anthroAss.uuid,
     executionOrder: 100.0,

@@ -58,7 +58,7 @@ export const addIfRequired = (decisions, name, value) => {
     if (value !== undefined) decisions.push({name: name, value: value});
 };
 
-const findObs = (programEncounter, conceptName) => {
+export const findObs = (programEncounter, conceptName) => {
     const obs = programEncounter.findObservation(conceptName);
     return obs && obs.getValue();
 };

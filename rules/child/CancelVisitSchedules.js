@@ -1,11 +1,8 @@
 import {AlbendazoleTrackingViewFilter} from "./AlbendazoleTrackingViewFilter";
 import {RuleFactory, VisitScheduleBuilder} from "rules-config";
 import defCancelForm from '../../forms/Default Program Encounter Cancellation Form';
+import moment from 'moment';
 
-const postVisitMap = {
-    'Anthropometry Assessment': GMCancelVisitSchedule,
-    'Albendazole': AlbendazoleTrackingViewFilter
-};
 const CancelVisitSchedulesAnn = RuleFactory(defCancelForm.uuid, "VisitSchedule");
 
 class GMCancelVisitSchedule {
@@ -34,7 +31,12 @@ class GMCancelVisitSchedule {
     }
 }
 
-@CancelVisitSchedulesAnn("7d8ef038-724d-4571-8a04-6a9a0c609242", "JSS Growth Monitoring Next Visit", 100.0)
+const postVisitMap = {
+    'Anthropometry Assessment': GMCancelVisitSchedule,
+    'Albendazole': AlbendazoleTrackingViewFilter
+};
+
+@CancelVisitSchedulesAnn("7d8ef038-724d-4571-8a04-6a9a0c609242", "JSSCP CancelVisitSchedules", 100.0)
 class CancelVisitSchedules {
     static exec(programEncounter, visitSchedule = [], scheduleConfig) {
         let visitCancelReason = programEncounter.findCancelEncounterObservationReadableValue('Visit cancel reason');

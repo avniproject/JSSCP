@@ -2,6 +2,7 @@ import {FormElementsStatusHelper, FormElementStatusBuilder, RuleFactory, VisitSc
 import {albendazole} from "./utils/visitSchedulingUtils";
 import VILLAGE_PHULWARI_MAPPING from '../../data/villagePhulwariMapping';
 import childEnrolment from '../../forms/Child Enrolment';
+import _ from 'lodash';
 
 const EnrolmentViewFilter = RuleFactory(childEnrolment.uuid, "ViewFilter");
 const EnrolmentVisitSchedule = RuleFactory(childEnrolment.uuid, "VisitSchedule");

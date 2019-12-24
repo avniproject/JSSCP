@@ -8,7 +8,7 @@ import AnthropometryAssessmentForm from '../../forms/Anthropometry Assessment';
 
 import {immediateReferralAdvice, referralAdvice} from "./utils/referral";
 import generateHighRiskConditionAdvice from "./utils/highRisk";
-import {addIfRequired, getDecisions as anthropometricDecisions} from "./utils/anthropometricDecision"
+import {findObs, addIfRequired, getDecisions as anthropometricDecisions} from "./utils/anthropometricDecision"
 import zScores from "./utils/zScoreCalculator";
 
 const ChildPNC = RuleFactory(ChildPNCForm.uuid, "Decision");
