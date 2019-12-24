@@ -39,6 +39,7 @@ module.exports = IDI.configure({
         },
         "programs": ["programs.json"],
         "encounterTypes": ["encounterTypes.json"],
+        "genders": ["genders.json"],
         "subjectTypes": ["subjectTypes.json"],
         "operationalEncounterTypes": ["operationalEncounterTypes.json"],
         "operationalPrograms": ["operationalPrograms.json"],

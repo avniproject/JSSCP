@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Female",
+    "uuid": "a5ff11ba-b9a4-4aa7-868f-7b60810d8b5e"
+  },
+  {
+    "name": "Male",
+    "uuid": "6df9c9eb-8e1f-4a8a-ab77-baeaffa3eccc"
+  },
+  {
+    "name": "Other",
+    "uuid": "ad2eece0-0080-4d36-89e4-935607c1fa06"
+  }
+]
