@@ -1,16 +1,28 @@
 import {FormElementsStatusHelper, FormElementStatusBuilder, RuleFactory, VisitScheduleBuilder} from "rules-config";
 import {albendazole} from "./visitSchedulingUtils";
-import VILLAGE_PHULWARI_MAPPING from '../data/villagePhulwariMapping';
+import VILLAGE_PHULWARI_MAPPING from '../../data/villagePhulwariMapping';
 import childEnrolment from '../../forms/Child Enrolment';
 
 const EnrolmentViewFilter = RuleFactory(childEnrolment.uuid, "ViewFilter");
 const EnrolmentVisitSchedule = RuleFactory(childEnrolment.uuid, "VisitSchedule");
 
 @EnrolmentViewFilter("520bf19c-cce8-4db5-8ab8-1b8ad57d0b75", "JSS Child Enrolment View Filter", 10.0)
-class ChildEnrolmentHandlerJSS {
+export class ChildEnrolmentViewFilter {
     static exec(programEnrolment, formElementGroup) {
         return FormElementsStatusHelper
-            .getFormElementsStatusesWithoutDefaults(new ChildEnrolmentHandlerJSS(), programEnrolment, formElementGroup);
+            .getFormElementsStatusesWithoutDefaults(new ChildEnrolmentViewFilter(), programEnrolment, formElementGroup);
+    }
+
+    provideBirthWeight(programEnrolment, formElement) {
+        const statusBuilder = this._getStatusBuilder(programEnrolment, formElement);
+        statusBuilder.show().when.valueInEnrolment('Registration at child birth').is.yes;
+        return statusBuilder.build();
+    }
+
+    provideCurrentWeight(programEnrolment, formElement) {
+        const statusBuilder = this._getStatusBuilder(programEnrolment, formElement);
+        statusBuilder.show().when.valueInEnrolment('Registration at child birth').is.no;
+        return statusBuilder.build();
     }
 
     pleaseSelectTheDisabilities(programEnrolment, formElement) {
@@ -46,7 +58,7 @@ class ChildEnrolmentHandlerJSS {
 }
 
 @EnrolmentVisitSchedule("4603fabd-b1f0-4106-9673-2ce397cbdf2c", "JSS Growth Monitoring First Visit", 100.0)
-class EnrolmentVisitScheduleJSS {
+export class ChildEnrolmentVisitSchedules {
     static exec(programEnrolment, visitSchedule = [], scheduleConfig) {
         const scheduleBuilder = new VisitScheduleBuilder({
             programEnrolment: programEnrolment
@@ -64,9 +76,4 @@ class EnrolmentVisitScheduleJSS {
         scheduleBuilder.add(albendazole.getVisitSchedule(albendazole.findSlot(programEnrolment.enrolmentDateTime)));
         return scheduleBuilder.getAllUnique("encounterType");
     }
-}
-
-export {
-    ChildEnrolmentHandlerJSS,
-    EnrolmentVisitScheduleJSS
 }

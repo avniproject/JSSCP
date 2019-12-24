@@ -1,14 +1,14 @@
 import {FormElementsStatusHelper, FormElementStatusBuilder, RuleFactory} from "rules-config";
-import VILLAGE_GRAMPANCHAYAT_MAPPING from '../data/villageGrampanchayatMapping';
+import VILLAGE_GRAMPANCHAYAT_MAPPING from '../../data/villageGrampanchayatMapping';
 import regForm from '../../forms/JSS Registration Form';
 
-const RegistrationViewFilter = RuleFactory(regForm.uuid, "ViewFilter");
+const RegistrationViewFilterAnn = RuleFactory(regForm.uuid, "ViewFilter");
 
-@RegistrationViewFilter("c2e89483-4bdd-4d39-adf3-88a69579d07d", "JSS Registration View Filter", 1.0, {})
-class RegistrationHandlerJSS {
+@RegistrationViewFilterAnn("c2e89483-4bdd-4d39-adf3-88a69579d07d", "JSSCP Registration View Filter", 1.0, {})
+export class RegistrationViewFilter {
     static exec(individual, formElementGroup) {
         return FormElementsStatusHelper
-            .getFormElementsStatuses(new RegistrationHandlerJSS(), individual, formElementGroup);
+            .getFormElementsStatuses(new RegistrationViewFilter(), individual, formElementGroup);
     }
 
     gramPanchayat(individual, formElement) {
@@ -50,8 +50,4 @@ class RegistrationHandlerJSS {
     _getStatusBuilder(individual, formElement) {
         return new FormElementStatusBuilder({individual, formElement});
     }
-}
-
-export {
-    RegistrationHandlerJSS
 }

@@ -19,11 +19,10 @@ const WithStatusBuilder = StatusBuilderAnnotationFactory('programEncounter', 'fo
     executionOrder: 100.0,
     metadata: {}
 })
-
-class ShowHeightHandler {
+export class GrowthMonitoringViewFilter {
     static exec(encounter, formElementGroup, today) {
         return FormElementsStatusHelper
-            .getFormElementsStatusesWithoutDefaults(new ShowHeightHandler(), encounter, formElementGroup, today);
+            .getFormElementsStatusesWithoutDefaults(new GrowthMonitoringViewFilter(), encounter, formElementGroup, today);
     }
 
     @WithName("Height")
@@ -59,5 +58,3 @@ class ShowHeightHandler {
         }
     }
 }
-
-module.exports = {ShowHeightHandler};

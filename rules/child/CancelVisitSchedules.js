@@ -1,14 +1,14 @@
-import {AlbendazoleVisitScheduleJSS} from "./albendazoleTrackingHandler";
+import {AlbendazoleTrackingViewFilter} from "./AlbendazoleTrackingViewFilter";
 import {RuleFactory, VisitScheduleBuilder} from "rules-config";
 import defCancelForm from '../../forms/Default Program Encounter Cancellation Form';
 
 const postVisitMap = {
-    'Anthropometry Assessment': GMCancelVisitScheduleJSS,
-    'Albendazole': AlbendazoleVisitScheduleJSS
+    'Anthropometry Assessment': GMCancelVisitSchedule,
+    'Albendazole': AlbendazoleTrackingViewFilter
 };
-const CancelVisitSchedules = RuleFactory(defCancelForm.uuid, "VisitSchedule");
+const CancelVisitSchedulesAnn = RuleFactory(defCancelForm.uuid, "VisitSchedule");
 
-class GMCancelVisitScheduleJSS {
+class GMCancelVisitSchedule {
     static exec(programEncounter, visitSchedule = [], scheduleConfig) {
         if(!programEncounter.programEnrolment.isActive){
             return [];
@@ -34,8 +34,8 @@ class GMCancelVisitScheduleJSS {
     }
 }
 
-@CancelVisitSchedules("f58963fe-87d5-4344-ad5e-9770f89d60cf", "JSS Growth Monitoring Next Visit", 100.0)
-class CancelVisitSchedulesJSS {
+@CancelVisitSchedulesAnn("f58963fe-87d5-4344-ad5e-9770f89d60cf", "JSS Growth Monitoring Next Visit", 100.0)
+export class CancelVisitSchedules {
     static exec(programEncounter, visitSchedule = [], scheduleConfig) {
         let visitCancelReason = programEncounter.findCancelEncounterObservationReadableValue('Visit cancel reason');
         if (visitCancelReason === 'Program exit') {
@@ -47,8 +47,4 @@ class CancelVisitSchedulesJSS {
         }
         return visitSchedule;
     }
-}
-
-export {
-    CancelVisitSchedulesJSS
 }

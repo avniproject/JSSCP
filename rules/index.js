@@ -1,10 +1,10 @@
 import _ from 'lodash';
 
 module.exports = _.merge({},
-    require('./child/registrationHandler'),
-    require('./child/cancelVisitsHandler'),
-    require('./child/enrolmentHandler'),
-    require('./child/gmpHandler'),
-    require('./child/albendazoleTrackingHandler'),
-    require('./child/showHeightHandler'),
+    require('./child/RegistrationViewFilter'),
+    require('./child/CancelVisitSchedules'),
+    require('./child/ChildEnrolmentViewFilterAndVisitSchedules'),
+    require('./child/GrowthMonitoringVisitSchedules'),
+    require('./child/AlbendazoleTrackingViewFilter'),
+    require('./child/GrowthMonitoringViewFilter'),
 );

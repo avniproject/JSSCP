@@ -7,7 +7,7 @@ const GMVisitSchedule = RuleFactory(anthropom.uuid, "VisitSchedule");
 const GMVisitScheduleCan = RuleFactory(defCancel.uuid, "VisitSchedule");
 
 @GMVisitSchedule("44160e78-23fc-46c1-8764-4c84a5847522", "JSS Growth Monitoring Recurring Visit", 100.0)
-class GMVisitScheduleJSS {
+export class GMVisitScheduleJSS {
     static exec(programEncounter, visitSchedule = [], scheduleConfig) {
 
         //not scheduling next visit when recording unplanned visit
@@ -42,7 +42,7 @@ class GMVisitScheduleJSS {
 }
 
 @GMVisitScheduleCan("9f3b2ad9-ece4-4e99-b56a-4d2b8a183aa9", "JSS Growth Monitoring Cancel Visit", 100.0)
-class GMVisitScheduleCancelled {
+export class GMVisitScheduleCancelled {
 
     static exec(programEncounter, visitSchedule = [], scheduleConfig) {
 
@@ -69,9 +69,4 @@ class GMVisitScheduleCancelled {
         );
         return scheduleBuilder.getAllUnique("encounterType");
     }
-}
-
-export {
-    GMVisitScheduleJSS,
-    GMVisitScheduleCancelled
 }
