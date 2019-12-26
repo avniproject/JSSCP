@@ -11,6 +11,7 @@ module.exports = IDI.configure({
         "adminUsers": {
             // "prod": [],
             "dev": ["users/dev-admin-user.json"],
+            "staging": ["users/dev-admin-user.json"],
         },
         "forms": [
             'forms/Albendazole Tracking.json',
