@@ -24,19 +24,13 @@ module.exports = IDI.configure({
             'forms/JSSCP Registration Form.json',
         ],
         "formMappings": ["formMappings.json"],
-        "catchments": {
-            "dev": ["catchments.json"],
-            "staging": ["catchments.json"],
-        },
+        "catchments": ["catchments.json"],
         "checklistDetails": [],
         "concepts": [
             "concepts.json",
         ],
         "addressLevelTypes" : ["addressLevelTypes.json"],
-        "locations": {
-            "dev": ["locations.json"],
-            "staging": ["locations.json"],
-        },
+        "locations": ["locations.json"],
         "programs": ["programs.json"],
         "encounterTypes": ["encounterTypes.json"],
         "genders": ["genders.json"],
