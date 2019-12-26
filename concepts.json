@@ -243,6 +243,10 @@
   "uuid" : "f81d12a6-287e-43cd-80f8-65e7ecdd4f1d",
   "dataType" : "NA"
 }, {
+  "name" : "Birsingh Armo",
+  "uuid" : "dd9ae727-6485-4b72-b005-a5c641ea2247",
+  "dataType" : "NA"
+}, {
   "name" : "Birth",
   "uuid" : "a8a31361-df8c-4b6e-8075-639f436d0b3f",
   "dataType" : "NA"
@@ -2066,6 +2070,10 @@
     "order" : 2.0
   } ]
 }, {
+  "name" : "Ishwar Patel",
+  "uuid" : "93758a70-7726-4629-abdb-f6103c045506",
+  "dataType" : "NA"
+}, {
   "name" : "Jain",
   "uuid" : "e8bb7929-2357-49ff-8c98-28b338f2c6d8",
   "dataType" : "NA"
@@ -2102,6 +2110,10 @@
 }, {
   "name" : "JE 2",
   "uuid" : "baf7f5dd-1a38-4bb2-b544-d59868cdc04e",
+  "dataType" : "NA"
+}, {
+  "name" : "Jitendra Yadav",
+  "uuid" : "bcdf4b5f-23d4-431c-a845-1fbe04249efd",
   "dataType" : "NA"
 }, {
   "name" : "Job",
@@ -2835,6 +2847,10 @@
   "uuid" : "90611e70-9704-4df2-b1e6-2c77b8f5dcd3",
   "dataType" : "Text"
 }, {
+  "name" : "Other Phulwari",
+  "uuid" : "8b87661c-a659-4251-beb1-a89b800b1996",
+  "dataType" : "NA"
+}, {
   "name" : "Other property",
   "uuid" : "32609e0f-f3c8-4dcb-af7c-5e8a96e8e89d",
   "dataType" : "Text"
@@ -2975,197 +2991,33 @@
   "uuid" : "178acfbe-b7e1-4ef5-a48a-0f4b1beabb80",
   "dataType" : "Coded",
   "answers" : [ {
-    "name" : "Hathbandha tola",
-    "uuid" : "814d8259-0095-4b79-9615-95c2b9e0f4f0",
+    "name" : "Birsingh Armo",
+    "uuid" : "dd9ae727-6485-4b72-b005-a5c641ea2247",
     "order" : 1.0
   }, {
-    "name" : "Beechtola",
-    "uuid" : "9e852f05-535d-416b-9ff4-12ca6e59e40b",
+    "name" : "Ramcharan Dhurve",
+    "uuid" : "185714bf-9082-426a-b610-eafd4764f2a8",
     "order" : 2.0
   }, {
-    "name" : "Dongritola",
-    "uuid" : "33e5f392-a610-4f22-9027-f5ce41bca9ce",
+    "name" : "Rupsing Tekam",
+    "uuid" : "acfef91b-9e6c-4194-8333-49b37d7bd503",
     "order" : 3.0
   }, {
-    "name" : "Talvatola",
-    "uuid" : "fd23d607-c3d3-4aee-b3ae-3e76f14319f6",
+    "name" : "Ishwar Patel",
+    "uuid" : "93758a70-7726-4629-abdb-f6103c045506",
     "order" : 4.0
   }, {
-    "name" : "Chhatenitola",
-    "uuid" : "13ce73db-573f-4796-8b56-5ac81d5b5a03",
+    "name" : "Rajmumar Baiga",
+    "uuid" : "f9f8c45a-0d75-4363-ba65-ec211c3212f5",
     "order" : 5.0
   }, {
-    "name" : "Khodratola",
-    "uuid" : "18dbf7da-9b5b-4732-bf96-9fa34e169816",
+    "name" : "Jitendra Yadav",
+    "uuid" : "bcdf4b5f-23d4-431c-a845-1fbe04249efd",
     "order" : 6.0
   }, {
-    "name" : "Old anganwadi kendra",
-    "uuid" : "ae2eccc5-581d-4d7f-9ec6-f325d01e7b36",
+    "name" : "Other Phulwari",
+    "uuid" : "8b87661c-a659-4251-beb1-a89b800b1996",
     "order" : 7.0
-  }, {
-    "name" : "Dadra Silvari",
-    "uuid" : "e3f79770-3e8d-436b-a6ea-4cabe6012709",
-    "order" : 8.0
-  }, {
-    "name" : "Tikratola",
-    "uuid" : "393701b9-8ea1-475d-8c34-8e196177156d",
-    "order" : 9.0
-  }, {
-    "name" : "Piparhatola",
-    "uuid" : "630a838c-d8bc-4daf-bebc-45b2c1614123",
-    "order" : 10.0
-  }, {
-    "name" : "Karhaitola",
-    "uuid" : "0b68325f-de06-4125-bf13-fe0c48e2d75e",
-    "order" : 11.0
-  }, {
-    "name" : "Jarratola",
-    "uuid" : "a52b5961-699e-473a-b214-e9a1786f913b",
-    "order" : 12.0
-  }, {
-    "name" : "Old panchayat bhavan",
-    "uuid" : "044ac66e-c8d5-4a9f-8950-5f69dd20c089",
-    "order" : 13.0
-  }, {
-    "name" : "Tagritola",
-    "uuid" : "d1130405-b1c9-4158-bee6-8b319d1bcf9a",
-    "order" : 14.0
-  }, {
-    "name" : "Panika",
-    "uuid" : "5718df2e-2311-42ad-88b6-c2d7be74df22",
-    "order" : 15.0
-  }, {
-    "name" : "Schooltola",
-    "uuid" : "47915a87-73b5-4ead-93a8-7eabd7707013",
-    "order" : 16.0
-  }, {
-    "name" : "Upartola",
-    "uuid" : "0d648a63-f860-4875-a03c-2fe1092d8ee0",
-    "order" : 17.0
-  }, {
-    "name" : "Payari",
-    "uuid" : "8aa30f2a-b567-4d59-b914-8a44e8813182",
-    "order" : 18.0
-  }, {
-    "name" : "Katurdona",
-    "uuid" : "9a73c17d-bf8b-4f17-934d-648a981dde9e",
-    "order" : 19.0
-  }, {
-    "name" : "Khalebhanvar",
-    "uuid" : "10c0490a-7854-4608-9800-3c1b69dba69a",
-    "order" : 20.0
-  }, {
-    "name" : "Samudayik Bhavan",
-    "uuid" : "89264602-a716-4aac-b577-a7b9b875ff59",
-    "order" : 21.0
-  }, {
-    "name" : "Chatua",
-    "uuid" : "b3e02ddf-c29b-4f32-a3d8-a2d325060e99",
-    "order" : 22.0
-  }, {
-    "name" : "Chatua 2",
-    "uuid" : "e0af2024-aa7f-4258-aba1-2a5319ccaed4",
-    "order" : 23.0
-  }, {
-    "name" : "Ramtola",
-    "uuid" : "0beb36da-863d-4595-8922-9742dfe42766",
-    "order" : 24.0
-  }, {
-    "name" : "Goratola",
-    "uuid" : "07dcd87b-07a9-451c-8afc-c770c5a72e66",
-    "order" : 25.0
-  }, {
-    "name" : "Peepaltola",
-    "uuid" : "a8d8830a-9fc2-47c6-9f7e-0ed752093026",
-    "order" : 26.0
-  }, {
-    "name" : "Baigantola",
-    "uuid" : "2ac8673b-df3e-442c-bbfc-093aca32b7f6",
-    "order" : 27.0
-  }, {
-    "name" : "Panchayat Bhavan",
-    "uuid" : "1c0a1d45-81ec-466a-a580-3664a77d2ad4",
-    "order" : 28.0
-  }, {
-    "name" : "Mahuatola",
-    "uuid" : "db1c6427-c161-4ee9-8b32-64ad52d97203",
-    "order" : 29.0
-  }, {
-    "name" : "Bhumiyatola",
-    "uuid" : "08447a33-9f83-4d44-b88f-f643403781b0",
-    "order" : 30.0
-  }, {
-    "name" : "Kharsolihantola",
-    "uuid" : "5bb580f6-efbb-476c-982e-f1d0f3392388",
-    "order" : 31.0
-  }, {
-    "name" : "Majhuatola",
-    "uuid" : "fa588ea2-0bcb-4a26-bc31-64de7298f392",
-    "order" : 32.0
-  }, {
-    "name" : "Pateratola",
-    "uuid" : "d39b7258-5d9d-4665-accb-fe697d125d46",
-    "order" : 33.0
-  }, {
-    "name" : "Saraihatola",
-    "uuid" : "39c716ac-101a-45a0-ae20-f1731c4a2e67",
-    "order" : 34.0
-  }, {
-    "name" : "Batiya",
-    "uuid" : "7148d10b-d9e7-4109-9fe4-3f4f09e9aeeb",
-    "order" : 35.0
-  }, {
-    "name" : "Aamatola",
-    "uuid" : "b377ebcf-f9c8-4300-afb9-211328c23d6f",
-    "order" : 36.0
-  }, {
-    "name" : "Manjhetola",
-    "uuid" : "ce7c6f94-9fbc-4a6d-b2f5-91adbc26e768",
-    "order" : 37.0
-  }, {
-    "name" : "Talwa tola",
-    "uuid" : "e6ffc138-0d83-40a1-8360-f9ac974abfee",
-    "order" : 38.0
-  }, {
-    "name" : "Hathbandha",
-    "uuid" : "9f8bd0e3-5bf9-47f5-af49-6291ba5f78c6",
-    "order" : 39.0
-  }, {
-    "name" : "Karoundi",
-    "uuid" : "551bb977-bc86-465f-aaaf-87b4d5dedb6e",
-    "order" : 40.0
-  }, {
-    "name" : "Bhadratola",
-    "uuid" : "3ae1fef5-cc87-49bb-8ba7-7d1a718fb0ff",
-    "order" : 41.0
-  }, {
-    "name" : "Rajhantola",
-    "uuid" : "9499e1fd-bbe3-443a-83e8-5ff28f5cf3aa",
-    "order" : 42.0
-  }, {
-    "name" : "Prem Nagar",
-    "uuid" : "c2cb6c21-2bd9-44ce-825c-7a187d0042a6",
-    "order" : 43.0
-  }, {
-    "name" : "Upar tola",
-    "uuid" : "a20b61de-6c31-4ddc-9279-ff3054c202fc",
-    "order" : 44.0
-  }, {
-    "name" : "Belhaitola",
-    "uuid" : "b085f6af-5fa1-4cec-8e83-55448d06e570",
-    "order" : 45.0
-  }, {
-    "name" : "Kairhai tola",
-    "uuid" : "94c3beb7-baae-49d5-8b36-ef86ac9beaa4",
-    "order" : 46.0
-  }, {
-    "name" : "Moto tola",
-    "uuid" : "18773354-d9d1-4032-a8b9-44040a4edcd5",
-    "order" : 47.0
-  }, {
-    "name" : "Maharantola",
-    "uuid" : "8945f595-8818-4156-b576-e165a041cd2a",
-    "order" : 48.0
   } ]
 }, {
   "name" : "Pill",
@@ -3397,6 +3249,14 @@
 }, {
   "name" : "Rajhantola",
   "uuid" : "9499e1fd-bbe3-443a-83e8-5ff28f5cf3aa",
+  "dataType" : "NA"
+}, {
+  "name" : "Rajmumar Baiga",
+  "uuid" : "f9f8c45a-0d75-4363-ba65-ec211c3212f5",
+  "dataType" : "NA"
+}, {
+  "name" : "Ramcharan Dhurve",
+  "uuid" : "185714bf-9082-426a-b610-eafd4764f2a8",
   "dataType" : "NA"
 }, {
   "name" : "Ramtola",
@@ -3719,6 +3579,10 @@
   "name" : "Room number",
   "uuid" : "6145c4a7-da99-492b-8b26-363ed80d67b9",
   "dataType" : "Text"
+}, {
+  "name" : "Rupsing Tekam",
+  "uuid" : "acfef91b-9e6c-4194-8333-49b37d7bd503",
+  "dataType" : "NA"
 }, {
   "name" : "Salar Gondi",
   "uuid" : "e643be46-a09d-4df0-be84-c9a2c8f23c93",

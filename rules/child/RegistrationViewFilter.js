@@ -1,5 +1,4 @@
 import {FormElementsStatusHelper, FormElementStatusBuilder, RuleFactory} from "rules-config";
-import VILLAGE_GRAMPANCHAYAT_MAPPING from '../../data/villageGrampanchayatMapping';
 import regForm from '../../forms/JSSCP Registration Form';
 
 const RegistrationViewFilterAnn = RuleFactory(regForm.uuid, "ViewFilter");
@@ -9,24 +8,6 @@ class RegistrationViewFilter {
     static exec(individual, formElementGroup) {
         return FormElementsStatusHelper
             .getFormElementsStatuses(new RegistrationViewFilter(), individual, formElementGroup);
-    }
-
-    gramPanchayat(individual, formElement) {
-        const statusBuilder = this._getStatusBuilder(individual, formElement);
-        var villageGrampanchayatMappingClone = new Map(VILLAGE_GRAMPANCHAYAT_MAPPING);
-        var notToRemove = villageGrampanchayatMappingClone.get(individual.lowestAddressLevel.name);
-        villageGrampanchayatMappingClone.delete(individual.lowestAddressLevel.name);
-        var oldflatten = _.flatten([...villageGrampanchayatMappingClone.values()]).filter((p) => !_.isEmpty(p));
-
-        const flatten = oldflatten.filter((val) => val !== notToRemove);
-        statusBuilder.skipAnswers.apply(statusBuilder, flatten);
-        return statusBuilder.build();
-    }
-
-    otherGramPanchayatPleaseSpecify(individual, formElement) {
-        const statusBuilder = this._getStatusBuilder(individual, formElement);
-        statusBuilder.show().when.valueInRegistration("Gram panchayat").containsAnswerConceptName("Other");
-        return statusBuilder.build();
     }
 
     otherSubCastePleaseSpecify(individual, formElement) {
