@@ -12,6 +12,7 @@
       "uuid" : "c0166308-e990-437a-8a04-4505b327b5f5",
       "keyValues" : [ ],
       "concept" : {
+        "name" : "Skip capturing height",
         "uuid" : "9fa4001d-56cb-45c9-8dd6-69e6f36f4c34"
       },
       "displayOrder" : 1.0,
@@ -22,6 +23,7 @@
       "uuid" : "1356302b-4869-47fd-88ff-db323f7060ee",
       "keyValues" : [ ],
       "concept" : {
+        "name" : "Reason for skipping height capture.",
         "uuid" : "12684bc5-8064-47a0-9fb7-a1cada81ea03"
       },
       "displayOrder" : 1.1,
@@ -32,6 +34,7 @@
       "uuid" : "59c58cc4-3b03-49c4-93b4-2870bd747412",
       "keyValues" : [ ],
       "concept" : {
+        "name" : "Height",
         "uuid" : "23bcad9f-ec16-46ec-92f5-e144411e5dec"
       },
       "displayOrder" : 1.2,
@@ -42,6 +45,7 @@
       "uuid" : "18ae03de-d8c4-49d2-82c2-ea04e4bb2072",
       "keyValues" : [ ],
       "concept" : {
+        "name" : "Weight",
         "uuid" : "8d947379-7a1d-48b2-8760-88fff6add987"
       },
       "displayOrder" : 2.0,

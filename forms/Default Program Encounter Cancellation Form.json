@@ -12,6 +12,7 @@
       "uuid" : "68d5d3c8-24b4-4809-a533-2e0523651fcc",
       "keyValues" : [ ],
       "concept" : {
+        "name" : "Visit cancel reason",
         "uuid" : "bf400e7f-8e1b-4052-af49-b0db47b3eb5a"
       },
       "displayOrder" : 1.0,
@@ -22,6 +23,7 @@
       "uuid" : "87e15687-d5bb-4dce-8496-eb56533881cd",
       "keyValues" : [ ],
       "concept" : {
+        "name" : "Other reason for cancelling",
         "uuid" : "d038a9c4-fe96-4c09-b883-c80691427b60"
       },
       "displayOrder" : 2.0,

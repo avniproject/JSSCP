@@ -12,6 +12,7 @@
       "uuid" : "c28c64b1-8387-499e-8c92-20efc9638f64",
       "keyValues" : [ ],
       "concept" : {
+        "name" : "Reason for child exit",
         "uuid" : "3b5b3657-9265-4e88-b4bf-7b99c46a4f33"
       },
       "displayOrder" : 1.0,
@@ -22,6 +23,7 @@
       "uuid" : "ec4a63f2-bcab-4846-a088-7c2475d7ff26",
       "keyValues" : [ ],
       "concept" : {
+        "name" : "Date of child's death",
         "uuid" : "caebaeff-c51b-44dd-b415-d91d87378ad6"
       },
       "displayOrder" : 2.0,
@@ -32,6 +34,7 @@
       "uuid" : "11adb82c-9164-4e03-9b16-885e45b9304d",
       "keyValues" : [ ],
       "concept" : {
+        "name" : "Cause of child's death",
         "uuid" : "3558bb95-44e9-484e-ad46-48161b53fa67"
       },
       "displayOrder" : 3.0,
@@ -42,6 +45,7 @@
       "uuid" : "46fd4c4c-9655-4030-a901-c3256e37b29f",
       "keyValues" : [ ],
       "concept" : {
+        "name" : "Place of child's death",
         "uuid" : "51f5b692-a46b-4ff3-801c-0e79dd1b8ce5"
       },
       "displayOrder" : 4.0,
@@ -52,6 +56,7 @@
       "uuid" : "a021b195-7727-48f3-aa09-33d93ed36da5",
       "keyValues" : [ ],
       "concept" : {
+        "name" : "Other reason for Program exit",
         "uuid" : "63390533-9229-4e7d-816d-d07c23fba826"
       },
       "displayOrder" : 5.0,

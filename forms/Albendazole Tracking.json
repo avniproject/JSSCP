@@ -12,6 +12,7 @@
       "uuid" : "b3dc26e4-814d-452e-b51b-0b466dbca0e7",
       "keyValues" : [ ],
       "concept" : {
+        "name" : "Date of Albendazole dosage",
         "uuid" : "e3293f2d-1fa0-4d64-b135-5bda1a2dcd19"
       },
       "displayOrder" : 0.0,
