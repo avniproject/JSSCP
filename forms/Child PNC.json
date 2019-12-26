@@ -47,28 +47,6 @@
       "displayOrder" : 2.1,
       "type" : "SingleSelect",
       "mandatory" : true
-    }, {
-      "name" : "Any activity problems",
-      "uuid" : "664b7bec-d767-4d99-b15a-dde1686ade42",
-      "keyValues" : [ ],
-      "concept" : {
-        "uuid" : "83c5d718-68b8-4959-b638-6b1191e4fbfb"
-      },
-      "displayOrder" : 3.0,
-      "type" : "MultiSelect",
-      "mandatory" : false,
-      "voided" : true
-    }, {
-      "name" : "Does child feel hot or have the chills",
-      "uuid" : "dcc5a2dd-0ffc-4249-ae92-6d052055c8c3",
-      "keyValues" : [ ],
-      "concept" : {
-        "uuid" : "895ec381-0ca1-4526-af6d-286b22858267"
-      },
-      "displayOrder" : 4.0,
-      "type" : "SingleSelect",
-      "mandatory" : false,
-      "voided" : true
     } ]
   }, {
     "uuid" : "65af8111-887b-477b-b4f8-b9f7729cf2f3",

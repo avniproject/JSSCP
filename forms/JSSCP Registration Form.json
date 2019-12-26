@@ -134,17 +134,6 @@
       "type" : "SingleSelect",
       "mandatory" : false
     }, {
-      "name" : "Religion",
-      "uuid" : "a887e1b1-72bb-48d0-a0a2-0d34fc81549a",
-      "keyValues" : [ ],
-      "concept" : {
-        "uuid" : "b2c60cb8-983c-4e0e-a90d-4b21e87e10bd"
-      },
-      "displayOrder" : 5.0,
-      "type" : "SingleSelect",
-      "mandatory" : false,
-      "voided" : true
-    }, {
       "name" : "Economic Status",
       "uuid" : "f7b35aff-ca3d-4fa4-a8e0-ce532f51e0c3",
       "keyValues" : [ ],
