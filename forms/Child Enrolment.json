@@ -10,30 +10,6 @@
       "display": "Basic Details",
       "formElements": [
         {
-          "name": "Birth Defects",
-          "uuid": "f8864286-fd3a-4247-be96-9905911e0f7a",
-          "keyValues": [],
-          "concept": {
-            "uuid": "c8bc3f3c-4336-411b-b561-28b00c51e67b"
-          },
-          "displayOrder": 1,
-          "type": "MultiSelect",
-          "mandatory": false,
-          "voided": true
-        },
-        {
-          "name": "Registration at",
-          "uuid": "6019a8ce-1143-4c4b-ab62-375c3954ce8c",
-          "keyValues": [],
-          "concept": {
-            "uuid": "cde72027-68ec-4b27-9d98-c8424412c558"
-          },
-          "displayOrder": 2,
-          "type": "SingleSelect",
-          "mandatory": false,
-          "voided": true
-        },
-        {
           "name": "Enrol to",
           "uuid": "1405ba80-2802-42cf-a68b-4f43eef71ec5",
           "keyValues": [],
@@ -43,54 +19,6 @@
           "displayOrder": 3,
           "type": "SingleSelect",
           "mandatory": true
-        },
-        {
-          "voided": true,
-          "name": "Weight",
-          "uuid": "437bcf74-ce30-462a-8fc5-7c4ded56bdae",
-          "keyValues": [],
-          "concept": {
-            "uuid": "8d947379-7a1d-48b2-8760-88fff6add987",
-            "name": "Weight"
-          },
-          "displayOrder": 4,
-          "mandatory": false
-        },
-        {
-          "name": "Weight",
-          "uuid": "f7d32127-9105-4fef-885e-728d9dc51ba1",
-          "keyValues": [],
-          "concept": {
-            "uuid": "8d947379-7a1d-48b2-8760-88fff6add987"
-          },
-          "displayOrder": 5,
-          "type": "SingleSelect",
-          "mandatory": false,
-          "voided": true
-        },
-        {
-          "voided": true,
-          "name": "Bicep circumference",
-          "uuid": "3be894b5-4a5d-4c03-9196-01581161a62b",
-          "keyValues": [],
-          "concept": {
-            "uuid": "4a762f22-b430-456b-962a-a97111d9bf6b",
-            "name": "Bicep Circumference"
-          },
-          "displayOrder": 6,
-          "mandatory": false
-        },
-        {
-          "name": "Bicep circumference",
-          "uuid": "f6c78f0d-dd31-4572-9512-d522b2bf78da",
-          "keyValues": [],
-          "concept": {
-            "uuid": "4a762f22-b430-456b-962a-a97111d9bf6b"
-          },
-          "displayOrder": 7,
-          "type": "SingleSelect",
-          "mandatory": false,
-          "voided": true
         },
         {
           "name": "Is the child still breastfeeding",
