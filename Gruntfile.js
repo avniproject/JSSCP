@@ -21,7 +21,7 @@ module.exports = IDI.configure({
             'forms/Child PNC.json',
             'forms/Default Program Encounter Cancellation Form.json',
             'forms/Exit.json',
-            'forms/JSS Registration Form.json',
+            'forms/JSSCP Registration Form.json',
         ],
         "formMappings": ["formMappings.json"],
         "catchments": {

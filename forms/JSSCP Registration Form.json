@@ -1,49 +1,8 @@
 {
-  "name": "JSS Registration Form",
+  "name": "JSSCP Registration Form",
   "uuid": "4b23dc0e-3ae0-4d41-8546-35797063e123",
   "formType": "IndividualProfile",
   "formElementGroups": [
-    {
-      "uuid": "705961cb-3898-438a-87fe-cfe37b6ba9c3",
-      "name": "Address Details",
-      "displayOrder": 1,
-      "display": "Address Details",
-      "formElements": [
-        {
-          "name": "Mohalla",
-          "uuid": "17109b5e-5aff-441c-9d0a-1be2b7dd9eba",
-          "keyValues": [],
-          "concept": {
-            "uuid": "267911ac-1d85-4778-aa62-2df24c0a6397"
-          },
-          "displayOrder": 1,
-          "type": "SingleSelect",
-          "mandatory": true
-        },
-        {
-          "name": "Gram Panchayat",
-          "uuid": "9e47e1bd-bcef-4157-97b9-6926f3921c8f",
-          "keyValues": [],
-          "concept": {
-            "uuid": "b9ef50c9-f15e-4a1d-9c15-b4b283d284a6"
-          },
-          "displayOrder": 2,
-          "type": "SingleSelect",
-          "mandatory": true
-        },
-        {
-          "name": "Other Gram panchayat (Please specify)",
-          "uuid": "3775d53a-079c-4da4-bfdf-8addcabc8f37",
-          "keyValues": [],
-          "concept": {
-            "uuid": "90611e70-9704-4df2-b1e6-2c77b8f5dcd3"
-          },
-          "displayOrder": 2.1,
-          "type": "SingleSelect",
-          "mandatory": true
-        }
-      ]
-    },
     {
       "uuid": "2be450be-35db-47a6-a85e-5f1feb6f44cf",
       "name": "Personal Details",

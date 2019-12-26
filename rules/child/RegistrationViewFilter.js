@@ -1,6 +1,6 @@
 import {FormElementsStatusHelper, FormElementStatusBuilder, RuleFactory} from "rules-config";
 import VILLAGE_GRAMPANCHAYAT_MAPPING from '../../data/villageGrampanchayatMapping';
-import regForm from '../../forms/JSS Registration Form';
+import regForm from '../../forms/JSSCP Registration Form';
 
 const RegistrationViewFilterAnn = RuleFactory(regForm.uuid, "ViewFilter");
 
