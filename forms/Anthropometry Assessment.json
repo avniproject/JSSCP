@@ -1,59 +1,52 @@
 {
-  "name": "Anthropometry Assessment",
-  "uuid": "d785f701-fbf7-4ee3-b724-09b4b9af2d37",
-  "formType": "ProgramEncounter",
-  "formElementGroups": [
-    {
-      "uuid": "c5dab868-f04f-4a69-b1fd-5bfeed09262c",
-      "name": "Child Anthropometry",
-      "displayOrder": 1,
-      "display": "Anthropometry",
-      "formElements": [
-        {
-          "name": "Skip capturing height",
-          "uuid": "c0166308-e990-437a-8a04-4505b327b5f5",
-          "keyValues": [],
-          "concept": {
-            "uuid": "9fa4001d-56cb-45c9-8dd6-69e6f36f4c34"
-          },
-          "displayOrder": 1,
-          "type": "SingleSelect",
-          "mandatory": false
-        },
-        {
-          "name": "Reason for skipping height capture.",
-          "uuid": "1356302b-4869-47fd-88ff-db323f7060ee",
-          "keyValues": [],
-          "concept": {
-            "uuid": "12684bc5-8064-47a0-9fb7-a1cada81ea03"
-          },
-          "displayOrder": 1.1,
-          "type": "SingleSelect",
-          "mandatory": true
-        },
-        {
-          "name": "Height",
-          "uuid": "59c58cc4-3b03-49c4-93b4-2870bd747412",
-          "keyValues": [],
-          "concept": {
-            "uuid": "23bcad9f-ec16-46ec-92f5-e144411e5dec"
-          },
-          "displayOrder": 1.2,
-          "type": "SingleSelect",
-          "mandatory": true
-        },
-        {
-          "name": "Weight",
-          "uuid": "18ae03de-d8c4-49d2-82c2-ea04e4bb2072",
-          "keyValues": [],
-          "concept": {
-            "uuid": "8d947379-7a1d-48b2-8760-88fff6add987"
-          },
-          "displayOrder": 2,
-          "type": "SingleSelect",
-          "mandatory": true
-        }
-      ]
-    }
-  ]
+  "name" : "Anthropometry Assessment",
+  "uuid" : "d785f701-fbf7-4ee3-b724-09b4b9af2d37",
+  "formType" : "ProgramEncounter",
+  "formElementGroups" : [ {
+    "uuid" : "c5dab868-f04f-4a69-b1fd-5bfeed09262c",
+    "name" : "Child Anthropometry",
+    "displayOrder" : 1.0,
+    "display" : "Anthropometry",
+    "formElements" : [ {
+      "name" : "Skip capturing height",
+      "uuid" : "c0166308-e990-437a-8a04-4505b327b5f5",
+      "keyValues" : [ ],
+      "concept" : {
+        "uuid" : "9fa4001d-56cb-45c9-8dd6-69e6f36f4c34"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Reason for skipping height capture.",
+      "uuid" : "1356302b-4869-47fd-88ff-db323f7060ee",
+      "keyValues" : [ ],
+      "concept" : {
+        "uuid" : "12684bc5-8064-47a0-9fb7-a1cada81ea03"
+      },
+      "displayOrder" : 1.1,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Height",
+      "uuid" : "59c58cc4-3b03-49c4-93b4-2870bd747412",
+      "keyValues" : [ ],
+      "concept" : {
+        "uuid" : "23bcad9f-ec16-46ec-92f5-e144411e5dec"
+      },
+      "displayOrder" : 1.2,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Weight",
+      "uuid" : "18ae03de-d8c4-49d2-82c2-ea04e4bb2072",
+      "keyValues" : [ ],
+      "concept" : {
+        "uuid" : "8d947379-7a1d-48b2-8760-88fff6add987"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    } ]
+  } ]
 }

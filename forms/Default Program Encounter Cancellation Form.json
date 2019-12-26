@@ -1,37 +1,32 @@
 {
-  "name": "Default Program Encounter Cancellation Form",
-  "uuid": "8ffd8274-ca88-449f-857d-9638b7db792f",
-  "formType": "ProgramEncounterCancellation",
-  "formElementGroups": [
-    {
-      "uuid": "1df32d74-55ac-4408-80eb-dd86810024f4",
-      "name": "Cancel Details",
-      "displayOrder": 1,
-      "display": "Cancel Details",
-      "formElements": [
-        {
-          "name": "Cancel reason",
-          "uuid": "68d5d3c8-24b4-4809-a533-2e0523651fcc",
-          "keyValues": [],
-          "concept": {
-            "uuid": "bf400e7f-8e1b-4052-af49-b0db47b3eb5a"
-          },
-          "displayOrder": 1,
-          "type": "SingleSelect",
-          "mandatory": true
-        },
-        {
-          "name": "Other reason",
-          "uuid": "87e15687-d5bb-4dce-8496-eb56533881cd",
-          "keyValues": [],
-          "concept": {
-            "uuid": "d038a9c4-fe96-4c09-b883-c80691427b60"
-          },
-          "displayOrder": 2,
-          "type": "SingleSelect",
-          "mandatory": true
-        }
-      ]
-    }
-  ]
+  "name" : "Default Program Encounter Cancellation Form",
+  "uuid" : "8ffd8274-ca88-449f-857d-9638b7db792f",
+  "formType" : "ProgramEncounterCancellation",
+  "formElementGroups" : [ {
+    "uuid" : "1df32d74-55ac-4408-80eb-dd86810024f4",
+    "name" : "Cancel Details",
+    "displayOrder" : 1.0,
+    "display" : "Cancel Details",
+    "formElements" : [ {
+      "name" : "Cancel reason",
+      "uuid" : "68d5d3c8-24b4-4809-a533-2e0523651fcc",
+      "keyValues" : [ ],
+      "concept" : {
+        "uuid" : "bf400e7f-8e1b-4052-af49-b0db47b3eb5a"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Other reason",
+      "uuid" : "87e15687-d5bb-4dce-8496-eb56533881cd",
+      "keyValues" : [ ],
+      "concept" : {
+        "uuid" : "d038a9c4-fe96-4c09-b883-c80691427b60"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    } ]
+  } ]
 }

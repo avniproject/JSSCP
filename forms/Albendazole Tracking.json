@@ -1,26 +1,22 @@
 {
-  "name": "Albendazole Tracking",
-  "uuid": "6ca17f07-781c-4161-94ed-bb571218322b",
-  "formType": "ProgramEncounter",
-  "formElementGroups": [
-    {
-      "uuid": "fde46648-ee59-48fa-a483-5af0c5c37cf3",
-      "name": "Details",
-      "displayOrder": 1,
-      "display": "Details",
-      "formElements": [
-        {
-          "name": "Date of Dose given",
-          "uuid": "b3dc26e4-814d-452e-b51b-0b466dbca0e7",
-          "keyValues": [],
-          "concept": {
-            "uuid": "e3293f2d-1fa0-4d64-b135-5bda1a2dcd19"
-          },
-          "displayOrder": 0,
-          "type": "SingleSelect",
-          "mandatory": true
-        }
-      ]
-    }
-  ]
+  "name" : "Albendazole Tracking",
+  "uuid" : "6ca17f07-781c-4161-94ed-bb571218322b",
+  "formType" : "ProgramEncounter",
+  "formElementGroups" : [ {
+    "uuid" : "fde46648-ee59-48fa-a483-5af0c5c37cf3",
+    "name" : "Details",
+    "displayOrder" : 1.0,
+    "display" : "Details",
+    "formElements" : [ {
+      "name" : "Date of Dose given",
+      "uuid" : "b3dc26e4-814d-452e-b51b-0b466dbca0e7",
+      "keyValues" : [ ],
+      "concept" : {
+        "uuid" : "e3293f2d-1fa0-4d64-b135-5bda1a2dcd19"
+      },
+      "displayOrder" : 0.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    } ]
+  } ]
 }

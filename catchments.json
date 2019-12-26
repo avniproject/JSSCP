@@ -1,173 +1,120 @@
 {
-  "organisation": "JSSCP",
-  "catchments": [
-    {
-      "name": "Bamhani II Cluster",
-      "uuid": "ede46b93-d6c9-4cba-844c-4b3738135f58",
-      "type": "Village",
-      "locations": [
-        {
-          "uuid": "a7bb971c-de23-4483-96c7-29c31f7e48b1"
-        },
-        {
-          "uuid": "67d21f33-b922-4a91-b785-57308cf62128"
-        }
-      ],
-      "voided": false
-    },
-    {
-      "name": "Bamhani IV Cluster",
-      "uuid": "18b971bc-46d0-4030-b166-2df8a431b907",
-      "type": "Village",
-      "locations": [
-        {
-          "uuid": "dc821a78-f3d1-40df-b85c-44a7b6874801"
-        },
-        {
-          "uuid": "e3b9dc91-548d-4130-8ee3-aec4802e39de"
-        },
-        {
-          "uuid": "597ad173-9829-4e80-b6b9-863079eefc35"
-        },
-        {
-          "uuid": "be82bc6e-20a9-44a2-b696-9ca076ef11a7"
-        },
-        {
-          "uuid": "8651e87a-67d3-4ca0-919f-5c89673cdf74"
-        },
-        {
-          "uuid": "3104c8bd-f799-4b02-9920-33f5cf803878"
-        },
-        {
-          "uuid": "9aa56a32-fdc9-4b3b-9cd1-5705b07ea3c5"
-        }
-      ],
-      "voided": false
-    },
-    {
-      "name": "Bamhani V Cluster",
-      "uuid": "f80ad6c9-f111-459e-8077-870f04e2a086",
-      "type": "Village",
-      "locations": [
-        {
-          "uuid": "fa78205b-2787-46ba-89d0-debe5ff803ed"
-        },
-        {
-          "uuid": "cea3bc84-67aa-403a-9cd0-7c83cb373b7c"
-        },
-        {
-          "uuid": "a85687d6-5658-4abd-9310-d57253aaa4c6"
-        },
-        {
-          "uuid": "102271c3-8337-4c77-b44d-f0985e229032"
-        },
-        {
-          "uuid": "24fc2ab0-5b0f-49c7-92ec-ee2e3cc8023d"
-        },
-        {
-          "uuid": "3995285e-2bf0-4830-8ede-c0985c2a0e12"
-        },
-        {
-          "uuid": "5adf9c1a-55b7-4c4c-a54e-d647921523eb"
-        },
-        {
-          "uuid": "1495676a-165d-475e-838a-e82b0eeb1ce5"
-        },
-        {
-          "uuid": "0183de0b-565c-4b10-833d-6f079f9428ed"
-        },
-        {
-          "uuid": "1ee0e33f-de61-4282-bafc-aa16f38595e0"
-        },
-        {
-          "uuid": "de8dc828-55f7-428d-9d9e-750017b1852e"
-        }
-      ],
-      "voided": false
-    },
-    {
-      "name": "Semaria I Cluster",
-      "uuid": "1bed2e35-5396-4e5c-aa90-5ea506bbb5bb",
-      "type": "Village",
-      "locations": [
-        {
-          "uuid": "60b183f9-1ea8-4057-a05f-e49b741037ff"
-        },
-        {
-          "uuid": "0bb8683e-f1dd-40f3-b2cb-48c929e295a8"
-        },
-        {
-          "uuid": "6097edf4-4e66-40d5-88e3-2db8d45b22f8"
-        },
-        {
-          "uuid": "70078102-4ab0-492d-8da0-f6980edf9e12"
-        },
-        {
-          "uuid": "55e30915-4734-4f03-b0cb-5bb37cdd1afd"
-        }
-      ],
-      "voided": false
-    },
-    {
-      "name": "Semaria III Cluster",
-      "uuid": "8b47e813-1eb3-45e5-bcf3-3fa72e3da1c3",
-      "type": "Village",
-      "locations": [
-        {
-          "uuid": "ff1046c0-80af-44c0-bbcf-4198f5ed0d15"
-        },
-        {
-          "uuid": "9aa566be-e5bc-4ef9-8509-f3a56c83058b"
-        },
-        {
-          "uuid": "ec3e7ab8-b0fe-4527-9591-bc8789a9f053"
-        },
-        {
-          "uuid": "2c166cd7-fd38-4f85-aace-746b47c89e5d"
-        },
-        {
-          "uuid": "3568542b-20e5-49ae-82d4-01f038b67ecb"
-        },
-        {
-          "uuid": "e2066a49-54ff-42e5-8450-f0a2af150215"
-        },
-        {
-          "uuid": "0cfa2b45-e799-47b3-a713-711cdf614727"
-        },
-        {
-          "uuid": "2f33d3f0-4fe8-4109-9436-7e7d3f9a9afd"
-        },
-        {
-          "uuid": "c5341436-096e-4a00-a461-93b984e3a816"
-        }
-      ],
-      "voided": false
-    },
-    {
-      "name": "Shivtarai II Cluster",
-      "uuid": "fa699912-bf06-4cb8-99ce-df8e0393f241",
-      "type": "Village",
-      "locations": [
-        {
-          "uuid": "d0245724-15f2-4f7a-abdb-366080d2c2ef"
-        },
-        {
-          "uuid": "3a09f391-54d6-48e4-bf8b-e1923a47e9fd"
-        },
-        {
-          "uuid": "a31d57a1-dd8e-4546-b393-43470ac2f01a"
-        },
-        {
-          "uuid": "15a72bd3-657a-4ce2-aa54-3290cc08c739"
-        },
-        {
-          "uuid": "ee0f13e2-057f-49ef-b680-4f86a472685d"
-        },
-        {
-          "uuid": "475fa5ed-5bb5-4845-bae3-e7fa67571a4b"
-        }
-      ],
-      "voided": false
-    }
-  ]
+  "organisation" : "JSSCP",
+  "catchments" : [ {
+    "name" : "Bamhani II Cluster",
+    "uuid" : "ede46b93-d6c9-4cba-844c-4b3738135f58",
+    "type" : "Village",
+    "locations" : [ {
+      "uuid" : "a7bb971c-de23-4483-96c7-29c31f7e48b1"
+    }, {
+      "uuid" : "67d21f33-b922-4a91-b785-57308cf62128"
+    } ],
+    "voided" : false
+  }, {
+    "name" : "Bamhani IV Cluster",
+    "uuid" : "18b971bc-46d0-4030-b166-2df8a431b907",
+    "type" : "Village",
+    "locations" : [ {
+      "uuid" : "dc821a78-f3d1-40df-b85c-44a7b6874801"
+    }, {
+      "uuid" : "e3b9dc91-548d-4130-8ee3-aec4802e39de"
+    }, {
+      "uuid" : "597ad173-9829-4e80-b6b9-863079eefc35"
+    }, {
+      "uuid" : "be82bc6e-20a9-44a2-b696-9ca076ef11a7"
+    }, {
+      "uuid" : "8651e87a-67d3-4ca0-919f-5c89673cdf74"
+    }, {
+      "uuid" : "3104c8bd-f799-4b02-9920-33f5cf803878"
+    }, {
+      "uuid" : "9aa56a32-fdc9-4b3b-9cd1-5705b07ea3c5"
+    } ],
+    "voided" : false
+  }, {
+    "name" : "Bamhani V Cluster",
+    "uuid" : "f80ad6c9-f111-459e-8077-870f04e2a086",
+    "type" : "Village",
+    "locations" : [ {
+      "uuid" : "fa78205b-2787-46ba-89d0-debe5ff803ed"
+    }, {
+      "uuid" : "cea3bc84-67aa-403a-9cd0-7c83cb373b7c"
+    }, {
+      "uuid" : "a85687d6-5658-4abd-9310-d57253aaa4c6"
+    }, {
+      "uuid" : "102271c3-8337-4c77-b44d-f0985e229032"
+    }, {
+      "uuid" : "24fc2ab0-5b0f-49c7-92ec-ee2e3cc8023d"
+    }, {
+      "uuid" : "3995285e-2bf0-4830-8ede-c0985c2a0e12"
+    }, {
+      "uuid" : "5adf9c1a-55b7-4c4c-a54e-d647921523eb"
+    }, {
+      "uuid" : "1495676a-165d-475e-838a-e82b0eeb1ce5"
+    }, {
+      "uuid" : "0183de0b-565c-4b10-833d-6f079f9428ed"
+    }, {
+      "uuid" : "1ee0e33f-de61-4282-bafc-aa16f38595e0"
+    }, {
+      "uuid" : "de8dc828-55f7-428d-9d9e-750017b1852e"
+    } ],
+    "voided" : false
+  }, {
+    "name" : "Semaria I Cluster",
+    "uuid" : "1bed2e35-5396-4e5c-aa90-5ea506bbb5bb",
+    "type" : "Village",
+    "locations" : [ {
+      "uuid" : "60b183f9-1ea8-4057-a05f-e49b741037ff"
+    }, {
+      "uuid" : "0bb8683e-f1dd-40f3-b2cb-48c929e295a8"
+    }, {
+      "uuid" : "6097edf4-4e66-40d5-88e3-2db8d45b22f8"
+    }, {
+      "uuid" : "70078102-4ab0-492d-8da0-f6980edf9e12"
+    }, {
+      "uuid" : "55e30915-4734-4f03-b0cb-5bb37cdd1afd"
+    } ],
+    "voided" : false
+  }, {
+    "name" : "Semaria III Cluster",
+    "uuid" : "8b47e813-1eb3-45e5-bcf3-3fa72e3da1c3",
+    "type" : "Village",
+    "locations" : [ {
+      "uuid" : "ff1046c0-80af-44c0-bbcf-4198f5ed0d15"
+    }, {
+      "uuid" : "9aa566be-e5bc-4ef9-8509-f3a56c83058b"
+    }, {
+      "uuid" : "ec3e7ab8-b0fe-4527-9591-bc8789a9f053"
+    }, {
+      "uuid" : "2c166cd7-fd38-4f85-aace-746b47c89e5d"
+    }, {
+      "uuid" : "3568542b-20e5-49ae-82d4-01f038b67ecb"
+    }, {
+      "uuid" : "e2066a49-54ff-42e5-8450-f0a2af150215"
+    }, {
+      "uuid" : "0cfa2b45-e799-47b3-a713-711cdf614727"
+    }, {
+      "uuid" : "2f33d3f0-4fe8-4109-9436-7e7d3f9a9afd"
+    }, {
+      "uuid" : "c5341436-096e-4a00-a461-93b984e3a816"
+    } ],
+    "voided" : false
+  }, {
+    "name" : "Shivtarai II Cluster",
+    "uuid" : "fa699912-bf06-4cb8-99ce-df8e0393f241",
+    "type" : "Village",
+    "locations" : [ {
+      "uuid" : "d0245724-15f2-4f7a-abdb-366080d2c2ef"
+    }, {
+      "uuid" : "3a09f391-54d6-48e4-bf8b-e1923a47e9fd"
+    }, {
+      "uuid" : "a31d57a1-dd8e-4546-b393-43470ac2f01a"
+    }, {
+      "uuid" : "15a72bd3-657a-4ce2-aa54-3290cc08c739"
+    }, {
+      "uuid" : "ee0f13e2-057f-49ef-b680-4f86a472685d"
+    }, {
+      "uuid" : "475fa5ed-5bb5-4845-bae3-e7fa67571a4b"
+    } ],
+    "voided" : false
+  } ]
 }

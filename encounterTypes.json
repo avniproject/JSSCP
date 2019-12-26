@@ -1,13 +1,13 @@
 [ {
-  "name" : "Child PNC",
-  "uuid" : "8aa68bd2-1fd8-46e8-b475-a2dafb4b177b"
-}, {
-  "name" : "Birth",
-  "uuid" : "596691e8-7b2d-4b27-b7d6-17a6e1d74f9c"
+  "name" : "Albendazole",
+  "uuid" : "72ddfc20-fa6a-4e64-9167-c9bbc28f21fc"
 }, {
   "name" : "Anthropometry Assessment",
   "uuid" : "e9aa15b8-e9b5-4b5d-9fbb-4d7a89283741"
 }, {
-  "name" : "Albendazole",
-  "uuid" : "72ddfc20-fa6a-4e64-9167-c9bbc28f21fc"
+  "name" : "Birth",
+  "uuid" : "596691e8-7b2d-4b27-b7d6-17a6e1d74f9c"
+}, {
+  "name" : "Child PNC",
+  "uuid" : "8aa68bd2-1fd8-46e8-b475-a2dafb4b177b"
 } ]

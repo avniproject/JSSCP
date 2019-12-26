@@ -1,16 +1,16 @@
 {
   "organisationName" : "JSSCP",
   "operationalEncounterTypes" : [ {
-    "uuid" : "7fb04b68-1dc6-4a45-a342-f7bf40087f70",
-    "encounterType" : {
-      "uuid" : "e9aa15b8-e9b5-4b5d-9fbb-4d7a89283741"
-    },
-    "name" : "Growth Monitoring"
-  }, {
     "uuid" : "74224415-cd48-4906-b539-86e60bd0afef",
     "encounterType" : {
       "uuid" : "72ddfc20-fa6a-4e64-9167-c9bbc28f21fc"
     },
     "name" : "Albendazole"
+  }, {
+    "uuid" : "7fb04b68-1dc6-4a45-a342-f7bf40087f70",
+    "encounterType" : {
+      "uuid" : "e9aa15b8-e9b5-4b5d-9fbb-4d7a89283741"
+    },
+    "name" : "Growth Monitoring"
   } ]
 }
