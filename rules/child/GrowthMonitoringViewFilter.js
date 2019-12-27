@@ -8,14 +8,14 @@ import {
 import {WithName} from "rules-config";
 import moment from 'moment';
 import _ from 'lodash';
-import anthroAss from '../../forms/Anthropometry Assessment';
+import AnthropometryAssessmentForm from '../../forms/Anthropometry Assessment';
 
 const WithStatusBuilder = StatusBuilderAnnotationFactory('programEncounter', 'formElement');
 
 @FormElementRule({
     name: 'JSSCP GrowthMonitoringViewFilter',
     uuid: '074121f0-d328-498c-b940-31c087bc0e04',
-    formUUID: anthroAss.uuid,
+    formUUID: AnthropometryAssessmentForm.uuid,
     executionOrder: 100.0,
     metadata: {}
 })

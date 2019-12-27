@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 module.exports = _.merge({},
-    require('./child/AlbendazoleTrackingViewFilter'),
+    require('./child/AlbendazoleTrackingVisitSchedule'),
     require('./child/AnthropometryAssessmentViewFilter'),
     require('./child/BirthViewFilter'),
     require('./child/CancelViewFilter'),

@@ -51,6 +51,41 @@ class albendazole {
     }
 }
 
+class gmp {
+    static scheduleNext(scheduledDateTime, dayOfMonth) {
+        const earliestDate = moment(scheduledDateTime).add(1, 'M').date(dayOfMonth).toDate();
+        const maxDate = moment(earliestDate).add(3, 'days').toDate();
+        return {
+            name: "Growth Monitoring Visit",
+            encounterType: "Anthropometry Assessment",
+            earliestDate: earliestDate,
+            maxDate: maxDate
+        };
+    }
+
+    static scheduleOn(date) {
+        return {
+            name: "Growth Monitoring Visit",
+            encounterType: "Anthropometry Assessment",
+            earliestDate: date,
+            maxDate: date
+        };
+    }
+
+    static scheduleOnCancel(scheduledDateTime, dayOfMonth) {
+        const scheduleOnSameMonth = moment(scheduledDateTime).date() < dayOfMonth;
+        const earliestDate = moment(scheduledDateTime).add(scheduleOnSameMonth ? 0 : 1, 'M').date(dayOfMonth).toDate();
+        const maxDate = moment(earliestDate).add(3, 'days').toDate();
+        return {
+            name: "Growth Monitoring Visit",
+            encounterType: "Anthropometry Assessment",
+            earliestDate: earliestDate,
+            maxDate: maxDate
+        }
+    }
+}
+
 export {
-    albendazole
+    albendazole,
+    gmp
 }

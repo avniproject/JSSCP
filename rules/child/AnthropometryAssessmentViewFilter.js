@@ -1,10 +1,10 @@
 import {FormElementStatusBuilder, FormElementRule, FormElementsStatusHelper} from "rules-config/rules";
-import AAForm from '../../forms/Anthropometry Assessment';
+import AnthropometryAssessmentForm from '../../forms/Anthropometry Assessment';
 
 @FormElementRule({
     name: 'JSSCP AnthropometryAssessmentViewFilter',
     uuid: '46058460-f776-413c-90af-b64959d6b732',
-    formUUID: AAForm.uuid,
+    formUUID: AnthropometryAssessmentForm.uuid,
     executionOrder: 100.0,
     metadata: {}
 })

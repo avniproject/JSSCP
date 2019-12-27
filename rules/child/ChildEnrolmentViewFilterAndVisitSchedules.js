@@ -1,5 +1,5 @@
 import {FormElementsStatusHelper, FormElementStatusBuilder, RuleFactory, VisitScheduleBuilder} from "rules-config";
-import {albendazole} from "./utils/visitSchedulingUtils";
+import {albendazole, gmp} from "./utils/visitSchedulingUtils";
 import VILLAGE_PHULWARI_MAPPING from '../../data/villagePhulwariMapping';
 import childEnrolment from '../../forms/Child Enrolment';
 import _ from 'lodash';
@@ -61,19 +61,9 @@ class ChildEnrolmentViewFilter {
 @EnrolmentVisitSchedule("5224600e-a9bd-46b6-819e-578669566119", "JSSCP ChildEnrolmentVisitSchedules", 100.0)
 class ChildEnrolmentVisitSchedules {
     static exec(programEnrolment, visitSchedule = [], scheduleConfig) {
-        const scheduleBuilder = new VisitScheduleBuilder({
-            programEnrolment: programEnrolment
-        });
-        const earliestDate = programEnrolment.enrolmentDateTime;
-        const maxDate = programEnrolment.enrolmentDateTime;
+        const scheduleBuilder = new VisitScheduleBuilder({programEnrolment});
         visitSchedule.forEach((vs) => scheduleBuilder.add(vs));
-        scheduleBuilder.add({
-                name: "Growth Monitoring Visit",
-                encounterType: "Anthropometry Assessment",
-                earliestDate: earliestDate,
-                maxDate: maxDate
-            }
-        );
+        scheduleBuilder.add(gmp.scheduleOn(programEnrolment.enrolmentDateTime));
         scheduleBuilder.add(albendazole.getVisitSchedule(albendazole.findSlot(programEnrolment.enrolmentDateTime)));
         return scheduleBuilder.getAllUnique("encounterType");
     }
