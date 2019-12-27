@@ -9,9 +9,9 @@ module.exports = IDI.configure({
     "secrets": '../secrets.json',
     "files": {
         "adminUsers": {
-            // "prod": [],
             "dev": ["users/dev-admin-user.json"],
             "staging": ["users/dev-admin-user.json"],
+            "uat": ["users/dev-admin-user.json"]
         },
         "forms": [
             'forms/Albendazole Tracking.json',
@@ -55,11 +55,3 @@ module.exports = IDI.configure({
         ]
     }
 }, rulesConfigInfra);
-
-// users
-// catchments
-// locations
-// addressLevelTypes
-// create_organisation.sql
-// org config
-// translations
