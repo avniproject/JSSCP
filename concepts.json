@@ -1372,6 +1372,35 @@
   "uuid" : "68160b09-7b16-4fdf-9f43-c0cf31ad6f41",
   "dataType" : "NA"
 }, {
+  "name" : "Father's education Level",
+  "uuid" : "b1001c4d-0449-464a-947f-a04c4fdcc651",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Literate",
+    "uuid" : "6d0924cf-3fa0-401d-a08c-9c0f85c3be6f",
+    "order" : 1.0
+  }, {
+    "name" : "Secondary",
+    "uuid" : "279771f0-6d49-4fcc-bae9-9165c9775e96",
+    "order" : 2.0
+  }, {
+    "name" : "Graduate",
+    "uuid" : "a9643c63-b5aa-422a-80fc-cf97893dd4bc",
+    "order" : 3.0
+  }, {
+    "name" : "Post Graduate",
+    "uuid" : "18915809-db25-474f-b245-5ceb3f26232f",
+    "order" : 4.0
+  }, {
+    "name" : "Uneducated",
+    "uuid" : "5ea8d117-730b-4047-a24a-03bbcfbc8a2f",
+    "order" : 5.0
+  }, {
+    "name" : "Primary",
+    "uuid" : "bb825f03-51d4-4622-b977-e2893e76da70",
+    "order" : 6.0
+  } ]
+}, {
   "name" : "Father's Name",
   "uuid" : "9e6983b8-06ef-4648-b360-6684100b1be1",
   "dataType" : "Text"
@@ -2701,35 +2730,6 @@
 }, {
   "name" : "Mother's education Level",
   "uuid" : "d98aae1a-ce33-4e51-b031-66e13bc0ba11",
-  "dataType" : "Coded",
-  "answers" : [ {
-    "name" : "Literate",
-    "uuid" : "6d0924cf-3fa0-401d-a08c-9c0f85c3be6f",
-    "order" : 1.0
-  }, {
-    "name" : "Secondary",
-    "uuid" : "279771f0-6d49-4fcc-bae9-9165c9775e96",
-    "order" : 2.0
-  }, {
-    "name" : "Graduate",
-    "uuid" : "a9643c63-b5aa-422a-80fc-cf97893dd4bc",
-    "order" : 3.0
-  }, {
-    "name" : "Post Graduate",
-    "uuid" : "18915809-db25-474f-b245-5ceb3f26232f",
-    "order" : 4.0
-  }, {
-    "name" : "Uneducated",
-    "uuid" : "5ea8d117-730b-4047-a24a-03bbcfbc8a2f",
-    "order" : 5.0
-  }, {
-    "name" : "Primary",
-    "uuid" : "bb825f03-51d4-4622-b977-e2893e76da70",
-    "order" : 6.0
-  } ]
-}, {
-  "name" : "Father's education Level",
-  "uuid" : "b1001c4d-0449-464a-947f-a04c4fdcc651",
   "dataType" : "Coded",
   "answers" : [ {
     "name" : "Literate",
@@ -4618,10 +4618,34 @@
     "uuid" : "9a5240ee-7d93-4413-ae0a-60bd9cd78b31",
     "order" : 18.0
   }, {
+    "name" : "Baiga",
+    "uuid" : "2b90b234-8a63-4d4c-92d0-6389d8b1fb78",
+    "order" : 19.0
+  }, {
+    "name" : "Gond",
+    "uuid" : "7335b4a6-fd22-4061-ba4f-54c5f3d1bfbe",
+    "order" : 20.0
+  }, {
+    "name" : "Panika",
+    "uuid" : "5718df2e-2311-42ad-88b6-c2d7be74df22",
+    "order" : 21.0
+  }, {
+    "name" : "Yadav",
+    "uuid" : "65b5abfa-9229-48bf-8ed7-40e715840302",
+    "order" : 22.0
+  }, {
+    "name" : "Nayak",
+    "uuid" : "a27ce1dc-59de-4b83-a25c-4672013530f5",
+    "order" : 23.0
+  }, {
+    "name" : "Vishwakarma",
+    "uuid" : "959045fe-3dce-40fc-b1e2-a162f2a777bd",
+    "order" : 24.0
+  }, {
     "name" : "Other",
     "uuid" : "798b7942-cf58-4d4e-a529-5972942e0a7e",
     "unique" : true,
-    "order" : 19.0
+    "order" : 25.0
   } ]
 }, {
   "name" : "Sub Center",
