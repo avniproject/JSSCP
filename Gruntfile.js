@@ -8,6 +8,12 @@ module.exports = IDI.configure({
     "org-admin": "admin@jsscp",
     "secrets": '../secrets.json',
     "files": {
+        "organisation": [
+            // this api depends on server upgrade
+            // once upgraded remove create_organisation.sql file
+            // and uncomment the following
+            // "organisation.json"
+        ],
         "adminUsers": {
             "dev": ["users/dev-admin-user.json"],
             "staging": ["users/dev-admin-user.json"],

@@ -9,7 +9,7 @@
   "license": "AGPL-3.0",
   "scripts": {},
   "dependencies": {
-    "openchs-idi": "github:avniproject/openchs-idi#eb0f23de22f130f7be17ae3caa7398f29dd5ea27",
+    "openchs-idi": "github:avniproject/openchs-idi#07e127bc172a7fa781ab98ef5e5e8385cf37188b",
     "rules-config": "github:avniproject/rules-config#68b0da32c98fb599d19b7266f78a2ec3eb10e29c",
     "uuid": "^3.3.3",
     "webpack": "^4.12.0"
