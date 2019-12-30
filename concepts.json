@@ -2728,6 +2728,35 @@
     "order" : 6.0
   } ]
 }, {
+  "name" : "Father's education Level",
+  "uuid" : "b1001c4d-0449-464a-947f-a04c4fdcc651",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Literate",
+    "uuid" : "6d0924cf-3fa0-401d-a08c-9c0f85c3be6f",
+    "order" : 1.0
+  }, {
+    "name" : "Secondary",
+    "uuid" : "279771f0-6d49-4fcc-bae9-9165c9775e96",
+    "order" : 2.0
+  }, {
+    "name" : "Graduate",
+    "uuid" : "a9643c63-b5aa-422a-80fc-cf97893dd4bc",
+    "order" : 3.0
+  }, {
+    "name" : "Post Graduate",
+    "uuid" : "18915809-db25-474f-b245-5ceb3f26232f",
+    "order" : 4.0
+  }, {
+    "name" : "Uneducated",
+    "uuid" : "5ea8d117-730b-4047-a24a-03bbcfbc8a2f",
+    "order" : 5.0
+  }, {
+    "name" : "Primary",
+    "uuid" : "bb825f03-51d4-4622-b977-e2893e76da70",
+    "order" : 6.0
+  } ]
+}, {
   "name" : "Mother's Name",
   "uuid" : "74a554d8-5b87-4d27-9ae5-272ab326608f",
   "dataType" : "Text"

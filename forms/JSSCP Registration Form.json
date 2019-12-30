@@ -30,17 +30,6 @@
       "type" : "SingleSelect",
       "mandatory" : true
     }, {
-      "name" : "Mother's Name",
-      "uuid" : "c57882fa-8719-40ae-9a49-928cb807dd81",
-      "keyValues" : [ ],
-      "concept" : {
-        "name" : "Mother's Name",
-        "uuid" : "74a554d8-5b87-4d27-9ae5-272ab326608f"
-      },
-      "displayOrder" : 3.0,
-      "type" : "SingleSelect",
-      "mandatory" : true
-    }, {
       "name" : "Father's Occupation",
       "uuid" : "26e18485-b245-4394-8c63-eaf0f377d264",
       "keyValues" : [ ],
@@ -48,9 +37,31 @@
         "name" : "Father's Occupation",
         "uuid" : "bf564151-63f9-4176-917f-f37de34b9bae"
       },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Father's Education",
+      "uuid" : "aae9215b-306b-4ebb-96b4-5f8b5c721aad",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Father's education Level",
+        "uuid" : "b1001c4d-0449-464a-947f-a04c4fdcc651"
+      },
       "displayOrder" : 4.0,
       "type" : "SingleSelect",
       "mandatory" : false
+    }, {
+      "name" : "Mother's Name",
+      "uuid" : "c57882fa-8719-40ae-9a49-928cb807dd81",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Mother's Name",
+        "uuid" : "74a554d8-5b87-4d27-9ae5-272ab326608f"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
     }, {
       "name" : "Mother's Occupation",
       "uuid" : "76841378-f43d-4ccb-b4b8-6a7f634bb94e",
@@ -59,7 +70,7 @@
         "name" : "Mother's Occupation",
         "uuid" : "ea760e4f-c12f-490b-9865-9c6e4510ce64"
       },
-      "displayOrder" : 5.0,
+      "displayOrder" : 6.0,
       "type" : "SingleSelect",
       "mandatory" : false
     }, {
@@ -70,7 +81,7 @@
         "name" : "Mother's education Level",
         "uuid" : "d98aae1a-ce33-4e51-b031-66e13bc0ba11"
       },
-      "displayOrder" : 6.0,
+      "displayOrder" : 7.0,
       "type" : "SingleSelect",
       "mandatory" : false
     }, {
@@ -81,7 +92,7 @@
         "name" : "Caste Category",
         "uuid" : "9ad4b520-4e33-4b1b-a056-37ae6418988f"
       },
-      "displayOrder" : 7.0,
+      "displayOrder" : 8.0,
       "type" : "SingleSelect",
       "mandatory" : false
     }, {
@@ -92,7 +103,7 @@
         "name" : "Sub Caste",
         "uuid" : "047877ac-dba7-4acf-8c77-97c979c2fc26"
       },
-      "displayOrder" : 8.0,
+      "displayOrder" : 9.0,
       "type" : "SingleSelect",
       "mandatory" : false
     }, {
@@ -103,7 +114,7 @@
         "name" : "Other sub caste",
         "uuid" : "ae7d54e9-fac0-4898-b334-87664bd055d2"
       },
-      "displayOrder" : 9.0,
+      "displayOrder" : 10.0,
       "type" : "SingleSelect",
       "mandatory" : true
     } ]
