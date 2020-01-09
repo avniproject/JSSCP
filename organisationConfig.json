@@ -1,6 +1,36 @@
 {
-  "uuid" : "e2c8b297-1b6f-491a-b6de-aa97b215fcc8",
-  "settings" : {
-    "languages" : [ "en", "hi_IN" ]
+  "uuid": "e2c8b297-1b6f-491a-b6de-aa97b215fcc8",
+  "settings": {
+    "languages": [
+      "en",
+      "hi_IN"
+    ],
+    "searchFilters": [
+      {
+        "type": "Name",
+        "widget": "Default",
+        "titleKey": "Name",
+        "subjectTypeUUID": "c3e43b29-2a63-49bf-870b-8365d2dd9251"
+      },
+      {
+        "type": "Age",
+        "widget": "Default",
+        "titleKey": "Age",
+        "subjectTypeUUID": "c3e43b29-2a63-49bf-870b-8365d2dd9251"
+      },
+      {
+        "type": "Address",
+        "titleKey": "Address",
+        "subjectTypeUUID": "c3e43b29-2a63-49bf-870b-8365d2dd9251"
+      }
+    ],
+    "myDashboardFilters": [
+      {
+        "type": "Address",
+        "widget": "Default",
+        "titleKey": "Address",
+        "subjectTypeUUID": "c3e43b29-2a63-49bf-870b-8365d2dd9251"
+      }
+    ]
   }
 }
