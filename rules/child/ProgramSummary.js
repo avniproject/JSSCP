@@ -1,7 +1,7 @@
 import {ProgramRule} from 'rules-config/rules';
 import Programs from '../../programs.json';
 
-const ChildProgram = Programs.find(x => x.name === 'Child');
+const ChildProgram = Programs.find(x => x.name === 'Phulwari');
 
 @ProgramRule({
     name: "JSSCP ChildProgramSummary",
