@@ -12,11 +12,26 @@ const ChildProgram = Programs.find(x => x.name === 'Child');
 })
 class ChildProgramSummary {
     static exec(programEnrolment, summaries, context, today) {
-        //Child program summaries are added from core so deleting from here
-        //otherwise it shows same name two times in program summary
+        summaryForObservation("Weight for age z-score", programEnrolment, summaries);
+        summaryForObservation("Weight for age Grade", programEnrolment, summaries);
+        summaryForObservation("Weight for age Status", programEnrolment, summaries);
+
+        summaryForObservation("Height for age z-score", programEnrolment, summaries);
+        summaryForObservation("Height for age Grade", programEnrolment, summaries);
+        summaryForObservation("Height for age Status", programEnrolment, summaries);
+
+        summaryForObservation("Weight for height z-score", programEnrolment, summaries);
+        summaryForObservation("Weight for Height Status", programEnrolment, summaries);
         return summaries;
     }
 }
+
+const summaryForObservation = function (conceptName, programEnrolment, summaries) {
+    let observationValue = programEnrolment.findLatestObservationInEntireEnrolment(conceptName);
+    if (!_.isNil(observationValue)) {
+        summaries.push({name: conceptName, value: observationValue.getValue()});
+    }
+};
 
 export {
     ChildProgramSummary
