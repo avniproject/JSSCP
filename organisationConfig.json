@@ -1,36 +1,63 @@
 {
-  "uuid": "e2c8b297-1b6f-491a-b6de-aa97b215fcc8",
-  "settings": {
-    "languages": [
-      "en",
-      "hi_IN"
-    ],
-    "searchFilters": [
-      {
-        "type": "Name",
-        "widget": "Default",
-        "titleKey": "Name",
-        "subjectTypeUUID": "c3e43b29-2a63-49bf-870b-8365d2dd9251"
+  "uuid" : "e2c8b297-1b6f-491a-b6de-aa97b215fcc8",
+  "settings" : {
+    "languages" : [ "en", "hi_IN" ],
+    "searchFilters" : [ {
+      "type" : "Name",
+      "widget" : "Default",
+      "titleKey" : "Name",
+      "subjectTypeUUID" : "c3e43b29-2a63-49bf-870b-8365d2dd9251"
+    }, {
+      "type" : "Gender",
+      "widget" : "Default",
+      "titleKey" : "Gender",
+      "subjectTypeUUID" : "c3e43b29-2a63-49bf-870b-8365d2dd9251"
+    }, {
+      "type" : "SearchAll",
+      "widget" : "Default",
+      "titleKey" : "Search all",
+      "subjectTypeUUID" : "c3e43b29-2a63-49bf-870b-8365d2dd9251"
+    }, {
+      "type" : "Address",
+      "widget" : "Default",
+      "titleKey" : "Address",
+      "subjectTypeUUID" : "c3e43b29-2a63-49bf-870b-8365d2dd9251"
+    }, {
+      "type" : "Age",
+      "widget" : "Default",
+      "titleKey" : "Age",
+      "subjectTypeUUID" : "c3e43b29-2a63-49bf-870b-8365d2dd9251"
+    }, {
+      "type" : "Concept",
+      "scope" : "programEnrolment",
+      "titleKey" : "Phulwari",
+      "conceptName" : "Phulwari",
+      "conceptUUID" : "178acfbe-b7e1-4ef5-a48a-0f4b1beabb80",
+      "conceptDataType" : "Coded",
+      "scopeParameters" : {
+        "programUUIDs" : [ "eb4d392a-87a0-4673-9176-dbd4101505ab" ],
+        "encounterTypeUUIDs" : [ ]
       },
-      {
-        "type": "Age",
-        "widget": "Default",
-        "titleKey": "Age",
-        "subjectTypeUUID": "c3e43b29-2a63-49bf-870b-8365d2dd9251"
+      "subjectTypeUUID" : "c3e43b29-2a63-49bf-870b-8365d2dd9251"
+    } ],
+    "myDashboardFilters" : [ {
+      "type" : "Address",
+      "widget" : "Default",
+      "titleKey" : "Address",
+      "subjectTypeUUID" : "c3e43b29-2a63-49bf-870b-8365d2dd9251"
+    }, {
+      "type" : "Concept",
+      "scope" : "programEnrolment",
+      "widget" : "Default",
+      "titleKey" : "Phulwari",
+      "conceptName" : "Phulwari",
+      "conceptUUID" : "178acfbe-b7e1-4ef5-a48a-0f4b1beabb80",
+      "conceptDataType" : "Coded",
+      "scopeParameters" : {
+        "programUUIDs" : [ "eb4d392a-87a0-4673-9176-dbd4101505ab" ],
+        "encounterTypeUUIDs" : [ ]
       },
-      {
-        "type": "Address",
-        "titleKey": "Address",
-        "subjectTypeUUID": "c3e43b29-2a63-49bf-870b-8365d2dd9251"
-      }
-    ],
-    "myDashboardFilters": [
-      {
-        "type": "Address",
-        "widget": "Default",
-        "titleKey": "Address",
-        "subjectTypeUUID": "c3e43b29-2a63-49bf-870b-8365d2dd9251"
-      }
-    ]
+      "subjectTypeUUID" : "c3e43b29-2a63-49bf-870b-8365d2dd9251"
+    } ]
   }
 }
