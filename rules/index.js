@@ -9,10 +9,10 @@ module.exports = _.merge({},
     require('./child/ChildEnrolmentViewFilterAndVisitSchedules'),
     require('./child/ChildPNCViewFilter'),
     require('./child/CommonEncounterDecisions'),
-    require('./child/GrowthMonitoringViewFilter'),
     require('./child/GrowthMonitoringVisitSchedules'),
     require('./child/ProgramExitFormHandler'),
     require('./child/ProgramSummary'),
     require('./child/RegistrationViewFilter'),
     require('./child/Vaccinations'),
+    require('./encounterEligibilityCheck')
 );
