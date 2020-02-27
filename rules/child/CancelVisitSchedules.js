@@ -2,12 +2,13 @@ import {AlbendazoleTrackingVisitSchedule} from "./AlbendazoleTrackingVisitSchedu
 import {RuleFactory, VisitScheduleBuilder} from "rules-config";
 import defCancelForm from '../../forms/Default Program Encounter Cancellation Form';
 import {gmp} from './utils/visitSchedulingUtils';
+import moment from "moment";
 
 const CancelVisitSchedulesAnn = RuleFactory(defCancelForm.uuid, "VisitSchedule");
 
 class GMCancelVisitSchedule {
     static exec(programEncounter, visitSchedule = [], scheduleConfig) {
-        if(!programEncounter.programEnrolment.isActive){
+        if (!programEncounter.programEnrolment.isActive) {
             return [];
         }
         const scheduleBuilder = new VisitScheduleBuilder({
@@ -15,8 +16,13 @@ class GMCancelVisitSchedule {
         });
         const dayOfMonth = programEncounter.programEnrolment.findObservation("Day of month for growth monitoring visit").getValue();
         visitSchedule.forEach((vs) => scheduleBuilder.add(vs));
-        scheduleBuilder.add(gmp.scheduleOnCancel(programEncounter.earliestVisitDateTime, dayOfMonth));
-        return scheduleBuilder.getAllUnique("encounterType");
+        const year = moment(programEncounter.earliestVisitDateTime).format("YYYY");
+
+        // visits that are scheduled from db for nov & dec 2019 should not schedule next visit
+        if (year != 2019) {
+            scheduleBuilder.add(gmp.scheduleOnCancel(programEncounter.earliestVisitDateTime, dayOfMonth));
+            return scheduleBuilder.getAllUnique("encounterType");
+        }
     }
 }
 
