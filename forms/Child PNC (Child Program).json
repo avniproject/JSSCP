@@ -1,0 +1,337 @@
+{
+  "name" : "Child PNC (Child Program)",
+  "uuid" : "b0c9a800-d6d6-49f1-b647-9bc3d95d2718",
+  "formType" : "ProgramEncounter",
+  "formElementGroups" : [ {
+    "uuid" : "aa47a567-a25d-4208-b3a6-6c8ca979b75d",
+    "name" : "Details",
+    "displayOrder" : 1.0,
+    "display" : "Details",
+    "formElements" : [ {
+      "name" : "Whether newborn fed other that exclusive breastfeeding",
+      "uuid" : "bf0f038f-1df0-40b0-be5e-50c832bb2116",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Whether newborn fed other that exclusive breastfeeding",
+        "uuid" : "918c6eaf-b7ab-4958-aa42-4b0280a3c5e8"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "How was breastfeedig",
+      "uuid" : "b0509c85-e121-46f4-900d-d9d342baece7",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "How was breastfeedig",
+        "uuid" : "761a5ddc-fe17-4393-bb28-ecd45de68f58"
+      },
+      "displayOrder" : 2.0,
+      "type" : "MultiSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Time of breastfedding after delivery",
+      "uuid" : "6e93fdfe-7baf-4056-a8f9-3c6e25e58bd0",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Time of breastfedding after delivery",
+        "uuid" : "373c7bb6-f5e4-4797-a4e2-6a73ab821447"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Whether mother have any problem in breastfeeding",
+      "uuid" : "8c848f88-a174-4f5a-96da-9855d1b220a8",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Whether mother have any problem in breastfeeding",
+        "uuid" : "ba69923c-e451-41a5-8ed0-62d2078411b9"
+      },
+      "displayOrder" : 4.0,
+      "type" : "MultiSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Temperature of newborn",
+      "uuid" : "42db1623-85a5-46c2-9faf-d1775445f7e1",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Child Temperature",
+        "uuid" : "fc367cf1-69e0-43d9-82d8-0ace18ba4b3c"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Eye of newborn",
+      "uuid" : "0aec3884-ca9a-4c58-9941-d33c19eb6603",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Eye of newborn",
+        "uuid" : "1c675de4-83eb-471f-9b55-6b8a0d48c55e"
+      },
+      "displayOrder" : 6.0,
+      "type" : "MultiSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Bleeding from chord",
+      "uuid" : "74d5cbc5-38cc-4c46-99b2-7255320ef52e",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Bleeding from chord",
+        "uuid" : "6be64524-a223-464f-8c68-787c5d6f7e7c"
+      },
+      "displayOrder" : 7.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Look for birth defects",
+      "uuid" : "e6525c33-13bc-4bc5-99b7-68838075be8a",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Look for birth defects",
+        "uuid" : "81744917-f99b-41a1-80e9-8057b90073d0"
+      },
+      "displayOrder" : 8.0,
+      "type" : "MultiSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Look for any danger signs of sepsis",
+      "uuid" : "3e59f334-50a1-4d6a-a7e4-5572106e31b5",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Look for any danger signs of sepsis",
+        "uuid" : "c0e51a98-9689-4963-9c29-b8be89053116"
+      },
+      "displayOrder" : 9.0,
+      "type" : "MultiSelect",
+      "mandatory" : true
+    } ]
+  }, {
+    "uuid" : "7242cf27-4ddb-4a0e-86be-39c75daf643c",
+    "name" : "Ask mother",
+    "displayOrder" : 2.0,
+    "display" : "Ask mother",
+    "formElements" : [ {
+      "name" : "Whether mother wraps the baby in clothes in cold whether",
+      "uuid" : "19d74125-b7ee-48f5-88c3-a9f0cb9c2bb3",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Whether mother wraps the baby in clothes in cold whether",
+        "uuid" : "94b7ee05-e0d2-4b9b-92b0-3e8f4ad666da"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Whether mother gives skin to skin warmth to baby  (Continuous for at least one hour)",
+      "uuid" : "c38e15ff-29a8-44ac-9295-d9ba715ddb32",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Whether mother gives skin to skin warmth to baby",
+        "uuid" : "1bfdc70a-475d-487b-b87b-9f8c422bdadd"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Whether mother breastfed her child for min 8 times a day",
+      "uuid" : "7ce10ea6-e275-45eb-9f5e-7125d18d717c",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Whether mother breastfed her child for min 8 times a day",
+        "uuid" : "cec9ce0f-d40a-4a8e-ac8b-60e90259c003"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Whether baby cries too much or urinate less than 6 time a day",
+      "uuid" : "84c275a9-766e-40be-a01d-3389b651e413",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Whether baby cries too much or urinate less than 6 time a day",
+        "uuid" : "1d052667-3622-4934-9343-7127729c3aa3"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Whether newborn has swolen eyes or discharge from eyes",
+      "uuid" : "8903937e-0473-4e5f-8928-19ea43facebd",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Whether newborn has swolen eyes or discharge from eyes",
+        "uuid" : "e46f457d-6d84-46b6-9fa6-30e87537154b"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "mandatory" : true,
+      "voided" : true
+    } ]
+  }, {
+    "uuid" : "e0ab8b6e-8d3d-49b9-8b29-d22f3af0c3ff",
+    "name" : "Newborn's examination",
+    "displayOrder" : 3.0,
+    "display" : "Newborn's examination",
+    "formElements" : [ {
+      "name" : "Whether newborn has swolen eyes or discharge from eyes",
+      "uuid" : "4aeb178c-2737-41eb-91dd-9c989cf0a20d",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Whether newborn has swolen eyes or discharge from eyes",
+        "uuid" : "e46f457d-6d84-46b6-9fa6-30e87537154b"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Weight",
+      "uuid" : "d0cb9517-e43c-4657-ba09-5f0ee54711a7",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Weight",
+        "uuid" : "8d947379-7a1d-48b2-8760-88fff6add987"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Temperature",
+      "uuid" : "6fbfccec-5aaa-498e-b224-84ac3b2504f9",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Temperature",
+        "uuid" : "544438f2-4eeb-41a6-9017-d2895d4d76ef"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Skin - pus filled rashes/boils",
+      "uuid" : "e14d5bc9-6ac2-4131-b38a-1d5c7b191c0f",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Skin - pus filled rashes/boils",
+        "uuid" : "9359a427-d6de-4f1d-b21e-a55b4aaef0b5"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Skin - Redness/crack in skin fold",
+      "uuid" : "58c0d421-20d2-4db3-ab03-7100f0cc4e61",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Skin - Redness/crack in skin fold",
+        "uuid" : "b9961b58-b54e-4329-8f40-fc42a1a5981a"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Yellowing of skin/eye",
+      "uuid" : "1898a0fd-cb09-482c-95b6-adcb6dc1d773",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Yellowing of skin/eye",
+        "uuid" : "bbc18a0f-996a-4e3b-b4bf-703cfba2f9df"
+      },
+      "displayOrder" : 6.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Respiratory rate",
+      "uuid" : "8683115e-b991-4dbe-a68f-40bac1719064",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Respiratory Rate",
+        "uuid" : "80c5cefe-804d-45f3-b5b6-93db8b758a96"
+      },
+      "displayOrder" : 7.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Diagnosis of sepsis",
+      "uuid" : "57e8a35e-f161-41bb-a6f6-9cb3c84d2965",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Diagnosis of sepsis",
+        "uuid" : "23664b77-05e2-4baa-8522-68c02314ec21"
+      },
+      "displayOrder" : 8.0,
+      "type" : "MultiSelect",
+      "mandatory" : true
+    } ]
+  }, {
+    "uuid" : "aae8d27a-e3a5-4dff-bcb8-a5b9d95c15a8",
+    "name" : "Death Details",
+    "displayOrder" : 4.0,
+    "display" : "Death Details",
+    "formElements" : [ {
+      "name" : "Whether baby die",
+      "uuid" : "c075d34b-d8f1-4c8a-a67b-b19e2faaaadc",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Whether baby die",
+        "uuid" : "1f35def8-d31d-4f66-80de-625003c9412c"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Date of Death",
+      "uuid" : "2dbe0950-2b1a-457b-9a4c-9fe4a40b6b0d",
+      "keyValues" : [ {
+        "key" : "datePickerMode",
+        "value" : "Calendar"
+      } ],
+      "concept" : {
+        "name" : "Date of Death",
+        "uuid" : "338953ea-6d7e-423e-96d6-f52d5aa37072"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "rule" : "\n'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Whether baby die').containsAnswerConceptName(\"Yes\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    } ]
+  }, {
+    "uuid" : "cb1f4ce1-152f-46d0-bba2-dc4b2f8cae52",
+    "name" : "Referral",
+    "displayOrder" : 5.0,
+    "display" : "Referral",
+    "formElements" : [ {
+      "name" : "Referral needed to newborn",
+      "uuid" : "fed99dff-7d4e-4f3a-a3dc-aa5d17cc039a",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Referral needed to newborn",
+        "uuid" : "1680e20a-1bf9-4396-ae01-94bb361983c1"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    } ]
+  }, {
+    "uuid" : "0c0dd3b1-74ee-4977-bc5c-4cdb07ba434a",
+    "name" : "Counselling",
+    "displayOrder" : 6.0,
+    "display" : "Counselling",
+    "formElements" : [ {
+      "name" : "Counselling Done",
+      "uuid" : "3e55ba83-1275-4f77-948f-aca72fd29aa3",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Counselling Done",
+        "uuid" : "fa031cca-7264-420a-b657-0d3d5fc58a9c"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    } ]
+  } ],
+  "decisionRule" : "",
+  "visitScheduleRule" : "",
+  "validationRule" : "",
+  "checklistsRule" : ""
+}

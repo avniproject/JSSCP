@@ -1,0 +1,260 @@
+{
+  "name" : "Mother PNC",
+  "uuid" : "4faf6f85-358a-49cc-a0b6-3f6fea90fb9b",
+  "formType" : "ProgramEncounter",
+  "formElementGroups" : [ {
+    "uuid" : "4529cdda-b79d-411e-8adc-77a341f1c7f1",
+    "name" : "Basic Details",
+    "displayOrder" : 1.0,
+    "display" : "Basic Details",
+    "formElements" : [ {
+      "name" : "Birth Weight",
+      "uuid" : "e64dbef0-c8b0-49a3-a112-79ae6eea71f2",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Weight",
+        "uuid" : "8d947379-7a1d-48b2-8760-88fff6add987"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : false,
+      "voided" : true
+    }, {
+      "name" : "Is mother suffering from any of the following?",
+      "uuid" : "92a91ba6-48e9-4197-9d55-86451659c2bb",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "mother suffering from",
+        "uuid" : "11244ced-b169-493d-a160-2dda1e1db195"
+      },
+      "displayOrder" : 2.0,
+      "type" : "MultiSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Refer the mother immediately to hospital. Did arrangement was made?",
+      "uuid" : "c6a212c7-258d-4e84-8d02-2606fcd60e0e",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Refer the mother immediately to hospital. Did arrangement was made",
+        "uuid" : "9a31b9a0-18bf-4b3b-87cf-fad47128596b"
+      },
+      "displayOrder" : 3.0,
+      "type" : "MultiSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('mother suffering from').containsAnswerConceptNameOtherThan(\"No\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    } ]
+  }, {
+    "uuid" : "76964dd3-b8aa-4a2c-8991-cb1b7028641f",
+    "name" : "Mother's examination",
+    "displayOrder" : 2.0,
+    "display" : "Mother's examination",
+    "formElements" : [ {
+      "name" : "Temperature",
+      "uuid" : "02b3ce0d-319e-4888-a401-9abfe62e36e3",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Temperature",
+        "uuid" : "544438f2-4eeb-41a6-9017-d2895d4d76ef"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Pulse",
+      "uuid" : "0a360f5a-b630-4050-ae18-8fa0433ee563",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Pulse",
+        "uuid" : "630c0fa3-38f7-427d-a8dd-f1417cf1b7dc"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Blood Pressure (systolic)",
+      "uuid" : "9202148e-f035-4e2b-8a15-e05a4805f30d",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Blood Pressure (systolic)",
+        "uuid" : "6874d48e-8c2f-4009-992c-1d3ca1678cc6"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Blood Pressure (Diastolic)",
+      "uuid" : "776c6bc7-bc88-4070-ae83-ce12e77d1a3b",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Blood Pressure (Diastolic)",
+        "uuid" : "da871f6c-cef0-4191-b307-6751b31ac9ec"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Is there foul smelling discharge PV",
+      "uuid" : "d058eee3-f37e-44bf-859e-a8d7e743401c",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Is there foul smelling discharge PV",
+        "uuid" : "7764a974-7ba8-4a13-9ba9-6d8d580f3c99"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Does mother has seizures?",
+      "uuid" : "f12c0022-6312-45fc-96d9-3e927adecbd1",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Does mother has seizures?",
+        "uuid" : "74c618b3-a4e0-4382-9486-70dbf5752d9d"
+      },
+      "displayOrder" : 6.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Does mother has less breast milk?",
+      "uuid" : "77116109-6cd2-46f5-9468-646cf0cc217c",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "mother have less breast milk",
+        "uuid" : "2371bb8d-4561-4396-ba01-14c14f7972ba"
+      },
+      "displayOrder" : 7.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Does mother has any breast related issue like swelling, cracked nipple etc?",
+      "uuid" : "5b4a4abb-fc8f-443f-99b5-119e0a184d41",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Does mother has any breast related issue like swelling, cracked nipple etc?",
+        "uuid" : "43567d78-ad97-46bc-afa1-8522ec9e0180"
+      },
+      "displayOrder" : 8.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    } ]
+  }, {
+    "uuid" : "9bebd0a2-08a2-4e03-b688-e56c449d6840",
+    "name" : "Schemes",
+    "displayOrder" : 3.0,
+    "display" : "Schemes",
+    "formElements" : [ {
+      "name" : "Does mother get the benefit of JSY scheme?",
+      "uuid" : "d8798a30-a7a6-4150-a4a6-f5f89176e0ca",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "mother get the benefit of JSY scheme",
+        "uuid" : "be8560c8-beab-4b69-80ea-c6e943939a30"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Date of recieving the benefit",
+      "uuid" : "7701098c-0535-42f2-a9bd-1262b23362f5",
+      "keyValues" : [ {
+        "key" : "datePickerMode",
+        "value" : "Calendar"
+      } ],
+      "concept" : {
+        "name" : "Date of recieving the JSY scheme benefit",
+        "uuid" : "d8e3c407-af6d-45df-9db1-a40e289452c0"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('mother get the benefit of JSY scheme').containsAnswerConceptName(\"Yes\");\n  return statusBuilder.build();\n};",
+      "mandatory" : false
+    } ]
+  }, {
+    "uuid" : "7c88c74c-feb1-48b3-8ebe-d8238b58dced",
+    "name" : "Counselling",
+    "displayOrder" : 4.0,
+    "display" : "Counselling",
+    "formElements" : [ {
+      "name" : "Counselling done",
+      "uuid" : "f7c1bb08-e15a-49d1-93f9-c580bf274abb",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Counselling",
+        "uuid" : "0ac30adc-5107-4e30-9b8a-c3ef65904cf5"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    } ]
+  }, {
+    "uuid" : "fc32cae8-3962-49d8-9590-dc0777407ae1",
+    "name" : "Referral",
+    "displayOrder" : 5.0,
+    "display" : "Referral",
+    "formElements" : [ {
+      "name" : "Referral needed to mother?",
+      "uuid" : "090c0d98-6c3b-40fe-8986-e4374a8318eb",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Referral needed to mother?",
+        "uuid" : "c75a610f-27c3-4fad-9c26-04887c15436e"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "rule" : "",
+      "mandatory" : true
+    }, {
+      "name" : "Place of referral",
+      "uuid" : "d200a57d-839b-4067-a5e9-8c71a41e7207",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "place of referral",
+        "uuid" : "c470cb18-f902-4b2b-844b-4b6286e36b8d"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Referral needed to mother?').containsAnswerConceptName(\"Yes\");\n  return statusBuilder.build();\n};",
+      "mandatory" : false
+    }, {
+      "name" : "Other",
+      "uuid" : "47f9d01f-1cad-49fc-9e4f-a67a505945fd",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "other place of referral",
+        "uuid" : "d169efa9-49af-4c84-ae09-b1b7296c62da"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Place of referral').containsAnswerConceptName(\"Other\");\n  return statusBuilder.build();\n};",
+      "mandatory" : false
+    }, {
+      "name" : "Referral reason",
+      "uuid" : "f4509d43-3759-457a-bfd0-ec55b68e887f",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Referral reason",
+        "uuid" : "8a56f008-a910-4d6f-b028-a95db330dbf2"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Referral needed to mother?').containsAnswerConceptName(\"Yes\");\n  return statusBuilder.build();\n};",
+      "mandatory" : false
+    }, {
+      "name" : "Other",
+      "uuid" : "fd1ce620-3448-4af2-9955-5603da75cfe6",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Other referral reason",
+        "uuid" : "e048675e-eb86-41c2-a47b-aecfa9a3bb8c"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Referral reason').containsAnswerConceptName(\"Other\");\n  return statusBuilder.build();\n};",
+      "mandatory" : false
+    } ]
+  } ],
+  "decisionRule" : "",
+  "visitScheduleRule" : "",
+  "validationRule" : "",
+  "checklistsRule" : ""
+}

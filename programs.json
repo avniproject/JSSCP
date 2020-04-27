@@ -2,5 +2,42 @@
   "name" : "Phulwari",
   "uuid" : "eb4d392a-87a0-4673-9176-dbd4101505ab",
   "colour" : "darkorange",
-  "voided" : false
+  "voided" : false,
+  "enrolmentEligibilityCheckRule" : null,
+  "enrolmentSummaryRule" : null
+}, {
+  "name" : "NCD",
+  "uuid" : "2128fcbb-2309-4e0b-8b01-8022f13fcffa",
+  "colour" : "#2B1B17",
+  "voided" : false,
+  "enrolmentEligibilityCheckRule" : null,
+  "enrolmentSummaryRule" : null
+}, {
+  "name" : "Tuberculosis",
+  "uuid" : "ca85f732-a277-44ab-8c57-32e79efba7a1",
+  "colour" : "#E4287C",
+  "voided" : false,
+  "enrolmentEligibilityCheckRule" : null,
+  "enrolmentSummaryRule" : null
+}, {
+  "name" : "Child Health",
+  "uuid" : "6bb43253-7611-47be-9c11-bae31de76091",
+  "colour" : "green",
+  "voided" : false,
+  "enrolmentEligibilityCheckRule" : null,
+  "enrolmentSummaryRule" : null
+}, {
+  "name" : "Hypertension",
+  "uuid" : "d43bd6f0-0b6d-48ec-b710-2c5359f1e611",
+  "colour" : "Blue",
+  "voided" : false,
+  "enrolmentEligibilityCheckRule" : null,
+  "enrolmentSummaryRule" : null
+}, {
+  "name" : "Pregnancy",
+  "uuid" : "20016e73-3115-439d-8d8b-3bd4ab5c24b1",
+  "colour" : "darkmagenta",
+  "voided" : false,
+  "enrolmentEligibilityCheckRule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  return individual.isFemale() && individual.getAgeInYears() > 15;\n};",
+  "enrolmentSummaryRule" : "'use strict';\n({params, imports}) =>  {\n    const summaries = [];\n    const programEnrolment = params.programEnrolment;\n  \n   const lmp = programEnrolment.findObservationInEntireEnrolment('Last menstrual period').getReadableValue();\n   if(lmp){\n    var lmpDate = imports.moment(lmp).toDate();\n    summaries.push({name: 'Last menstrual period', value: lmpDate});\n   }\n\n    const edd = programEnrolment.findObservationInEntireEnrolment('EDD').getReadableValue();;\n     if (edd) {\n     var eddDate = imports.moment(edd).toDate();\n      summaries.push({name: 'EDD', value: eddDate});\n    }\n    \n    //Weight\n     const weight = programEnrolment.findObservationInEntireEnrolment('Weight');\n    if (weight) {\n      summaries.push({name: 'Weight', value: weight.getValue()});\n    }\n    \n    //FHS\n     const fhs = programEnrolment.findLatestObservationFromEncounters('FHS');\n    if (fhs) {\n      summaries.push({name: 'FHS', value: fhs.getValue()});\n    }\n    \n    //Hb\n      const Hb = programEnrolment.findLatestObservationFromEncounters('Hb');\n    if (Hb) {\n      summaries.push({name: 'Hb', value: Hb.getValue()});\n    }\n    \n    //Urine Albumin\n     const urineAlbumin = programEnrolment.findLatestObservationFromEncounters('Urine Albumin');\n    if (urineAlbumin) {\n      summaries.push({name: 'Urine Albumin', value: urineAlbumin.getValue()});\n    }\n    \n    //High risk condition in previous pregnancy\n    const highRiskPrevious = programEnrolment.findObservationInEntireEnrolment('High risk condition in previous pregnancy');\n    if (highRiskPrevious) {\n      summaries.push({name: 'High risk condition in previous pregnancy', value: highRiskPrevious.getValue()});\n    }\n    \n   //High Risk Conditions\n    const highRiskEnrolment  = programEnrolment.findObservation('High Risk Conditions').getValue();\n    const highRiskLatest = programEnrolment.findLatestObservationFromEncounters('High Risk Conditions').getValue();\n    if ( highRiskEnrolment || highRiskLatest) { \n      const highRisk = highRiskEnrolment.concat(highRiskLatest);\n      summaries.push({name: 'High Risk Conditions', value: highRisk});\n    } \n  \n   \n    return summaries;\n};"
 } ]

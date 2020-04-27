@@ -1,0 +1,104 @@
+{
+  "name" : "Lab Investigations",
+  "uuid" : "0aa18889-65fe-499a-92d0-678f1c1846a9",
+  "formType" : "ProgramEncounter",
+  "formElementGroups" : [ {
+    "uuid" : "4a11aa42-3646-45aa-a74e-9a3e58e02b5e",
+    "name" : "Details",
+    "displayOrder" : 1.0,
+    "display" : "Details",
+    "formElements" : [ {
+      "name" : "Blood group",
+      "uuid" : "efd2c120-b6f9-4267-8ef1-5219ae7be016",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Blood group",
+        "uuid" : "c50c8196-01c9-422f-b917-fd2309adb261"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "HIV (Elisa)",
+      "uuid" : "85acb9e2-aeb3-493d-a772-45191247f443",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "HIV (Elisa)",
+        "uuid" : "b3e8a85a-c7ca-49b8-9c6f-8bd5ee6bfad1"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Hepatitis B",
+      "uuid" : "cb35ac2b-0ea8-49c4-bb91-454249929c47",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Hepatitis B",
+        "uuid" : "f874c217-2fed-41c9-a094-ba6519bd537d"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Sickle prep",
+      "uuid" : "3116cc5d-7d05-4424-bdee-a259362a2a2c",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Sickle prep",
+        "uuid" : "610db330-fafe-456f-bd58-e062cb6e52e3"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Hb Electrophoresis",
+      "uuid" : "43aee17f-8530-4df5-bbd5-15bc3a0cb85c",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Hb Electrophoresis",
+        "uuid" : "198d08c6-b742-4b22-97fd-2293472e571e"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "VDRL",
+      "uuid" : "707aa6e2-6564-409a-9f06-cfd07fccd883",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "VDRL",
+        "uuid" : "cbe884a3-c5f3-441e-900a-6bc76f3cabca"
+      },
+      "displayOrder" : 6.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Random Blood Sugar (RBS)",
+      "uuid" : "856a9b4f-57bb-4c1d-9326-8cf7e3990fd7",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Random Blood Sugar (RBS)",
+        "uuid" : "d6ac43a2-527d-4168-ba7d-2d233add3a6e"
+      },
+      "displayOrder" : 7.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Glucose test (75gm Glucose)",
+      "uuid" : "6c4ae274-dc19-4d9a-b651-bfe3cb236738",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Glucose test (75gm Glucose)",
+        "uuid" : "ae2046a4-015c-44e2-9703-01bc3da13202"
+      },
+      "displayOrder" : 8.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    } ]
+  } ],
+  "decisionRule" : "\"use strict\";\n({params, imports}) => {\n    const programEncounter = params.entity;\n    const decisions = params.decisions;\n    const complicationsBuilder = new imports.rulesConfig.complicationsBuilder({\n        programEncounter: programEncounter,\n        complicationsConcept: \"High Risk Conditions\"\n    });\n       \n     complicationsBuilder\n        .addComplication(\"Rh negative blood group\")\n        .when.valueInEncounter(\"Blood group\")\n        .containsAnyAnswerConceptName(\"AB-\", \"O-\", \"A-\", \"B-\");\n     complicationsBuilder\n        .addComplication(\"HIV (Elisa) is positive\")\n        .when.valueInEncounter(\"HIV (Elisa)\")\n        .containsAnswerConceptName(\"Positive\");\n     complicationsBuilder\n        .addComplication(\"Hb Electrophoresis\")\n        .when.valueInEncounter(\"Hb Electrophoresis\")\n        .containsAnswerConceptName(\"SS\");\n     complicationsBuilder\n        .addComplication(\"Hepatitis B is positive\")\n        .when.valueInEncounter(\"Hepatitis B\")\n        .containsAnswerConceptName(\"Positive\");\n     complicationsBuilder\n        .addComplication(\"VDRL is positive\")\n        .when.valueInEncounter(\"VDRL\")\n        .containsAnswerConceptName(\"Positive\");        \n        \n    decisions.encounterDecisions.push(complicationsBuilder.getComplications());\n    return decisions;\n};",
+  "visitScheduleRule" : "",
+  "validationRule" : "",
+  "checklistsRule" : ""
+}

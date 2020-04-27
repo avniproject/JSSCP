@@ -1,0 +1,774 @@
+{
+  "name" : "ANC Clinic Visit",
+  "uuid" : "991876fd-3297-4e5b-b8f8-2b02ffed4bb5",
+  "formType" : "ProgramEncounter",
+  "formElementGroups" : [ {
+    "uuid" : "0bb80408-e8a7-4eab-aef9-268cb4553946",
+    "name" : "ANC Visit Details",
+    "displayOrder" : 1.0,
+    "display" : "ANC Visit Details",
+    "formElements" : [ {
+      "name" : "Name of ANC Clinic",
+      "uuid" : "12885f96-c2a4-49d8-a511-5235146a5b6f",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Name of ANC Clinic",
+        "uuid" : "7dd50376-7ba1-441c-aa0c-7ff5ce0468e2"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "rule" : "",
+      "mandatory" : true,
+      "voided" : true
+    } ],
+    "voided" : true
+  }, {
+    "uuid" : "b193c937-752c-4735-ac61-aca5f68b020e",
+    "name" : "Anthropometry",
+    "displayOrder" : 2.0,
+    "display" : "Anthropometry",
+    "formElements" : [ {
+      "name" : "Height",
+      "uuid" : "4df519e3-d3bd-4d10-a7fa-4397c66f4daf",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Height",
+        "uuid" : "23bcad9f-ec16-46ec-92f5-e144411e5dec"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.latestValueInPreviousEncounters('Height').is.notDefined;\n  \nreturn statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Weight",
+      "uuid" : "4de79ca4-1a2e-4421-a873-1e9bbf4554c2",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Weight",
+        "uuid" : "8d947379-7a1d-48b2-8760-88fff6add987"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Blood Pressure - Systolic",
+      "uuid" : "26f4ca99-2e14-465a-b975-f017bcaf5c90",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Systolic",
+        "uuid" : "cabae2d4-6561-431c-9130-96dc4f38821b"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "mandatory" : true,
+      "voided" : true
+    }, {
+      "name" : "Blood Pressure - Diastolic",
+      "uuid" : "696932a5-1819-4894-9dc8-b21b5266c069",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Diastolic",
+        "uuid" : "158af9c8-23b5-4cf4-ac92-bce9152b5f16"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "mandatory" : true,
+      "voided" : true
+    }, {
+      "name" : "Mosquito net given",
+      "uuid" : "033ca2b5-b4ba-42b3-9e53-5ca726351549",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Is mosquito net given",
+        "uuid" : "b7be4ddc-14ee-4caf-ab38-e1c87d088688"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "rule" : "",
+      "mandatory" : true,
+      "voided" : true
+    }, {
+      "name" : "Safe delivery kit given",
+      "uuid" : "bc933acf-c741-402a-abdd-9134ed41fc4d",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Is safe delivery kit given",
+        "uuid" : "04eecc2b-93eb-49d4-83a4-6629442711ea"
+      },
+      "displayOrder" : 6.0,
+      "type" : "SingleSelect",
+      "rule" : "",
+      "mandatory" : true,
+      "voided" : true
+    } ]
+  }, {
+    "uuid" : "c76c6300-5f5e-4646-abfd-800984c653bd",
+    "name" : "Basic details",
+    "displayOrder" : 3.0,
+    "display" : "Basic details",
+    "formElements" : [ {
+      "name" : "Blood Pressure (systolic)",
+      "uuid" : "26f40952-661e-4dc6-889c-eb15224a1cb1",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Blood Pressure (systolic)",
+        "uuid" : "6874d48e-8c2f-4009-992c-1d3ca1678cc6"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Blood Pressure (Diastolic)",
+      "uuid" : "b273461c-c343-44d4-b11c-ee056a6b4d63",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Blood Pressure (Diastolic)",
+        "uuid" : "da871f6c-cef0-4191-b307-6751b31ac9ec"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Is mosquito net given?",
+      "uuid" : "c764957e-8296-4ceb-9c6e-6c33f36e3caa",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Is mosquito net given",
+        "uuid" : "b7be4ddc-14ee-4caf-ab38-e1c87d088688"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.latestValueInPreviousEncounters('Is mosquito net given').containsAnswerConceptNameOtherThan('Yes').or.when.latestValueInPreviousEncounters('Mosquito net given').is.notDefined;\n  \nreturn statusBuilder.build();\n};",
+      "mandatory" : false
+    }, {
+      "name" : "Is Safe delivery kit given?",
+      "uuid" : "e2b86018-e5cb-40e3-9476-94192c963fe6",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Is safe delivery kit given",
+        "uuid" : "04eecc2b-93eb-49d4-83a4-6629442711ea"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.latestValueInPreviousEncounters('Is safe delivery kit given').containsAnswerConceptNameOtherThan('Yes').or.when.latestValueInPreviousEncounters('Is safe delivery kit given').is.notDefined;\n  \nreturn statusBuilder.build();\n};",
+      "mandatory" : false
+    } ]
+  }, {
+    "uuid" : "05a197d2-cba6-4134-b21f-a0b9f394e467",
+    "name" : "History and Physical examination",
+    "displayOrder" : 4.0,
+    "display" : "History and Physical examination",
+    "formElements" : [ {
+      "name" : "New complaint",
+      "uuid" : "94718f63-3e90-4262-827d-ac98bb2e1d31",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "New complaint",
+        "uuid" : "74599453-6fbd-4f8d-bf7f-34faa3c10eb9"
+      },
+      "displayOrder" : 1.0,
+      "type" : "MultiSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Specify the other complaint",
+      "uuid" : "5269ebed-3dd8-4478-a007-90a56f7a95ea",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Other complaint",
+        "uuid" : "dc0c10ca-c151-4c5c-aedc-2b8040dbea52"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.show().when.valueInEncounter('New complaint').containsAnswerConceptName('Other');\n\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Oedema",
+      "uuid" : "e9048c62-6d40-479f-826c-b0d92920b482",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Oedema",
+        "uuid" : "95dd3094-6c99-4622-8614-bf5d33a509e4"
+      },
+      "displayOrder" : 3.0,
+      "type" : "MultiSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Abdomen check",
+      "uuid" : "da2705a2-a94d-4a66-83fc-7caaf2ee2bc8",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Abdomen check",
+        "uuid" : "2a15dc0b-d6a0-4670-b109-4013789cb403"
+      },
+      "displayOrder" : 4.0,
+      "type" : "MultiSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Gestational age",
+      "uuid" : "d94c56a9-1ced-4a36-9f69-5a3354cdebbb",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Gestational age",
+        "uuid" : "5edc0b6a-aaa2-4499-a673-3db8f0b056e1"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "mandatory" : true,
+      "voided" : true
+    }, {
+      "name" : "Fundle Height",
+      "uuid" : "de9e0df0-bc70-43aa-be6a-31084cef25a2",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Fundle Height",
+        "uuid" : "f5ff8848-798a-4b0f-bcaf-33f2d4528f37"
+      },
+      "displayOrder" : 6.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Position",
+      "uuid" : "25755226-6271-44c9-a0a2-ab1da3cde59c",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Position",
+        "uuid" : "69a95145-505b-497a-9fc9-61fcc5d2ff59"
+      },
+      "displayOrder" : 7.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "FHS",
+      "uuid" : "ffc85ccf-a291-4f48-944b-d74d1eed4a57",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "FHS",
+        "uuid" : "7c6d3fc6-6a9f-4b44-beef-8c2200da5281"
+      },
+      "displayOrder" : 8.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "FHS number",
+      "uuid" : "df07b83c-32e4-4183-8996-e6eac4f61cc0",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "FHS number",
+        "uuid" : "532ae011-4380-4ff5-b7c7-7d163e396221"
+      },
+      "displayOrder" : 9.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.show().when.valueInEncounter('FHS').containsAnswerConceptName('Audible');\n\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Foetus movement",
+      "uuid" : "96a1938a-c0e2-4dd5-b563-03a2e7e57496",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Foetus movement",
+        "uuid" : "31651632-0acb-4ee5-a0f3-1628bbed456c"
+      },
+      "displayOrder" : 10.0,
+      "type" : "SingleSelect",
+      "rule" : "\"use strict\";\n({params, imports}) => {\n    const programEncounter = params.entity;\n    const formElement = params.formElement;\n    //const lmpDate = programEncounter.programEnrolment.getObservationValue('Last menstrual period');\n    //const value =  imports.moment(today).diff(lmpDate, 'months');\n    const value = \nruleServiceLibraryInterfaceForSharingModules.motherCalculations.currentTrimester(programEncounter.programEnrolment, programEncounter.encounterDateTime);\n   \nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.show().whenItem(value).greaterThanOrEqualTo(2);\n\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Breast examination",
+      "uuid" : "60c0fb96-39ab-4fbb-807e-8a44343d2870",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Breast examination",
+        "uuid" : "7259b0fa-c8d1-4e04-8d13-7dbc05f0169b"
+      },
+      "displayOrder" : 11.0,
+      "type" : "MultiSelect",
+      "rule" : "\"use strict\";\n({params, imports}) => {\n    const programEncounter = params.entity;\n    const formElement = params.formElement;\n    //const lmpDate = programEncounter.programEnrolment.getObservationValue('Last menstrual period');\n    //const value =  imports.moment(today).diff(lmpDate, 'months');\n    const value = \nruleServiceLibraryInterfaceForSharingModules.motherCalculations.currentTrimester(programEncounter.programEnrolment, programEncounter.encounterDateTime);\n   \nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.show().whenItem(value).equals(3);\n\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "High risk condition in this pregnancy?",
+      "uuid" : "68171dca-b532-46da-b5b5-56ef1023d17d",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "High risk condition in this pregnancy?",
+        "uuid" : "93679880-83f5-4877-bfc4-e525421c7e52"
+      },
+      "displayOrder" : 12.0,
+      "type" : "SingleSelect",
+      "mandatory" : true,
+      "voided" : true
+    }, {
+      "name" : "High risk condition in this pregnancy",
+      "uuid" : "941d9c2e-6011-42ec-9cfa-65b8100a84e9",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "High risk condition in this pregnancy",
+        "uuid" : "b8724e63-db1d-46fc-8ecc-17ee200bf1a2"
+      },
+      "displayOrder" : 13.0,
+      "type" : "MultiSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('High risk condition in this pregnancy?').containsAnswerConceptName('Yes');\n  \n  return statusBuilder.build();\n};",
+      "mandatory" : true,
+      "voided" : true
+    } ]
+  }, {
+    "uuid" : "40835036-76b9-4d86-adbb-b3e9ed1db071",
+    "name" : "Lab investigations",
+    "displayOrder" : 5.0,
+    "display" : "Lab investigations",
+    "formElements" : [ {
+      "name" : "Blood group",
+      "uuid" : "bbae20d8-fda2-4413-aeeb-fdb609ce1f4c",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Blood group",
+        "uuid" : "c50c8196-01c9-422f-b917-fd2309adb261"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "rule" : "",
+      "mandatory" : false,
+      "voided" : true
+    }, {
+      "name" : "HIV (Elisa)",
+      "uuid" : "74c6c696-ba56-4dd2-a1ab-51b6b3a03d51",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "HIV (Elisa)",
+        "uuid" : "b3e8a85a-c7ca-49b8-9c6f-8bd5ee6bfad1"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "rule" : "",
+      "mandatory" : false,
+      "voided" : true
+    }, {
+      "name" : "Hepatitis B",
+      "uuid" : "b5801eb1-59f5-4e65-bdee-f9f4b1b23a7e",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Hepatitis B",
+        "uuid" : "f874c217-2fed-41c9-a094-ba6519bd537d"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "rule" : "",
+      "mandatory" : false,
+      "voided" : true
+    }, {
+      "name" : "Sickle prep",
+      "uuid" : "54019b54-9c30-4dc2-81da-9aace9e80ce7",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Sickle prep",
+        "uuid" : "610db330-fafe-456f-bd58-e062cb6e52e3"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "rule" : "",
+      "mandatory" : false,
+      "voided" : true
+    }, {
+      "name" : "Hb Electrophoresis",
+      "uuid" : "025c845e-30af-4411-a749-e67fbbfebd55",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Hb Electrophoresis",
+        "uuid" : "198d08c6-b742-4b22-97fd-2293472e571e"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "rule" : "",
+      "mandatory" : false,
+      "voided" : true
+    }, {
+      "name" : "VDRL",
+      "uuid" : "db49bd0b-b701-48d7-aa81-b441016ef4fc",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "VDRL",
+        "uuid" : "cbe884a3-c5f3-441e-900a-6bc76f3cabca"
+      },
+      "displayOrder" : 6.0,
+      "type" : "SingleSelect",
+      "rule" : "",
+      "mandatory" : false,
+      "voided" : true
+    }, {
+      "name" : "Pus Cell",
+      "uuid" : "fef1ec46-152c-48ba-a0cd-1592d3bc8af1",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Pus Cell",
+        "uuid" : "0b8bc1f8-43db-4ecb-9677-22709e91681f"
+      },
+      "displayOrder" : 7.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('New complaint').containsAnyAnswerConceptName('Fever','Burning micturition','Pain in abdomen');\n  \nreturn statusBuilder.build();\n};",
+      "mandatory" : false,
+      "voided" : true
+    }, {
+      "name" : "RBC",
+      "uuid" : "7644151e-9a7e-4cd8-9039-88d15e0ddb29",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "RBC",
+        "uuid" : "b59c126f-975b-45e6-8dd6-584dd54e25c9"
+      },
+      "displayOrder" : 8.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('New complaint').containsAnyAnswerConceptName('Fever','Burning micturition','Pain in abdomen');\n  \nreturn statusBuilder.build();\n};",
+      "mandatory" : false,
+      "voided" : true
+    }, {
+      "name" : "Epithelial cells",
+      "uuid" : "5696eb96-a0bd-4bc2-af18-6358cd1f9470",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Epithelial cells",
+        "uuid" : "0343e35f-afd0-41ce-af93-e69c184b159c"
+      },
+      "displayOrder" : 9.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('New complaint').containsAnyAnswerConceptName('Fever','Burning micturition','Pain in abdomen');\n  \nreturn statusBuilder.build();\n};",
+      "mandatory" : false,
+      "voided" : true
+    }, {
+      "name" : "Cast",
+      "uuid" : "51e96e36-479b-4932-a8b9-2461017adc6b",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Cast",
+        "uuid" : "a2b6d675-4c70-4f15-a5ad-b8f5273602f9"
+      },
+      "displayOrder" : 10.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('New complaint').containsAnyAnswerConceptName('Fever','Burning micturition','Pain in abdomen');\n  \nreturn statusBuilder.build();\n};",
+      "mandatory" : false,
+      "voided" : true
+    }, {
+      "name" : "Crystel",
+      "uuid" : "f6196368-d7ed-4f2a-9be6-ed1811c52f2f",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Crystel",
+        "uuid" : "14a023d3-bd25-4343-9d93-34d9f88eb4b3"
+      },
+      "displayOrder" : 11.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('New complaint').containsAnyAnswerConceptName('Fever','Burning micturition','Pain in abdomen');\n  \nreturn statusBuilder.build();\n};",
+      "mandatory" : false,
+      "voided" : true
+    }, {
+      "name" : "Urine Albumin",
+      "uuid" : "c4aaa7eb-b636-4d04-8c5d-4a9a909ccf3f",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Urine Albumin",
+        "uuid" : "78fcebd3-17e5-4621-89be-c580fbf13168"
+      },
+      "displayOrder" : 12.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Urine sugar",
+      "uuid" : "fc79113b-e33d-41f9-9346-91e8a4871687",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Urine sugar",
+        "uuid" : "55ae9e7a-f6ff-4c0b-861c-fd29b6c5c646"
+      },
+      "displayOrder" : 13.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Haemoglobin",
+      "uuid" : "c444a47c-d50b-456f-beee-8a25a5ba2f21",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Hb",
+        "uuid" : "a240115e-47a2-4244-8f74-d13d20f087df"
+      },
+      "displayOrder" : 14.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Malaria parasite",
+      "uuid" : "c4027199-c54c-4ac1-a794-f9f667a39ce1",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Malaria parasite",
+        "uuid" : "9a89e9d6-f6e4-4d14-8841-34df9ece70a5"
+      },
+      "displayOrder" : 15.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('New complaint').containsAnyAnswerConceptName('Headache','Fever');\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Random Blood Sugar (RBS)",
+      "uuid" : "3a14e1ba-260a-4452-b694-1e8b2876947a",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Random Blood Sugar (RBS)",
+        "uuid" : "d6ac43a2-527d-4168-ba7d-2d233add3a6e"
+      },
+      "displayOrder" : 16.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.latestValueInPreviousEncounters('Random Blood Sugar (RBS)').is.notDefined;\n  \nreturn statusBuilder.build();\n};",
+      "mandatory" : false,
+      "voided" : true
+    }, {
+      "name" : "Glucose test (75gm Glucose)",
+      "uuid" : "2f9e327d-4ccc-459e-aa71-f5f53a64d101",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Glucose test (75gm Glucose)",
+        "uuid" : "ae2046a4-015c-44e2-9703-01bc3da13202"
+      },
+      "displayOrder" : 17.0,
+      "type" : "SingleSelect",
+      "mandatory" : false,
+      "voided" : true
+    } ]
+  }, {
+    "uuid" : "b7c5bb37-2f83-4c7c-97ee-73adb0d698c1",
+    "name" : "Urine Microscopy",
+    "displayOrder" : 6.0,
+    "display" : "Urine Microscopy",
+    "formElements" : [ {
+      "name" : "Pus Cell",
+      "uuid" : "1ea5d161-81fd-4505-8615-147dbcac500e",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Pus Cell",
+        "uuid" : "0b8bc1f8-43db-4ecb-9677-22709e91681f"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('New complaint').containsAnyAnswerConceptName('Pain in abdomen','Burning micturition','Fever');\n  return statusBuilder.build();\n};",
+      "mandatory" : false
+    }, {
+      "name" : "RBC",
+      "uuid" : "6da0e845-49be-4a11-87fd-5153ac059a5e",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "RBC",
+        "uuid" : "b59c126f-975b-45e6-8dd6-584dd54e25c9"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('New complaint').containsAnyAnswerConceptName('Pain in abdomen','Burning micturition','Fever');\n  return statusBuilder.build();\n};",
+      "mandatory" : false
+    }, {
+      "name" : "Epithelial cells",
+      "uuid" : "bc393bdc-88c6-4d54-958e-1b26f1f7cc15",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Epithelial cells",
+        "uuid" : "0343e35f-afd0-41ce-af93-e69c184b159c"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('New complaint').containsAnyAnswerConceptName('Pain in abdomen','Burning micturition','Fever');\n  return statusBuilder.build();\n};",
+      "mandatory" : false
+    }, {
+      "name" : "Cast",
+      "uuid" : "4e9360db-df70-4f74-893d-6e1fff171dab",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Cast",
+        "uuid" : "a2b6d675-4c70-4f15-a5ad-b8f5273602f9"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('New complaint').containsAnyAnswerConceptName('Pain in abdomen','Burning micturition','Fever');\n  return statusBuilder.build();\n};",
+      "mandatory" : false
+    }, {
+      "name" : "Crystel",
+      "uuid" : "06db1585-728e-46bc-a200-e2400de648a8",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Crystel",
+        "uuid" : "14a023d3-bd25-4343-9d93-34d9f88eb4b3"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('New complaint').containsAnyAnswerConceptName('Pain in abdomen','Burning micturition','Fever');\n  return statusBuilder.build();\n};",
+      "mandatory" : false
+    } ]
+  }, {
+    "uuid" : "8ff2c73e-10d1-4905-80cf-e56248f4387a",
+    "name" : "Medicines",
+    "displayOrder" : 7.0,
+    "display" : "Medicines",
+    "formElements" : [ {
+      "name" : "Iron & Folic Acid",
+      "uuid" : "657487d3-a604-41df-acf6-604ad2faf31d",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Iron & Folic Acid",
+        "uuid" : "2c1760f2-c976-46be-b744-fa97c7448dff"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : false,
+      "voided" : true
+    }, {
+      "name" : "Whether Folic acid given?",
+      "uuid" : "08b9633e-2b99-42bc-8da2-a94adddfc8a8",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Whether Folic acid given",
+        "uuid" : "bf1e5598-594c-4444-94e0-9390f5081e41"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Whether IFA given?",
+      "uuid" : "cc1e9af2-78a4-4741-90af-fa0583de2645",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Whether IFA given",
+        "uuid" : "5740f87b-8cc6-4927-88a2-44636e8f396c"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Whether Calcium given?",
+      "uuid" : "7149281c-7930-45bc-8f01-b3b506744d32",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Whether Calcium given",
+        "uuid" : "00de9acc-4ff6-485b-b979-41ff00745d23"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Whether Amala given",
+      "uuid" : "678040c4-82d9-4a6f-a7ae-5365b97c2d0f",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Whether Amala given",
+        "uuid" : "2a5a3b4d-80c4-4d05-8585-e16966ff0c3e"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    } ]
+  }, {
+    "uuid" : "004ae98e-4c94-4b7e-b50d-e48f3b447c3d",
+    "name" : "USG report",
+    "displayOrder" : 8.0,
+    "display" : "USG report",
+    "formElements" : [ {
+      "name" : "Foetus is ok",
+      "uuid" : "69948c9f-5ae8-4e56-9624-58af9d95b040",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Foetus is ok",
+        "uuid" : "6618dfd6-5df2-4c85-b916-0679bcb9be03"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : false,
+      "voided" : true
+    }, {
+      "name" : "Presentation of baby",
+      "uuid" : "e6960299-2426-4ba3-865c-05fff7beb506",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Presentation of baby",
+        "uuid" : "e7b5d460-47dd-490b-af0a-a73a19a93a9d"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : false,
+      "voided" : true
+    }, {
+      "name" : "Twin baby",
+      "uuid" : "f356c377-f785-4464-a14a-4ae189242763",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Twin baby",
+        "uuid" : "9f55f157-c835-4068-a948-c849073d1d86"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "mandatory" : false,
+      "voided" : true
+    }, {
+      "name" : "Follow USG required",
+      "uuid" : "e6ed9bf9-1921-4d5e-98c4-892ced5e5f09",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Follow USG required",
+        "uuid" : "96499ee7-ad90-4831-a0bd-1fd765f6f6c0"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "mandatory" : false,
+      "voided" : true
+    }, {
+      "name" : "Date of next USG",
+      "uuid" : "7bd5307c-dc86-4259-834b-88dd3722c32a",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Date of next USG",
+        "uuid" : "71efca55-ad55-4814-a16f-44d714c6ecf5"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "mandatory" : false,
+      "voided" : true
+    } ],
+    "voided" : true
+  }, {
+    "uuid" : "21c53019-cf6b-4adb-bfc7-5390bd77ac00",
+    "name" : "Referral",
+    "displayOrder" : 9.0,
+    "display" : "Referral",
+    "formElements" : [ {
+      "name" : "Referral required for?",
+      "uuid" : "3de3f6ea-15a2-4121-b661-4cd23a4cbe34",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Referral required for?",
+        "uuid" : "049cbcbe-d953-49ad-8198-10ae86bc6bff"
+      },
+      "displayOrder" : 1.0,
+      "type" : "MultiSelect",
+      "mandatory" : true,
+      "voided" : true
+    }, {
+      "name" : "Is referral required",
+      "uuid" : "07dd4afa-f99e-4f1d-bad8-7cf72d8cfff4",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Is referral required",
+        "uuid" : "77d122e8-0620-4754-8375-b0cbe329003c"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Referral place",
+      "uuid" : "3c31097f-7225-45b0-945e-f317dc49e4d8",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Referral place",
+        "uuid" : "d78183dd-aa99-47fa-b562-f761f5415028"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "rule" : "\n'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.show().when.valueInEncounter('Referral required for?').containsAnswerConceptNameOtherThan('No need');\n\n  return statusBuilder.build();\n};",
+      "mandatory" : true,
+      "voided" : true
+    } ]
+  } ],
+  "decisionRule" : "\"use strict\";\n({params, imports}) => {\n    const programEncounter = params.entity;\n    const decisions = params.decisions;\n    const complicationsBuilder = new imports.rulesConfig.complicationsBuilder({\n        programEncounter: programEncounter,\n        complicationsConcept: \"High Risk Conditions\"\n    });\n    //Height is less than 140 cm\n     complicationsBuilder\n        .addComplication(\"Height is less than 140 cm\")\n        .when.valueInEncounter(\"Height\")\n        .is.lessThan(140);\n    //Weight is less than 35 kg\n     complicationsBuilder\n        .addComplication(\"Weight is less than 35 kg\")\n        .when.valueInEncounter(\"Weight\")\n        .is.lessThan(35);\n    //High Blood Pressure\n     complicationsBuilder\n        .addComplication(\"High Blood Pressure\")\n        .when.valueInEncounter(\"Blood Pressure (Diastolic)\")\n        .is.greaterThanOrEqualTo(90)\n        .or.when.valueInEncounter(\"Blood Pressure (systolic)\")\n        .is.greaterThanOrEqualTo(140);\n    complicationsBuilder\n        .addComplication(\"Oedema\")\n        .when.valueInEncounter(\"Oedema\")\n        .containsAnyAnswerConceptName(\"Face\",\"Vulval\",\"Entire body\");\n    complicationsBuilder\n        .addComplication(\"Hydroamniosis\")\n        .when.valueInEncounter(\"Abdomen check\")\n        .containsAnswerConceptName(\"Hydroamniosis\");\n  complicationsBuilder\n        .addComplication(\"Twins\")\n        .when.valueInEncounter(\"Abdomen check\")\n        .containsAnswerConceptName(\"Twins\");\n        //Foetal Position\n  complicationsBuilder\n        .addComplication(\"Foetal Position is not normal\")\n        .when.valueInEncounter(\"Position\")\n        .containsAnswerConceptName(\"Transverse\",\"Breach\");\n      //FHS - Not Audible\n    complicationsBuilder\n        .addComplication(\"FHS - Not Audible\")\n        .when.valueInEncounter(\"FHS\")\n        .containsAnswerConceptName(\"Not audible/Can't locate\");\n     complicationsBuilder\n        .addComplication(\"No foetal movement\")\n        .when.valueInEncounter(\"Foetus movement\")\n        .containsAnyAnswerConceptName(\"No foetal movement\");\n     \n        \n    complicationsBuilder\n        .addComplication(\"Urine Albumin Present\")\n        .when.valueInEncounter(\"Urine Albumin\")\n        .containsAnyAnswerConceptName(\"1+\",\"2+\",\"3+\",\"4+\");\n    complicationsBuilder\n        .addComplication(\"Urine sugar present\")\n        .when.valueInEncounter(\"Urine sugar\")\n        .containsAnyAnswerConceptName(\"1+\",\"2+\",\"3+\",\"4+\");\n    complicationsBuilder\n        .addComplication(\"Low Haemoglobin\")\n        .when.valueInEncounter(\"Hb\")\n        .is.lessThan(7);\n        \n     complicationsBuilder\n        .addComplication(\"Bleeding PV\")\n        .when.valueInEncounter(\"New complaint\")\n        .containsAnswerConceptName(\"Bleeding PV\");\n     complicationsBuilder\n        .addComplication(\"Breathing difficulty\")\n        .when.valueInEncounter(\"New complaint\")\n        .containsAnswerConceptName(\"Breathing difficulty\");\n     complicationsBuilder\n        .addComplication(\"Fetus is not moving\")\n        .when.valueInEncounter(\"New complaint\")\n        .containsAnswerConceptName(\"Fetus is not moving\");\n     complicationsBuilder\n        .addComplication(\"Headache\")\n        .when.valueInEncounter(\"New complaint\")\n        .containsAnswerConceptName(\"Headache\");\n     complicationsBuilder\n        .addComplication(\"Pain in abdomen\")\n        .when.valueInEncounter(\"New complaint\")\n        .containsAnswerConceptName(\"Pain in abdomen\");\n     complicationsBuilder\n        .addComplication(\"Swelling on face/vulva/abdomen/whole body\")\n        .when.valueInEncounter(\"New complaint\")\n        .containsAnswerConceptName(\"Swelling on face/vulva/abdomen/whole body\");\n     complicationsBuilder\n        .addComplication(\"Burning micturition\")\n        .when.valueInEncounter(\"New complaint\")\n        .containsAnswerConceptName(\"Burning micturition\");\n     complicationsBuilder\n        .addComplication(\"Fever\")\n        .when.valueInEncounter(\"New complaint\")\n        .containsAnswerConceptName(\"Fever\");\n        \n    const gestationalAgeInWeeks = ruleServiceLibraryInterfaceForSharingModules.motherCalculations.gestationalAgeAsOn(programEncounter.encounterDateTime,programEncounter.programEnrolment);    \n        \n    complicationsBuilder\n        .addComplication(\"Fundle Height doesn't correspond to the gestational week\")\n        .when.valueInEncounter(\"Fundle Height\")\n        .containsAnswerConceptName(\"12-14\").and.whenItem(gestationalAgeInWeeks).equalsOneOf(12,13);\n \n  complicationsBuilder\n        .addComplication(\"Fundle Height doesn't correspond to the gestational week\")\n        .when.valueInEncounter(\"Fundle Height\")\n        .containsAnyAnswerConceptName(\"12-14\",\"14-16\").and.whenItem(gestationalAgeInWeeks).equalsOneOf(13,14);\n \n \n        \n        \n    decisions.encounterDecisions.push(complicationsBuilder.getComplications());\n    return decisions;\n};",
+  "visitScheduleRule" : "",
+  "validationRule" : "",
+  "checklistsRule" : ""
+}

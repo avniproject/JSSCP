@@ -1,4 +1,13 @@
 [ {
+  "name" : "",
+  "uuid" : "ef7c4850-84bf-4f4a-a381-740ed2241072",
+  "dataType" : "NA"
+}, {
+  "name" : "1+",
+  "uuid" : "d791406f-86bd-47ef-8c23-22accc521558",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "1-5",
   "uuid" : "9ac76826-0daa-4b90-9a9c-e269ac168005",
   "dataType" : "NA"
@@ -7,13 +16,98 @@
   "uuid" : "d3ff5645-4c84-47f4-9f35-6d0242cd727c",
   "dataType" : "NA"
 }, {
+  "name" : "12-14",
+  "uuid" : "be02d807-e70a-43a4-bb5e-dbd8e250f2c9",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "14-16",
+  "uuid" : "6fa2d5e5-b709-4690-a141-4d86d0b7c7ab",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "16-18",
+  "uuid" : "b58302a2-1050-454b-81f4-aad5e8ab3854",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "18-20",
+  "uuid" : "18fa41fe-6719-49a2-b0df-7527fbcce6bf",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "2 Wheeler",
   "uuid" : "03c61006-8dc8-449e-9486-ecfba3e84f99",
   "dataType" : "NA"
 }, {
+  "name" : "2+",
+  "uuid" : "ba904c8d-502d-4979-bc99-cfa077678279",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "20-22",
+  "uuid" : "18c1a185-b33c-4dc8-816b-18365744bd13",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "22-24",
+  "uuid" : "f04d5228-54b6-4c48-a412-b0dbb6abd477",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "24-26",
+  "uuid" : "2cef8d3a-4699-46ab-8e3e-ff1d758b5b23",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "26-28",
+  "uuid" : "0c722806-f54c-40f6-aa6a-1475815dc498",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "28-30",
+  "uuid" : "230f8227-0d49-49f8-9052-0c5df27215a4",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "3+",
+  "uuid" : "63513531-d5a4-47c1-a4ef-a02063b43871",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "30-32",
+  "uuid" : "f91ae1aa-7cda-4b75-9979-dd8c141ed405",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "32-34",
+  "uuid" : "72c464db-93c7-431f-8ca2-75a4ff081482",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "34-36",
+  "uuid" : "e0451d57-3185-4ab6-9fff-f3801523f9ba",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "36-38",
+  "uuid" : "7340c96d-80cb-430e-b89d-ebb664293767",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "38-40",
+  "uuid" : "a7442dd5-a548-4ac9-a758-167afb326b0c",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "4 Wheeler",
   "uuid" : "ad8156fd-c3ac-461c-8611-a5cf4cfbcc7e",
   "dataType" : "NA"
+}, {
+  "name" : "4+",
+  "uuid" : "b133d9ce-1661-420f-b73a-392300959b4e",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "6-7",
   "uuid" : "0b2b6bb5-7eb8-4b14-bc68-662fade3aca4",
@@ -21,6 +115,14 @@
 }, {
   "name" : "8-10",
   "uuid" : "6b941c49-349f-40f6-a4ae-bdd00f45fbba",
+  "dataType" : "NA"
+}, {
+  "name" : ">3 Abortions",
+  "uuid" : "b9f544ce-a11d-4dfe-8f03-9f2ab0c68f2f",
+  "dataType" : "NA"
+}, {
+  "name" : ">=5 still birth / Babies died",
+  "uuid" : "8310d83d-1c92-401c-a85b-9bdfc8225c08",
   "dataType" : "NA"
 }, {
   "name" : "A+",
@@ -55,6 +157,29 @@
   "uuid" : "d9674584-51ca-40d1-86be-3f65f6b2f84c",
   "dataType" : "NA"
 }, {
+  "name" : "Abdomen check",
+  "uuid" : "2a15dc0b-d6a0-4670-b109-4013789cb403",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Hydroamniosis",
+    "uuid" : "2720cec8-db49-49e5-a1d7-9e1fb45d136d",
+    "order" : 0.0
+  }, {
+    "name" : "Twins",
+    "uuid" : "192cad34-767c-43a0-8b04-0443ca87a6a0",
+    "order" : 1.0
+  }, {
+    "name" : "Previous C-section scar",
+    "uuid" : "d097c766-9539-4bf8-9efd-e6ebc77e0295",
+    "order" : 2.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Abnormal crystel",
+  "uuid" : "cb4a9364-ac2f-41ac-af30-f60f1d50f48d",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Abnormal Pulse",
   "uuid" : "935a61d9-b2b0-454c-b167-56da4cd590c3",
   "dataType" : "NA"
@@ -67,6 +192,32 @@
   "uuid" : "b819f9a6-a645-4c1e-b78a-f0d97d1383b3",
   "dataType" : "NA"
 }, {
+  "name" : "Abortion done by",
+  "uuid" : "68740322-f381-4de6-9e06-ad9f93e81f93",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Doctor",
+    "uuid" : "d7265308-9843-4d5f-859f-1585c119c8cb",
+    "order" : 0.0
+  }, {
+    "name" : "Self medication",
+    "uuid" : "56341359-3529-41e6-bf14-7ead4cc9f812",
+    "order" : 1.0
+  }, {
+    "name" : "Traditional healer",
+    "uuid" : "d5971814-12e3-4cdb-89a0-092ee1f49ca7",
+    "order" : 2.0
+  }, {
+    "name" : "Jholachap doctor",
+    "uuid" : "dab3f3f6-abed-4426-aced-e016fa5b1354",
+    "order" : 3.0
+  }, {
+    "name" : "Other",
+    "uuid" : "798b7942-cf58-4d4e-a529-5972942e0a7e",
+    "order" : 4.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Absent",
   "uuid" : "4d6cf097-ea82-4b4d-ba8f-2bd51132f04d",
   "dataType" : "NA"
@@ -75,9 +226,19 @@
   "uuid" : "1aa4bb12-ca66-4a3e-8fc0-9d566ad6aa93",
   "dataType" : "NA"
 }, {
+  "name" : "Achanakmar",
+  "uuid" : "1ac4611a-a6b2-4e5f-b78d-6021fcc34714",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Active movements",
   "uuid" : "6f628793-7064-48cc-a42d-1103454b4ee5",
   "dataType" : "NA"
+}, {
+  "name" : "Actual data entry/min",
+  "uuid" : "b4f90265-4c84-492f-8ee5-8358dcb54966",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Address",
   "uuid" : "78bfc28b-97b8-420b-8bb1-977bd7811403",
@@ -92,9 +253,19 @@
     "order" : 1.0
   } ]
 }, {
+  "name" : "Admission at Referral centre",
+  "uuid" : "dad7f494-99ec-42ce-b50b-07a7450be30c",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "After a day",
   "uuid" : "c7f51054-e545-4bd3-92ca-d5f8f64ba587",
   "dataType" : "NA"
+}, {
+  "name" : "Age is greater than 30 years",
+  "uuid" : "56c6c67f-48b8-43a6-95ff-424e7c625645",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Age of youngest child",
   "uuid" : "b9afc245-a239-4659-a5ea-b7f5ddbc9789",
@@ -164,6 +335,15 @@
     "value" : "Niwaskhar"
   } ]
 }, {
+  "name" : "Antepartum haemorrahoge",
+  "uuid" : "7756e71d-6802-4b82-8e74-36a7721b69dc",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Antepartum hemorrahge",
+  "uuid" : "8817d66a-cbf5-43c9-9235-1ce6c7e89bec",
+  "dataType" : "NA"
+}, {
   "name" : "Antyodaya",
   "uuid" : "78b4a024-82af-42fe-bf58-6da696073af9",
   "dataType" : "NA"
@@ -198,6 +378,35 @@
     "order" : 4.0
   } ]
 }, {
+  "name" : "Any deformity",
+  "uuid" : "2ebba1d0-7bbb-4550-9896-3a679512f673",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Any High risk condition in previous pregnancy",
+  "uuid" : "26cee30f-b36d-4be2-bec3-9a0904492e52",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Any member of house/village",
+  "uuid" : "af225e01-3cfb-41be-8335-2eb773c4da61",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Anyother",
+  "uuid" : "772e27c1-87c4-441a-bcec-aa9f74e1bfa5",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "APL",
   "uuid" : "3eac5822-f5fe-421d-8cdd-e89bef20baca",
   "dataType" : "NA"
@@ -210,13 +419,48 @@
     "value" : "Manpur"
   } ]
 }, {
+  "name" : "Arrangement was made",
+  "uuid" : "7709636f-51c3-4db6-a9d4-0aca4b1a4cab",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "AS",
+  "uuid" : "48c7a76c-13f8-4f1f-b09e-d4e00461e3c6",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "As it is",
+  "uuid" : "64238ece-a3d6-4bfe-b666-a2d09b9360d9",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Assisted delivery",
+  "uuid" : "87808f03-7424-46e5-9db2-95d2f189e498",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Asthma",
   "uuid" : "e2f91c5a-5e8a-449c-b46b-55c4616645a9",
   "dataType" : "NA"
 }, {
+  "name" : "At In law's place",
+  "uuid" : "50e4f70d-634d-487f-9cf4-2e965cc83165",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "At mother's place",
+  "uuid" : "8a6fb293-0da1-4103-a7e9-99c986281e40",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Ataria",
   "uuid" : "fd1dd508-3061-43fa-92cc-f94711546c8d",
   "dataType" : "NA"
+}, {
+  "name" : "Audible",
+  "uuid" : "d67f3971-30cf-4293-83f7-f0f10f5f843d",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Away from village",
   "uuid" : "d233d6a3-bbbb-4e68-b6e0-e72b231d221a",
@@ -265,6 +509,16 @@
     "key" : "village",
     "value" : "Boiraha"
   } ]
+}, {
+  "name" : "Bamhani",
+  "uuid" : "aedf7360-4ef2-437f-908e-cc3d819ccf7b",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Barar",
+  "uuid" : "cd54ed53-89e6-4129-9331-30bc35745809",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Batiya",
   "uuid" : "7148d10b-d9e7-4109-9fe4-3f4f09e9aeeb",
@@ -323,6 +577,11 @@
   "uuid" : "83bd18e0-16d7-4f65-adfe-341c973f9934",
   "dataType" : "NA"
 }, {
+  "name" : "Bijara",
+  "uuid" : "cb77720c-0a5f-45dc-a7a4-03d2acf35d87",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Bijouri",
   "uuid" : "f81d12a6-287e-43cd-80f8-65e7ecdd4f1d",
   "dataType" : "NA"
@@ -358,6 +617,31 @@
   "name" : "Birth",
   "uuid" : "a8a31361-df8c-4b6e-8075-639f436d0b3f",
   "dataType" : "NA"
+}, {
+  "name" : "Birth defect in eyes",
+  "uuid" : "faa9149f-4500-4feb-941d-7aa35262d41d",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Birth defect in genital/anus",
+  "uuid" : "2ab61aed-c62a-4870-8c86-5c5f7452d264",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Birth defect in hands/legs",
+  "uuid" : "d5a8d43f-f2af-4cb8-a0b5-93d3fabd394c",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Birth defect in lips",
+  "uuid" : "91a8067a-02e0-47b4-b2c7-5b3b0e56b779",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Birth defect in other body parts",
+  "uuid" : "a5bbfe88-fbf0-49f3-905a-680772c8e874",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Birth Defects",
   "uuid" : "c8bc3f3c-4336-411b-b561-28b00c51e67b",
@@ -443,6 +727,30 @@
     "value" : "Majhgoan"
   } ]
 }, {
+  "name" : "Bleeding",
+  "uuid" : "0aeb893c-34ba-49f0-bd6f-0696fce74458",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Bleeding from chord",
+  "uuid" : "6be64524-a223-464f-8c68-787c5d6f7e7c",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Bleeding PV",
+  "uuid" : "38efe56c-ba52-44b3-bca8-1d88032e3585",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Block hospital",
   "uuid" : "b075771a-8f3d-4d03-9e4f-c43d6a47ca3e",
   "dataType" : "NA"
@@ -488,9 +796,39 @@
   "uuid" : "5dd9127b-9945-4dd7-9ae6-2e9e05d62318",
   "dataType" : "NA"
 }, {
+  "name" : "Blood Pressure (Diastolic)",
+  "uuid" : "da871f6c-cef0-4191-b307-6751b31ac9ec",
+  "dataType" : "Numeric",
+  "lowAbsolute" : 10.0,
+  "highAbsolute" : 120.0,
+  "lowNormal" : 50.0,
+  "highNormal" : 90.0,
+  "unit" : "mm Hg",
+  "keyValues" : [ ]
+}, {
+  "name" : "Blood Pressure (systolic)",
+  "uuid" : "6874d48e-8c2f-4009-992c-1d3ca1678cc6",
+  "dataType" : "Numeric",
+  "lowAbsolute" : 20.0,
+  "highAbsolute" : 190.0,
+  "lowNormal" : 90.0,
+  "highNormal" : 140.0,
+  "unit" : "mm Hg",
+  "keyValues" : [ ]
+}, {
+  "name" : "Bloody nipple discharge",
+  "uuid" : "64b4da6a-2a29-45ff-b0b6-634fd5c89ffb",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Blue/pale",
   "uuid" : "31d85214-569a-41b1-9ffe-a4be09086678",
   "dataType" : "NA"
+}, {
+  "name" : "Blured vision",
+  "uuid" : "6fabfd13-9908-4a10-9bb7-39da1d674165",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "BMI",
   "uuid" : "a205563d-0ac2-4955-93ac-e2e7adebb56e",
@@ -507,9 +845,59 @@
   "uuid" : "08b9bb17-454c-408b-a728-6ad6f435eb38",
   "dataType" : "NA"
 }, {
+  "name" : "Boiraha",
+  "uuid" : "940ccd9d-3c8c-4795-9e65-52120544298d",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "BP >=140/90",
+  "uuid" : "106a4e98-a782-4375-a861-06d8b285bb87",
+  "dataType" : "NA"
+}, {
   "name" : "BPL",
   "uuid" : "906f6286-515b-4ff5-8065-0fcedef003b9",
   "dataType" : "NA"
+}, {
+  "name" : "Breach",
+  "uuid" : "37006041-5287-4913-b409-0ff8d0065557",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Breach presentation",
+  "uuid" : "d9338fbe-e943-41de-ae3b-911ef3a9a649",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Breast examination",
+  "uuid" : "7259b0fa-c8d1-4e04-8d13-7dbc05f0169b",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Normal nipple",
+    "uuid" : "cbc8d904-4309-4b27-86a7-025654fda538",
+    "order" : 0.0
+  }, {
+    "name" : "Retracted nipple",
+    "uuid" : "7a6870a8-62f1-4751-8fd1-ef63715876e2",
+    "order" : 1.0
+  }, {
+    "name" : "Other",
+    "uuid" : "798b7942-cf58-4d4e-a529-5972942e0a7e",
+    "order" : 2.0,
+    "voided" : true
+  }, {
+    "name" : "Breast lump",
+    "uuid" : "4ccdcc36-6fdf-4e94-bcda-f441a5124bb0",
+    "order" : 3.0
+  }, {
+    "name" : "Bloody nipple discharge",
+    "uuid" : "64b4da6a-2a29-45ff-b0b6-634fd5c89ffb",
+    "order" : 4.0
+  }, {
+    "name" : "Mastitis",
+    "uuid" : "bc33afcc-d57a-4925-bd07-fef33097cf47",
+    "order" : 5.0
+  } ],
+  "keyValues" : [ ]
 }, {
   "name" : "Breast feeding counselling placeholder",
   "uuid" : "9dda60ca-9b01-4ad8-8bff-3d65565e2801",
@@ -533,6 +921,31 @@
     "abnormal" : true,
     "order" : 2.0
   } ]
+}, {
+  "name" : "Breast lump",
+  "uuid" : "4ccdcc36-6fdf-4e94-bcda-f441a5124bb0",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "breast related problem (swelling, sepsis, etc)",
+  "uuid" : "bdf00248-52e2-4d01-b02d-70c5e480c604",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Breastfeded properly (good signs of latching)",
+  "uuid" : "f561cb5e-bf5e-48ca-b595-603028b53fc4",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Breastfeeding",
+  "uuid" : "2520382c-305b-46bb-ac16-492205916422",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Breathing difficulty",
+  "uuid" : "a72d4345-9ff2-410b-9c2f-ed61e4ea464b",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Breathing difficulty particularly on exertion",
   "uuid" : "d89f8bed-c67c-48d1-bea5-af66b08b6526",
@@ -562,13 +975,35 @@
     "value" : "Bahaud"
   } ]
 }, {
+  "name" : "Burning micturition",
+  "uuid" : "aa43a1cd-faa2-45cc-be26-1a19b0bc9580",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Business",
   "uuid" : "1e24aee4-fb61-4d60-b61a-cdde17e4545f",
   "dataType" : "NA"
 }, {
+  "name" : "C-section",
+  "uuid" : "6984e037-93fc-4df0-9bce-ea7e8f44d1aa",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Calluses",
   "uuid" : "eb9c3aa0-d09b-43cc-871a-25b4ecddc6a8",
   "dataType" : "NA"
+}, {
+  "name" : "Can't enrol in pregnancy program as age is less than 16 years",
+  "uuid" : "acab3cb9-91d1-4ba4-939d-95e116366765",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Cast",
+  "uuid" : "a2b6d675-4c70-4f15-a5ad-b8f5273602f9",
+  "dataType" : "Numeric",
+  "lowNormal" : 0.0,
+  "highNormal" : 5.0,
+  "keyValues" : [ ]
 }, {
   "name" : "Caste (Free Text)",
   "uuid" : "6fad4749-1b09-44f9-bb90-4a88eeefc873",
@@ -594,6 +1029,32 @@
     "uuid" : "9b3a3dca-b93a-4b67-975f-5f6f1a815cea",
     "order" : 4.0
   } ]
+}, {
+  "name" : "Category",
+  "uuid" : "e49216c4-ce59-4a5b-90ff-40e7dd1ac51d",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "ST",
+    "uuid" : "8d1c99b2-fbed-4407-9f6a-040b9a5731b2",
+    "order" : 0.0
+  }, {
+    "name" : "SC",
+    "uuid" : "0b78a94a-c652-4d59-ad16-c9138db05e29",
+    "order" : 1.0
+  }, {
+    "name" : "OBC",
+    "uuid" : "8aa7b5ea-5d35-4a08-af33-0345af903e2f",
+    "order" : 2.0
+  }, {
+    "name" : "Gen",
+    "uuid" : "aea105e2-905e-4b7f-8c17-9a8ba89ae778",
+    "order" : 3.0
+  }, {
+    "name" : "PVTG",
+    "uuid" : "91f51ff2-ef5f-48e1-a6c2-5efe6f10a3b2",
+    "order" : 4.0
+  } ],
+  "keyValues" : [ ]
 }, {
   "name" : "Cause of child's death",
   "uuid" : "3558bb95-44e9-484e-ad46-48161b53fa67",
@@ -1038,6 +1499,11 @@
     "order" : 2.0
   } ]
 }, {
+  "name" : "Chuiha",
+  "uuid" : "d97cd90f-5642-449b-b637-bb9f0d980730",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Cleft Lip",
   "uuid" : "c49cc380-5cd4-4508-a17b-4e072155b09b",
   "dataType" : "NA"
@@ -1049,6 +1515,24 @@
   "name" : "Club foot",
   "uuid" : "aa041239-1d97-491d-8eb4-eee9f09047a2",
   "dataType" : "NA"
+}, {
+  "name" : "Colour of amniotic fluid",
+  "uuid" : "51477c5d-3d96-4b5b-abe0-9350fdcdbd83",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Watery",
+    "uuid" : "d5155392-dcbc-4744-b3fa-7e6dcf210cb9",
+    "order" : 0.0
+  }, {
+    "name" : "Yellow/Green",
+    "uuid" : "8a546fe8-0851-4794-b333-e5a47494aa97",
+    "order" : 1.0
+  }, {
+    "name" : "Other",
+    "uuid" : "798b7942-cf58-4d4e-a529-5972942e0a7e",
+    "order" : 2.0
+  } ],
+  "keyValues" : [ ]
 }, {
   "name" : "Colour of child",
   "uuid" : "8d145f65-e269-467c-af05-548ff5595452",
@@ -1085,6 +1569,32 @@
   "uuid" : "bafe149e-dbf8-4c80-8c13-fc5b1274f0ad",
   "dataType" : "NA"
 }, {
+  "name" : "Complication due to abortion",
+  "uuid" : "3fc12cff-0b61-45f5-af60-93b0f19570da",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Sepsis",
+    "uuid" : "d4d85e62-247e-4725-8e85-fdcbcdf2d409",
+    "order" : 0.0
+  }, {
+    "name" : "Bleeding",
+    "uuid" : "0aeb893c-34ba-49f0-bd6f-0696fce74458",
+    "order" : 1.0
+  }, {
+    "name" : "Damage to cervix",
+    "uuid" : "420c57e3-4ddd-4109-b229-7918092ad3e3",
+    "order" : 2.0
+  }, {
+    "name" : "Damage to Uterus",
+    "uuid" : "e786372e-78c9-47aa-ae66-3ef2a62ac2b7",
+    "order" : 3.0
+  }, {
+    "name" : "Other",
+    "uuid" : "798b7942-cf58-4d4e-a529-5972942e0a7e",
+    "order" : 4.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Condom",
   "uuid" : "fa0f0ca9-fbad-4146-b730-941af27af852",
   "dataType" : "NA"
@@ -1100,6 +1610,11 @@
   "name" : "Congenital Heart disease (Patent Dutus arteriosus or Coarctation(narrowing) of aorta)",
   "uuid" : "e289182d-32c1-4d8e-9c68-6223ac48caf1",
   "dataType" : "NA"
+}, {
+  "name" : "Consultation with specialist at referral centre",
+  "uuid" : "f1ecf77c-122f-4462-8bc8-812013c80fa3",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Contact Number",
   "uuid" : "0a725832-b21c-4151-b017-7e6af770ba54",
@@ -1123,6 +1638,49 @@
   "uuid" : "923c641f-63e7-4f02-bc06-c8a04698aa3c",
   "dataType" : "NA"
 }, {
+  "name" : "Cord",
+  "uuid" : "5c25726f-6868-4f2b-acbc-005bbec2360b",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Could not suck properly",
+  "uuid" : "aea257ab-726a-46c0-8554-9dd0deb5a671",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Counselling",
+  "uuid" : "0ac30adc-5107-4e30-9b8a-c3ef65904cf5",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Counselling Done",
+  "uuid" : "fa031cca-7264-420a-b657-0d3d5fc58a9c",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Counselling point",
+  "uuid" : "38e42408-3f81-4e26-87dd-563a9718a6f8",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Cried soon after birth",
   "uuid" : "9caf6e62-8f34-4f0d-85ed-9c03d4b7651e",
   "dataType" : "Coded",
@@ -1140,6 +1698,25 @@
   "name" : "Cries Continuously",
   "uuid" : "7b82e0fe-e5fc-4875-91bc-e89ae7473306",
   "dataType" : "NA"
+}, {
+  "name" : "Crystel",
+  "uuid" : "14a023d3-bd25-4343-9d93-34d9f88eb4b3",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Normal crystel",
+    "uuid" : "d2e7fe4e-3a7f-435d-a973-e114bb849a56",
+    "order" : 0.0
+  }, {
+    "name" : "Abnormal crystel",
+    "uuid" : "cb4a9364-ac2f-41ac-af30-f60f1d50f48d",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Cured",
+  "uuid" : "ca055965-5f64-4ca9-ba22-13763b9eb5f8",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Currently married",
   "uuid" : "ba48e389-23df-43e4-89a6-85f392d4312e",
@@ -1161,9 +1738,66 @@
   "uuid" : "1100010c-b1fe-4d14-a2ec-c46a8af3cbb1",
   "dataType" : "NA"
 }, {
+  "name" : "Damage to cervix",
+  "uuid" : "420c57e3-4ddd-4109-b229-7918092ad3e3",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Damage to Uterus",
+  "uuid" : "e786372e-78c9-47aa-ae66-3ef2a62ac2b7",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Danger signs during the process of labour",
+  "uuid" : "c45fa5f8-098d-49af-8119-6a5c55012e1b",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Delivered in more than 24 hours after starting the labour pain",
+    "uuid" : "92e4897b-9ced-47b2-bce6-7b7682a84378",
+    "order" : 0.0
+  }, {
+    "name" : "Other than head- other parts of foetus delivered first",
+    "uuid" : "dcdca252-bd54-40cb-a504-9d167311a61d",
+    "order" : 1.0
+  }, {
+    "name" : "Placenta did not delivered within 30 mins",
+    "uuid" : "0754c0d6-d0fd-44ff-85a6-e17a969f99f2",
+    "order" : 2.0
+  }, {
+    "name" : "Mother is unconscious or has seizures",
+    "uuid" : "9a2a2343-a19d-426a-b7eb-d5f52f7cc449",
+    "order" : 3.0
+  }, {
+    "name" : "None",
+    "uuid" : "8b77f487-c885-4b54-8925-153733913b10",
+    "unique" : true,
+    "order" : 4.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Date and time of abortion",
+  "uuid" : "6cff2f40-fd04-48e1-89d8-497142e20d4d",
+  "dataType" : "DateTime",
+  "keyValues" : [ ]
+}, {
+  "name" : "Date and time of labour pain started",
+  "uuid" : "3584ab7c-061d-472f-996e-8082bc7ee5b4",
+  "dataType" : "DateTime",
+  "keyValues" : [ ]
+}, {
+  "name" : "Date and time when placenta was out",
+  "uuid" : "75f66882-8186-4a8c-b1f3-1f6b2386fef6",
+  "dataType" : "DateTime",
+  "keyValues" : [ ]
+}, {
   "name" : "Date of Albendazole dosage",
   "uuid" : "e3293f2d-1fa0-4d64-b135-5bda1a2dcd19",
   "dataType" : "Date"
+}, {
+  "name" : "Date of ANC registration",
+  "uuid" : "29d90b66-314e-48aa-93e9-1ab70c294863",
+  "dataType" : "Date",
+  "keyValues" : [ ]
 }, {
   "name" : "Date of child's death",
   "uuid" : "caebaeff-c51b-44dd-b415-d91d87378ad6",
@@ -1177,8 +1811,22 @@
   "uuid" : "9d958124-09bb-466c-a4b4-db8d285def1f",
   "dataType" : "Date"
 }, {
+  "name" : "Date of next USG",
+  "uuid" : "71efca55-ad55-4814-a16f-44d714c6ecf5",
+  "dataType" : "Date",
+  "keyValues" : [ ]
+}, {
+  "name" : "Date of recieving the JSY scheme benefit",
+  "uuid" : "d8e3c407-af6d-45df-9db1-a40e289452c0",
+  "dataType" : "Date",
+  "keyValues" : [ ]
+}, {
   "name" : "Daughter",
   "uuid" : "0f8b507f-709f-44af-855b-67b2f8b8a800",
+  "dataType" : "NA"
+}, {
+  "name" : "Daughter in law",
+  "uuid" : "164cfed0-b411-402f-8f44-1e14d1705883",
   "dataType" : "NA"
 }, {
   "name" : "Daughter-in-law",
@@ -1199,6 +1847,10 @@
   "uuid" : "c125eec0-2bc4-4add-b1d0-7531e5ffa9c8",
   "dataType" : "NA"
 }, {
+  "name" : "Death after birth",
+  "uuid" : "a3e639d2-4ab1-4758-b5cc-d37d3187f604",
+  "dataType" : "NA"
+}, {
   "name" : "Decreased",
   "uuid" : "dd14086c-77ca-47d0-9593-d1a1bbfde905",
   "dataType" : "NA"
@@ -1210,6 +1862,67 @@
     "key" : "village",
     "value" : "Badebarar"
   } ]
+}, {
+  "name" : "Default",
+  "uuid" : "01de3d31-cdc7-48da-8d6d-6409e74a452a",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Delivered in more than 24 hours after starting the labour pain",
+  "uuid" : "92e4897b-9ced-47b2-bce6-7b7682a84378",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Delivery conducted by",
+  "uuid" : "11bfa900-973e-49ff-bc2b-cab409d6e938",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Trained TBA",
+    "uuid" : "acbb5c72-be42-4ed9-b169-949262319d10",
+    "order" : 0.0
+  }, {
+    "name" : "VHW",
+    "uuid" : "355143bf-b812-4ec8-93e6-6795fe4f7dc9",
+    "order" : 1.0
+  }, {
+    "name" : "SHW",
+    "uuid" : "7ac0d9a2-ff82-41e6-9f38-134904d476f9",
+    "order" : 2.0
+  }, {
+    "name" : "Untrained TBA",
+    "uuid" : "e7087fb1-9a18-4518-a3b4-58b2e1258c1f",
+    "order" : 3.0
+  }, {
+    "name" : "Any member of house/village",
+    "uuid" : "af225e01-3cfb-41be-8335-2eb773c4da61",
+    "order" : 4.0
+  }, {
+    "name" : "Nurse (ANM/GNM)",
+    "uuid" : "3627adf0-c083-4af2-a0a2-c5007540a19b",
+    "order" : 5.0
+  }, {
+    "name" : "Doctor",
+    "uuid" : "d7265308-9843-4d5f-859f-1585c119c8cb",
+    "order" : 6.0
+  }, {
+    "name" : "Mitanin",
+    "uuid" : "6b8c76ee-a089-4154-8579-d16677e3fd29",
+    "order" : 7.0
+  }, {
+    "name" : "Self",
+    "uuid" : "03c3c21c-6e8c-4210-a15e-fbb181c266b9",
+    "order" : 8.0
+  }, {
+    "name" : "Other",
+    "uuid" : "798b7942-cf58-4d4e-a529-5972942e0a7e",
+    "order" : 9.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Delivery/LACS",
+  "uuid" : "7d0d495a-e733-4ea8-93ca-c57bf42c6ee9",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Devangan",
   "uuid" : "a4355798-1072-491f-b60f-c19feeb39188",
@@ -1259,6 +1972,44 @@
   "uuid" : "1928469b-a981-4579-beb7-ae47b972e671",
   "dataType" : "NA"
 }, {
+  "name" : "Diagnosis of sepsis",
+  "uuid" : "23664b77-05e2-4baa-8522-68c02314ec21",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Weak and flaccid hands and legs",
+    "uuid" : "15958028-0fe1-4aa5-85f9-7b213e260877",
+    "order" : 0.0
+  }, {
+    "name" : "Reduced breastfeeding/no breast feeding",
+    "uuid" : "0b1e4b07-1d06-442b-8c14-c8da9d28f706",
+    "order" : 1.0
+  }, {
+    "name" : "Weak cry or stopped crying",
+    "uuid" : "06697930-4d4d-425a-8edc-d081d944b1d7",
+    "order" : 2.0
+  }, {
+    "name" : "Distended abromen of mother says baby vomits frequently",
+    "uuid" : "4023f51f-e9ec-4976-99da-934aec36d917",
+    "order" : 3.0
+  }, {
+    "name" : "Mother says baby is cold or temp. is more than 37.2 DC",
+    "uuid" : "6bbe35ab-90bc-4aea-b9b2-d298d48b1e25",
+    "order" : 4.0
+  }, {
+    "name" : "Chest indrawing",
+    "uuid" : "536afd11-f8cd-4526-87de-ced171f37c99",
+    "order" : 5.0
+  }, {
+    "name" : "Pus in or around the umbilicus",
+    "uuid" : "7338a25a-a8dd-4363-ac67-20706827eedd",
+    "order" : 6.0
+  }, {
+    "name" : "Respiratory rate >60/min",
+    "uuid" : "b035a519-7760-4d4a-9371-18dfe697d9bb",
+    "order" : 7.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Diarrhea",
   "uuid" : "1e4600dc-afa7-417c-8a7a-97ad5f063c67",
   "dataType" : "NA"
@@ -1272,13 +2023,96 @@
   "highNormal" : 90.0,
   "unit" : "mm Hg"
 }, {
+  "name" : "Did mother breastfed the baby within 1 hour after the birth",
+  "uuid" : "16c71db0-bdaa-42d0-b247-e9d573f62866",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  }, {
+    "name" : "Don't know",
+    "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
+    "order" : 2.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Did mother die?",
+  "uuid" : "49cdf65a-a0a8-40f4-b5a6-55c405038891",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Did not cry soon after birth",
   "uuid" : "9c0c67e0-2a5b-4a71-9892-bc758493b84b",
+  "dataType" : "NA"
+}, {
+  "name" : "Did pregnant woman die?",
+  "uuid" : "946a540a-e86a-4f4c-a837-623abbc63a3c",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Did woman receive vitamin A",
+  "uuid" : "22ec084c-7141-4828-99c7-2dc56fe11153",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  }, {
+    "name" : "Don't know",
+    "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
+    "order" : 2.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Difficulty in breathing",
+  "uuid" : "cc710839-9b8c-4d52-944e-8ba21ad3de72",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Disability",
+  "uuid" : "eda07a4c-14c9-49af-b1d6-deaa695a5d36",
+  "dataType" : "Text",
+  "keyValues" : [ ]
+}, {
+  "name" : "Disabled baby / Birth Defect",
+  "uuid" : "a694bacc-cf7e-4eb3-8ea5-144633d670ae",
   "dataType" : "NA"
 }, {
   "name" : "Discharge from eyes",
   "uuid" : "c8c4172c-1aaa-45db-9bec-a04903a0da1e",
   "dataType" : "NA"
+}, {
+  "name" : "Distended abromen of mother says baby vomits frequently",
+  "uuid" : "4023f51f-e9ec-4976-99da-934aec36d917",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "District Hospital",
   "uuid" : "602e1362-0c44-49d8-ac94-42a741c6273b",
@@ -1287,6 +2121,20 @@
   "name" : "Divorced",
   "uuid" : "1bc8befa-49b7-4a70-8203-8ec5d0660783",
   "dataType" : "NA"
+}, {
+  "name" : "Do you know the exact LMP date?",
+  "uuid" : "2e153301-bd70-4f74-9cb0-75889bc38b72",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
 }, {
   "name" : "Doctor",
   "uuid" : "d7265308-9843-4d5f-859f-1585c119c8cb",
@@ -1305,9 +2153,57 @@
     "order" : 2.0
   } ]
 }, {
+  "name" : "Does mother has any breast related issue like swelling, cracked nipple etc?",
+  "uuid" : "43567d78-ad97-46bc-afa1-8522ec9e0180",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Does mother has seizures?",
+  "uuid" : "74c618b3-a4e0-4382-9486-70dbf5752d9d",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Does not feed well",
   "uuid" : "c5030a7e-0a78-45b0-9615-fd333a3ac74f",
   "dataType" : "NA"
+}, {
+  "name" : "Does not want to go any facility",
+  "uuid" : "f5edc6d4-2b76-4e3c-b8e8-cd18e4fa2781",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Does woman want to continue this pregnancy?",
+  "uuid" : "1aac0eaf-1c9e-4284-93c3-7212c06a3286",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "abnormal" : true,
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
 }, {
   "name" : "Don't know",
   "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
@@ -1418,6 +2314,11 @@
     "order" : 3.0
   } ]
 }, {
+  "name" : "EDD",
+  "uuid" : "730ca106-ece0-495d-8962-f60f38e79d12",
+  "dataType" : "Date",
+  "keyValues" : [ ]
+}, {
   "name" : "Edema",
   "uuid" : "9ff9ef7e-4b9f-4a6b-bd20-97a8a684ef21",
   "dataType" : "NA"
@@ -1459,13 +2360,83 @@
     "order" : 8.0
   } ]
 }, {
+  "name" : "Electricity in house",
+  "uuid" : "e23ef639-5d54-46bc-811c-ee1886bce81f",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Entire body",
+  "uuid" : "21eae23f-f925-4c69-bb1e-ce330aeb4b02",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Epilepsy",
   "uuid" : "6f979289-6d48-4333-b6ef-fecb5309f141",
   "dataType" : "NA"
 }, {
+  "name" : "Epithelial cells",
+  "uuid" : "0343e35f-afd0-41ce-af93-e69c184b159c",
+  "dataType" : "Numeric",
+  "keyValues" : [ ]
+}, {
+  "name" : "Excessive bleeding",
+  "uuid" : "946e2ee6-a4ab-4cb6-8440-3dbf1a062843",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Eye of newborn",
+  "uuid" : "1c675de4-83eb-471f-9b55-6b8a0d48c55e",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Normal",
+    "uuid" : "ec89cb1f-491b-46de-95c1-3009effa9041",
+    "order" : 0.0
+  }, {
+    "name" : "Sweeling",
+    "uuid" : "a5b9c5d5-4ad1-4acd-97bf-fd761c11c210",
+    "order" : 1.0
+  }, {
+    "name" : "Pus in the eyes",
+    "uuid" : "c8cae940-7ac8-4b09-892c-aebca10d9ab1",
+    "order" : 2.0
+  }, {
+    "name" : "Any deformity",
+    "uuid" : "2ebba1d0-7bbb-4550-9896-3a679512f673",
+    "order" : 3.0
+  }, {
+    "name" : "Other",
+    "uuid" : "798b7942-cf58-4d4e-a529-5972942e0a7e",
+    "order" : 4.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Face",
+  "uuid" : "4b228992-6d31-4e7a-bbcb-e319ffe672f8",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Family planning",
   "uuid" : "c0a151aa-7607-4054-887c-3b362210ed23",
   "dataType" : "NA"
+}, {
+  "name" : "Family Planning Benefits for Women",
+  "uuid" : "dfe26772-b418-4741-a80b-30fcbe452b5f",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Counselling",
+    "uuid" : "0ac30adc-5107-4e30-9b8a-c3ef65904cf5",
+    "order" : 0.0
+  } ],
+  "keyValues" : [ ]
 }, {
   "name" : "Farmer",
   "uuid" : "f021800c-b3f5-4c70-b90a-dcbb83227b55",
@@ -1591,6 +2562,21 @@
   "uuid" : "7030fea5-05e1-4abb-982a-7ceb2712adf4",
   "dataType" : "NA"
 }, {
+  "name" : "Female marriage",
+  "uuid" : "4d5e83b5-ddc3-4668-930f-96da0cce7763",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Fetus growth retardation",
+  "uuid" : "f0103541-35c5-4440-842e-9f929242a9b1",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Fetus is not moving",
+  "uuid" : "7f358e8b-08d2-4243-bb0c-dda19c4997ae",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Fever",
   "uuid" : "232ae0c9-533f-48cf-8439-79aa03e23e6b",
   "dataType" : "NA"
@@ -1608,6 +2594,38 @@
     "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
     "order" : 2.0
   } ]
+}, {
+  "name" : "FHS",
+  "uuid" : "7c6d3fc6-6a9f-4b44-beef-8c2200da5281",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Actual data entry/min",
+    "uuid" : "b4f90265-4c84-492f-8ee5-8358dcb54966",
+    "order" : 0.0
+  }, {
+    "name" : "Not audible/Can't locate",
+    "uuid" : "05580ea9-fb5c-4f8f-aeae-8c120950de92",
+    "order" : 1.0
+  }, {
+    "name" : "NA",
+    "uuid" : "7efbfba4-66d1-4510-9024-aaaedf439392",
+    "order" : 2.0
+  }, {
+    "name" : "Audible",
+    "uuid" : "d67f3971-30cf-4293-83f7-f0f10f5f843d",
+    "order" : 3.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "FHS - Not Audible",
+  "uuid" : "dd75c92e-d078-44ec-b76b-dfba65d7f1fe",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "FHS number",
+  "uuid" : "532ae011-4380-4ff5-b7c7-7d163e396221",
+  "dataType" : "Numeric",
+  "keyValues" : [ ]
 }, {
   "name" : "Fifth",
   "uuid" : "c5f54d7c-f296-4aee-bb58-45d8a1ef9942",
@@ -1662,9 +2680,76 @@
     "order" : 8.0
   } ]
 }, {
+  "name" : "Foetal Position is not normal",
+  "uuid" : "2b48ee8d-7760-4e69-b58f-33b7498b710c",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Foetus is ok",
+  "uuid" : "6618dfd6-5df2-4c85-b916-0679bcb9be03",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Foetus movement",
+  "uuid" : "31651632-0acb-4ee5-a0f3-1628bbed456c",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0,
+    "voided" : true
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0,
+    "voided" : true
+  }, {
+    "name" : "No foetal movement",
+    "uuid" : "99a2d857-20e0-4bcf-acc8-2f0be2c70663",
+    "abnormal" : true,
+    "order" : 2.0
+  }, {
+    "name" : "Increased",
+    "uuid" : "f9001edc-0f9a-4eb3-949c-3238ee8adecb",
+    "order" : 3.0
+  }, {
+    "name" : "Decreased",
+    "uuid" : "dd14086c-77ca-47d0-9593-d1a1bbfde905",
+    "abnormal" : true,
+    "order" : 4.0
+  }, {
+    "name" : "As it is",
+    "uuid" : "64238ece-a3d6-4bfe-b666-a2d09b9360d9",
+    "order" : 5.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Follow up date",
   "uuid" : "614d9eb4-8db6-4349-ba20-c8c480daf791",
   "dataType" : "Date"
+}, {
+  "name" : "Follow USG required",
+  "uuid" : "96499ee7-ad90-4831-a0bd-1fd765f6f6c0",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
 }, {
   "name" : "Forceps delivery",
   "uuid" : "e6798c90-0c8c-4872-b7c7-1f0c78538971",
@@ -1686,6 +2771,73 @@
   "uuid" : "3b4d35f0-ef97-4954-8ee2-69d5db4894e6",
   "dataType" : "NA"
 }, {
+  "name" : "Fundle Height",
+  "uuid" : "f5ff8848-798a-4b0f-bcaf-33f2d4528f37",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "12-14",
+    "uuid" : "be02d807-e70a-43a4-bb5e-dbd8e250f2c9",
+    "order" : 0.0
+  }, {
+    "name" : "14-16",
+    "uuid" : "6fa2d5e5-b709-4690-a141-4d86d0b7c7ab",
+    "order" : 1.0
+  }, {
+    "name" : "16-18",
+    "uuid" : "b58302a2-1050-454b-81f4-aad5e8ab3854",
+    "order" : 2.0
+  }, {
+    "name" : "18-20",
+    "uuid" : "18fa41fe-6719-49a2-b0df-7527fbcce6bf",
+    "order" : 3.0
+  }, {
+    "name" : "20-22",
+    "uuid" : "18c1a185-b33c-4dc8-816b-18365744bd13",
+    "order" : 4.0
+  }, {
+    "name" : "22-24",
+    "uuid" : "f04d5228-54b6-4c48-a412-b0dbb6abd477",
+    "order" : 5.0
+  }, {
+    "name" : "24-26",
+    "uuid" : "2cef8d3a-4699-46ab-8e3e-ff1d758b5b23",
+    "order" : 6.0
+  }, {
+    "name" : "26-28",
+    "uuid" : "0c722806-f54c-40f6-aa6a-1475815dc498",
+    "order" : 7.0
+  }, {
+    "name" : "28-30",
+    "uuid" : "230f8227-0d49-49f8-9052-0c5df27215a4",
+    "order" : 8.0
+  }, {
+    "name" : "30-32",
+    "uuid" : "f91ae1aa-7cda-4b75-9979-dd8c141ed405",
+    "order" : 9.0
+  }, {
+    "name" : "32-34",
+    "uuid" : "72c464db-93c7-431f-8ca2-75a4ff081482",
+    "order" : 10.0
+  }, {
+    "name" : "34-36",
+    "uuid" : "e0451d57-3185-4ab6-9fff-f3801523f9ba",
+    "order" : 11.0
+  }, {
+    "name" : "36-38",
+    "uuid" : "7340c96d-80cb-430e-b89d-ebb664293767",
+    "order" : 12.0
+  }, {
+    "name" : "38-40",
+    "uuid" : "a7442dd5-a548-4ac9-a758-167afb326b0c",
+    "order" : 13.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Fundle Height doesn't correspond to the gestational week",
+  "uuid" : "f86f75fa-9464-44b7-958b-5f3ce04b4f87",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Gandharv",
   "uuid" : "3aba04d1-0bea-4d80-88da-b220a9064170",
   "dataType" : "NA"
@@ -1697,6 +2849,11 @@
     "key" : "village",
     "value" : "Koripara"
   } ]
+}, {
+  "name" : "Ganiyari",
+  "uuid" : "41f067f3-48a0-4f95-aee5-dcee95a8b9de",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Garbhibai",
   "uuid" : "e07739fc-610f-4eed-a65f-b79ca7c35dcd",
@@ -1713,6 +2870,10 @@
     "key" : "village",
     "value" : "Baigapara"
   } ]
+}, {
+  "name" : "Gen",
+  "uuid" : "aea105e2-905e-4b7f-8c17-9a8ba89ae778",
+  "dataType" : "NA"
 }, {
   "name" : "Gender",
   "uuid" : "4427af7e-6a76-4980-a038-ae4a3ec0d7aa",
@@ -1739,6 +2900,17 @@
   "uuid" : "94099e11-6e9e-4c9e-9a68-83dee9d6042a",
   "dataType" : "NA"
 }, {
+  "name" : "Gestational age",
+  "uuid" : "5edc0b6a-aaa2-4499-a673-3db8f0b056e1",
+  "dataType" : "Numeric",
+  "unit" : "months",
+  "keyValues" : [ ]
+}, {
+  "name" : "Gestational age category",
+  "uuid" : "0bcf8d88-f9c5-4e9a-89bb-10f31cfff0a3",
+  "dataType" : "Text",
+  "keyValues" : [ ]
+}, {
   "name" : "Gestational age category at birth",
   "uuid" : "022dce71-0209-44a3-b0eb-70bd15ff96d7",
   "dataType" : "Coded",
@@ -1758,6 +2930,11 @@
     "order" : 3.0
   } ]
 }, {
+  "name" : "Ghameri",
+  "uuid" : "c776b982-48d1-40a4-9dea-033fbd809649",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Gijri",
   "uuid" : "77599ffc-5876-438a-8f91-7bcfd546888a",
   "dataType" : "NA"
@@ -1765,6 +2942,26 @@
   "name" : "Give exclusive breast feeding",
   "uuid" : "9a8623cb-9ed4-4d04-aa5e-821a08d5a7bf",
   "dataType" : "NA"
+}, {
+  "name" : "Give information about wrong forms of contraceptive methods",
+  "uuid" : "3eeb5be5-a74b-4cf4-805f-3b8549a5daef",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Counselling",
+    "uuid" : "0ac30adc-5107-4e30-9b8a-c3ef65904cf5",
+    "order" : 0.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Glucose test (75gm Glucose)",
+  "uuid" : "ae2046a4-015c-44e2-9703-01bc3da13202",
+  "dataType" : "Numeric",
+  "lowAbsolute" : 0.0,
+  "highAbsolute" : 199.0,
+  "lowNormal" : 0.0,
+  "highNormal" : 140.0,
+  "unit" : "mg /dl",
+  "keyValues" : [ ]
 }, {
   "name" : "Gond",
   "uuid" : "7335b4a6-fd22-4061-ba4f-54c5f3d1bfbe",
@@ -1777,6 +2974,11 @@
   "name" : "Goratola",
   "uuid" : "07dcd87b-07a9-451c-8afc-c770c5a72e66",
   "dataType" : "NA"
+}, {
+  "name" : "Got complicated",
+  "uuid" : "2dc7cd1e-6cec-4fba-a624-abae670ec7af",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Government Hospital",
   "uuid" : "7c6b80e5-4119-4730-b4d6-37f80f797b78",
@@ -1939,6 +3141,20 @@
   "uuid" : "a03e8eab-7173-4876-86e6-22be1e261f86",
   "dataType" : "NA"
 }, {
+  "name" : "Gravida",
+  "uuid" : "838cdad2-e661-4517-88ca-5b9e8e6c676e",
+  "dataType" : "Numeric",
+  "lowAbsolute" : 1.0,
+  "highAbsolute" : 9.0,
+  "lowNormal" : 1.0,
+  "highNormal" : 5.0,
+  "keyValues" : [ ]
+}, {
+  "name" : "Gravida/pregnancies more than 5",
+  "uuid" : "4c8e75b7-28c3-4dbd-b09f-df3b6f57218b",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Greenish Stool",
   "uuid" : "2580aee0-e41f-4328-a8a2-03a48a23a3f6",
   "dataType" : "NA"
@@ -1972,6 +3188,11 @@
   "uuid" : "71a75bce-fabf-41db-a16b-adba48ced0d4",
   "dataType" : "NA"
 }, {
+  "name" : "Hand",
+  "uuid" : "b11a0220-efce-49e4-ba86-5c86069cc264",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Hands",
   "uuid" : "97ff4945-3503-4b5e-81b5-708a44c3a0aa",
   "dataType" : "NA"
@@ -1984,12 +3205,56 @@
   "uuid" : "814d8259-0095-4b79-9615-95c2b9e0f4f0",
   "dataType" : "NA"
 }, {
+  "name" : "Have you thought about using any contraceptive",
+  "uuid" : "d833658b-ce1f-412d-bc34-086f8d1ba50d",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Counselling",
+    "uuid" : "0ac30adc-5107-4e30-9b8a-c3ef65904cf5",
+    "order" : 0.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Hb",
   "uuid" : "a240115e-47a2-4244-8f74-d13d20f087df",
   "dataType" : "Numeric",
   "lowNormal" : 12.0,
   "highNormal" : 15.5,
   "unit" : "g/dL"
+}, {
+  "name" : "Hb Electrophoresis",
+  "uuid" : "198d08c6-b742-4b22-97fd-2293472e571e",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "SS",
+    "uuid" : "1f43668b-d1fd-41ef-afa3-38c265d467ac",
+    "order" : 0.0
+  }, {
+    "name" : "AS",
+    "uuid" : "48c7a76c-13f8-4f1f-b09e-d4e00461e3c6",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "HBNC checkup",
+  "uuid" : "1d337738-431d-405d-9e2d-848ee91626f2",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Head",
+  "uuid" : "ae3c860c-aed4-4144-9e46-f46c221caf5a",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Headache",
+  "uuid" : "44683953-68ed-4498-81e8-924879c59117",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Heart disease",
+  "uuid" : "c8a0b118-3326-4948-9fb5-529f6f5d2b96",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Heart-related Diseases",
   "uuid" : "aba2df33-f66b-4af7-9ef2-96297b8f892f",
@@ -2041,6 +3306,11 @@
   "lowNormal" : -2.0,
   "highNormal" : 2.0
 }, {
+  "name" : "Height is less than 140 cm",
+  "uuid" : "86818c4c-4b4b-403e-9f04-ada93c8ab838",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Hemvati",
   "uuid" : "5ba90a74-54a1-4eea-8de7-6e859ed208d1",
   "dataType" : "NA",
@@ -2048,6 +3318,25 @@
     "key" : "village",
     "value" : "Jamunahi"
   } ]
+}, {
+  "name" : "Hepatitis B",
+  "uuid" : "f874c217-2fed-41c9-a094-ba6519bd537d",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Positive",
+    "uuid" : "6f6458f7-ce0b-46c2-bd03-0fa30943d75d",
+    "order" : 0.0
+  }, {
+    "name" : "Negative",
+    "uuid" : "0fe2ae63-332a-40bf-82c7-371ef7b66494",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Hepatitis B is positive",
+  "uuid" : "9468c17e-02a0-4ac2-8c19-d280d7914594",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Hepatitis B Positive",
   "uuid" : "8a111891-5753-41db-b7e9-5288f3ae9cf7",
@@ -2098,6 +3387,367 @@
   "uuid" : "3e30dfd4-5d36-4644-bf62-9df5b783286f",
   "dataType" : "NA"
 }, {
+  "name" : "High risk condition in previous pregnancy",
+  "uuid" : "a0aea5a9-7101-48ef-8463-5b376efa61bf",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "No high risk condition",
+    "uuid" : "c64cf96e-e46b-4a02-919a-c5fa3c2cfbf3",
+    "order" : 0.0
+  }, {
+    "name" : "Seizure",
+    "uuid" : "cbc1b5b1-e4f9-4c0e-abe6-cc03362ff08d",
+    "abnormal" : true,
+    "order" : 1.0
+  }, {
+    "name" : "Post partum haemorrahge",
+    "uuid" : "5d3154b7-d8b3-4180-9b19-d1631a01208e",
+    "abnormal" : true,
+    "order" : 2.0
+  }, {
+    "name" : ">3 Abortions",
+    "uuid" : "b9f544ce-a11d-4dfe-8f03-9f2ab0c68f2f",
+    "abnormal" : true,
+    "order" : 3.0
+  }, {
+    "name" : "Preterm <28 weeks) delivery",
+    "uuid" : "67974f7b-caaa-45cb-a767-69ef1a0c240f",
+    "abnormal" : true,
+    "order" : 4.0
+  }, {
+    "name" : ">=5 still birth / Babies died",
+    "uuid" : "8310d83d-1c92-401c-a85b-9bdfc8225c08",
+    "abnormal" : true,
+    "order" : 5.0
+  }, {
+    "name" : "LSCS",
+    "uuid" : "6994e45d-33b6-4c42-b2a7-3c749463b88c",
+    "abnormal" : true,
+    "order" : 6.0
+  }, {
+    "name" : "Retained Placenta",
+    "uuid" : "22c2f1e5-aeb6-4b06-814e-9d4cefad276a",
+    "abnormal" : true,
+    "order" : 7.0
+  }, {
+    "name" : "Antepartum hemorrahge",
+    "uuid" : "8817d66a-cbf5-43c9-9235-1ce6c7e89bec",
+    "abnormal" : true,
+    "order" : 8.0
+  }, {
+    "name" : "BP >=140/90",
+    "uuid" : "106a4e98-a782-4375-a861-06d8b285bb87",
+    "abnormal" : true,
+    "order" : 9.0
+  }, {
+    "name" : "Anaemia",
+    "uuid" : "52beb15d-bae3-4125-8a93-8401e26df818",
+    "abnormal" : true,
+    "order" : 10.0
+  }, {
+    "name" : "Obstructed labour/ Prolonged labour",
+    "uuid" : "65f82627-0afa-4290-87c1-cfffe1da2c68",
+    "abnormal" : true,
+    "order" : 11.0
+  }, {
+    "name" : "Disabled baby / Birth Defect",
+    "uuid" : "a694bacc-cf7e-4eb3-8ea5-144633d670ae",
+    "abnormal" : true,
+    "order" : 12.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "High risk condition in this pregnancy",
+  "uuid" : "b8724e63-db1d-46fc-8ecc-17ee200bf1a2",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Weight is less than 35 kg",
+    "uuid" : "56e1dbb0-f4ff-42bf-9610-d56993d8e5b8",
+    "order" : 0.0,
+    "voided" : true
+  }, {
+    "name" : "Gravida/pregnancies more than 5",
+    "uuid" : "4c8e75b7-28c3-4dbd-b09f-df3b6f57218b",
+    "abnormal" : true,
+    "order" : 1.0
+  }, {
+    "name" : "Raised BP",
+    "uuid" : "1f09b442-8de2-450c-9dcd-eab08e5b69fe",
+    "order" : 2.0,
+    "voided" : true
+  }, {
+    "name" : "Antepartum haemorrahoge",
+    "uuid" : "7756e71d-6802-4b82-8e74-36a7721b69dc",
+    "order" : 3.0,
+    "voided" : true
+  }, {
+    "name" : "Transverse lie",
+    "uuid" : "06314b86-e90b-4ad5-aa52-6597270816af",
+    "order" : 4.0,
+    "voided" : true
+  }, {
+    "name" : "Breach presentation",
+    "uuid" : "d9338fbe-e943-41de-ae3b-911ef3a9a649",
+    "order" : 5.0,
+    "voided" : true
+  }, {
+    "name" : "Fetus growth retardation",
+    "uuid" : "f0103541-35c5-4440-842e-9f929242a9b1",
+    "order" : 6.0,
+    "voided" : true
+  }, {
+    "name" : "Twins",
+    "uuid" : "192cad34-767c-43a0-8b04-0443ca87a6a0",
+    "order" : 7.0,
+    "voided" : true
+  }, {
+    "name" : "Hydroamniosis",
+    "uuid" : "2720cec8-db49-49e5-a1d7-9e1fb45d136d",
+    "order" : 8.0,
+    "voided" : true
+  }, {
+    "name" : "Diabetes",
+    "uuid" : "1928469b-a981-4579-beb7-ae47b972e671",
+    "abnormal" : true,
+    "order" : 9.0
+  }, {
+    "name" : "Swelling all over body",
+    "uuid" : "e2fbcb43-c533-40bc-b36d-5850c17d4a04",
+    "order" : 10.0,
+    "voided" : true
+  }, {
+    "name" : "Jaundice",
+    "uuid" : "49adc061-6cac-4d92-9faa-7d3279bb77f4",
+    "order" : 11.0,
+    "voided" : true
+  }, {
+    "name" : "Short stature",
+    "uuid" : "f9fc9347-ca4e-4f92-b393-6fa2f5f6d19b",
+    "order" : 12.0,
+    "voided" : true
+  }, {
+    "name" : "Age is greater than 30 years",
+    "uuid" : "56c6c67f-48b8-43a6-95ff-424e7c625645",
+    "order" : 13.0,
+    "voided" : true
+  }, {
+    "name" : "Not delivered even after 14 days of EDD",
+    "uuid" : "ca4ac889-a095-4770-bbd8-1c3041781fb5",
+    "order" : 14.0,
+    "voided" : true
+  }, {
+    "name" : "Hypertension",
+    "uuid" : "e7e56956-effe-4cc7-85a6-f726b6bf1ffb",
+    "abnormal" : true,
+    "order" : 15.0
+  }, {
+    "name" : "TB",
+    "uuid" : "7943642f-c96f-4de6-a470-b9cb0b45feb0",
+    "abnormal" : true,
+    "order" : 16.0
+  }, {
+    "name" : "Heart disease",
+    "uuid" : "c8a0b118-3326-4948-9fb5-529f6f5d2b96",
+    "abnormal" : true,
+    "order" : 17.0
+  }, {
+    "name" : "Sickle cell disease",
+    "uuid" : "77ac9c58-afaa-42ba-88d2-992bd0db63d7",
+    "abnormal" : true,
+    "order" : 18.0
+  }, {
+    "name" : "Leprosy",
+    "uuid" : "8f50e18a-f14e-4128-82e3-19624cedba47",
+    "abnormal" : true,
+    "order" : 19.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "High risk condition in this pregnancy?",
+  "uuid" : "93679880-83f5-4877-bfc4-e525421c7e52",
+  "dataType" : "Coded",
+  "voided" : true,
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ]
+}, {
+  "name" : "High Risk Conditions",
+  "uuid" : "390483c2-fd5f-4044-bfd1-81732b4f6c71",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Gravida/pregnancies more than 5",
+    "uuid" : "4c8e75b7-28c3-4dbd-b09f-df3b6f57218b",
+    "abnormal" : true,
+    "order" : 0.0
+  }, {
+    "name" : "Diabetes",
+    "uuid" : "1928469b-a981-4579-beb7-ae47b972e671",
+    "abnormal" : true,
+    "order" : 1.0
+  }, {
+    "name" : "Hypertension",
+    "uuid" : "e7e56956-effe-4cc7-85a6-f726b6bf1ffb",
+    "abnormal" : true,
+    "order" : 2.0
+  }, {
+    "name" : "Heart disease",
+    "uuid" : "c8a0b118-3326-4948-9fb5-529f6f5d2b96",
+    "abnormal" : true,
+    "order" : 3.0
+  }, {
+    "name" : "Sickle cell disease",
+    "uuid" : "77ac9c58-afaa-42ba-88d2-992bd0db63d7",
+    "abnormal" : true,
+    "order" : 4.0
+  }, {
+    "name" : "TB",
+    "uuid" : "7943642f-c96f-4de6-a470-b9cb0b45feb0",
+    "abnormal" : true,
+    "order" : 5.0
+  }, {
+    "name" : "Leprosy",
+    "uuid" : "8f50e18a-f14e-4128-82e3-19624cedba47",
+    "abnormal" : true,
+    "order" : 6.0
+  }, {
+    "name" : "Height is less than 140 cm",
+    "uuid" : "86818c4c-4b4b-403e-9f04-ada93c8ab838",
+    "abnormal" : true,
+    "order" : 7.0
+  }, {
+    "name" : "Weight is less than 35 kg",
+    "uuid" : "56e1dbb0-f4ff-42bf-9610-d56993d8e5b8",
+    "abnormal" : true,
+    "order" : 8.0
+  }, {
+    "name" : "High Blood Pressure",
+    "uuid" : "ba644cda-3247-46fd-b333-b0db3dbf2347",
+    "abnormal" : true,
+    "order" : 9.0
+  }, {
+    "name" : "Bleeding PV",
+    "uuid" : "38efe56c-ba52-44b3-bca8-1d88032e3585",
+    "abnormal" : true,
+    "order" : 10.0
+  }, {
+    "name" : "Oedema",
+    "uuid" : "95dd3094-6c99-4622-8614-bf5d33a509e4",
+    "abnormal" : true,
+    "order" : 11.0
+  }, {
+    "name" : "Hydroamniosis",
+    "uuid" : "2720cec8-db49-49e5-a1d7-9e1fb45d136d",
+    "abnormal" : true,
+    "order" : 12.0
+  }, {
+    "name" : "Twins",
+    "uuid" : "192cad34-767c-43a0-8b04-0443ca87a6a0",
+    "abnormal" : true,
+    "order" : 13.0
+  }, {
+    "name" : "Foetal Position is not normal",
+    "uuid" : "2b48ee8d-7760-4e69-b58f-33b7498b710c",
+    "abnormal" : true,
+    "order" : 14.0
+  }, {
+    "name" : "FHS - Not Audible",
+    "uuid" : "dd75c92e-d078-44ec-b76b-dfba65d7f1fe",
+    "abnormal" : true,
+    "order" : 15.0
+  }, {
+    "name" : "Urine Albumin Present",
+    "uuid" : "f4bc4dd5-c028-49d2-a1df-818aeb9e17cc",
+    "abnormal" : true,
+    "order" : 16.0
+  }, {
+    "name" : "Urine sugar present",
+    "uuid" : "1970eb03-6ec5-431b-9296-346c5b5abe78",
+    "abnormal" : true,
+    "order" : 17.0
+  }, {
+    "name" : "Low Haemoglobin",
+    "uuid" : "b45aaa32-e4f1-4fc0-9d78-2dd8e8365dd4",
+    "abnormal" : true,
+    "order" : 18.0
+  }, {
+    "name" : "Breathing difficulty",
+    "uuid" : "a72d4345-9ff2-410b-9c2f-ed61e4ea464b",
+    "abnormal" : true,
+    "order" : 19.0
+  }, {
+    "name" : "Fetus is not moving",
+    "uuid" : "7f358e8b-08d2-4243-bb0c-dda19c4997ae",
+    "abnormal" : true,
+    "order" : 20.0
+  }, {
+    "name" : "Blured vision",
+    "uuid" : "6fabfd13-9908-4a10-9bb7-39da1d674165",
+    "abnormal" : true,
+    "order" : 21.0
+  }, {
+    "name" : "Pain in abdomen",
+    "uuid" : "cb8653a9-3248-440c-aef1-17683e49233b",
+    "abnormal" : true,
+    "order" : 22.0
+  }, {
+    "name" : "Swelling on face/vulva/abdomen/whole body",
+    "uuid" : "19003a06-5195-49ef-9f4f-52462fe6f17c",
+    "abnormal" : true,
+    "order" : 23.0
+  }, {
+    "name" : "Burning micturition",
+    "uuid" : "aa43a1cd-faa2-45cc-be26-1a19b0bc9580",
+    "abnormal" : true,
+    "order" : 24.0
+  }, {
+    "name" : "Fever",
+    "uuid" : "232ae0c9-533f-48cf-8439-79aa03e23e6b",
+    "abnormal" : true,
+    "order" : 25.0
+  }, {
+    "name" : "No foetal movement",
+    "uuid" : "99a2d857-20e0-4bcf-acc8-2f0be2c70663",
+    "abnormal" : true,
+    "order" : 26.0
+  }, {
+    "name" : "Rh negative blood group",
+    "uuid" : "78127122-066c-4917-80f3-2682830c590c",
+    "abnormal" : true,
+    "order" : 27.0
+  }, {
+    "name" : "HIV (Elisa) is positive",
+    "uuid" : "ac1a0235-9881-4a50-aa85-f1d43443d5a8",
+    "abnormal" : true,
+    "order" : 28.0
+  }, {
+    "name" : "Hb Electrophoresis",
+    "uuid" : "198d08c6-b742-4b22-97fd-2293472e571e",
+    "abnormal" : true,
+    "order" : 29.0
+  }, {
+    "name" : "Hepatitis B is positive",
+    "uuid" : "9468c17e-02a0-4ac2-8c19-d280d7914594",
+    "abnormal" : true,
+    "order" : 30.0
+  }, {
+    "name" : "VDRL is positive",
+    "uuid" : "1f70c8c2-8789-42ad-be5e-db94bd3d38e4",
+    "abnormal" : true,
+    "order" : 31.0
+  }, {
+    "name" : "Fundle Height doesn't correspond to the gestational week",
+    "uuid" : "f86f75fa-9464-44b7-958b-5f3ce04b4f87",
+    "abnormal" : true,
+    "order" : 32.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "High sodium intake/high salt intake",
   "uuid" : "c8a8343a-a774-4bda-b466-0cb341ffa9e1",
   "dataType" : "NA"
@@ -2113,6 +3763,25 @@
   "name" : "History of passing stones",
   "uuid" : "898ea643-743f-49e8-ad63-3e41448725f3",
   "dataType" : "NA"
+}, {
+  "name" : "HIV (Elisa)",
+  "uuid" : "b3e8a85a-c7ca-49b8-9c6f-8bd5ee6bfad1",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Positive",
+    "uuid" : "6f6458f7-ce0b-46c2-bd03-0fa30943d75d",
+    "order" : 0.0
+  }, {
+    "name" : "Negative",
+    "uuid" : "0fe2ae63-332a-40bf-82c7-371ef7b66494",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "HIV (Elisa) is positive",
+  "uuid" : "ac1a0235-9881-4a50-aa85-f1d43443d5a8",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "HIV/AIDS",
   "uuid" : "0b5a9a9a-bbfb-4bd2-a87d-bc53aa316c80",
@@ -2144,6 +3813,11 @@
   "uuid" : "e763cad4-722a-4c37-b5a0-5c17428f1089",
   "dataType" : "NA"
 }, {
+  "name" : "Hospitalized",
+  "uuid" : "abbda623-2565-4c95-86cb-21ce2f7e32a8",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Household number",
   "uuid" : "2409240c-9d82-4b6f-8265-0e6f57095cf2",
   "dataType" : "Text"
@@ -2165,9 +3839,46 @@
     "order" : 2.0
   } ]
 }, {
+  "name" : "How many times a day does mother change the clothe?",
+  "uuid" : "0bffc255-a419-4e9d-b859-a30c047642fc",
+  "dataType" : "Numeric",
+  "voided" : true
+}, {
+  "name" : "How many times a day does mother change the clothes?",
+  "uuid" : "0f3c0b07-0014-468d-b01d-9fa1fb60801a",
+  "dataType" : "Numeric",
+  "keyValues" : [ ]
+}, {
+  "name" : "How was breastfeedig",
+  "uuid" : "761a5ddc-fe17-4393-bb28-ecd45de68f58",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Breastfeded properly (good signs of latching)",
+    "uuid" : "f561cb5e-bf5e-48ca-b595-603028b53fc4",
+    "order" : 0.0
+  }, {
+    "name" : "Could not suck properly",
+    "uuid" : "aea257ab-726a-46c0-8554-9dd0deb5a671",
+    "order" : 1.0
+  }, {
+    "name" : "Spoon feeding",
+    "uuid" : "5a06eeb7-489d-4b50-9c04-dc39827a36e6",
+    "order" : 2.0
+  }, {
+    "name" : "No breastfeeding and no spoon feeding",
+    "uuid" : "75bf14b7-a4b0-408b-afb4-1d79d8668c6a",
+    "order" : 3.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Husband",
   "uuid" : "df321e20-e432-40c9-bdf1-a874efe0a7d6",
   "dataType" : "NA"
+}, {
+  "name" : "Hydroamniosis",
+  "uuid" : "2720cec8-db49-49e5-a1d7-9e1fb45d136d",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Hydrocele",
   "uuid" : "ab11793b-931c-4850-9c83-20f4440f1e84",
@@ -2218,6 +3929,34 @@
     "order" : 5.0
   } ]
 }, {
+  "name" : "If self medication, where did woman get the medicine from",
+  "uuid" : "e1dab606-f18e-4007-940a-5df6f48af91a",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Medical shop",
+    "uuid" : "383250b3-86e5-4eac-a39b-cfe39b00efca",
+    "order" : 0.0
+  }, {
+    "name" : "Jholachap doctor",
+    "uuid" : "dab3f3f6-abed-4426-aced-e016fa5b1354",
+    "order" : 1.0
+  }, {
+    "name" : "Other",
+    "uuid" : "798b7942-cf58-4d4e-a529-5972942e0a7e",
+    "order" : 2.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "If you have not thought about any method, then tell about different methods.",
+  "uuid" : "1d7ed26e-17f8-4d27-b5e5-a0fc61336032",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Counselling",
+    "uuid" : "0ac30adc-5107-4e30-9b8a-c3ef65904cf5",
+    "order" : 0.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Illiterate",
   "uuid" : "45b68efb-635d-48ae-9fdf-64f0ea3f46db",
   "dataType" : "NA"
@@ -2225,6 +3964,11 @@
   "name" : "Illness",
   "uuid" : "9d4a81bf-67c2-4b6c-bec9-e9ccbe376799",
   "dataType" : "NA"
+}, {
+  "name" : "In migrant",
+  "uuid" : "285a38f0-52a1-4021-90cc-3ba8cbe88371",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "In migration",
   "uuid" : "17de85b3-65a4-45ac-a5ac-8b11f486b44b",
@@ -2242,6 +3986,15 @@
   "uuid" : "f9001edc-0f9a-4eb3-949c-3238ee8adecb",
   "dataType" : "NA"
 }, {
+  "name" : "infec",
+  "uuid" : "8293fa19-4fd6-4942-bc93-032bc3d39e68",
+  "dataType" : "NA"
+}, {
+  "name" : "infection",
+  "uuid" : "e668ceed-92ee-4b2f-8714-72838f11264b",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Infectious disease",
   "uuid" : "480716a4-d68a-4cf3-9aaf-1caf200b73cf",
   "dataType" : "NA"
@@ -2253,6 +4006,11 @@
   "name" : "Injuries",
   "uuid" : "78efd22b-b4a1-4fd0-9d9d-c75907435a60",
   "dataType" : "NA"
+}, {
+  "name" : "Inreased",
+  "uuid" : "b2eba36a-6648-49ae-96f4-d9af41918b81",
+  "dataType" : "NA",
+  "voided" : true
 }, {
   "name" : "Investigation Advice",
   "uuid" : "d48094bc-ed76-47d1-97e8-967a2371ddf0",
@@ -2277,6 +4035,11 @@
   "name" : "IPV B1",
   "uuid" : "47e5fb36-6e51-4de4-955e-e4103cfce1e2",
   "dataType" : "NA"
+}, {
+  "name" : "Iron & Folic Acid",
+  "uuid" : "2c1760f2-c976-46be-b744-fa97c7448dff",
+  "dataType" : "Numeric",
+  "voided" : true
 }, {
   "name" : "Is baby exclusively breastfeeding",
   "uuid" : "8a7cfa70-2e10-4ff9-88b1-516c94c8efbb",
@@ -2338,6 +4101,24 @@
     "order" : 10.0
   } ]
 }, {
+  "name" : "Is mosquito net given",
+  "uuid" : "b7be4ddc-14ee-4caf-ab38-e1c87d088688",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  }, {
+    "name" : "NA",
+    "uuid" : "7efbfba4-66d1-4510-9024-aaaedf439392",
+    "order" : 2.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Is mother the primary caregiver",
   "uuid" : "590400d6-b854-4bcb-993a-5536fee21562",
   "dataType" : "Coded",
@@ -2350,6 +4131,52 @@
     "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
     "order" : 2.0
   } ]
+}, {
+  "name" : "Is referral required",
+  "uuid" : "77d122e8-0620-4754-8375-b0cbe329003c",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Is safe delivery kit given",
+  "uuid" : "04eecc2b-93eb-49d4-83a4-6629442711ea",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  }, {
+    "name" : "NA",
+    "uuid" : "7efbfba4-66d1-4510-9024-aaaedf439392",
+    "order" : 2.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Is sterlization operation done?",
+  "uuid" : "852f4e54-4969-4724-94e0-cddef0ac1f66",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
 }, {
   "name" : "Is there any developmental delay or disability seen?",
   "uuid" : "7b84dc32-b074-43f0-b9e8-9bfaf3742dc3",
@@ -2364,6 +4191,25 @@
     "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
     "order" : 2.0
   } ]
+}, {
+  "name" : "Is there foul smelling discharge PV",
+  "uuid" : "7764a974-7ba8-4a13-9ba9-6d8d580f3c99",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Is women registered within 3 months",
+  "uuid" : "e817dda1-0cd7-40a9-8d30-06aafbbbbf24",
+  "dataType" : "Text",
+  "keyValues" : [ ]
 }, {
   "name" : "Ishwar Patel",
   "uuid" : "93758a70-7726-4629-abdb-f6103c045506",
@@ -2431,6 +4277,11 @@
   "uuid" : "baf7f5dd-1a38-4bb2-b544-d59868cdc04e",
   "dataType" : "NA"
 }, {
+  "name" : "Jholachap doctor",
+  "uuid" : "dab3f3f6-abed-4426-aced-e016fa5b1354",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Jitendra Yadav",
   "uuid" : "bcdf4b5f-23d4-431c-a845-1fbe04249efd",
   "dataType" : "NA"
@@ -2438,6 +4289,16 @@
   "name" : "Job",
   "uuid" : "27f77972-71d6-466c-94a3-214b4b4a23f6",
   "dataType" : "NA"
+}, {
+  "name" : "JSS Ganiyari hospital",
+  "uuid" : "b03ca67b-390c-4223-9084-577ac737100a",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "JSS subcenter",
+  "uuid" : "b704eaf7-3cfb-4016-a884-456e1f0b7e62",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Kaccha",
   "uuid" : "65b3e4db-3c4e-4a56-9a2f-c07e9888e710",
@@ -2483,6 +4344,16 @@
   "uuid" : "0b68325f-de06-4125-bf13-fe0c48e2d75e",
   "dataType" : "NA"
 }, {
+  "name" : "Karhikachar",
+  "uuid" : "24afb860-4fc0-4068-ba8b-452f2748ee0e",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Karka",
+  "uuid" : "8610a1b7-4482-443e-a9e2-33feed1e04b0",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Karoundi",
   "uuid" : "551bb977-bc86-465f-aaaf-87b4d5dedb6e",
   "dataType" : "NA"
@@ -2510,6 +4381,11 @@
   "name" : "Keep the baby warm by giving mother's skin to skin contact and covering the baby's head, hands and feet with a cap, gloves and socks resp.",
   "uuid" : "0968cb82-59b6-4a6a-9c64-ec5a26ea4922",
   "dataType" : "NA"
+}, {
+  "name" : "Keeping baby warm",
+  "uuid" : "2132c1e4-9d68-4e53-9a5a-5db103ba5661",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Kevara bai",
   "uuid" : "baf0620b-fe8b-43bd-aac3-b3446b3460dd",
@@ -2657,6 +4533,93 @@
     "order" : 2.0
   } ]
 }, {
+  "name" : "Last Delivery",
+  "uuid" : "748b7b66-c9ce-496f-b670-9d2896e82c23",
+  "dataType" : "Date",
+  "keyValues" : [ ]
+}, {
+  "name" : "Last Delivery (estimated)",
+  "uuid" : "fba78a48-2465-4840-81ec-61138e0a3817",
+  "dataType" : "Date",
+  "voided" : true
+}, {
+  "name" : "Last delivery gender",
+  "uuid" : "f776b045-2fcb-4275-b08e-e3e9039b699e",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Male",
+    "uuid" : "9be76824-e7c8-4145-b6c1-7f0b006f1b3d",
+    "order" : 0.0
+  }, {
+    "name" : "Female",
+    "uuid" : "7030fea5-05e1-4abb-982a-7ceb2712adf4",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Last delivery outcome",
+  "uuid" : "6c771640-52b6-46ea-bd56-0a2670ab7a6d",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Live birth",
+    "uuid" : "47bb4fbd-729b-48db-995c-4464e26dd3f3",
+    "order" : 0.0
+  }, {
+    "name" : "Still birth",
+    "uuid" : "36de4090-db75-4eca-96fa-93535053b568",
+    "abnormal" : true,
+    "order" : 1.0
+  }, {
+    "name" : "Abortion",
+    "uuid" : "b819f9a6-a645-4c1e-b78a-f0d97d1383b3",
+    "abnormal" : true,
+    "order" : 2.0
+  }, {
+    "name" : "Death after birth",
+    "uuid" : "a3e639d2-4ab1-4758-b5cc-d37d3187f604",
+    "abnormal" : true,
+    "order" : 3.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Last delivery place",
+  "uuid" : "1952339b-14b0-447d-b6d7-6bcf18b4af62",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Home",
+    "uuid" : "1a4f9d04-3dfd-4851-8dfa-62a83f6cf169",
+    "order" : 0.0
+  }, {
+    "name" : "Hospital",
+    "uuid" : "e763cad4-722a-4c37-b5a0-5c17428f1089",
+    "order" : 1.0
+  }, {
+    "name" : "Other",
+    "uuid" : "798b7942-cf58-4d4e-a529-5972942e0a7e",
+    "order" : 2.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Last delivery- Is baby alive?",
+  "uuid" : "2f68ca5f-c690-4848-aa2e-592d6c7ef4e8",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "abnormal" : true,
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Last menstrual period",
+  "uuid" : "814f1780-aa3d-4c46-b881-71face696220",
+  "dataType" : "Date",
+  "keyValues" : [ ]
+}, {
   "name" : "Lasted few minutes",
   "uuid" : "aefa6c9c-4f22-4c4f-bdb0-b1cfbdceb08c",
   "dataType" : "NA"
@@ -2664,6 +4627,16 @@
   "name" : "Ledra",
   "uuid" : "bf2d7464-80af-4250-b3a4-55c8d2a82b08",
   "dataType" : "NA"
+}, {
+  "name" : "Leg",
+  "uuid" : "d12701be-90db-4c66-ab00-3035886eb6a3",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Leprosy",
+  "uuid" : "8f50e18a-f14e-4128-82e3-19624cedba47",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Lifestyle",
   "uuid" : "7be6ddef-198c-4632-b038-bc477f9adfb9",
@@ -2686,6 +4659,81 @@
   "uuid" : "9fa90cc8-0dc0-43ee-820f-39f8fe3ca1ec",
   "dataType" : "NA"
 }, {
+  "name" : "Live birth",
+  "uuid" : "47bb4fbd-729b-48db-995c-4464e26dd3f3",
+  "dataType" : "Numeric",
+  "lowAbsolute" : 1.0,
+  "highAbsolute" : 9.0,
+  "lowNormal" : 0.0,
+  "highNormal" : 5.0,
+  "unit" : "",
+  "keyValues" : [ ]
+}, {
+  "name" : "LMP (estimated)",
+  "uuid" : "c7cb9599-398c-4381-89f2-5f5c933be8e7",
+  "dataType" : "Date",
+  "keyValues" : [ ]
+}, {
+  "name" : "Look for any danger signs of sepsis",
+  "uuid" : "c0e51a98-9689-4963-9c29-b8be89053116",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "No any danger sign",
+    "uuid" : "aae2d05d-ff39-4e02-9502-95c8035d8992",
+    "order" : 0.0
+  }, {
+    "name" : "Weak and flaccid legs and hands",
+    "uuid" : "709f2b19-f4a4-4029-ab10-3575e2e47380",
+    "order" : 1.0
+  }, {
+    "name" : "Weak cry or stopped crying",
+    "uuid" : "06697930-4d4d-425a-8edc-d081d944b1d7",
+    "order" : 2.0
+  }, {
+    "name" : "Difficulty in breathing",
+    "uuid" : "cc710839-9b8c-4d52-944e-8ba21ad3de72",
+    "order" : 3.0
+  }, {
+    "name" : "Reduced or stopped breastfeeding",
+    "uuid" : "ce7a0737-7770-4eb7-a4b2-0b4fdcc4b381",
+    "order" : 4.0
+  }, {
+    "name" : "Anyother",
+    "uuid" : "772e27c1-87c4-441a-bcec-aa9f74e1bfa5",
+    "order" : 5.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Look for birth defects",
+  "uuid" : "81744917-f99b-41a1-80e9-8057b90073d0",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "No birth defect",
+    "uuid" : "75c3e255-7a3a-499c-b6d2-fe64458c9214",
+    "order" : 0.0
+  }, {
+    "name" : "Birth defect in hands/legs",
+    "uuid" : "d5a8d43f-f2af-4cb8-a0b5-93d3fabd394c",
+    "order" : 1.0
+  }, {
+    "name" : "Birth defect in eyes",
+    "uuid" : "faa9149f-4500-4feb-941d-7aa35262d41d",
+    "order" : 2.0
+  }, {
+    "name" : "Birth defect in lips",
+    "uuid" : "91a8067a-02e0-47b4-b2c7-5b3b0e56b779",
+    "order" : 3.0
+  }, {
+    "name" : "Birth defect in genital/anus",
+    "uuid" : "2ab61aed-c62a-4870-8c86-5c5f7452d264",
+    "order" : 4.0
+  }, {
+    "name" : "Birth defect in other body parts",
+    "uuid" : "a5bbfe88-fbf0-49f3-905a-680772c8e874",
+    "order" : 5.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Looks blue",
   "uuid" : "56547ecf-f448-4fa7-a22c-74ed013df11e",
   "dataType" : "NA"
@@ -2706,6 +4754,11 @@
   "uuid" : "42a1a3fe-8614-4c11-8d45-4497acbceab1",
   "dataType" : "NA"
 }, {
+  "name" : "Low Haemoglobin",
+  "uuid" : "b45aaa32-e4f1-4fc0-9d78-2dd8e8365dd4",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Low Pulse",
   "uuid" : "412a2ecc-9f02-4927-84f8-7f69f2cdc6b8",
   "dataType" : "NA"
@@ -2716,6 +4769,10 @@
 }, {
   "name" : "Low Temperature",
   "uuid" : "4bd2944f-1eaa-48ee-bced-c1ff5d6baf03",
+  "dataType" : "NA"
+}, {
+  "name" : "LSCS",
+  "uuid" : "6994e45d-33b6-4c42-b2a7-3c749463b88c",
   "dataType" : "NA"
 }, {
   "name" : "Maharantola",
@@ -2750,9 +4807,29 @@
   "uuid" : "6fee15b6-179d-4ede-8ae1-e44862ddbccc",
   "dataType" : "NA"
 }, {
+  "name" : "Malaria parasite",
+  "uuid" : "9a89e9d6-f6e4-4d14-8841-34df9ece70a5",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Positive",
+    "uuid" : "6f6458f7-ce0b-46c2-bd03-0fa30943d75d",
+    "abnormal" : true,
+    "order" : 0.0
+  }, {
+    "name" : "Negative",
+    "uuid" : "0fe2ae63-332a-40bf-82c7-371ef7b66494",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Male",
   "uuid" : "9be76824-e7c8-4145-b6c1-7f0b006f1b3d",
   "dataType" : "NA"
+}, {
+  "name" : "Male cannot be enrolled in Pregnancy Program",
+  "uuid" : "f617a2fb-3ddb-48a8-9905-507f14235b50",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Mamta Bai",
   "uuid" : "1581f587-4dbe-4333-b539-f8ed3ba5f20e",
@@ -2793,6 +4870,11 @@
     "key" : "village",
     "value" : "Ratkhandi"
   } ]
+}, {
+  "name" : "Manpur",
+  "uuid" : "b998c308-45b8-4bde-8e24-cc0f4a9a8e96",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Marar",
   "uuid" : "ac63f895-de9a-4551-9d4e-8f73688bcda4",
@@ -2839,6 +4921,11 @@
   "uuid" : "8f5e9c30-8b1c-422d-86f2-dba92e8e6856",
   "dataType" : "NA"
 }, {
+  "name" : "Mastitis",
+  "uuid" : "bc33afcc-d57a-4925-bd07-fef33097cf47",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Matibai",
   "uuid" : "bb02d6a5-4ec9-4bb6-8b29-973a0dd01e72",
   "dataType" : "NA",
@@ -2866,6 +4953,16 @@
   "name" : "Meconium not passed since birth",
   "uuid" : "a30fc761-e21d-43a0-b660-f01514b042ad",
   "dataType" : "NA"
+}, {
+  "name" : "Medical",
+  "uuid" : "ff41bf93-a1de-4113-bc3a-87c6d7a3a183",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Medical college",
+  "uuid" : "3ab10f93-7267-4469-b81d-1f3d6c6bdc99",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Medical history",
   "uuid" : "aab4a34c-9890-4f55-ab2d-ea007fbb26bc",
@@ -2936,6 +5033,11 @@
   "uuid" : "c8f811a4-0c12-4669-8420-a372147f20ca",
   "dataType" : "NA"
 }, {
+  "name" : "Medical shop",
+  "uuid" : "383250b3-86e5-4eac-a39b-cfe39b00efca",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Medications",
   "uuid" : "b58ab784-5a15-44b0-b6ec-a30449caa4c4",
   "dataType" : "Text"
@@ -2947,6 +5049,11 @@
   "name" : "Migration",
   "uuid" : "899e33d1-a54b-4ce5-8efd-2efc255129b6",
   "dataType" : "NA"
+}, {
+  "name" : "Mitanin",
+  "uuid" : "6b8c76ee-a089-4154-8579-d16677e3fd29",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Mithu mahua",
   "uuid" : "b4282bab-da6e-4454-9318-09ea5f85edd8",
@@ -2971,6 +5078,103 @@
   "name" : "mother",
   "uuid" : "5565a987-f54d-45e8-b913-d5513ec5afb6",
   "dataType" : "NA"
+}, {
+  "name" : "mother get the benefit of JSY scheme",
+  "uuid" : "be8560c8-beab-4b69-80ea-c6e943939a30",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  }, {
+    "name" : "Don't know",
+    "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
+    "order" : 2.0
+  }, {
+    "name" : "NA",
+    "uuid" : "7efbfba4-66d1-4510-9024-aaaedf439392",
+    "order" : 3.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "mother has less breast milk",
+  "uuid" : "68239844-aab6-484f-bc76-f7249c793169",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "mother have",
+  "uuid" : "6ae582bb-bf4b-4cd5-9b5b-30d629264eb4",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "mother have less breast milk",
+  "uuid" : "2371bb8d-4561-4396-ba01-14c14f7972ba",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Mother is unconscious or has seizures",
+  "uuid" : "9a2a2343-a19d-426a-b7eb-d5f52f7cc449",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Mother says baby is cold or temp. is more than 37.2 DC",
+  "uuid" : "6bbe35ab-90bc-4aea-b9b2-d298d48b1e25",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "mother suffering from",
+  "uuid" : "11244ced-b169-493d-a160-2dda1e1db195",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 0.0
+  }, {
+    "name" : "Excessive bleeding",
+    "uuid" : "946e2ee6-a4ab-4cb6-8440-3dbf1a062843",
+    "order" : 1.0
+  }, {
+    "name" : "Seizures",
+    "uuid" : "eba8e941-c0f3-4935-8ac6-124f6d8d1c5f",
+    "order" : 2.0
+  }, {
+    "name" : "Unconscious",
+    "uuid" : "dbdf2686-55e0-47f9-9319-5a55cc5d9f4c",
+    "order" : 3.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Mother was not ready to go to hospital",
+  "uuid" : "a9c79567-d7bc-4d48-81cb-3146567b86c0",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Mother went to hospital",
+  "uuid" : "65593745-1a1e-434b-bffc-7c58d40a2113",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Mother's education Level",
   "uuid" : "d98aae1a-ce33-4e51-b031-66e13bc0ba11",
@@ -3038,6 +5242,16 @@
     "order" : 7.0
   } ]
 }, {
+  "name" : "Motivate men to adopt contraceptive method",
+  "uuid" : "48b372a3-b491-4c45-8d14-b99e5515daf2",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Counselling",
+    "uuid" : "0ac30adc-5107-4e30-9b8a-c3ef65904cf5",
+    "order" : 0.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Moto tola",
   "uuid" : "18773354-d9d1-4032-a8b9-44040a4edcd5",
   "dataType" : "NA"
@@ -3076,6 +5290,127 @@
   "name" : "Nagula",
   "uuid" : "28d996e8-bb62-4eac-9b35-050714da771d",
   "dataType" : "NA"
+}, {
+  "name" : "Name of ANC Clinic",
+  "uuid" : "7dd50376-7ba1-441c-aa0c-7ff5ce0468e2",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Semaria-1",
+    "uuid" : "6b44eae3-0290-40ea-b60e-677bc0cbbc1f",
+    "order" : 0.0
+  }, {
+    "name" : "Semaria-2",
+    "uuid" : "d3637bbf-badf-4ff8-bc10-3b184e97cadd",
+    "order" : 1.0
+  }, {
+    "name" : "Karhikachar",
+    "uuid" : "24afb860-4fc0-4068-ba8b-452f2748ee0e",
+    "order" : 2.0
+  }, {
+    "name" : "Barar",
+    "uuid" : "cd54ed53-89e6-4129-9331-30bc35745809",
+    "order" : 3.0
+  }, {
+    "name" : "Shivtarai",
+    "uuid" : "85c10514-22a5-4909-aa52-2c3d533ce4d5",
+    "order" : 4.0
+  }, {
+    "name" : "Nevsa & Karpiha",
+    "uuid" : "c784e3ed-fd4f-47dc-80ee-03d517836d2a",
+    "order" : 5.0
+  }, {
+    "name" : "Karka",
+    "uuid" : "8610a1b7-4482-443e-a9e2-33feed1e04b0",
+    "order" : 6.0
+  }, {
+    "name" : "Piparkhuti",
+    "uuid" : "9b0954ff-73db-4286-940c-d9355d6a352c",
+    "order" : 7.0
+  }, {
+    "name" : "Manpur",
+    "uuid" : "b998c308-45b8-4bde-8e24-cc0f4a9a8e96",
+    "order" : 8.0
+  }, {
+    "name" : "Achanakmar",
+    "uuid" : "1ac4611a-a6b2-4e5f-b78d-6021fcc34714",
+    "order" : 9.0
+  }, {
+    "name" : "Bamhani",
+    "uuid" : "aedf7360-4ef2-437f-908e-cc3d819ccf7b",
+    "order" : 10.0
+  }, {
+    "name" : "Ghameri",
+    "uuid" : "c776b982-48d1-40a4-9dea-033fbd809649",
+    "order" : 11.0
+  }, {
+    "name" : "Boiraha",
+    "uuid" : "940ccd9d-3c8c-4795-9e65-52120544298d",
+    "order" : 12.0
+  }, {
+    "name" : "Bijara",
+    "uuid" : "cb77720c-0a5f-45dc-a7a4-03d2acf35d87",
+    "order" : 13.0
+  }, {
+    "name" : "Chuiha",
+    "uuid" : "d97cd90f-5642-449b-b637-bb9f0d980730",
+    "order" : 14.0
+  }, {
+    "name" : "No ANC clinic",
+    "uuid" : "48101a2e-4799-4bd6-98f2-afd653bc893d",
+    "order" : 15.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Name of chronic disease",
+  "uuid" : "7d9b6992-ee27-4423-90a5-9ad20400d885",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Diabetes",
+    "uuid" : "1928469b-a981-4579-beb7-ae47b972e671",
+    "abnormal" : true,
+    "order" : 0.0
+  }, {
+    "name" : "Hypertension",
+    "uuid" : "e7e56956-effe-4cc7-85a6-f726b6bf1ffb",
+    "abnormal" : true,
+    "order" : 1.0
+  }, {
+    "name" : "TB",
+    "uuid" : "7943642f-c96f-4de6-a470-b9cb0b45feb0",
+    "abnormal" : true,
+    "order" : 2.0
+  }, {
+    "name" : "Heart disease",
+    "uuid" : "c8a0b118-3326-4948-9fb5-529f6f5d2b96",
+    "abnormal" : true,
+    "order" : 3.0
+  }, {
+    "name" : "Sickle cell disease",
+    "uuid" : "77ac9c58-afaa-42ba-88d2-992bd0db63d7",
+    "abnormal" : true,
+    "order" : 4.0
+  }, {
+    "name" : "Leprosy",
+    "uuid" : "8f50e18a-f14e-4128-82e3-19624cedba47",
+    "abnormal" : true,
+    "order" : 5.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Name of person who conducted delivery",
+  "uuid" : "99ab36e9-ca7f-4627-b0a4-2ca5bef6c4ad",
+  "dataType" : "Text",
+  "keyValues" : [ ]
+}, {
+  "name" : "Name of village where woman delivered",
+  "uuid" : "0c0158a5-f13d-4eed-8c9c-56f5a5b37817",
+  "dataType" : "Text",
+  "keyValues" : [ ]
+}, {
+  "name" : "Name of village where woman got abortion done",
+  "uuid" : "aba42644-f860-4c73-aa0e-8b22c563cbb0",
+  "dataType" : "Text",
+  "keyValues" : [ ]
 }, {
   "name" : "Nan bai",
   "uuid" : "28396a86-ecfc-474a-b2bc-3136ca17f555",
@@ -3126,13 +5461,123 @@
   "uuid" : "90d69f3c-3413-468e-8e21-afcdbc5e22c6",
   "dataType" : "NA"
 }, {
+  "name" : "Nevsa & Karpiha",
+  "uuid" : "c784e3ed-fd4f-47dc-80ee-03d517836d2a",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "New complaint",
+  "uuid" : "74599453-6fbd-4f8d-bf7f-34faa3c10eb9",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Breathing difficulty",
+    "uuid" : "a72d4345-9ff2-410b-9c2f-ed61e4ea464b",
+    "order" : 0.0
+  }, {
+    "name" : "Fetus is not moving",
+    "uuid" : "7f358e8b-08d2-4243-bb0c-dda19c4997ae",
+    "order" : 1.0
+  }, {
+    "name" : "Headache",
+    "uuid" : "44683953-68ed-4498-81e8-924879c59117",
+    "order" : 2.0
+  }, {
+    "name" : "Blured vision",
+    "uuid" : "6fabfd13-9908-4a10-9bb7-39da1d674165",
+    "order" : 3.0
+  }, {
+    "name" : "Pain in abdomen",
+    "uuid" : "cb8653a9-3248-440c-aef1-17683e49233b",
+    "order" : 4.0
+  }, {
+    "name" : "Swelling on face/vulva/abdomen/whole body",
+    "uuid" : "19003a06-5195-49ef-9f4f-52462fe6f17c",
+    "order" : 5.0
+  }, {
+    "name" : "Burning micturition",
+    "uuid" : "aa43a1cd-faa2-45cc-be26-1a19b0bc9580",
+    "order" : 6.0
+  }, {
+    "name" : "Bleeding PV",
+    "uuid" : "38efe56c-ba52-44b3-bca8-1d88032e3585",
+    "order" : 7.0
+  }, {
+    "name" : "Fever",
+    "uuid" : "232ae0c9-533f-48cf-8439-79aa03e23e6b",
+    "order" : 8.0
+  }, {
+    "name" : "Other",
+    "uuid" : "798b7942-cf58-4d4e-a529-5972942e0a7e",
+    "order" : 9.0
+  }, {
+    "name" : "None",
+    "uuid" : "8b77f487-c885-4b54-8925-153733913b10",
+    "unique" : true,
+    "order" : 10.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "NGO Hospital",
   "uuid" : "375d6307-1d19-416d-9ec1-a40071806a85",
   "dataType" : "NA"
 }, {
+  "name" : "Nil",
+  "uuid" : "7f2382b9-e15b-4ff0-a5a6-acb88470100c",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "No",
   "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
   "dataType" : "NA"
+}, {
+  "name" : "No ANC clinic",
+  "uuid" : "48101a2e-4799-4bd6-98f2-afd653bc893d",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "No any danger sign",
+  "uuid" : "aae2d05d-ff39-4e02-9502-95c8035d8992",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "No bath till one day/ 1 week",
+  "uuid" : "0e10d296-b4cf-484e-b776-2d17d3663e62",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "No birth defect",
+  "uuid" : "75c3e255-7a3a-499c-b6d2-fe64458c9214",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "No breast milk at all",
+  "uuid" : "90502bf9-8178-44e7-b60f-86e92cb32de3",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "No breastfeeding and no spoon feeding",
+  "uuid" : "75bf14b7-a4b0-408b-afb4-1d79d8668c6a",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "No foetal movement",
+  "uuid" : "99a2d857-20e0-4bcf-acc8-2f0be2c70663",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "No high risk condition",
+  "uuid" : "c64cf96e-e46b-4a02-919a-c5fa3c2cfbf3",
+  "dataType" : "NA"
+}, {
+  "name" : "No issues/problems",
+  "uuid" : "5cd37a0c-8271-4fc7-845b-0e97c018d4ea",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "No need",
+  "uuid" : "cda516ab-5d80-45d8-b300-582f7cfb87eb",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "No problem",
   "uuid" : "f1b08c38-f85b-4764-b661-3e098cf91ce5",
@@ -3145,6 +5590,11 @@
   "name" : "No urination",
   "uuid" : "de6f985a-5dc8-4aa8-9f03-dc84e84efceb",
   "dataType" : "NA"
+}, {
+  "name" : "no. of time mother taking food in day",
+  "uuid" : "e6022114-7f4c-4fa1-9c71-713152fe3ff9",
+  "dataType" : "Numeric",
+  "keyValues" : [ ]
 }, {
   "name" : "Nogawan",
   "uuid" : "b3074904-34fa-476a-b594-a39fb3d0dfbf",
@@ -3162,9 +5612,44 @@
   "uuid" : "ec89cb1f-491b-46de-95c1-3009effa9041",
   "dataType" : "NA"
 }, {
+  "name" : "Normal crystel",
+  "uuid" : "d2e7fe4e-3a7f-435d-a973-e114bb849a56",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Normal nipple",
+  "uuid" : "cbc8d904-4309-4b27-86a7-025654fda538",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Normal with episiotomy",
+  "uuid" : "cf845903-bae0-4157-bfef-2e31d012834c",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Not answered",
+  "uuid" : "ae021fdc-9767-4fae-9b17-410e7d32e218",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Not audible/Can't locate",
+  "uuid" : "05580ea9-fb5c-4f8f-aeae-8c120950de92",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Not Breast-fed within 1 hour of birth",
   "uuid" : "0a19821f-46c1-4e48-9ec1-60e34d85d2f9",
   "dataType" : "NA"
+}, {
+  "name" : "Not delivered even after 14 days of EDD",
+  "uuid" : "ca4ac889-a095-4770-bbd8-1c3041781fb5",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Not enough breast milk",
+  "uuid" : "69b4816e-a58d-4afa-a635-37d38e44d2cc",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Not passing stool",
   "uuid" : "5f18db88-187f-4f0c-a3be-3b3b3c520924",
@@ -3181,6 +5666,15 @@
   "name" : "Not sucking milk at all",
   "uuid" : "ecc06f53-42ff-4cc8-ad44-fba9fce1cfa4",
   "dataType" : "NA"
+}, {
+  "name" : "number of abortions",
+  "uuid" : "1465d2a8-dd5a-4cec-9cc3-ab9c7ba22cc2",
+  "dataType" : "Numeric",
+  "lowAbsolute" : 0.0,
+  "highAbsolute" : 9.0,
+  "lowNormal" : 0.0,
+  "highNormal" : 2.0,
+  "keyValues" : [ ]
 }, {
   "name" : "Number of child deaths",
   "uuid" : "0357a291-f8f1-457c-905f-240e9db6c4d6",
@@ -3249,6 +5743,11 @@
   "uuid" : "168eea11-b2ac-42d2-9135-339550d0b14d",
   "dataType" : "NA"
 }, {
+  "name" : "Nurse (ANM/GNM)",
+  "uuid" : "3627adf0-c083-4af2-a0a2-c5007540a19b",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "O+",
   "uuid" : "0e8d5617-3d7f-4585-adee-4b439088bbfe",
   "dataType" : "NA"
@@ -3263,6 +5762,10 @@
 }, {
   "name" : "Obese",
   "uuid" : "6c2cdb70-6065-4114-93a8-fb15082bc979",
+  "dataType" : "NA"
+}, {
+  "name" : "Obstructed labour/ Prolonged labour",
+  "uuid" : "65f82627-0afa-4290-87c1-cfffe1da2c68",
   "dataType" : "NA"
 }, {
   "name" : "Occupation",
@@ -3305,6 +5808,33 @@
     "uuid" : "798b7942-cf58-4d4e-a529-5972942e0a7e",
     "order" : 9.0
   } ]
+}, {
+  "name" : "Oedema",
+  "uuid" : "95dd3094-6c99-4622-8614-bf5d33a509e4",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Pedal",
+    "uuid" : "5d0462d9-1c5c-42bc-a3e3-8c75cf6b6986",
+    "order" : 0.0
+  }, {
+    "name" : "Face",
+    "uuid" : "4b228992-6d31-4e7a-bbcb-e319ffe672f8",
+    "order" : 1.0
+  }, {
+    "name" : "Vulval",
+    "uuid" : "f9f1945f-eb75-4ddb-b354-919afc5f53c4",
+    "order" : 2.0
+  }, {
+    "name" : "Entire body",
+    "uuid" : "21eae23f-f925-4c69-bb1e-ce330aeb4b02",
+    "order" : 3.0
+  }, {
+    "name" : "NA",
+    "uuid" : "7efbfba4-66d1-4510-9024-aaaedf439392",
+    "unique" : true,
+    "order" : 4.0
+  } ],
+  "keyValues" : [ ]
 }, {
   "name" : "Old anganwadi kendra",
   "uuid" : "ae2eccc5-581d-4d7f-9ec6-f325d01e7b36",
@@ -3350,6 +5880,21 @@
   "uuid" : "460746b0-f290-4d6d-8296-ddf8e2a82648",
   "dataType" : "Text"
 }, {
+  "name" : "Other colour of amniotic fluid",
+  "uuid" : "ac9f7563-ad2b-4df2-aa1f-6df3a9c50c21",
+  "dataType" : "Text",
+  "keyValues" : [ ]
+}, {
+  "name" : "Other complaint",
+  "uuid" : "dc0c10ca-c151-4c5c-aedc-2b8040dbea52",
+  "dataType" : "Text",
+  "keyValues" : [ ]
+}, {
+  "name" : "Other complication faced due to abortion",
+  "uuid" : "39633d82-8da1-458e-a759-1d558d3a3a92",
+  "dataType" : "Text",
+  "keyValues" : [ ]
+}, {
   "name" : "Other Gender",
   "uuid" : "92086909-2ba1-4905-b863-417785053d92",
   "dataType" : "NA"
@@ -3361,6 +5906,26 @@
   "name" : "Other Phulwari",
   "uuid" : "8b87661c-a659-4251-beb1-a89b800b1996",
   "dataType" : "NA"
+}, {
+  "name" : "Other place of delivery",
+  "uuid" : "ebdc6d6b-4510-4659-b595-a090186d1832",
+  "dataType" : "Text",
+  "keyValues" : [ ]
+}, {
+  "name" : "Other place of refe",
+  "uuid" : "ca5ab60f-3965-409f-92ab-4b28c0c523b6",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "other place of refe",
+  "uuid" : "5c8aa970-db8e-4789-8d4b-d43e093c6634",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "other place of referral",
+  "uuid" : "d169efa9-49af-4c84-ae09-b1b7296c62da",
+  "dataType" : "Text",
+  "keyValues" : [ ]
 }, {
   "name" : "Other property",
   "uuid" : "32609e0f-f3c8-4dcb-af7c-5e8a96e8e89d",
@@ -3374,6 +5939,26 @@
   "uuid" : "63390533-9229-4e7d-816d-d07c23fba826",
   "dataType" : "Text"
 }, {
+  "name" : "other referral rea",
+  "uuid" : "3ac8735c-abf3-4323-a599-8258a1e1a420",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Other referral reason",
+  "uuid" : "e048675e-eb86-41c2-a47b-aecfa9a3bb8c",
+  "dataType" : "Text",
+  "keyValues" : [ ]
+}, {
+  "name" : "Other status of referral -1",
+  "uuid" : "e76c8b20-7de0-4cdb-ab9f-3df35452ad27",
+  "dataType" : "Text",
+  "keyValues" : [ ]
+}, {
+  "name" : "Other status of referral -2",
+  "uuid" : "35a163f3-8632-48d9-9a8c-1b369839942c",
+  "dataType" : "Text",
+  "keyValues" : [ ]
+}, {
   "name" : "Other sub caste",
   "uuid" : "ae7d54e9-fac0-4898-b334-87664bd055d2",
   "dataType" : "Text"
@@ -3382,9 +5967,24 @@
   "uuid" : "5d63594d-23a0-49db-af8c-892de0046cc1",
   "dataType" : "Text"
 }, {
+  "name" : "Other than head- other parts of foetus delivered first",
+  "uuid" : "dcdca252-bd54-40cb-a504-9d167311a61d",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Other things fed to the baby",
   "uuid" : "79218eb8-c628-45d8-ab12-9aadc251e3d7",
   "dataType" : "Text"
+}, {
+  "name" : "Other who conducted delivery",
+  "uuid" : "03ae48d3-6d4e-4e39-8194-cb2653c0eaf7",
+  "dataType" : "Text",
+  "keyValues" : [ ]
+}, {
+  "name" : "Out migrant",
+  "uuid" : "e57e1f8d-0a6c-4470-b692-3dc82cce0dfc",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Overweight",
   "uuid" : "68525b3b-43a2-4044-87b9-01589accd657",
@@ -3401,6 +6001,11 @@
   "name" : "Pain during micturition",
   "uuid" : "cd40a02c-2118-4a95-9a05-657d212be550",
   "dataType" : "NA"
+}, {
+  "name" : "Pain in abdomen",
+  "uuid" : "cb8653a9-3248-440c-aef1-17683e49233b",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Pakka",
   "uuid" : "bc43ce86-7cd4-474c-bced-8a5af0a4cb87",
@@ -3432,6 +6037,11 @@
   "uuid" : "5718df2e-2311-42ad-88b6-c2d7be74df22",
   "dataType" : "NA"
 }, {
+  "name" : "Para Cannot be greater than Gravida",
+  "uuid" : "07dbf12c-8b33-4e48-826b-120de38d0404",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Paracheck",
   "uuid" : "b44c950b-373c-4873-afb9-acbb2d7b1e2c",
   "dataType" : "Coded",
@@ -3456,6 +6066,16 @@
     "order" : 4.0
   } ]
 }, {
+  "name" : "Parity",
+  "uuid" : "6956e0f7-d31b-4fb5-a3de-bd6251b24f49",
+  "dataType" : "Numeric",
+  "lowAbsolute" : 1.0,
+  "highAbsolute" : 9.0,
+  "lowNormal" : 0.0,
+  "highNormal" : 5.0,
+  "unit" : "",
+  "keyValues" : [ ]
+}, {
   "name" : "Parmeswari, Shivkumari",
   "uuid" : "8d1ee1cb-b4bb-42e1-a659-c3f1a2e246ef",
   "dataType" : "NA",
@@ -3463,6 +6083,28 @@
     "key" : "village",
     "value" : "Karhikachar"
   } ]
+}, {
+  "name" : "Part of foetus that came first",
+  "uuid" : "68891675-51d5-4a64-9cd6-e19ca54f2c1f",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Head",
+    "uuid" : "ae3c860c-aed4-4144-9e46-f46c221caf5a",
+    "order" : 0.0
+  }, {
+    "name" : "Cord",
+    "uuid" : "5c25726f-6868-4f2b-acbc-005bbec2360b",
+    "order" : 1.0
+  }, {
+    "name" : "Leg",
+    "uuid" : "d12701be-90db-4c66-ab00-3035886eb6a3",
+    "order" : 2.0
+  }, {
+    "name" : "Hand",
+    "uuid" : "b11a0220-efce-49e4-ba86-5c86069cc264",
+    "order" : 3.0
+  } ],
+  "keyValues" : [ ]
 }, {
   "name" : "Patel",
   "uuid" : "0e03a56d-dfca-4365-b10b-d1bc8390ff87",
@@ -3472,9 +6114,44 @@
   "uuid" : "d39b7258-5d9d-4665-accb-fe697d125d46",
   "dataType" : "NA"
 }, {
+  "name" : "Patient did not go to facility",
+  "uuid" : "e94a781a-462d-4706-b12c-ca6d421b0f4c",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Patient is on treatment",
+  "uuid" : "9e147cf6-577a-46a7-8f88-2ae6420519d4",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Patient went to Govt. facility",
+  "uuid" : "2608f417-118f-4fab-a619-068c304601ee",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Patient went to Jholachap",
+  "uuid" : "c796a08a-9b79-4e63-a999-ab3b41a67111",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Patient went to private practitioner/Hospital",
+  "uuid" : "3d53ba30-634f-48ff-ad34-9f7122928866",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Patient went to traditional healer",
+  "uuid" : "e3bb03ee-2d89-4d4d-9111-ce238057a83a",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Payari",
   "uuid" : "8aa30f2a-b567-4d59-b914-8a44e8813182",
   "dataType" : "NA"
+}, {
+  "name" : "Pedal",
+  "uuid" : "5d0462d9-1c5c-42bc-a3e3-8c75cf6b6986",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Pedal Edema",
   "uuid" : "c7fa8d3b-40c0-45fb-90b8-1cae6768b43c",
@@ -3921,6 +6598,31 @@
     "name" : "Rambai, Ramphul",
     "uuid" : "7afc5c56-d076-4f10-a366-9fc727a001cf",
     "order" : 98.0
+  }, {
+    "name" : "Baiga",
+    "uuid" : "2b90b234-8a63-4d4c-92d0-6389d8b1fb78",
+    "order" : 99.0,
+    "voided" : true
+  }, {
+    "name" : "Gond",
+    "uuid" : "7335b4a6-fd22-4061-ba4f-54c5f3d1bfbe",
+    "order" : 100.0,
+    "voided" : true
+  }, {
+    "name" : "Nayak",
+    "uuid" : "a27ce1dc-59de-4b83-a25c-4672013530f5",
+    "order" : 101.0,
+    "voided" : true
+  }, {
+    "name" : "Panika",
+    "uuid" : "5718df2e-2311-42ad-88b6-c2d7be74df22",
+    "order" : 102.0,
+    "voided" : true
+  }, {
+    "name" : "Yadav",
+    "uuid" : "65b5abfa-9229-48bf-8ed7-40e715840302",
+    "order" : 103.0,
+    "voided" : true
   } ]
 }, {
   "name" : "Phumani, Pyaro bai",
@@ -3938,6 +6640,53 @@
   "name" : "Piparhatola",
   "uuid" : "630a838c-d8bc-4daf-bebc-45b2c1614123",
   "dataType" : "NA"
+}, {
+  "name" : "Piparkhuti",
+  "uuid" : "9b0954ff-73db-4286-940c-d9355d6a352c",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Place of Abortion",
+  "uuid" : "16e2956e-1265-4e2c-b4ef-eb7568b5c69d",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Home",
+    "uuid" : "1a4f9d04-3dfd-4851-8dfa-62a83f6cf169",
+    "order" : 0.0
+  }, {
+    "name" : "Sub Center- Govt",
+    "uuid" : "92ef8513-ef65-49c0-9bd2-a284f7656b52",
+    "order" : 1.0
+  }, {
+    "name" : "Primary Health Center",
+    "uuid" : "a9b35608-e850-4414-b3e9-c3f9b306c17e",
+    "order" : 2.0
+  }, {
+    "name" : "Community Health Centre",
+    "uuid" : "9699d4fd-a67f-4f45-8d3c-df491f27db60",
+    "order" : 3.0
+  }, {
+    "name" : "District Hospital",
+    "uuid" : "602e1362-0c44-49d8-ac94-42a741c6273b",
+    "order" : 4.0
+  }, {
+    "name" : "Medical college",
+    "uuid" : "3ab10f93-7267-4469-b81d-1f3d6c6bdc99",
+    "order" : 5.0
+  }, {
+    "name" : "Private hospital",
+    "uuid" : "05d34f29-d6fa-4cc2-bc33-32bfaf2fc140",
+    "order" : 6.0
+  }, {
+    "name" : "JSS Ganiyari hospital",
+    "uuid" : "b03ca67b-390c-4223-9084-577ac737100a",
+    "order" : 7.0
+  }, {
+    "name" : "Other",
+    "uuid" : "798b7942-cf58-4d4e-a529-5972942e0a7e",
+    "order" : 8.0
+  } ],
+  "keyValues" : [ ]
 }, {
   "name" : "Place of birth",
   "uuid" : "f30df7d4-2748-4053-81ae-80a6431e1435",
@@ -3989,9 +6738,96 @@
     "order" : 3.0
   } ]
 }, {
+  "name" : "Place of delivery",
+  "uuid" : "dea1a2d3-2583-4a77-8723-e64d9e10079e",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "At In law's place",
+    "uuid" : "50e4f70d-634d-487f-9cf4-2e965cc83165",
+    "order" : 0.0
+  }, {
+    "name" : "At mother's place",
+    "uuid" : "8a6fb293-0da1-4103-a7e9-99c986281e40",
+    "order" : 1.0
+  }, {
+    "name" : "JSS subcenter",
+    "uuid" : "b704eaf7-3cfb-4016-a884-456e1f0b7e62",
+    "order" : 2.0
+  }, {
+    "name" : "Sub Center- Govt",
+    "uuid" : "92ef8513-ef65-49c0-9bd2-a284f7656b52",
+    "order" : 3.0
+  }, {
+    "name" : "Primary Health Center",
+    "uuid" : "a9b35608-e850-4414-b3e9-c3f9b306c17e",
+    "order" : 4.0
+  }, {
+    "name" : "Community Health Centre",
+    "uuid" : "9699d4fd-a67f-4f45-8d3c-df491f27db60",
+    "order" : 5.0
+  }, {
+    "name" : "District Hospital",
+    "uuid" : "602e1362-0c44-49d8-ac94-42a741c6273b",
+    "order" : 6.0
+  }, {
+    "name" : "Medical college",
+    "uuid" : "3ab10f93-7267-4469-b81d-1f3d6c6bdc99",
+    "order" : 7.0
+  }, {
+    "name" : "Private hospital",
+    "uuid" : "05d34f29-d6fa-4cc2-bc33-32bfaf2fc140",
+    "order" : 8.0
+  }, {
+    "name" : "Other",
+    "uuid" : "798b7942-cf58-4d4e-a529-5972942e0a7e",
+    "order" : 9.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Place of referral",
+  "uuid" : "80fccb06-a62f-43e8-92eb-358bdb600079",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "VHW",
+    "uuid" : "355143bf-b812-4ec8-93e6-6795fe4f7dc9",
+    "order" : 0.0
+  }, {
+    "name" : "Sub Center",
+    "uuid" : "31a0f7f1-7b23-4436-ae0a-0a982c11077c",
+    "order" : 1.0
+  }, {
+    "name" : "Ganiyari",
+    "uuid" : "41f067f3-48a0-4f95-aee5-dcee95a8b9de",
+    "order" : 2.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "place of referral",
+  "uuid" : "c470cb18-f902-4b2b-844b-4b6286e36b8d",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "VHW",
+    "uuid" : "355143bf-b812-4ec8-93e6-6795fe4f7dc9",
+    "order" : 0.0
+  }, {
+    "name" : "Sub Center",
+    "uuid" : "31a0f7f1-7b23-4436-ae0a-0a982c11077c",
+    "order" : 1.0
+  }, {
+    "name" : "Other",
+    "uuid" : "798b7942-cf58-4d4e-a529-5972942e0a7e",
+    "order" : 2.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Placeholder for counselling form element",
   "uuid" : "41788b40-ee6a-4e07-8096-8a53b6a27af5",
   "dataType" : "Coded"
+}, {
+  "name" : "Placenta did not delivered within 30 mins",
+  "uuid" : "0754c0d6-d0fd-44ff-85a6-e17a969f99f2",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Polio 0",
   "uuid" : "5845958d-2c99-41f4-a6ce-7bc91f659d4c",
@@ -4020,6 +6856,28 @@
   "name" : "Porte",
   "uuid" : "7473f572-0116-46fe-a5ad-fd56317598a2",
   "dataType" : "NA"
+}, {
+  "name" : "Position",
+  "uuid" : "69a95145-505b-497a-9fc9-61fcc5d2ff59",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Vertex",
+    "uuid" : "d49d3369-74aa-4d45-a1f0-6578453fddb6",
+    "order" : 0.0
+  }, {
+    "name" : "Breach",
+    "uuid" : "37006041-5287-4913-b409-0ff8d0065557",
+    "order" : 1.0
+  }, {
+    "name" : "Transverse",
+    "uuid" : "901014fd-60bb-4843-a319-c3d58e2bdb19",
+    "order" : 2.0
+  }, {
+    "name" : "NA",
+    "uuid" : "7efbfba4-66d1-4510-9024-aaaedf439392",
+    "order" : 3.0
+  } ],
+  "keyValues" : [ ]
 }, {
   "name" : "Positive",
   "uuid" : "6f6458f7-ce0b-46c2-bd03-0fa30943d75d",
@@ -4053,6 +6911,15 @@
   "uuid" : "9608a877-b2e2-41db-9504-ac4dcad8f5f0",
   "dataType" : "Numeric"
 }, {
+  "name" : "Post partum haemorrahge",
+  "uuid" : "5d3154b7-d8b3-4180-9b19-d1631a01208e",
+  "dataType" : "NA"
+}, {
+  "name" : "PPMC check",
+  "uuid" : "e1da6e25-89cb-4c30-b3a9-0cfe6bc97c41",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Prajapati",
   "uuid" : "9a5240ee-7d93-4413-ae0a-60bd9cd78b31",
   "dataType" : "NA"
@@ -4065,6 +6932,11 @@
     "value" : "Bindaval"
   } ]
 }, {
+  "name" : "Pregnant woman's name",
+  "uuid" : "8726bf7a-b9ca-4198-b164-6e9856cc97f1",
+  "dataType" : "Text",
+  "keyValues" : [ ]
+}, {
   "name" : "Prem Nagar",
   "uuid" : "c2cb6c21-2bd9-44ce-825c-7a187d0042a6",
   "dataType" : "NA"
@@ -4073,9 +6945,36 @@
   "uuid" : "078f19fa-f7b8-4355-b387-ebc0746a9c1a",
   "dataType" : "NA"
 }, {
+  "name" : "Presentation of baby",
+  "uuid" : "e7b5d460-47dd-490b-af0a-a73a19a93a9d",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Vertex",
+    "uuid" : "d49d3369-74aa-4d45-a1f0-6578453fddb6",
+    "order" : 0.0
+  }, {
+    "name" : "Breach",
+    "uuid" : "37006041-5287-4913-b409-0ff8d0065557",
+    "order" : 1.0
+  }, {
+    "name" : "Transverse",
+    "uuid" : "901014fd-60bb-4843-a319-c3d58e2bdb19",
+    "order" : 2.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Preterm (<28 weeks)",
   "uuid" : "8d28c84a-e420-4f18-9111-07a68f09bfb2",
   "dataType" : "NA"
+}, {
+  "name" : "Preterm <28 weeks) delivery",
+  "uuid" : "67974f7b-caaa-45cb-a767-69ef1a0c240f",
+  "dataType" : "NA"
+}, {
+  "name" : "Previous C-section scar",
+  "uuid" : "d097c766-9539-4bf8-9efd-e6ebc77e0295",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Primary",
   "uuid" : "bb825f03-51d4-4622-b977-e2893e76da70",
@@ -4163,6 +7062,16 @@
     "order" : 8.0
   } ]
 }, {
+  "name" : "Provide detailed information about the instrument chosen",
+  "uuid" : "35829406-7047-40a4-a970-17d029f49562",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Counselling",
+    "uuid" : "0ac30adc-5107-4e30-9b8a-c3ef65904cf5",
+    "order" : 0.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Pulse",
   "uuid" : "630c0fa3-38f7-427d-a8dd-f1417cf1b7dc",
   "dataType" : "Numeric",
@@ -4177,6 +7086,35 @@
     "key" : "village",
     "value" : "Chotebarar"
   } ]
+}, {
+  "name" : "Pus cell",
+  "uuid" : "7a80252f-bc60-40df-b3d4-b952c48c4e6e",
+  "dataType" : "NA",
+  "voided" : true
+}, {
+  "name" : "Pus Cell",
+  "uuid" : "0b8bc1f8-43db-4ecb-9677-22709e91681f",
+  "dataType" : "Numeric",
+  "keyValues" : [ ]
+}, {
+  "name" : "Pus in or around the umbilicus",
+  "uuid" : "7338a25a-a8dd-4363-ac67-20706827eedd",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Pus in the eyes",
+  "uuid" : "c8cae940-7ac8-4b09-892c-aebca10d9ab1",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "PVTG",
+  "uuid" : "91f51ff2-ef5f-48e1-a6c2-5efe6f10a3b2",
+  "dataType" : "NA"
+}, {
+  "name" : "Raised BP",
+  "uuid" : "1f09b442-8de2-450c-9dcd-eab08e5b69fe",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Rajak",
   "uuid" : "1062d52b-5b2c-4bd8-8165-ac4a3a9e11d4",
@@ -4286,6 +7224,14 @@
   "uuid" : "0beb36da-863d-4595-8922-9742dfe42766",
   "dataType" : "NA"
 }, {
+  "name" : "Random Blood Sugar (RBS)",
+  "uuid" : "d6ac43a2-527d-4168-ba7d-2d233add3a6e",
+  "dataType" : "Numeric",
+  "lowAbsolute" : 60.0,
+  "highAbsolute" : 160.0,
+  "unit" : "mg/dl",
+  "keyValues" : [ ]
+}, {
   "name" : "Rash",
   "uuid" : "9bfd518c-1220-4cd0-8e15-5492291319f0",
   "dataType" : "NA"
@@ -4314,6 +7260,11 @@
   "name" : "Ration card",
   "uuid" : "06de012d-1425-40d8-9b5a-40b6dc5e93b4",
   "dataType" : "NA"
+}, {
+  "name" : "RBC",
+  "uuid" : "b59c126f-975b-45e6-8dd6-584dd54e25c9",
+  "dataType" : "Numeric",
+  "keyValues" : [ ]
 }, {
   "name" : "Reason for child exit",
   "uuid" : "3b5b3657-9265-4e88-b4bf-7b99c46a4f33",
@@ -4369,6 +7320,34 @@
   "uuid" : "820fcf58-dbac-4d9e-8a5f-2dd3f43c0a69",
   "dataType" : "NA"
 }, {
+  "name" : "Reduced breastfeeding/no breast feeding",
+  "uuid" : "0b1e4b07-1d06-442b-8c14-c8da9d28f706",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Reduced or stopped breastfeeding",
+  "uuid" : "ce7a0737-7770-4eb7-a4b2-0b4fdcc4b381",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Refer the mother immediately to hospital. Did arrangement was made",
+  "uuid" : "9a31b9a0-18bf-4b3b-87cf-fad47128596b",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Arrangement was made",
+    "uuid" : "7709636f-51c3-4db6-a9d4-0aca4b1a4cab",
+    "order" : 0.0
+  }, {
+    "name" : "Mother went to hospital",
+    "uuid" : "65593745-1a1e-434b-bffc-7c58d40a2113",
+    "order" : 1.0
+  }, {
+    "name" : "Mother was not ready to go to hospital",
+    "uuid" : "a9c79567-d7bc-4d48-81cb-3146567b86c0",
+    "order" : 2.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Refer to the hospital immediately for",
   "uuid" : "ddcf2dbe-bd47-4974-9559-a5176a5643da",
   "dataType" : "Coded",
@@ -4413,6 +7392,101 @@
     "order" : 9.0
   } ]
 }, {
+  "name" : "Referral needed to mother?",
+  "uuid" : "c75a610f-27c3-4fad-9c26-04887c15436e",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Referral needed to newborn",
+  "uuid" : "1680e20a-1bf9-4396-ae01-94bb361983c1",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Referral place",
+  "uuid" : "d78183dd-aa99-47fa-b562-f761f5415028",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "JSS subcenter",
+    "uuid" : "b704eaf7-3cfb-4016-a884-456e1f0b7e62",
+    "order" : 0.0
+  }, {
+    "name" : "JSS Ganiyari hospital",
+    "uuid" : "b03ca67b-390c-4223-9084-577ac737100a",
+    "order" : 1.0
+  }, {
+    "name" : "Other",
+    "uuid" : "798b7942-cf58-4d4e-a529-5972942e0a7e",
+    "order" : 2.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Referral reason",
+  "uuid" : "8a56f008-a910-4d6f-b028-a95db330dbf2",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "infec",
+    "uuid" : "8293fa19-4fd6-4942-bc93-032bc3d39e68",
+    "order" : 0.0
+  }, {
+    "name" : "Bleeding",
+    "uuid" : "0aeb893c-34ba-49f0-bd6f-0696fce74458",
+    "order" : 1.0
+  }, {
+    "name" : "Seizure",
+    "uuid" : "cbc1b5b1-e4f9-4c0e-abe6-cc03362ff08d",
+    "order" : 2.0
+  }, {
+    "name" : "Other",
+    "uuid" : "798b7942-cf58-4d4e-a529-5972942e0a7e",
+    "order" : 3.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Referral required for?",
+  "uuid" : "049cbcbe-d953-49ad-8198-10ae86bc6bff",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Sonography",
+    "uuid" : "1a893a89-4984-43e1-85cc-b64fb582824c",
+    "order" : 0.0
+  }, {
+    "name" : "Consultation with specialist at referral centre",
+    "uuid" : "f1ecf77c-122f-4462-8bc8-812013c80fa3",
+    "order" : 1.0
+  }, {
+    "name" : "Admission at Referral centre",
+    "uuid" : "dad7f494-99ec-42ce-b50b-07a7450be30c",
+    "order" : 2.0
+  }, {
+    "name" : "Delivery/LACS",
+    "uuid" : "7d0d495a-e733-4ea8-93ca-c57bf42c6ee9",
+    "order" : 3.0
+  }, {
+    "name" : "No need",
+    "uuid" : "cda516ab-5d80-45d8-b300-582f7cfb87eb",
+    "unique" : true,
+    "order" : 4.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Referred",
   "uuid" : "9474ed99-e40e-4f0e-be29-130b505a2dc7",
   "dataType" : "Coded",
@@ -4451,6 +7525,35 @@
   "name" : "Regional Hospital",
   "uuid" : "29d4721e-5db8-4e58-83e8-7741af970c15",
   "dataType" : "NA"
+}, {
+  "name" : "Registered within 3 months",
+  "uuid" : "2952824c-da18-46b0-b4c7-35328395133d",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Registered within 3 months?",
+  "uuid" : "3fe9c216-ee62-4eb8-aebd-228bcb4b34d4",
+  "dataType" : "Coded",
+  "voided" : true,
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "abnormal" : true,
+    "order" : 1.0
+  } ]
 }, {
   "name" : "Registration and immunisation counselling placeholder",
   "uuid" : "1ec7062d-a50a-4432-a3d7-f3305e692b68",
@@ -4543,6 +7646,78 @@
     "order" : 13.0
   } ]
 }, {
+  "name" : "Relation to head of the household",
+  "uuid" : "eaee156e-8ef3-4148-a80c-a466cd059ae3",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Self",
+    "uuid" : "03c3c21c-6e8c-4210-a15e-fbb181c266b9",
+    "order" : 0.0
+  }, {
+    "name" : "Wife",
+    "uuid" : "dd3958f6-376a-447a-90cd-95ed2c8cdf18",
+    "order" : 1.0
+  }, {
+    "name" : "Husband",
+    "uuid" : "df321e20-e432-40c9-bdf1-a874efe0a7d6",
+    "order" : 2.0
+  }, {
+    "name" : "Son",
+    "uuid" : "cb3de879-6c0a-497b-81ad-d825a5740daa",
+    "order" : 3.0
+  }, {
+    "name" : "Daughter",
+    "uuid" : "0f8b507f-709f-44af-855b-67b2f8b8a800",
+    "order" : 4.0
+  }, {
+    "name" : "Brother",
+    "uuid" : "53df677a-7d97-48d7-a644-38e4132c7076",
+    "order" : 5.0
+  }, {
+    "name" : "Sister",
+    "uuid" : "8e131779-ed2b-4db9-a217-529aef1c1562",
+    "order" : 6.0
+  }, {
+    "name" : "Brother in law",
+    "uuid" : "96163c7e-00a7-4b7c-bc65-a6880115bded",
+    "order" : 7.0
+  }, {
+    "name" : "Sister in law",
+    "uuid" : "9bc82780-fa25-4350-8288-86c4be3b0ebf",
+    "order" : 8.0
+  }, {
+    "name" : "Grandfather",
+    "uuid" : "9840eeaf-befa-48cf-8c4e-441bdb982e02",
+    "order" : 9.0
+  }, {
+    "name" : "Grandmother",
+    "uuid" : "a03e8eab-7173-4876-86e6-22be1e261f86",
+    "order" : 10.0
+  }, {
+    "name" : "Other",
+    "uuid" : "798b7942-cf58-4d4e-a529-5972942e0a7e",
+    "order" : 11.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Relation with village",
+  "uuid" : "58d0a437-17ef-4d58-a36f-9a36b608f5a4",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Daughter in law",
+    "uuid" : "164cfed0-b411-402f-8f44-1e14d1705883",
+    "order" : 0.0
+  }, {
+    "name" : "Daughter",
+    "uuid" : "0f8b507f-709f-44af-855b-67b2f8b8a800",
+    "order" : 1.0
+  }, {
+    "name" : "Other",
+    "uuid" : "798b7942-cf58-4d4e-a529-5972942e0a7e",
+    "order" : 2.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Relative",
   "uuid" : "c70dec64-8d5f-4b6b-b5bc-44b7672c6779",
   "dataType" : "NA"
@@ -4588,9 +7763,24 @@
   "uuid" : "d6b9345a-85b4-4b33-8ed3-bbd3333a93cb",
   "dataType" : "NA"
 }, {
+  "name" : "Repeat key points once again",
+  "uuid" : "65cf7297-98ff-4405-b1df-336325f4d96e",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Counselling",
+    "uuid" : "0ac30adc-5107-4e30-9b8a-c3ef65904cf5",
+    "order" : 0.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Reproductive tract infection (RTI)",
   "uuid" : "1027e9c2-233b-4f08-8be9-f8a886f0a03d",
   "dataType" : "NA"
+}, {
+  "name" : "Resident",
+  "uuid" : "cc8a0f5e-be37-4e6a-8f49-41c9f7d2f839",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Respiratory Rate",
   "uuid" : "80c5cefe-804d-45f3-b5b6-93db8b758a96",
@@ -4599,9 +7789,43 @@
   "highNormal" : 20.0,
   "unit" : "breaths/minute"
 }, {
+  "name" : "Respiratory rate",
+  "uuid" : "1be50535-4b1c-4928-9285-53239823bede",
+  "dataType" : "Numeric",
+  "keyValues" : [ ]
+}, {
+  "name" : "Respiratory rate >60/min",
+  "uuid" : "b035a519-7760-4d4a-9371-18dfe697d9bb",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Retained Placenta",
+  "uuid" : "22c2f1e5-aeb6-4b06-814e-9d4cefad276a",
+  "dataType" : "NA"
+}, {
+  "name" : "Retracted nipple",
+  "uuid" : "7a6870a8-62f1-4751-8fd1-ef63715876e2",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Retrospective registration",
   "uuid" : "1c3fc70f-390d-4498-b96b-da43d7f915d6",
   "dataType" : "NA"
+}, {
+  "name" : "Rh negative blood group",
+  "uuid" : "78127122-066c-4917-80f3-2682830c590c",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Risks of not adopting family planning",
+  "uuid" : "99593b34-a7f6-445f-aa59-7550f8c0f648",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Counselling",
+    "uuid" : "0ac30adc-5107-4e30-9b8a-c3ef65904cf5",
+    "order" : 0.0
+  } ],
+  "keyValues" : [ ]
 }, {
   "name" : "Room number",
   "uuid" : "6145c4a7-da99-492b-8b26-363ed80d67b9",
@@ -4707,6 +7931,31 @@
   "uuid" : "279771f0-6d49-4fcc-bae9-9165c9775e96",
   "dataType" : "NA"
 }, {
+  "name" : "Seeking care in case of any health problem",
+  "uuid" : "ca852765-622b-42fe-bd3c-5699f3abef6d",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Seen by Doctor at Ganiyari",
+  "uuid" : "3e941fcf-fca0-43e2-ab52-af159ad68ca8",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Seen by SHW (Home visit)",
+  "uuid" : "3f763c22-1fb7-4421-811c-787f5b82d149",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Seen by SHW (Subcenter)",
+  "uuid" : "0f21f146-9a78-4674-b861-67dd1816583f",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Seen by VHW",
+  "uuid" : "a9896521-fa89-49d4-b892-a3a134e312a3",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Seeta bai",
   "uuid" : "fb95d801-30b7-4444-b212-29065c0dd3cc",
   "dataType" : "NA",
@@ -4723,6 +7972,10 @@
     "value" : "Kewarapara"
   } ]
 }, {
+  "name" : "Seizure",
+  "uuid" : "cbc1b5b1-e4f9-4c0e-abe6-cc03362ff08d",
+  "dataType" : "NA"
+}, {
   "name" : "Seizures",
   "uuid" : "eba8e941-c0f3-4935-8ac6-124f6d8d1c5f",
   "dataType" : "NA"
@@ -4731,9 +7984,50 @@
   "uuid" : "03c3c21c-6e8c-4210-a15e-fbb181c266b9",
   "dataType" : "NA"
 }, {
+  "name" : "Self medication",
+  "uuid" : "56341359-3529-41e6-bf14-7ead4cc9f812",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Semaria-1",
+  "uuid" : "6b44eae3-0290-40ea-b60e-677bc0cbbc1f",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Semaria-2",
+  "uuid" : "d3637bbf-badf-4ff8-bc10-3b184e97cadd",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Send her to hospital for ANC",
+  "uuid" : "b5ebc472-0f32-4128-97f3-0e2571daeaae",
+  "dataType" : "Coded",
+  "keyValues" : [ ]
+}, {
+  "name" : "Send to hospital for abortion",
+  "uuid" : "6a01b992-a1d5-4350-9d86-c23ff700db63",
+  "dataType" : "NA",
+  "voided" : true
+}, {
+  "name" : "Send to Hospital for abortion",
+  "uuid" : "b6f45def-e3f4-4e7b-97ed-68c539b82fa2",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Send to hospital for abortion",
+    "uuid" : "6a01b992-a1d5-4350-9d86-c23ff700db63",
+    "order" : 0.0,
+    "voided" : true
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Separated",
   "uuid" : "568a29bd-40fc-4261-bb85-9f9366b9be1b",
   "dataType" : "NA"
+}, {
+  "name" : "Sepsis",
+  "uuid" : "d4d85e62-247e-4725-8e85-fdcbcdf2d409",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Seventh",
   "uuid" : "8cbdbbb3-c551-4099-aa18-e0f995e287db",
@@ -4779,9 +8073,24 @@
   "uuid" : "0c46f359-eb0f-4a5e-8fe7-f86bd706d1d4",
   "dataType" : "NA"
 }, {
+  "name" : "Shivtarai",
+  "uuid" : "85c10514-22a5-4909-aa52-2c3d533ce4d5",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Shopkeeper",
   "uuid" : "4a13e345-7d13-4649-a370-1722a596d0fe",
   "dataType" : "NA"
+}, {
+  "name" : "Short stature",
+  "uuid" : "f9fc9347-ca4e-4f92-b393-6fa2f5f6d19b",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "SHW",
+  "uuid" : "7ac0d9a2-ff82-41e6-9f38-134904d476f9",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Shyamkali",
   "uuid" : "40a1068e-0197-4463-89e3-a8f20c321f9e",
@@ -4799,9 +8108,33 @@
   "uuid" : "005e4631-6e43-470b-94c3-c4977009f688",
   "dataType" : "NA"
 }, {
+  "name" : "Sickle cell disease",
+  "uuid" : "77ac9c58-afaa-42ba-88d2-992bd0db63d7",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Sickle prep",
+  "uuid" : "610db330-fafe-456f-bd58-e062cb6e52e3",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Positive",
+    "uuid" : "6f6458f7-ce0b-46c2-bd03-0fa30943d75d",
+    "order" : 0.0
+  }, {
+    "name" : "Negative",
+    "uuid" : "0fe2ae63-332a-40bf-82c7-371ef7b66494",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Sidar",
   "uuid" : "86ac2f19-2f17-425b-a593-cc91c968d5d2",
   "dataType" : "NA"
+}, {
+  "name" : "Sign of good latching",
+  "uuid" : "534b1151-417b-426d-b018-063fe7587a93",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Sikh",
   "uuid" : "2f6e7ba7-15dc-4af3-b4d7-e971e6733525",
@@ -4823,6 +8156,34 @@
   "uuid" : "84000e44-81ea-425f-8c88-9e4b111a5570",
   "dataType" : "NA"
 }, {
+  "name" : "Skin - pus filled rashes/boils",
+  "uuid" : "9359a427-d6de-4f1d-b21e-a55b4aaef0b5",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Skin - Redness/crack in skin fold",
+  "uuid" : "b9961b58-b54e-4329-8f40-fc42a1a5981a",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Skin blisters",
   "uuid" : "6391afdb-cbec-405c-aed2-c20ed00b70fa",
   "dataType" : "NA"
@@ -4843,6 +8204,20 @@
   "name" : "Sluggish movements",
   "uuid" : "fc8edd6b-c7c7-4684-851f-83f3b20a890b",
   "dataType" : "NA"
+}, {
+  "name" : "Smart card (Insurance)",
+  "uuid" : "2a445ac8-56e7-4eda-8756-0a9c4fa9a77b",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
 }, {
   "name" : "Smoking (Current or in last one year)",
   "uuid" : "37472d14-a7cf-4c27-9656-545f24c1a49f",
@@ -4877,13 +8252,189 @@
     "value" : "Rajak"
   } ]
 }, {
+  "name" : "Sonography",
+  "uuid" : "1a893a89-4984-43e1-85cc-b64fb582824c",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Specify other place of abortion",
+  "uuid" : "26d8c447-3c27-4a42-a47a-8b4a2b1946e9",
+  "dataType" : "Text",
+  "keyValues" : [ ]
+}, {
+  "name" : "Specify the who other did the abortion",
+  "uuid" : "d346b862-6d69-4b1e-b6dc-2cee6036d066",
+  "dataType" : "Text",
+  "keyValues" : [ ]
+}, {
+  "name" : "Spontaneous",
+  "uuid" : "6ab2c198-f868-43bd-8905-91d726ce30ed",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Spoon feeding",
+  "uuid" : "5a06eeb7-489d-4b50-9c04-dc39827a36e6",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "SS",
+  "uuid" : "1f43668b-d1fd-41ef-afa3-38c265d467ac",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "ST",
   "uuid" : "8d1c99b2-fbed-4407-9f6a-040b9a5731b2",
   "dataType" : "NA"
 }, {
+  "name" : "Status of referral -1",
+  "uuid" : "4671094b-4fe9-42d4-a933-6cc7d0320209",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Seen by VHW",
+    "uuid" : "a9896521-fa89-49d4-b892-a3a134e312a3",
+    "order" : 0.0
+  }, {
+    "name" : "Seen by SHW (Home visit)",
+    "uuid" : "3f763c22-1fb7-4421-811c-787f5b82d149",
+    "order" : 1.0
+  }, {
+    "name" : "Seen by SHW (Subcenter)",
+    "uuid" : "0f21f146-9a78-4674-b861-67dd1816583f",
+    "order" : 2.0
+  }, {
+    "name" : "Seen by Doctor at Ganiyari",
+    "uuid" : "3e941fcf-fca0-43e2-ab52-af159ad68ca8",
+    "order" : 3.0
+  }, {
+    "name" : "Patient did not go to facility",
+    "uuid" : "e94a781a-462d-4706-b12c-ca6d421b0f4c",
+    "order" : 4.0
+  }, {
+    "name" : "Patient went to Jholachap",
+    "uuid" : "c796a08a-9b79-4e63-a999-ab3b41a67111",
+    "order" : 5.0
+  }, {
+    "name" : "Patient went to traditional healer",
+    "uuid" : "e3bb03ee-2d89-4d4d-9111-ce238057a83a",
+    "order" : 6.0
+  }, {
+    "name" : "Patient went to private practitioner/Hospital",
+    "uuid" : "3d53ba30-634f-48ff-ad34-9f7122928866",
+    "order" : 7.0
+  }, {
+    "name" : "Patient went to Govt. facility",
+    "uuid" : "2608f417-118f-4fab-a619-068c304601ee",
+    "order" : 8.0
+  }, {
+    "name" : "Other",
+    "uuid" : "798b7942-cf58-4d4e-a529-5972942e0a7e",
+    "order" : 9.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Status of referral -2",
+  "uuid" : "9c049865-30c3-4a1f-958f-76e39714e1cd",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Patient is on treatment",
+    "uuid" : "9e147cf6-577a-46a7-8f88-2ae6420519d4",
+    "order" : 0.0
+  }, {
+    "name" : "Default",
+    "uuid" : "01de3d31-cdc7-48da-8d6d-6409e74a452a",
+    "order" : 1.0
+  }, {
+    "name" : "Does not want to go any facility",
+    "uuid" : "f5edc6d4-2b76-4e3c-b8e8-cd18e4fa2781",
+    "order" : 2.0
+  }, {
+    "name" : "Taking treatment at Jholachap",
+    "uuid" : "2fed2671-8103-457d-911e-06c0839f2551",
+    "order" : 3.0
+  }, {
+    "name" : "Taking treatment at treaditional healer",
+    "uuid" : "a83931d8-23d0-40b6-bd52-1c26a4273b01",
+    "order" : 4.0
+  }, {
+    "name" : "Other",
+    "uuid" : "798b7942-cf58-4d4e-a529-5972942e0a7e",
+    "order" : 5.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Status of referred patients",
+  "uuid" : "d920a7c4-a8a9-4dd0-8e09-b5ab3de63565",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Cured",
+    "uuid" : "ca055965-5f64-4ca9-ba22-13763b9eb5f8",
+    "order" : 0.0
+  }, {
+    "name" : "Default",
+    "uuid" : "01de3d31-cdc7-48da-8d6d-6409e74a452a",
+    "order" : 1.0
+  }, {
+    "name" : "Death",
+    "uuid" : "c125eec0-2bc4-4add-b1d0-7531e5ffa9c8",
+    "order" : 2.0
+  }, {
+    "name" : "Got complicated",
+    "uuid" : "2dc7cd1e-6cec-4fba-a624-abae670ec7af",
+    "order" : 3.0
+  }, {
+    "name" : "Hospitalized",
+    "uuid" : "abbda623-2565-4c95-86cb-21ce2f7e32a8",
+    "order" : 4.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Status of the individual",
+  "uuid" : "d333f2a2-717e-478f-acbc-173bc7374d66",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Resident",
+    "uuid" : "cc8a0f5e-be37-4e6a-8f49-41c9f7d2f839",
+    "order" : 0.0
+  }, {
+    "name" : "Death",
+    "uuid" : "c125eec0-2bc4-4add-b1d0-7531e5ffa9c8",
+    "order" : 1.0
+  }, {
+    "name" : "Female marriage",
+    "uuid" : "4d5e83b5-ddc3-4668-930f-96da0cce7763",
+    "order" : 2.0
+  }, {
+    "name" : "In migrant",
+    "uuid" : "285a38f0-52a1-4021-90cc-3ba8cbe88371",
+    "order" : 3.0
+  }, {
+    "name" : "Out migrant",
+    "uuid" : "e57e1f8d-0a6c-4470-b692-3dc82cce0dfc",
+    "order" : 4.0
+  }, {
+    "name" : "Birth",
+    "uuid" : "a8a31361-df8c-4b6e-8075-639f436d0b3f",
+    "order" : 5.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Steroid intake for asthma",
   "uuid" : "d10e0470-d976-42d5-a279-e9738d4011b2",
   "dataType" : "NA"
+}, {
+  "name" : "Still birth",
+  "uuid" : "36de4090-db75-4eca-96fa-93535053b568",
+  "dataType" : "NA"
+}, {
+  "name" : "still birth",
+  "uuid" : "73e37865-47a7-44ef-8a06-870b79e55fbd",
+  "dataType" : "Numeric",
+  "lowAbsolute" : 0.0,
+  "highAbsolute" : 9.0,
+  "lowNormal" : 0.0,
+  "highNormal" : 1.0,
+  "unit" : "",
+  "keyValues" : [ ]
 }, {
   "name" : "Street",
   "uuid" : "60f78ddb-3e95-42cd-b76d-64315001d218",
@@ -5072,6 +8623,11 @@
   "uuid" : "31a0f7f1-7b23-4436-ae0a-0a982c11077c",
   "dataType" : "NA"
 }, {
+  "name" : "Sub Center- Govt",
+  "uuid" : "92ef8513-ef65-49c0-9bd2-a284f7656b52",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Sucking poorly",
   "uuid" : "8dc4b3b5-5934-489c-bd57-081bf396064e",
   "dataType" : "NA"
@@ -5141,6 +8697,11 @@
   "uuid" : "c657039a-f2a7-41b3-98bd-5944d5cfdbca",
   "dataType" : "NA"
 }, {
+  "name" : "Surgical",
+  "uuid" : "db996f72-b138-43de-bd67-9db95517ab46",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Susma bai",
   "uuid" : "4501f66f-53a8-4b34-882f-7e9a6bcfe65f",
   "dataType" : "NA",
@@ -5149,9 +8710,24 @@
     "value" : "Mahamai"
   } ]
 }, {
+  "name" : "Sweeling",
+  "uuid" : "a5b9c5d5-4ad1-4acd-97bf-fd761c11c210",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Swelling all over body",
+  "uuid" : "e2fbcb43-c533-40bc-b36d-5850c17d4a04",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Swelling of feet",
   "uuid" : "7bb3978a-a6e6-4a4e-91c9-91acbfab47c8",
   "dataType" : "NA"
+}, {
+  "name" : "Swelling on face/vulva/abdomen/whole body",
+  "uuid" : "19003a06-5195-49ef-9f4f-52462fe6f17c",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Swollen eyelids",
   "uuid" : "9c29c44f-3fe3-4d36-9efa-3936fe6cc452",
@@ -5182,6 +8758,30 @@
   "uuid" : "d1130405-b1c9-4158-bee6-8b319d1bcf9a",
   "dataType" : "NA"
 }, {
+  "name" : "Taking medicine for chronic disease",
+  "uuid" : "dbdf3b6e-8710-4364-9d0e-d92c1cc41db2",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Taking treatment at Jholachap",
+  "uuid" : "2fed2671-8103-457d-911e-06c0839f2551",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Taking treatment at treaditional healer",
+  "uuid" : "a83931d8-23d0-40b6-bd52-1c26a4273b01",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Talvatola",
   "uuid" : "fd23d607-c3d3-4aee-b3ae-3e76f14319f6",
   "dataType" : "NA"
@@ -5209,6 +8809,26 @@
   "uuid" : "dcd071c8-c0ff-4641-8b37-74b3c720e85c",
   "dataType" : "NA"
 }, {
+  "name" : "The benefits of family planning to the child",
+  "uuid" : "af57d463-f260-4a58-8b08-18f754d0a5e2",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Counselling",
+    "uuid" : "0ac30adc-5107-4e30-9b8a-c3ef65904cf5",
+    "order" : 0.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "The exact time and interval of pregnancy",
+  "uuid" : "9aa87afd-8d1f-4870-9638-7a3b6aefa36d",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Counselling",
+    "uuid" : "0ac30adc-5107-4e30-9b8a-c3ef65904cf5",
+    "order" : 0.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Third",
   "uuid" : "e141d94e-3954-4777-9c3f-5c30df693db9",
   "dataType" : "NA"
@@ -5229,13 +8849,43 @@
   "uuid" : "393701b9-8ea1-475d-8c34-8e196177156d",
   "dataType" : "NA"
 }, {
+  "name" : "Time of breastfedding after delivery",
+  "uuid" : "373c7bb6-f5e4-4797-a4e2-6a73ab821447",
+  "dataType" : "Time",
+  "keyValues" : [ ]
+}, {
   "name" : "Total Cholesterol",
   "uuid" : "31e61e32-88c3-4def-8bed-1af2cd66dcc4",
   "dataType" : "Numeric"
 }, {
+  "name" : "Trace",
+  "uuid" : "ae92d882-9ca4-448b-9cbf-f7459548bd55",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Tractor",
   "uuid" : "345821de-b302-4df3-9754-c555dfa530a3",
   "dataType" : "NA"
+}, {
+  "name" : "Traditional healer",
+  "uuid" : "d5971814-12e3-4cdb-89a0-092ee1f49ca7",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Trained TBA",
+  "uuid" : "acbb5c72-be42-4ed9-b169-949262319d10",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Transverse",
+  "uuid" : "901014fd-60bb-4843-a319-c3d58e2bdb19",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Transverse lie",
+  "uuid" : "06314b86-e90b-4ad5-aa52-6597270816af",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Triveni",
   "uuid" : "20e8073f-bcbc-4580-bf3b-a3d0e2f74afa",
@@ -5245,9 +8895,68 @@
     "value" : "Chotebarar"
   } ]
 }, {
+  "name" : "Twin baby",
+  "uuid" : "9f55f157-c835-4068-a948-c849073d1d86",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Twins",
+  "uuid" : "192cad34-767c-43a0-8b04-0443ca87a6a0",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Two",
   "uuid" : "e03160ef-2aab-4538-b57c-7b51d097d5e7",
   "dataType" : "NA"
+}, {
+  "name" : "Type of abortion",
+  "uuid" : "cb23a7f2-8746-402d-88b7-013a70e01e2b",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Spontaneous",
+    "uuid" : "6ab2c198-f868-43bd-8905-91d726ce30ed",
+    "order" : 0.0
+  }, {
+    "name" : "Medical",
+    "uuid" : "ff41bf93-a1de-4113-bc3a-87c6d7a3a183",
+    "order" : 1.0
+  }, {
+    "name" : "Surgical",
+    "uuid" : "db996f72-b138-43de-bd67-9db95517ab46",
+    "order" : 2.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Type of delivery",
+  "uuid" : "c48b5ece-3daf-4f19-9754-11bd898020fc",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Normal",
+    "uuid" : "ec89cb1f-491b-46de-95c1-3009effa9041",
+    "order" : 0.0
+  }, {
+    "name" : "Normal with episiotomy",
+    "uuid" : "cf845903-bae0-4157-bfef-2e31d012834c",
+    "order" : 1.0
+  }, {
+    "name" : "C-section",
+    "uuid" : "6984e037-93fc-4df0-9bce-ea7e8f44d1aa",
+    "order" : 2.0
+  }, {
+    "name" : "Assisted delivery",
+    "uuid" : "87808f03-7424-46e5-9db2-95d2f189e498",
+    "order" : 3.0
+  } ],
+  "keyValues" : [ ]
 }, {
   "name" : "Type of residence",
   "uuid" : "c5d2673b-0f5c-48bf-93e4-f1a1ae820732",
@@ -5322,6 +9031,11 @@
   "uuid" : "f649609e-474c-466f-91a5-a00dead33e46",
   "dataType" : "NA"
 }, {
+  "name" : "Untrained TBA",
+  "uuid" : "e7087fb1-9a18-4518-a3b4-58b2e1258c1f",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Upar tola",
   "uuid" : "a20b61de-6c31-4ddc-9279-ff3054c202fc",
   "dataType" : "NA"
@@ -5338,6 +9052,45 @@
   "uuid" : "2e1a4728-ae97-4918-b256-2f43fb86632c",
   "dataType" : "NA"
 }, {
+  "name" : "Urine Albumin",
+  "uuid" : "78fcebd3-17e5-4621-89be-c580fbf13168",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Trace",
+    "uuid" : "ae92d882-9ca4-448b-9cbf-f7459548bd55",
+    "order" : 0.0
+  }, {
+    "name" : "1+",
+    "uuid" : "d791406f-86bd-47ef-8c23-22accc521558",
+    "abnormal" : true,
+    "order" : 1.0
+  }, {
+    "name" : "2+",
+    "uuid" : "ba904c8d-502d-4979-bc99-cfa077678279",
+    "abnormal" : true,
+    "order" : 2.0
+  }, {
+    "name" : "3+",
+    "uuid" : "63513531-d5a4-47c1-a4ef-a02063b43871",
+    "abnormal" : true,
+    "order" : 3.0
+  }, {
+    "name" : "4+",
+    "uuid" : "b133d9ce-1661-420f-b73a-392300959b4e",
+    "abnormal" : true,
+    "order" : 4.0
+  }, {
+    "name" : "Nil",
+    "uuid" : "7f2382b9-e15b-4ff0-a5a6-acb88470100c",
+    "order" : 5.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Urine Albumin Present",
+  "uuid" : "f4bc4dd5-c028-49d2-a1df-818aeb9e17cc",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Urine not passed for more than 48 hours after birth",
   "uuid" : "4dbd7325-c922-4d8d-9f28-8291822a413f",
   "dataType" : "NA"
@@ -5346,6 +9099,74 @@
   "uuid" : "30bc374b-fe39-425e-aa0b-bba02ba0ccd0",
   "dataType" : "NA"
 }, {
+  "name" : "Urine sugar",
+  "uuid" : "55ae9e7a-f6ff-4c0b-861c-fd29b6c5c646",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Trace",
+    "uuid" : "ae92d882-9ca4-448b-9cbf-f7459548bd55",
+    "order" : 0.0
+  }, {
+    "name" : "1+",
+    "uuid" : "d791406f-86bd-47ef-8c23-22accc521558",
+    "abnormal" : true,
+    "order" : 1.0
+  }, {
+    "name" : "2+",
+    "uuid" : "ba904c8d-502d-4979-bc99-cfa077678279",
+    "abnormal" : true,
+    "order" : 2.0
+  }, {
+    "name" : "3+",
+    "uuid" : "63513531-d5a4-47c1-a4ef-a02063b43871",
+    "abnormal" : true,
+    "order" : 3.0
+  }, {
+    "name" : "4+",
+    "uuid" : "b133d9ce-1661-420f-b73a-392300959b4e",
+    "abnormal" : true,
+    "order" : 4.0
+  }, {
+    "name" : "Nil",
+    "uuid" : "7f2382b9-e15b-4ff0-a5a6-acb88470100c",
+    "order" : 5.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Urine sugar present",
+  "uuid" : "1970eb03-6ec5-431b-9296-346c5b5abe78",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Vaccination",
+  "uuid" : "3da69acd-ac0b-4678-ae16-083a9e5e876b",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "VDRL",
+  "uuid" : "cbe884a3-c5f3-441e-900a-6bc76f3cabca",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Positive",
+    "uuid" : "6f6458f7-ce0b-46c2-bd03-0fa30943d75d",
+    "order" : 0.0
+  }, {
+    "name" : "Negative",
+    "uuid" : "0fe2ae63-332a-40bf-82c7-371ef7b66494",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "VDRL is positive",
+  "uuid" : "1f70c8c2-8789-42ad-be5e-db94bd3d38e4",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Vertex",
+  "uuid" : "d49d3369-74aa-4d45-a1f0-6578453fddb6",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Very preterm",
   "uuid" : "67859756-c327-4511-a45b-e3e9e56808d4",
   "dataType" : "NA"
@@ -5353,6 +9174,11 @@
   "name" : "VHND",
   "uuid" : "0d6a2cf3-2e88-41f3-8da9-69877a4dc40a",
   "dataType" : "NA"
+}, {
+  "name" : "VHW",
+  "uuid" : "355143bf-b812-4ec8-93e6-6795fe4f7dc9",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Vishwakarma",
   "uuid" : "959045fe-3dce-40fc-b1e2-a162f2a777bd",
@@ -5378,6 +9204,11 @@
     "uuid" : "5d16aa00-e90c-4f11-9cda-9764f01a2aec",
     "order" : 5.0
   } ]
+}, {
+  "name" : "Visit date",
+  "uuid" : "9efe195c-cb6e-4822-9f9e-fbb38f1d914b",
+  "dataType" : "Date",
+  "keyValues" : [ ]
 }, {
   "name" : "Vitamin A 1",
   "uuid" : "38cc3fdb-d160-4329-b282-fcafa49bc33d",
@@ -5419,13 +9250,110 @@
   "uuid" : "9ad19f3b-3a8c-4e7e-81d8-12f796763291",
   "dataType" : "NA"
 }, {
+  "name" : "Vulval",
+  "uuid" : "f9f1945f-eb75-4ddb-b354-919afc5f53c4",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
   "name" : "Waist circumference",
   "uuid" : "64427511-b331-495d-81eb-8f8e51e5b5e8",
   "dataType" : "Numeric"
 }, {
+  "name" : "Was mother given anything to drink?",
+  "uuid" : "8a096d3f-a966-4930-b137-619fd13183d2",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  }, {
+    "name" : "Don't know",
+    "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
+    "order" : 2.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Was mother given tab. Misoprostol (3 tabs)/ Inj. Oxytocin (on thigh) within 1 minute after the birth?",
+  "uuid" : "8a2fa4f0-e202-47a7-ba55-31e8b1649818",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  }, {
+    "name" : "Don't know",
+    "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
+    "order" : 2.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Was placenta delivered by pulling",
+  "uuid" : "0291dab0-0e30-485c-b8b2-16570e3ef7bd",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  }, {
+    "name" : "Don't know",
+    "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
+    "order" : 2.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Was safe delivery kit used for conducting delivery",
+  "uuid" : "e693e145-db22-4dca-a5a8-f6f455a52248",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  }, {
+    "name" : "Don't know",
+    "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
+    "order" : 2.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Wasted",
   "uuid" : "ff73548c-4427-473d-82fe-9e96ffb4b858",
   "dataType" : "NA"
+}, {
+  "name" : "Watery",
+  "uuid" : "d5155392-dcbc-4744-b3fa-7e6dcf210cb9",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Weak and flaccid hands and legs",
+  "uuid" : "15958028-0fe1-4aa5-85f9-7b213e260877",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Weak and flaccid legs and hands",
+  "uuid" : "709f2b19-f4a4-4029-ab10-3575e2e47380",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Weak cry or stopped crying",
+  "uuid" : "06697930-4d4d-425a-8edc-d081d944b1d7",
+  "dataType" : "NA",
+  "keyValues" : [ ]
 }, {
   "name" : "Weakness of one side of body",
   "uuid" : "8a1752b7-0388-4f2f-b579-25a23dd10d64",
@@ -5509,6 +9437,238 @@
   "lowNormal" : -2.0,
   "highNormal" : 2.0
 }, {
+  "name" : "Weight is less than 35",
+  "uuid" : "6467d0e3-3a0b-4750-9be4-8b7c1d4025f8",
+  "dataType" : "NA",
+  "voided" : true
+}, {
+  "name" : "Weight is less than 35 kg",
+  "uuid" : "56e1dbb0-f4ff-42bf-9610-d56993d8e5b8",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Were stitches taken for episiotomy",
+  "uuid" : "d5f2dd94-46c0-4397-88bf-92db83e381d1",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "When is the possibility of the next pregnancy after delivery?",
+  "uuid" : "2e5288f0-1f4b-4c72-bd6d-ae4fa072a1d9",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Counselling",
+    "uuid" : "0ac30adc-5107-4e30-9b8a-c3ef65904cf5",
+    "order" : 0.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Whether Amala given",
+  "uuid" : "2a5a3b4d-80c4-4d05-8585-e16966ff0c3e",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Whether any disability",
+  "uuid" : "bab107f6-fc0e-4be7-ab71-658a92d72f35",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Whether baby cries too much or urinate less than 6 time a day",
+  "uuid" : "1d052667-3622-4934-9343-7127729c3aa3",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Whether baby die",
+  "uuid" : "1f35def8-d31d-4f66-80de-625003c9412c",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Whether Calcium given",
+  "uuid" : "00de9acc-4ff6-485b-b979-41ff00745d23",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Whether Folic acid given",
+  "uuid" : "bf1e5598-594c-4444-94e0-9390f5081e41",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Whether IFA given",
+  "uuid" : "5740f87b-8cc6-4927-88a2-44636e8f396c",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Whether mother breastfed her child for min 8 times a day",
+  "uuid" : "cec9ce0f-d40a-4a8e-ac8b-60e90259c003",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Whether mother gives skin to skin warmth to baby",
+  "uuid" : "1bfdc70a-475d-487b-b87b-9f8c422bdadd",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Whether mother have any problem in breastfeeding",
+  "uuid" : "ba69923c-e451-41a5-8ed0-62d2078411b9",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "No issues/problems",
+    "uuid" : "5cd37a0c-8271-4fc7-845b-0e97c018d4ea",
+    "order" : 0.0
+  }, {
+    "name" : "No breast milk at all",
+    "uuid" : "90502bf9-8178-44e7-b60f-86e92cb32de3",
+    "order" : 1.0
+  }, {
+    "name" : "Not enough breast milk",
+    "uuid" : "69b4816e-a58d-4afa-a635-37d38e44d2cc",
+    "order" : 2.0
+  }, {
+    "name" : "C-section",
+    "uuid" : "6984e037-93fc-4df0-9bce-ea7e8f44d1aa",
+    "order" : 3.0
+  }, {
+    "name" : "breast related problem (swelling, sepsis, etc)",
+    "uuid" : "bdf00248-52e2-4d01-b02d-70c5e480c604",
+    "order" : 4.0
+  }, {
+    "name" : "Other",
+    "uuid" : "798b7942-cf58-4d4e-a529-5972942e0a7e",
+    "order" : 5.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Whether mother wraps the baby in clothes in cold whether",
+  "uuid" : "94b7ee05-e0d2-4b9b-92b0-3e8f4ad666da",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Whether newborn fed other that exclusive breastfeeding",
+  "uuid" : "918c6eaf-b7ab-4958-aa42-4b0280a3c5e8",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Whether newborn has swolen eyes or discharge from eyes",
+  "uuid" : "e46f457d-6d84-46b6-9fa6-30e87537154b",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "White Card",
   "uuid" : "b9e50147-f44d-4300-8a6a-e92c0fe6e5e6",
   "dataType" : "NA"
@@ -5533,6 +9693,34 @@
   "uuid" : "7c1de93b-ad5c-4933-9cfe-c286690b50e4",
   "dataType" : "NA"
 }, {
+  "name" : "Woman requires referral",
+  "uuid" : "24d80dab-d769-4925-b852-98c0ed8cf069",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
+  "name" : "Womane want to use any family plannig",
+  "uuid" : "1ade5184-6907-4187-9186-abd12caacf05",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
+}, {
   "name" : "Wrinkled Skin",
   "uuid" : "43eb30a4-073b-4d92-bf67-37e29cae13c8",
   "dataType" : "NA"
@@ -5548,6 +9736,25 @@
   "name" : "Yellow or reddish colour urine",
   "uuid" : "2705dc69-8482-4647-9c92-26fed4d7d576",
   "dataType" : "NA"
+}, {
+  "name" : "Yellow/Green",
+  "uuid" : "8a546fe8-0851-4794-b333-e5a47494aa97",
+  "dataType" : "NA",
+  "keyValues" : [ ]
+}, {
+  "name" : "Yellowing of skin/eye",
+  "uuid" : "bbc18a0f-996a-4e3b-b4bf-703cfba2f9df",
+  "dataType" : "Coded",
+  "answers" : [ {
+    "name" : "Yes",
+    "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+    "order" : 0.0
+  }, {
+    "name" : "No",
+    "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+    "order" : 1.0
+  } ],
+  "keyValues" : [ ]
 }, {
   "name" : "Yes",
   "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",

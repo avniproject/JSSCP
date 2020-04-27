@@ -1,0 +1,274 @@
+{
+  "name" : "Delivery",
+  "uuid" : "78b9a321-0773-408c-ba15-ef5bff944771",
+  "formType" : "ProgramEncounter",
+  "formElementGroups" : [ {
+    "uuid" : "fa5a9a81-1772-4a3b-bc75-5d04d72f0fb7",
+    "name" : "Delivery Details",
+    "displayOrder" : 1.0,
+    "display" : "Delivery Details",
+    "formElements" : [ {
+      "name" : "Date and time of labour pain started",
+      "uuid" : "878c6870-52f4-4f72-86e9-49fef636ba89",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Date and time of labour pain started",
+        "uuid" : "3584ab7c-061d-472f-996e-8082bc7ee5b4"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Date and time when placenta was out",
+      "uuid" : "7475d67e-231d-4eaa-a114-e90ce7f7ac1b",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Date and time when placenta was out",
+        "uuid" : "75f66882-8186-4a8c-b1f3-1f6b2386fef6"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Gestational age category",
+      "uuid" : "e6221b19-c2f7-4841-8246-e861a37193d5",
+      "keyValues" : [ {
+        "key" : "editable",
+        "value" : false
+      } ],
+      "concept" : {
+        "name" : "Gestational age category",
+        "uuid" : "0bcf8d88-f9c5-4e9a-89bb-10f31cfff0a3"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "rule" : "\"use strict\";\n({params, imports}) => {\n    const programEncounter = params.entity;\n    const formElement = params.formElement;\n    const deliveryDate = programEncounter.getObservationValue('Date and time of labour pain started');\n    //const value =  imports.moment(today).diff(lmpDate, 'months');\n    const value = \nruleServiceLibraryInterfaceForSharingModules.motherCalculations.gestationalAgeCategoryAsOn(deliveryDate,programEncounter.programEnrolment);\n\n    \n    return new imports.rulesConfig.FormElementStatus(formElement.uuid, true, value);\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Place of delivery",
+      "uuid" : "324bc7b3-f6ce-4b30-8eab-e7bc51db54ac",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Place of delivery",
+        "uuid" : "dea1a2d3-2583-4a77-8723-e64d9e10079e"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Specify the other place of delivery",
+      "uuid" : "7e7f04e5-c6b3-4a56-861f-40c79c31efc5",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Other place of delivery",
+        "uuid" : "ebdc6d6b-4510-4659-b595-a090186d1832"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "rule" : "\n'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.show().when.valueInEncounter('Place of delivery').containsAnyAnswerConceptName(\"At In law's place\",\"At mother's place\");\n\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Type of delivery",
+      "uuid" : "5a7686cd-9d06-410f-ad73-be824728a949",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Type of delivery",
+        "uuid" : "c48b5ece-3daf-4f19-9754-11bd898020fc"
+      },
+      "displayOrder" : 6.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.skipAnswers('C-section','Assisted delivery').when.valueInEncounter('Place of delivery').containsAnswerConceptName('Other');\n\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Who conducted delivery",
+      "uuid" : "8349f932-49b7-4d8f-9fef-15774fec1ab9",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Delivery conducted by",
+        "uuid" : "11bfa900-973e-49ff-bc2b-cab409d6e938"
+      },
+      "displayOrder" : 7.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Specify the other who conducted delivery",
+      "uuid" : "5deaf54b-71ca-4ec5-b79b-eb6f813e271a",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Other who conducted delivery",
+        "uuid" : "03ae48d3-6d4e-4e39-8194-cb2653c0eaf7"
+      },
+      "displayOrder" : 8.0,
+      "type" : "SingleSelect",
+      "rule" : "\n'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.show().when.valueInEncounter('Delivery conducted by').containsAnswerConceptName('Other');\n\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Name of person who conducted delivery",
+      "uuid" : "955f4d89-f047-4387-9bce-98f069533b50",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Name of person who conducted delivery",
+        "uuid" : "99ab36e9-ca7f-4627-b0a4-2ca5bef6c4ad"
+      },
+      "displayOrder" : 9.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Name of village where woman delivered",
+      "uuid" : "d9b43e32-c800-407c-8ffb-577db79f04d7",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Name of village where woman delivered",
+        "uuid" : "0c0158a5-f13d-4eed-8c9c-56f5a5b37817"
+      },
+      "displayOrder" : 10.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Did any of the following danger sign was there during the process of labour",
+      "uuid" : "8e9724a8-a756-400b-88d9-d3f70362d6fb",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Danger signs during the process of labour",
+        "uuid" : "c45fa5f8-098d-49af-8119-6a5c55012e1b"
+      },
+      "displayOrder" : 11.0,
+      "type" : "MultiSelect",
+      "mandatory" : true,
+      "voided" : true
+    } ]
+  }, {
+    "uuid" : "733739c2-5720-4fcb-9024-765762d2b293",
+    "name" : "Other details",
+    "displayOrder" : 2.0,
+    "display" : "Other details",
+    "formElements" : [ {
+      "name" : "Did any of the following danger sign was there during the process of labour",
+      "uuid" : "c736697c-3e3e-4fc3-afcc-9212bfc04b91",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Danger signs during the process of labour",
+        "uuid" : "c45fa5f8-098d-49af-8119-6a5c55012e1b"
+      },
+      "displayOrder" : 1.0,
+      "type" : "MultiSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Which part of foetus came first?",
+      "uuid" : "2f688004-2676-4029-9457-17179f8fddc8",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Part of foetus that came first",
+        "uuid" : "68891675-51d5-4a64-9cd6-e19ca54f2c1f"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "What was the colour of amniotic fluid?",
+      "uuid" : "12bf4ca0-5d2c-4d1b-a4ef-f0bd52c9b96a",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Colour of amniotic fluid",
+        "uuid" : "51477c5d-3d96-4b5b-abe0-9350fdcdbd83"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Specify the other colour of amniotic fluid",
+      "uuid" : "635a6054-e4dd-402b-b8f8-2650e53c68c9",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Other colour of amniotic fluid",
+        "uuid" : "ac9f7563-ad2b-4df2-aa1f-6df3a9c50c21"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "rule" : "\n'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.show().when.valueInEncounter('Colour of amniotic fluid').containsAnswerConceptName('Other');\n\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Was mother given tab. Misoprostol (3 tabs)/ Inj. Oxytocin (on thigh) within 1 minute after the birth?",
+      "uuid" : "23890135-182f-41d5-a278-fd509c4b57cb",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Was mother given tab. Misoprostol (3 tabs)/ Inj. Oxytocin (on thigh) within 1 minute after the birth?",
+        "uuid" : "8a2fa4f0-e202-47a7-ba55-31e8b1649818"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Was placenta delivered by pulling",
+      "uuid" : "64d82f71-9751-4d4c-bd40-a2bfc99ac8d7",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Was placenta delivered by pulling",
+        "uuid" : "0291dab0-0e30-485c-b8b2-16570e3ef7bd"
+      },
+      "displayOrder" : 6.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Was mother given anything to drink?",
+      "uuid" : "c8af5691-1807-4320-abc7-8b6abb259334",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Was mother given anything to drink?",
+        "uuid" : "8a096d3f-a966-4930-b137-619fd13183d2"
+      },
+      "displayOrder" : 7.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Did mother breastfed the baby within 1 hour after the birth",
+      "uuid" : "100e9549-ac0d-491e-ae9d-fae58a0fb517",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Did mother breastfed the baby within 1 hour after the birth",
+        "uuid" : "16c71db0-bdaa-42d0-b247-e9d573f62866"
+      },
+      "displayOrder" : 8.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Was safe delivery kit used for conducting delivery",
+      "uuid" : "292b0fbb-a125-4409-91a2-06db3eefdfae",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Was safe delivery kit used for conducting delivery",
+        "uuid" : "e693e145-db22-4dca-a5a8-f6f455a52248"
+      },
+      "displayOrder" : 9.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Did woman receive vitamin A",
+      "uuid" : "6b68846f-c7b8-4338-8ec8-189a228ef818",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Did woman receive vitamin A",
+        "uuid" : "22ec084c-7141-4828-99c7-2dc56fe11153"
+      },
+      "displayOrder" : 10.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Were stitches taken for episiotomy",
+      "uuid" : "ea91e7df-6c5f-4f4e-aa0b-97386cbbba01",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Were stitches taken for episiotomy",
+        "uuid" : "d5f2dd94-46c0-4397-88bf-92db83e381d1"
+      },
+      "displayOrder" : 11.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.show().when.valueInEncounter('Type of delivery').containsAnswerConceptName('Normal with episiotomy');\n\n  return statusBuilder.build();\n};",
+      "mandatory" : false
+    } ]
+  } ],
+  "decisionRule" : "",
+  "visitScheduleRule" : "",
+  "validationRule" : "",
+  "checklistsRule" : ""
+}

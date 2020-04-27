@@ -1,0 +1,295 @@
+{
+  "name" : "Mother PNC Followup",
+  "uuid" : "7e70a81a-e047-4ba1-abeb-c2a9116711dc",
+  "formType" : "ProgramEncounter",
+  "formElementGroups" : [ {
+    "uuid" : "4ffd4971-0cea-4071-b3fe-136929afa3da",
+    "name" : "Day 2 visit",
+    "displayOrder" : 1.0,
+    "display" : "Day 2 visit",
+    "formElements" : [ {
+      "name" : "Visit date",
+      "uuid" : "73b10633-daef-4c38-ba2a-a75e0948633c",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Visit date",
+        "uuid" : "9efe195c-cb6e-4822-9f9e-fbb38f1d914b"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true,
+      "voided" : true
+    } ],
+    "voided" : true
+  }, {
+    "uuid" : "10961cc1-34ac-4d35-a68b-c190c519f946",
+    "name" : "Ask mother",
+    "displayOrder" : 2.0,
+    "display" : "Ask mother",
+    "formElements" : [ {
+      "name" : "How many times a day does mother take food?",
+      "uuid" : "cb52d44d-51af-4915-95eb-bd7494fdc676",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "no. of time mother taking food in day",
+        "uuid" : "e6022114-7f4c-4fa1-9c71-713152fe3ff9"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "How many times a day does mother change the clothe?",
+      "uuid" : "f4f6ea7a-65c0-4aec-854b-9c99c62a2cdb",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "How many times a day does mother change the clothes?",
+        "uuid" : "0f3c0b07-0014-468d-b01d-9fa1fb60801a"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    } ]
+  }, {
+    "uuid" : "b5b63511-d073-4307-afe7-ebb438fe577a",
+    "name" : "Mother's examination",
+    "displayOrder" : 3.0,
+    "display" : "Mother's examination",
+    "formElements" : [ {
+      "name" : "Temperature",
+      "uuid" : "6abbb241-9893-4fb1-864e-ba4dcbffc2e8",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Temperature",
+        "uuid" : "544438f2-4eeb-41a6-9017-d2895d4d76ef"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Pulse",
+      "uuid" : "3a604310-3683-40b9-aded-6b7d13cc8b88",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Pulse",
+        "uuid" : "630c0fa3-38f7-427d-a8dd-f1417cf1b7dc"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Blood Pressure (systolic)",
+      "uuid" : "5420fb1e-ad61-4841-96e4-5ec0f3e1793e",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Blood Pressure (systolic)",
+        "uuid" : "6874d48e-8c2f-4009-992c-1d3ca1678cc6"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Blood Pressure (Diastolic)",
+      "uuid" : "58e90cce-afd2-4169-93c4-4eb3ca42cdbb",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Blood Pressure (Diastolic)",
+        "uuid" : "da871f6c-cef0-4191-b307-6751b31ac9ec"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Is there foul smelling discharge PV",
+      "uuid" : "7ac95dd0-c3f0-46ff-8beb-1e721e95586c",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Is there foul smelling discharge PV",
+        "uuid" : "7764a974-7ba8-4a13-9ba9-6d8d580f3c99"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Does mother has seizures?",
+      "uuid" : "e5ad7433-68de-42b3-93bc-7a159fe80f0c",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Does mother has seizures?",
+        "uuid" : "74c618b3-a4e0-4382-9486-70dbf5752d9d"
+      },
+      "displayOrder" : 6.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Does mother has less breast milk?",
+      "uuid" : "f44044fe-5827-4b1a-ae0a-02972d5d8025",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "mother has less breast milk",
+        "uuid" : "68239844-aab6-484f-bc76-f7249c793169"
+      },
+      "displayOrder" : 7.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Does mother has any breast related issue like swelling, cracked nipple etc?",
+      "uuid" : "f4c2feaa-06d4-41e0-86ea-f446fcb8b8c6",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Does mother has any breast related issue like swelling, cracked nipple etc?",
+        "uuid" : "43567d78-ad97-46bc-afa1-8522ec9e0180"
+      },
+      "displayOrder" : 8.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    } ]
+  }, {
+    "uuid" : "1e125b1b-1645-4108-a922-4015e2c24517",
+    "name" : "Schemes",
+    "displayOrder" : 4.0,
+    "display" : "Schemes",
+    "formElements" : [ {
+      "name" : "Does mother get the benefit of JSY scheme?",
+      "uuid" : "4f69df8e-a721-49f4-9808-a30d24883f43",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "mother get the benefit of JSY scheme",
+        "uuid" : "be8560c8-beab-4b69-80ea-c6e943939a30"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Date of recieving the benefit",
+      "uuid" : "27545b5d-d8bc-4673-9514-d5676fd7d220",
+      "keyValues" : [ {
+        "key" : "datePickerMode",
+        "value" : "Calendar"
+      } ],
+      "concept" : {
+        "name" : "Date of recieving the JSY scheme benefit",
+        "uuid" : "d8e3c407-af6d-45df-9db1-a40e289452c0"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('mother get the benefit of JSY scheme').containsAnswerConceptName(\"Yes\");\n  return statusBuilder.build();\n};",
+      "mandatory" : false
+    } ]
+  }, {
+    "uuid" : "66010e0b-0e26-4a80-8e02-25bbce01bb8a",
+    "name" : "Maternal death",
+    "displayOrder" : 5.0,
+    "display" : "Maternal death",
+    "formElements" : [ {
+      "name" : "Did mother die?",
+      "uuid" : "7fed7e0b-0b12-4ec9-9dd3-ba0d86e6d979",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Did mother die?",
+        "uuid" : "49cdf65a-a0a8-40f4-b5a6-55c405038891"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Date of death",
+      "uuid" : "ddbf6674-0e57-4071-95c1-084cf495ab74",
+      "keyValues" : [ {
+        "key" : "datePickerMode",
+        "value" : "Calendar"
+      } ],
+      "concept" : {
+        "name" : "Date of Death",
+        "uuid" : "338953ea-6d7e-423e-96d6-f52d5aa37072"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Did mother die?').containsAnswerConceptName(\"Yes\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    } ]
+  }, {
+    "uuid" : "3ab65106-823b-4103-bb18-a79da31e890a",
+    "name" : "Referral",
+    "displayOrder" : 6.0,
+    "display" : "Referral",
+    "formElements" : [ {
+      "name" : "Referral needed to mother?",
+      "uuid" : "51978707-82e7-4d3a-9e3e-e3b6eb7952b6",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Referral needed to mother?",
+        "uuid" : "c75a610f-27c3-4fad-9c26-04887c15436e"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Place of referral",
+      "uuid" : "2df5ad52-8fc2-470c-a243-b44b2a30a984",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Place of referral",
+        "uuid" : "80fccb06-a62f-43e8-92eb-358bdb600079"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Referral needed to mother?').containsAnswerConceptName(\"Yes\");\n  return statusBuilder.build();\n};",
+      "mandatory" : false
+    }, {
+      "name" : "Status of referral -1?",
+      "uuid" : "8e428b15-c051-4822-8af7-c724e9834ebf",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Status of referral -1",
+        "uuid" : "4671094b-4fe9-42d4-a933-6cc7d0320209"
+      },
+      "displayOrder" : 3.0,
+      "type" : "MultiSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Status of referral -2?",
+      "uuid" : "f5dfa415-b0a1-4185-95a2-b7d55632cdf9",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Status of referral -2",
+        "uuid" : "9c049865-30c3-4a1f-958f-76e39714e1cd"
+      },
+      "displayOrder" : 4.0,
+      "type" : "MultiSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Status of referred patients",
+      "uuid" : "0d429c1a-c83f-4343-9882-e64193cf1650",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Status of referred patients",
+        "uuid" : "d920a7c4-a8a9-4dd0-8e09-b5ab3de63565"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    } ]
+  }, {
+    "uuid" : "3b9130ff-6d3a-4fb9-9be1-7d9b6aedd4eb",
+    "name" : "Counselling",
+    "displayOrder" : 7.0,
+    "display" : "Counselling",
+    "formElements" : [ {
+      "name" : "Counselling done",
+      "uuid" : "fb58fe4c-5ed6-46a4-8d67-2fc8d3e13bbe",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Counselling",
+        "uuid" : "0ac30adc-5107-4e30-9b8a-c3ef65904cf5"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    } ]
+  } ],
+  "decisionRule" : "",
+  "visitScheduleRule" : "",
+  "validationRule" : "",
+  "checklistsRule" : "",
+  "voided" : true
+}

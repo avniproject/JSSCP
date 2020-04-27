@@ -1,6 +1,17 @@
 {
-  "organisationName" : "JSSCP",
   "operationalEncounterTypes" : [ {
+    "uuid" : "a1021d7f-7d93-4fa2-b766-09ec2733c9ff",
+    "encounterType" : {
+      "uuid" : "1d8ccbb2-f4bb-4b19-979e-730ccd1514d2"
+    },
+    "name" : "USG Report"
+  }, {
+    "uuid" : "ff14932a-d7d9-4475-adfb-f7ab78e6bce9",
+    "encounterType" : {
+      "uuid" : "86ab0906-ec4c-49b7-adbc-da75197a7f6b"
+    },
+    "name" : "Lab Investigations"
+  }, {
     "uuid" : "74224415-cd48-4906-b539-86e60bd0afef",
     "encounterType" : {
       "uuid" : "72ddfc20-fa6a-4e64-9167-c9bbc28f21fc"
@@ -12,5 +23,72 @@
       "uuid" : "e9aa15b8-e9b5-4b5d-9fbb-4d7a89283741"
     },
     "name" : "Growth Monitoring"
+  }, {
+    "uuid" : "1a46cad4-e81a-4170-8161-2c3f66526e62",
+    "encounterType" : {
+      "uuid" : "84e99d1e-de73-41aa-85c6-3e1b780dd52b"
+    },
+    "name" : "ANC Clinic Visit"
+  }, {
+    "uuid" : "331bbb69-4847-46be-bd72-7593ab31ea81",
+    "encounterType" : {
+      "uuid" : "e35551ec-811b-4291-8eb3-f36dbaa79c48"
+    },
+    "name" : "Mother PNC"
+  }, {
+    "uuid" : "c05ea806-1704-422f-a6e1-97c577fc95cc",
+    "encounterType" : {
+      "uuid" : "856c06ea-1f1a-4316-80e3-23cd8eea810f"
+    },
+    "name" : "Delivery"
+  }, {
+    "uuid" : "d4c47c9a-8f1d-42bf-8238-18cf37f5b2c1",
+    "encounterType" : {
+      "uuid" : "9c7d7e6a-d4ee-49c8-b798-bfa2ee16343b"
+    },
+    "name" : "Abortion"
+  }, {
+    "uuid" : "15357ea0-b858-430f-9001-6effa4b76414",
+    "encounterType" : {
+      "uuid" : "0619e2bc-5f08-4553-b9fc-a059bd847a9f"
+    },
+    "name" : "Abortion followup"
+  }, {
+    "uuid" : "fe040c94-5287-47ed-ba22-2791fc84912b",
+    "encounterType" : {
+      "uuid" : "335c35ba-9de4-4e08-9494-2975e3f046c9"
+    },
+    "name" : "TB followup"
+  }, {
+    "uuid" : "46ecf17d-0fa0-4ba0-98c6-4cceff9610c5",
+    "encounterType" : {
+      "uuid" : "fa988057-0a78-4bd2-b4de-b4c9cf0e8055"
+    },
+    "name" : "NCD Followup"
+  }, {
+    "uuid" : "86fdd07a-ccfd-4424-abe0-da832fa54540",
+    "encounterType" : {
+      "uuid" : "b3745151-361e-4417-871e-7b91e5542423"
+    },
+    "name" : "ANC Home Visit (voided~319)",
+    "voided" : true
+  }, {
+    "uuid" : "4f8e0835-ab29-4f6f-8ec9-aa6f1ec50692",
+    "encounterType" : {
+      "uuid" : "307197bf-6b71-49b1-9a1b-b2c12532e34f"
+    },
+    "name" : "ANC Home Visit"
+  }, {
+    "uuid" : "700cbaba-affd-4f3c-b514-53b4609e376c",
+    "encounterType" : {
+      "uuid" : "aca87935-6b64-49bc-8094-20fb5e25fa4e"
+    },
+    "name" : "Mother PNC followup"
+  }, {
+    "uuid" : "f346a977-cc22-478a-9237-a08c4219e592",
+    "encounterType" : {
+      "uuid" : "0345e233-479c-4dff-a7b9-c1325a5c0493"
+    },
+    "name" : "Referral Status"
   } ]
 }

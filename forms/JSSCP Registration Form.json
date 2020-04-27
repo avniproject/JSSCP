@@ -5,7 +5,7 @@
   "formElementGroups" : [ {
     "uuid" : "2be450be-35db-47a6-a85e-5f1feb6f44cf",
     "name" : "Personal Details",
-    "displayOrder" : 2.0,
+    "displayOrder" : 1.0,
     "display" : "Personal Details",
     "formElements" : [ {
       "name" : "Birth Order",
@@ -17,6 +17,7 @@
       },
       "displayOrder" : 1.0,
       "type" : "SingleSelect",
+      "rule" : "",
       "mandatory" : true
     }, {
       "name" : "Father's Name",
@@ -28,6 +29,7 @@
       },
       "displayOrder" : 2.0,
       "type" : "SingleSelect",
+      "rule" : "",
       "mandatory" : true
     }, {
       "name" : "Father's Occupation",
@@ -39,6 +41,7 @@
       },
       "displayOrder" : 3.0,
       "type" : "SingleSelect",
+      "rule" : "",
       "mandatory" : false
     }, {
       "name" : "Father's Education",
@@ -50,6 +53,7 @@
       },
       "displayOrder" : 4.0,
       "type" : "SingleSelect",
+      "rule" : "",
       "mandatory" : false
     }, {
       "name" : "Mother's Name",
@@ -61,6 +65,7 @@
       },
       "displayOrder" : 5.0,
       "type" : "SingleSelect",
+      "rule" : "",
       "mandatory" : true
     }, {
       "name" : "Mother's Occupation",
@@ -72,6 +77,7 @@
       },
       "displayOrder" : 6.0,
       "type" : "SingleSelect",
+      "rule" : "",
       "mandatory" : false
     }, {
       "name" : "Mother's Education",
@@ -83,6 +89,7 @@
       },
       "displayOrder" : 7.0,
       "type" : "SingleSelect",
+      "rule" : "",
       "mandatory" : false
     }, {
       "name" : "Caste",
@@ -119,6 +126,166 @@
       "mandatory" : true
     } ]
   }, {
+    "uuid" : "ca39681e-b89e-420f-a72e-3e8527518b78",
+    "name" : "Individual information",
+    "displayOrder" : 2.0,
+    "display" : "Individual information",
+    "formElements" : [ {
+      "name" : "Relation to head of the household",
+      "uuid" : "24a04cdd-ec5f-4e61-a611-6ead7557bbd7",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Relation to head of the household",
+        "uuid" : "eaee156e-8ef3-4148-a80c-a466cd059ae3"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Marital status",
+      "uuid" : "a0d08992-5581-49e8-ba18-66b0e37341ef",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Marital status",
+        "uuid" : "9e995ea6-a5f7-410f-adc2-2d2ce6d5e19b"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Date of marriage",
+      "uuid" : "e6972f41-f35d-4511-b984-2c9b598bd793",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Date of marriage",
+        "uuid" : "9d958124-09bb-466c-a4b4-db8d285def1f"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Education",
+      "uuid" : "bd8587a8-e84d-4a55-a46e-e7bf2290df68",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Education",
+        "uuid" : "673d65bd-6dc4-4aac-8e1e-1ee355ac081b"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Occupation",
+      "uuid" : "d54f2ad3-359e-4de8-813f-c37dd1c6b9b5",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Occupation",
+        "uuid" : "20ef261a-f110-4eaa-a592-2a1eeb0bf061"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Is sterlization operation done?",
+      "uuid" : "25a8fd3d-2f78-43ab-88b5-2bc0cd0c91dd",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Is sterlization operation done?",
+        "uuid" : "852f4e54-4969-4724-94e0-cddef0ac1f66"
+      },
+      "displayOrder" : 6.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Whether any disability",
+      "uuid" : "41fb3d1d-55bb-4fbd-b1b4-45b112258be3",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Whether any disability",
+        "uuid" : "bab107f6-fc0e-4be7-ab71-658a92d72f35"
+      },
+      "displayOrder" : 7.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Disability",
+      "uuid" : "7023387a-950d-4862-872e-11af66182147",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Disability",
+        "uuid" : "eda07a4c-14c9-49af-b1d6-deaa695a5d36"
+      },
+      "displayOrder" : 8.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Religion",
+      "uuid" : "71583e64-d2a0-4a9f-bc4f-2be063cb9ebe",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Religion",
+        "uuid" : "b2c60cb8-983c-4e0e-a90d-4b21e87e10bd"
+      },
+      "displayOrder" : 9.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Status of the individual",
+      "uuid" : "e7f4a2cd-c984-4437-a2ce-120c102c0cca",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Status of the individual",
+        "uuid" : "d333f2a2-717e-478f-acbc-173bc7374d66"
+      },
+      "displayOrder" : 10.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Aadhaar ID",
+      "uuid" : "82ae5f08-f53d-4b55-99f6-0bb7e290b28a",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Aadhaar ID",
+        "uuid" : "681fce2b-ea38-4651-a0b8-2cddd307ade7"
+      },
+      "displayOrder" : 11.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Contact Number",
+      "uuid" : "270d44e9-6d3e-4613-a3fc-1d4798499e87",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Contact Number",
+        "uuid" : "0a725832-b21c-4151-b017-7e6af770ba54"
+      },
+      "displayOrder" : 12.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Smart card (Insurance)",
+      "uuid" : "2b40ccb3-74aa-4b62-b9a9-7ad7a57b91c5",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Smart card (Insurance)",
+        "uuid" : "2a445ac8-56e7-4eda-8756-0a9c4fa9a77b"
+      },
+      "displayOrder" : 13.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Electricity in house",
+      "uuid" : "5cd59ef1-6749-446f-8f77-f9ec5bd3d594",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Electricity in house",
+        "uuid" : "e23ef639-5d54-46bc-811c-ee1886bce81f"
+      },
+      "displayOrder" : 14.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    } ]
+  }, {
     "uuid" : "53b260f8-a5a9-4062-a3f7-a117ade6daee",
     "name" : "Socio-Economic Details",
     "displayOrder" : 3.0,
@@ -131,7 +298,7 @@
         "name" : "Land possession",
         "uuid" : "b984ad33-05d8-4621-adf3-152e72a0db1b"
       },
-      "displayOrder" : 2.0,
+      "displayOrder" : 1.0,
       "type" : "SingleSelect",
       "mandatory" : true
     }, {
@@ -142,7 +309,7 @@
         "name" : "Land Area",
         "uuid" : "430ebb19-831d-470d-80eb-7969814f13e4"
       },
-      "displayOrder" : 3.0,
+      "displayOrder" : 2.0,
       "type" : "SingleSelect",
       "mandatory" : false
     }, {
@@ -153,7 +320,7 @@
         "name" : "Type of residence",
         "uuid" : "c5d2673b-0f5c-48bf-93e4-f1a1ae820732"
       },
-      "displayOrder" : 4.0,
+      "displayOrder" : 3.0,
       "type" : "SingleSelect",
       "mandatory" : false
     }, {
@@ -164,7 +331,7 @@
         "name" : "Ration Card",
         "uuid" : "86fc3018-8eeb-4a58-a9d9-a40fff839305"
       },
-      "displayOrder" : 6.0,
+      "displayOrder" : 4.0,
       "type" : "SingleSelect",
       "mandatory" : false
     }, {
@@ -175,7 +342,7 @@
         "name" : "Property",
         "uuid" : "aa88dba4-4f5d-4d35-9dc1-2390969cc5f3"
       },
-      "displayOrder" : 7.0,
+      "displayOrder" : 5.0,
       "type" : "MultiSelect",
       "mandatory" : true
     }, {
@@ -186,9 +353,13 @@
         "name" : "Other property",
         "uuid" : "32609e0f-f3c8-4dcb-af7c-5e8a96e8e89d"
       },
-      "displayOrder" : 8.0,
+      "displayOrder" : 6.0,
       "type" : "SingleSelect",
       "mandatory" : true
     } ]
-  } ]
+  } ],
+  "decisionRule" : "",
+  "visitScheduleRule" : "",
+  "validationRule" : "",
+  "checklistsRule" : ""
 }

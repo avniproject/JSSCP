@@ -1,0 +1,68 @@
+{
+  "name" : "Referral Status",
+  "uuid" : "06116860-2c71-4a7e-94f1-be53f653f0f3",
+  "formType" : "ProgramEncounter",
+  "formElementGroups" : [ {
+    "uuid" : "acb56d44-dab1-4e68-b1cf-015b48197654",
+    "name" : "Referral Status-1 Details",
+    "displayOrder" : 1.0,
+    "display" : "Referral Status-1 Details",
+    "formElements" : [ {
+      "name" : "Status of referral -1",
+      "uuid" : "882b826d-549f-4cca-9922-9f12228a2b6c",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Status of referral -1",
+        "uuid" : "4671094b-4fe9-42d4-a933-6cc7d0320209"
+      },
+      "displayOrder" : 1.0,
+      "type" : "MultiSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Other status of referral -1",
+      "uuid" : "08e818cc-2330-4063-802c-4e410676c938",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Other status of referral -1",
+        "uuid" : "e76c8b20-7de0-4cdb-ab9f-3df35452ad27"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Status of referral -1').containsAnswerConceptName('Other');\n  \nreturn statusBuilder.build();\n};",
+      "mandatory" : false
+    } ]
+  }, {
+    "uuid" : "b74b3408-5035-4525-ade0-a7defc9d2bd7",
+    "name" : "Referral Status-2 Details",
+    "displayOrder" : 2.0,
+    "display" : "Referral Status-2 Details",
+    "formElements" : [ {
+      "name" : "Status of referral -2",
+      "uuid" : "0d96c705-7247-4587-b32b-5b33f5a1c2d1",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Status of referral -2",
+        "uuid" : "9c049865-30c3-4a1f-958f-76e39714e1cd"
+      },
+      "displayOrder" : 1.0,
+      "type" : "MultiSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Other status of referral -2",
+      "uuid" : "20737708-f780-4bee-aa55-b89c872eca55",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Other status of referral -2",
+        "uuid" : "35a163f3-8632-48d9-9a8c-1b369839942c"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Status of referral -2').containsAnswerConceptName('Other');\n  \nreturn statusBuilder.build();\n};",
+      "mandatory" : false
+    } ]
+  } ],
+  "decisionRule" : "",
+  "visitScheduleRule" : "",
+  "validationRule" : "",
+  "checklistsRule" : ""
+}

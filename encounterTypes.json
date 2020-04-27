@@ -10,4 +10,50 @@
 }, {
   "name" : "Child PNC",
   "uuid" : "8aa68bd2-1fd8-46e8-b475-a2dafb4b177b"
+}, {
+  "name" : "ANC Clinic Visit",
+  "uuid" : "84e99d1e-de73-41aa-85c6-3e1b780dd52b"
+}, {
+  "name" : "Mother PNC",
+  "uuid" : "e35551ec-811b-4291-8eb3-f36dbaa79c48"
+}, {
+  "name" : "Delivery",
+  "uuid" : "856c06ea-1f1a-4316-80e3-23cd8eea810f"
+}, {
+  "name" : "Abortion",
+  "uuid" : "9c7d7e6a-d4ee-49c8-b798-bfa2ee16343b"
+}, {
+  "name" : "Abortion followup",
+  "uuid" : "0619e2bc-5f08-4553-b9fc-a059bd847a9f"
+}, {
+  "name" : "TB followup",
+  "uuid" : "335c35ba-9de4-4e08-9494-2975e3f046c9"
+}, {
+  "name" : "NCD Followup",
+  "uuid" : "fa988057-0a78-4bd2-b4de-b4c9cf0e8055"
+}, {
+  "name" : "USG Report",
+  "uuid" : "1d8ccbb2-f4bb-4b19-979e-730ccd1514d2",
+  "encounterEligibilityCheckRule" : ""
+}, {
+  "name" : "Lab Investigations",
+  "uuid" : "86ab0906-ec4c-49b7-adbc-da75197a7f6b",
+  "encounterEligibilityCheckRule" : ""
+}, {
+  "name" : "ANC Home Visit (voided~343)",
+  "uuid" : "b3745151-361e-4417-871e-7b91e5542423",
+  "encounterEligibilityCheckRule" : "",
+  "voided" : true
+}, {
+  "name" : "ANC Home Visit",
+  "uuid" : "307197bf-6b71-49b1-9a1b-b2c12532e34f",
+  "encounterEligibilityCheckRule" : ""
+}, {
+  "name" : "Mother PNC followup",
+  "uuid" : "aca87935-6b64-49bc-8094-20fb5e25fa4e",
+  "encounterEligibilityCheckRule" : ""
+}, {
+  "name" : "Referral Status",
+  "uuid" : "0345e233-479c-4dff-a7b9-c1325a5c0493",
+  "encounterEligibilityCheckRule" : ""
 } ]

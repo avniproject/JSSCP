@@ -1,0 +1,148 @@
+{
+  "name" : "Abortion",
+  "uuid" : "73107501-f22f-4ac8-a65a-fc0bd99d17ba",
+  "formType" : "ProgramEncounter",
+  "formElementGroups" : [ {
+    "uuid" : "5563d18e-a3a0-4d59-9d68-a9379169a814",
+    "name" : "Details",
+    "displayOrder" : 1.0,
+    "display" : "Details",
+    "formElements" : [ {
+      "name" : "Date and time of abortion",
+      "uuid" : "6d94024a-235b-4a5c-8dd5-4d35c20bee7f",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Date and time of abortion",
+        "uuid" : "6cff2f40-fd04-48e1-89d8-497142e20d4d"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Type of abortion",
+      "uuid" : "8d9a0033-0512-4940-99fa-395cd9e4d62a",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Type of abortion",
+        "uuid" : "cb23a7f2-8746-402d-88b7-013a70e01e2b"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Place of Abortion",
+      "uuid" : "9c8f07e3-dcdd-40a8-9588-14b4600b25d5",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Place of Abortion",
+        "uuid" : "16e2956e-1265-4e2c-b4ef-eb7568b5c69d"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Specify other place of abortion",
+      "uuid" : "39266a59-9025-4591-a9b4-9ddedc86111c",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Specify other place of abortion",
+        "uuid" : "26d8c447-3c27-4a42-a47a-8b4a2b1946e9"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.show().when.valueInEncounter('Place of Abortion').containsAnswerConceptName('Other');\n\n  return statusBuilder.build();\n};",
+      "mandatory" : false
+    }, {
+      "name" : "Who did the abortion?",
+      "uuid" : "3d01420e-3f5d-48dd-8a18-741c0d1ad5ee",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Abortion done by",
+        "uuid" : "68740322-f381-4de6-9e06-ad9f93e81f93"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.show().when.valueInEncounter('Type of abortion').containsAnyAnswerConceptName('Medical','Surgical');\n\n  return statusBuilder.build();\n};",
+      "mandatory" : false
+    }, {
+      "name" : "Specify the who other did the abortion",
+      "uuid" : "183ecaa2-e9fc-4069-b1cb-71d25bf9ff97",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Specify the who other did the abortion",
+        "uuid" : "d346b862-6d69-4b1e-b6dc-2cee6036d066"
+      },
+      "displayOrder" : 6.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.show().when.valueInEncounter('Abortion done by').containsAnswerConceptName('Other');\n\n  return statusBuilder.build();\n};",
+      "mandatory" : false
+    }, {
+      "name" : "If self medication, where did woman get the medicine from",
+      "uuid" : "a2e9272f-1d7c-4966-babf-240fbde27e02",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "If self medication, where did woman get the medicine from",
+        "uuid" : "e1dab606-f18e-4007-940a-5df6f48af91a"
+      },
+      "displayOrder" : 7.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.show().when.valueInEncounter('Abortion done by').containsAnswerConceptName('Self medication');\n\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Did woman face any complication due to abortion?",
+      "uuid" : "5659b221-0a6a-4f04-ab58-a2379eb87166",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Complication due to abortion",
+        "uuid" : "3fc12cff-0b61-45f5-af60-93b0f19570da"
+      },
+      "displayOrder" : 8.0,
+      "type" : "MultiSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Specify the other complication faced due to abortion",
+      "uuid" : "b05664a2-a460-41b5-a853-353c40b07f8a",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Other complication faced due to abortion",
+        "uuid" : "39633d82-8da1-458e-a759-1d558d3a3a92"
+      },
+      "displayOrder" : 9.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.show().when.valueInEncounter('Complication due to abortion').containsAnswerConceptName('Other');\n\n  return statusBuilder.build();\n};",
+      "mandatory" : false
+    } ]
+  }, {
+    "uuid" : "64fbcf8a-79e3-4764-ad63-bb9ebccc0bc1",
+    "name" : "Other details",
+    "displayOrder" : 2.0,
+    "display" : "Other details",
+    "formElements" : [ {
+      "name" : "Name of village where woman got abortion done",
+      "uuid" : "5819c783-b973-47c7-b5c1-0e5dacdc866a",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Name of village where woman got abortion done",
+        "uuid" : "aba42644-f860-4c73-aa0e-8b22c563cbb0"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Does woman require any referral?",
+      "uuid" : "ae0aa944-821b-4cb7-8fb0-387ebcbb69c9",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Is referral required",
+        "uuid" : "77d122e8-0620-4754-8375-b0cbe329003c"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    } ]
+  } ],
+  "decisionRule" : "",
+  "visitScheduleRule" : "",
+  "validationRule" : "",
+  "checklistsRule" : ""
+}
