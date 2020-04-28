@@ -61,11 +61,12 @@
       },
       "displayOrder" : 5.0,
       "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Follow USG required').containsAnswerConceptName('Yes');\n  \nreturn statusBuilder.build();\n};",
       "mandatory" : false
     } ]
   } ],
   "decisionRule" : "",
-  "visitScheduleRule" : "",
+  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\nconst nextUSGDate = programEncounter.getObservationValue('Date of next USG');\n  scheduleBuilder\n    .add({\n      name: \"USG Report\",\n      encounterType: \"USG Report\",\n      earliestDate: imports.moment(nextUSGDate).toDate(),\n      maxDate: imports.moment(nextUSGDate).add(4, 'days').toDate()\n    }).whenItem(!_.isEmpty(nextUSGDate))\n    .is.not.truthy;\n  return scheduleBuilder.getAll();\n};",
   "validationRule" : "",
   "checklistsRule" : ""
 }

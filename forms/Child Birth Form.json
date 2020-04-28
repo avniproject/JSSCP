@@ -1,0 +1,161 @@
+{
+  "name" : "Child Birth Form",
+  "uuid" : "f02c318b-9396-43b2-85cf-b9f723180840",
+  "formType" : "ProgramEncounter",
+  "formElementGroups" : [ {
+    "uuid" : "924fcbfe-4d70-454e-9acd-c1dc9c08d099",
+    "name" : "General",
+    "displayOrder" : 1.0,
+    "display" : "General",
+    "formElements" : [ {
+      "name" : "Whether baby cleaned and dried immediately after birth",
+      "uuid" : "c56bcb8a-ee84-4dbb-8dfd-97eeb1487545",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Whether baby cleaned and dried immediately after birth",
+        "uuid" : "7cecaf08-1a00-41a6-965b-015b89aa66ba"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Whether baby wrapped in warm clothes",
+      "uuid" : "a096867b-4fea-4813-b0c3-61c9d7407e6a",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Whether baby wrapped in warm clothes",
+        "uuid" : "cdd45c89-b7be-4131-a6c0-48e8b82926c4"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Diagnosis of baby immediately after birth",
+      "uuid" : "20f25b27-ecdc-4fbe-821f-9cd9be598691",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Diagnosis of baby immediately after birth",
+        "uuid" : "734e9cd5-3df4-4cfd-bca4-aa842af2c84e"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    } ]
+  }, {
+    "uuid" : "7b8d2606-900c-497a-9577-d63cd2307d29",
+    "name" : "Newborn observations within 30 seconds",
+    "displayOrder" : 2.0,
+    "display" : "Newborn observations within 30 seconds",
+    "formElements" : [ {
+      "name" : "Newborn cry",
+      "uuid" : "e31d2514-3369-4235-9944-26e7ce071da6",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Newborn cry",
+        "uuid" : "426f1fbd-6211-47dc-9b58-05a94d8dd713"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Newborn breathing",
+      "uuid" : "e74bd16c-7d6f-46dc-80cc-39cef510b5e4",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Newborn breathing",
+        "uuid" : "63495af0-0150-48a0-b52d-9656a8671f1b"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    } ]
+  }, {
+    "uuid" : "cab86429-00cf-4d38-a7c6-f516beb19e23",
+    "name" : "Details",
+    "displayOrder" : 3.0,
+    "display" : "Details",
+    "formElements" : [ {
+      "name" : "If baby was not breathing for 30 seconds, was any action taken",
+      "uuid" : "1b856c69-51c5-4dcb-8bc4-0a5f3c44d619",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "If baby was not breathing for 30 seconds, was any action taken",
+        "uuid" : "e2282953-329a-400f-aa12-7b1065a42f7a"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('What was the outcome of action').containsAnswerConceptName(\"Baby died\");\n  return statusBuilder.build();\n};",
+      "mandatory" : false
+    }, {
+      "name" : "Whether mucus extractor used",
+      "uuid" : "94f55467-051a-448f-b935-56a03e127e00",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Whether mucus extractor used",
+        "uuid" : "a11eea1e-4529-4bf1-a8b2-734e38a590bb"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('What was the outcome of action').containsAnswerConceptName(\"Baby died\");\n  return statusBuilder.build();\n};",
+      "mandatory" : false
+    }, {
+      "name" : "What was the outcome of action",
+      "uuid" : "07f9f7dc-84b7-4888-a132-ea5aacd546ed",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "What was the outcome of action",
+        "uuid" : "62fa4db7-448a-48fe-b5d4-5feb00752153"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('What was the outcome of action').containsAnswerConceptName(\"Baby died\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    } ]
+  }, {
+    "uuid" : "74ed830f-5110-4224-8d47-f8708b97061c",
+    "name" : "Newborn observations after 5 mins",
+    "displayOrder" : 4.0,
+    "display" : "Newborn observations after 5 mins ",
+    "formElements" : [ {
+      "name" : "Newborn cry",
+      "uuid" : "fef0aee4-13d0-4dbd-aef4-60ccc0b53dc4",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Newborn cried",
+        "uuid" : "e4d30772-e360-4824-9acb-e417bb5b264e"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "rule" : "\n",
+      "mandatory" : false
+    }, {
+      "name" : "Newborn breathing",
+      "uuid" : "2f1bea58-9e11-46b8-8c66-eb604e5626c0",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Newborn breath",
+        "uuid" : "f23c5d63-f73c-40e7-a4d0-9ebecf2a701c"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "rule" : "",
+      "mandatory" : false
+    }, {
+      "name" : "Newborn movement",
+      "uuid" : "2a2a4334-e67b-4c4e-bc72-f848085e41f8",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Newborn movements",
+        "uuid" : "0c06c507-6676-4083-a862-2b0d80327262"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "rule" : "",
+      "mandatory" : false
+    } ]
+  } ],
+  "decisionRule" : "",
+  "visitScheduleRule" : "",
+  "validationRule" : "",
+  "checklistsRule" : ""
+}

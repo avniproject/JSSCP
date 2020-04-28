@@ -62,7 +62,7 @@
     } ]
   } ],
   "decisionRule" : "",
-  "visitScheduleRule" : "",
+  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\nconst followupDate = imports.moment(programEncounter.encounterDateTime).add(4, 'days').toDate();\n  scheduleBuilder\n    .add({\n      name: \"Referral Status-2\",\n      encounterType: \"Referral Status\",\n      earliestDate: followupDate,\n      maxDate: imports.moment(followupDate).add(2, 'days').toDate()\n    }).whenItem(programEncounter.name == 'Referral Status-1'))\n    .is.truthy;\n  return scheduleBuilder.getAll();\n};",
   "validationRule" : "",
   "checklistsRule" : ""
 }

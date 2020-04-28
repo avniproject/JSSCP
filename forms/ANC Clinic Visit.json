@@ -742,16 +742,79 @@
       "mandatory" : true,
       "voided" : true
     }, {
-      "name" : "Is referral required",
-      "uuid" : "07dd4afa-f99e-4f1d-bad8-7cf72d8cfff4",
+      "name" : "Does woman require referral?",
+      "uuid" : "4a19eba6-fcb4-48b5-bb2b-69300fa2c890",
       "keyValues" : [ ],
       "concept" : {
-        "name" : "Is referral required",
+        "name" : "Does woman require referral?",
         "uuid" : "77d122e8-0620-4754-8375-b0cbe329003c"
       },
       "displayOrder" : 2.0,
       "type" : "SingleSelect",
       "mandatory" : true
+    }, {
+      "name" : "Place of referral",
+      "uuid" : "026e90c6-df56-4847-ae0f-ddf0328deb15",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Place of referral",
+        "uuid" : "80fccb06-a62f-43e8-92eb-358bdb600079"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Does woman require referral?').containsAnswerConceptName('Yes');\n  \nreturn statusBuilder.build();\n};",
+      "mandatory" : false
+    }, {
+      "name" : "Other place of referral",
+      "uuid" : "c1676ec1-6366-4f32-8cf3-06ada5abac9d",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Other place of referral",
+        "uuid" : "d169efa9-49af-4c84-ae09-b1b7296c62da"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Place of referral').containsAnswerConceptName('Other');\n  \nreturn statusBuilder.build();\n};",
+      "mandatory" : false
+    }, {
+      "name" : "Referral reason",
+      "uuid" : "9abf6757-e486-4b53-9684-26333b9ab15a",
+      "keyValues" : [ {
+        "key" : "ExcludedAnswers",
+        "value" : [ "Infection", "Bleeding", "Seizure" ]
+      } ],
+      "concept" : {
+        "name" : "Referral reason",
+        "uuid" : "8a56f008-a910-4d6f-b028-a95db330dbf2"
+      },
+      "displayOrder" : 5.0,
+      "type" : "MultiSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Does woman require referral?').containsAnswerConceptName('Yes');\n  \nreturn statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Other referral reason",
+      "uuid" : "c696eb67-12ac-4596-a918-f5daebb6acf1",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Other referral reason",
+        "uuid" : "e048675e-eb86-41c2-a47b-aecfa9a3bb8c"
+      },
+      "displayOrder" : 6.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Referral reason').containsAnswerConceptName('Other');\n  \nreturn statusBuilder.build();\n};",
+      "mandatory" : false
+    }, {
+      "name" : "Is referral required",
+      "uuid" : "07dd4afa-f99e-4f1d-bad8-7cf72d8cfff4",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Does woman require referral?",
+        "uuid" : "77d122e8-0620-4754-8375-b0cbe329003c"
+      },
+      "displayOrder" : 7.0,
+      "type" : "SingleSelect",
+      "mandatory" : true,
+      "voided" : true
     }, {
       "name" : "Referral place",
       "uuid" : "3c31097f-7225-45b0-945e-f317dc49e4d8",
@@ -760,15 +823,32 @@
         "name" : "Referral place",
         "uuid" : "d78183dd-aa99-47fa-b562-f761f5415028"
       },
-      "displayOrder" : 3.0,
+      "displayOrder" : 8.0,
       "type" : "SingleSelect",
       "rule" : "\n'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.show().when.valueInEncounter('Referral required for?').containsAnswerConceptNameOtherThan('No need');\n\n  return statusBuilder.build();\n};",
       "mandatory" : true,
       "voided" : true
     } ]
+  }, {
+    "uuid" : "490fe358-718d-4596-91bb-6ce0e8a7f224",
+    "name" : "Next visit details",
+    "displayOrder" : 10.0,
+    "display" : "Next visit details",
+    "formElements" : [ {
+      "name" : "Date of next ANC Visit",
+      "uuid" : "c86552d5-69b7-49aa-87ed-584185034e60",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Date of next ANC Visit",
+        "uuid" : "6e50431c-6cb0-495f-9735-dd431c9970ff"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    } ]
   } ],
   "decisionRule" : "\"use strict\";\n({params, imports}) => {\n    const programEncounter = params.entity;\n    const decisions = params.decisions;\n    const complicationsBuilder = new imports.rulesConfig.complicationsBuilder({\n        programEncounter: programEncounter,\n        complicationsConcept: \"High Risk Conditions\"\n    });\n    //Height is less than 140 cm\n     complicationsBuilder\n        .addComplication(\"Height is less than 140 cm\")\n        .when.valueInEncounter(\"Height\")\n        .is.lessThan(140);\n    //Weight is less than 35 kg\n     complicationsBuilder\n        .addComplication(\"Weight is less than 35 kg\")\n        .when.valueInEncounter(\"Weight\")\n        .is.lessThan(35);\n    //High Blood Pressure\n     complicationsBuilder\n        .addComplication(\"High Blood Pressure\")\n        .when.valueInEncounter(\"Blood Pressure (Diastolic)\")\n        .is.greaterThanOrEqualTo(90)\n        .or.when.valueInEncounter(\"Blood Pressure (systolic)\")\n        .is.greaterThanOrEqualTo(140);\n    complicationsBuilder\n        .addComplication(\"Oedema\")\n        .when.valueInEncounter(\"Oedema\")\n        .containsAnyAnswerConceptName(\"Face\",\"Vulval\",\"Entire body\");\n    complicationsBuilder\n        .addComplication(\"Hydroamniosis\")\n        .when.valueInEncounter(\"Abdomen check\")\n        .containsAnswerConceptName(\"Hydroamniosis\");\n  complicationsBuilder\n        .addComplication(\"Twins\")\n        .when.valueInEncounter(\"Abdomen check\")\n        .containsAnswerConceptName(\"Twins\");\n        //Foetal Position\n  complicationsBuilder\n        .addComplication(\"Foetal Position is not normal\")\n        .when.valueInEncounter(\"Position\")\n        .containsAnswerConceptName(\"Transverse\",\"Breach\");\n      //FHS - Not Audible\n    complicationsBuilder\n        .addComplication(\"FHS - Not Audible\")\n        .when.valueInEncounter(\"FHS\")\n        .containsAnswerConceptName(\"Not audible/Can't locate\");\n     complicationsBuilder\n        .addComplication(\"No foetal movement\")\n        .when.valueInEncounter(\"Foetus movement\")\n        .containsAnyAnswerConceptName(\"No foetal movement\");\n     \n        \n    complicationsBuilder\n        .addComplication(\"Urine Albumin Present\")\n        .when.valueInEncounter(\"Urine Albumin\")\n        .containsAnyAnswerConceptName(\"1+\",\"2+\",\"3+\",\"4+\");\n    complicationsBuilder\n        .addComplication(\"Urine sugar present\")\n        .when.valueInEncounter(\"Urine sugar\")\n        .containsAnyAnswerConceptName(\"1+\",\"2+\",\"3+\",\"4+\");\n    complicationsBuilder\n        .addComplication(\"Low Haemoglobin\")\n        .when.valueInEncounter(\"Hb\")\n        .is.lessThan(7);\n        \n     complicationsBuilder\n        .addComplication(\"Bleeding PV\")\n        .when.valueInEncounter(\"New complaint\")\n        .containsAnswerConceptName(\"Bleeding PV\");\n     complicationsBuilder\n        .addComplication(\"Breathing difficulty\")\n        .when.valueInEncounter(\"New complaint\")\n        .containsAnswerConceptName(\"Breathing difficulty\");\n     complicationsBuilder\n        .addComplication(\"Fetus is not moving\")\n        .when.valueInEncounter(\"New complaint\")\n        .containsAnswerConceptName(\"Fetus is not moving\");\n     complicationsBuilder\n        .addComplication(\"Headache\")\n        .when.valueInEncounter(\"New complaint\")\n        .containsAnswerConceptName(\"Headache\");\n     complicationsBuilder\n        .addComplication(\"Pain in abdomen\")\n        .when.valueInEncounter(\"New complaint\")\n        .containsAnswerConceptName(\"Pain in abdomen\");\n     complicationsBuilder\n        .addComplication(\"Swelling on face/vulva/abdomen/whole body\")\n        .when.valueInEncounter(\"New complaint\")\n        .containsAnswerConceptName(\"Swelling on face/vulva/abdomen/whole body\");\n     complicationsBuilder\n        .addComplication(\"Burning micturition\")\n        .when.valueInEncounter(\"New complaint\")\n        .containsAnswerConceptName(\"Burning micturition\");\n     complicationsBuilder\n        .addComplication(\"Fever\")\n        .when.valueInEncounter(\"New complaint\")\n        .containsAnswerConceptName(\"Fever\");\n        \n    const gestationalAgeInWeeks = ruleServiceLibraryInterfaceForSharingModules.motherCalculations.gestationalAgeAsOn(programEncounter.encounterDateTime,programEncounter.programEnrolment);    \n        \n    complicationsBuilder\n        .addComplication(\"Fundle Height doesn't correspond to the gestational week\")\n        .when.valueInEncounter(\"Fundle Height\")\n        .containsAnswerConceptName(\"12-14\").and.whenItem(gestationalAgeInWeeks).equalsOneOf(12,13);\n \n  complicationsBuilder\n        .addComplication(\"Fundle Height doesn't correspond to the gestational week\")\n        .when.valueInEncounter(\"Fundle Height\")\n        .containsAnyAnswerConceptName(\"12-14\",\"14-16\").and.whenItem(gestationalAgeInWeeks).equalsOneOf(13,14);\n \n \n        \n        \n    decisions.encounterDecisions.push(complicationsBuilder.getComplications());\n    return decisions;\n};",
-  "visitScheduleRule" : "",
+  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\nconst nextANCDate = programEncounter.getObservationValue('Date of next ANC Visit');\nconst ifReferral = programEncounter.getObservationValue('Woman requires referral');\nconst edd = programEncounter.programEnrolment.getObservationValue('EDD');\n \nif(imports.moment(edd).isSameOrBefore(imports.moment(nextANCDate), 'date')){\n scheduleBuilder\n    .add({\n      name: \"Delivery\",\n      encounterType: \"Delivery\",\n      earliestDate: imports.moment(Delivery).toDate(),\n      maxDate: imports.moment(edd).add(0, 'days').toDate()\n    });\n    }\nelse{\n  scheduleBuilder\n    .add({\n      name: \"ANC Clinic Visit\",\n      encounterType: \"ANC Clinic Visit\",\n      earliestDate: imports.moment(nextANCDate).toDate(),\n      maxDate: imports.moment(nextANCDate).add(8, 'days').toDate()\n    }).whenItem(!_.isEmpty(nextANCDate))\n    .is.not.truthy;\n    }\n    \n    scheduleBuilder\n    .add({\n      name: \"Referral Status-1\",\n      encounterType: \"Referral Status\",\n      earliestDate: imports.moment(programEncouner.encounterDateTime).add(3, 'days').toDate(),\n      maxDate: imports.moment(programEncouner.encounterDateTime).add(5, 'days').toDate()\n    }).whenItem(ifReferral)\n    .is.truthy;\n    \n    \n  return scheduleBuilder.getAll();\n};",
   "validationRule" : "",
   "checklistsRule" : ""
 }

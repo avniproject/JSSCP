@@ -17,7 +17,7 @@
       },
       "displayOrder" : 1.0,
       "type" : "SingleSelect",
-      "rule" : "",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().whenItem(individual.getAgeInYears()).lessThanOrEqualTo(3);\n  return statusBuilder.build();\n};",
       "mandatory" : true
     }, {
       "name" : "Father's Name",
@@ -29,7 +29,7 @@
       },
       "displayOrder" : 2.0,
       "type" : "SingleSelect",
-      "rule" : "",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().whenItem(individual.getAgeInYears()).lessThanOrEqualTo(3);\n  return statusBuilder.build();\n};",
       "mandatory" : true
     }, {
       "name" : "Father's Occupation",
@@ -41,7 +41,7 @@
       },
       "displayOrder" : 3.0,
       "type" : "SingleSelect",
-      "rule" : "",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().whenItem(individual.getAgeInYears()).lessThanOrEqualTo(3);\n  return statusBuilder.build();\n};",
       "mandatory" : false
     }, {
       "name" : "Father's Education",
@@ -53,7 +53,7 @@
       },
       "displayOrder" : 4.0,
       "type" : "SingleSelect",
-      "rule" : "",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().whenItem(individual.getAgeInYears()).lessThanOrEqualTo(3);\n  return statusBuilder.build();\n};",
       "mandatory" : false
     }, {
       "name" : "Mother's Name",
@@ -65,7 +65,7 @@
       },
       "displayOrder" : 5.0,
       "type" : "SingleSelect",
-      "rule" : "",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().whenItem(individual.getAgeInYears()).lessThanOrEqualTo(3);\n  return statusBuilder.build();\n};",
       "mandatory" : true
     }, {
       "name" : "Mother's Occupation",
@@ -77,7 +77,7 @@
       },
       "displayOrder" : 6.0,
       "type" : "SingleSelect",
-      "rule" : "",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().whenItem(individual.getAgeInYears()).lessThanOrEqualTo(3);\n  return statusBuilder.build();\n};",
       "mandatory" : false
     }, {
       "name" : "Mother's Education",
@@ -89,8 +89,19 @@
       },
       "displayOrder" : 7.0,
       "type" : "SingleSelect",
-      "rule" : "",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().whenItem(individual.getAgeInYears()).lessThanOrEqualTo(3);\n  return statusBuilder.build();\n};",
       "mandatory" : false
+    }, {
+      "name" : "Religion",
+      "uuid" : "bd2eb2fc-1d7e-4512-a6f6-6fc9c10a4c61",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Religion",
+        "uuid" : "b2c60cb8-983c-4e0e-a90d-4b21e87e10bd"
+      },
+      "displayOrder" : 8.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
     }, {
       "name" : "Caste",
       "uuid" : "f2d5671d-85ac-4307-891f-281ea0eca37c",
@@ -99,7 +110,7 @@
         "name" : "Caste Category",
         "uuid" : "9ad4b520-4e33-4b1b-a056-37ae6418988f"
       },
-      "displayOrder" : 8.0,
+      "displayOrder" : 9.0,
       "type" : "SingleSelect",
       "mandatory" : false
     }, {
@@ -110,7 +121,7 @@
         "name" : "Sub Caste",
         "uuid" : "047877ac-dba7-4acf-8c77-97c979c2fc26"
       },
-      "displayOrder" : 9.0,
+      "displayOrder" : 10.0,
       "type" : "SingleSelect",
       "mandatory" : false
     }, {
@@ -121,8 +132,9 @@
         "name" : "Other sub caste",
         "uuid" : "ae7d54e9-fac0-4898-b334-87664bd055d2"
       },
-      "displayOrder" : 10.0,
+      "displayOrder" : 11.0,
       "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().when.valueInRegistration(\"Sub caste\")\n            .containsAnswerConceptName(\"Other\");\n  return statusBuilder.build();\n};",
       "mandatory" : true
     } ]
   }, {
@@ -151,6 +163,7 @@
       },
       "displayOrder" : 2.0,
       "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().whenItem(individual.getAgeInYears()).is.greaterThanOrEqualTo(16);\n  return statusBuilder.build();\n};",
       "mandatory" : true
     }, {
       "name" : "Date of marriage",
@@ -162,6 +175,7 @@
       },
       "displayOrder" : 3.0,
       "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().whenItem(individual.getAgeInYears()).is.greaterThanOrEqualTo(16);\n  return statusBuilder.build();\n};",
       "mandatory" : false
     }, {
       "name" : "Education",
@@ -173,6 +187,7 @@
       },
       "displayOrder" : 4.0,
       "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().whenItem(individual.getAgeInYears()).is.greaterThan(3);\n  return statusBuilder.build();\n};",
       "mandatory" : true
     }, {
       "name" : "Occupation",
@@ -184,6 +199,7 @@
       },
       "displayOrder" : 5.0,
       "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().whenItem(individual.getAgeInYears()).is.greaterThan(3);\n  return statusBuilder.build();\n};",
       "mandatory" : true
     }, {
       "name" : "Is sterlization operation done?",
@@ -195,6 +211,7 @@
       },
       "displayOrder" : 6.0,
       "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().whenItem(individual.getAgeInYears()).is.greaterThanOrEqualTo(16);\n  return statusBuilder.build();\n};",
       "mandatory" : true
     }, {
       "name" : "Whether any disability",
@@ -217,6 +234,7 @@
       },
       "displayOrder" : 8.0,
       "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().valueInRegistration(\"Whether any disability\").is.yes;\n  return statusBuilder.build();\n};",
       "mandatory" : true
     }, {
       "name" : "Religion",
@@ -228,7 +246,8 @@
       },
       "displayOrder" : 9.0,
       "type" : "SingleSelect",
-      "mandatory" : true
+      "mandatory" : true,
+      "voided" : true
     }, {
       "name" : "Status of the individual",
       "uuid" : "e7f4a2cd-c984-4437-a2ce-120c102c0cca",

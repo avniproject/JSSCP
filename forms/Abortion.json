@@ -133,7 +133,7 @@
       "uuid" : "ae0aa944-821b-4cb7-8fb0-387ebcbb69c9",
       "keyValues" : [ ],
       "concept" : {
-        "name" : "Is referral required",
+        "name" : "Does woman require referral?",
         "uuid" : "77d122e8-0620-4754-8375-b0cbe329003c"
       },
       "displayOrder" : 2.0,
@@ -142,7 +142,7 @@
     } ]
   } ],
   "decisionRule" : "",
-  "visitScheduleRule" : "",
+  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\n\nconst dateOfAbortion = programEncounter.getObservationValue('Date and time of abortion');\nconst followupDate = imports.moment(dateOfAbortion).add(3, 'days').toDate();\n\n  scheduleBuilder\n    .add({\n      name: \"Abortion followup-1\",\n      encounterType: \"Abortion followup\",\n      earliestDate: followupDate,\n      maxDate: imports.moment(followupDate).add(2, 'days').toDate()\n    }).whenItem(imports.moment(programEncounter.encounterDateTime).isBefore(followupDate, 'date'))\n    .is.truthy;\n  return scheduleBuilder.getAll();\n};",
   "validationRule" : "",
   "checklistsRule" : ""
 }

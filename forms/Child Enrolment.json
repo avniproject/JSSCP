@@ -1,89 +1,27 @@
 {
   "name" : "Child Enrolment",
-  "uuid" : "14585999-3bd3-47cd-998c-fa7f3e3f9252",
+  "uuid" : "854b221a-aa9f-431e-89be-9b65f7e6727d",
   "formType" : "ProgramEnrolment",
   "formElementGroups" : [ {
-    "uuid" : "573d9f48-6665-4521-8198-def2fe6ad031",
-    "name" : "Child Enrolment Basic Details",
+    "uuid" : "ed979541-59c0-4704-9b26-578f4ad5646c",
+    "name" : "Details",
     "displayOrder" : 1.0,
-    "display" : "Basic Details",
+    "display" : "Details",
     "formElements" : [ {
-      "name" : "Enrol to",
-      "uuid" : "1405ba80-2802-42cf-a68b-4f43eef71ec5",
+      "name" : "Weight",
+      "uuid" : "30313647-ba2f-407a-bc50-b53dce61e742",
       "keyValues" : [ ],
       "concept" : {
-        "name" : "Phulwari",
-        "uuid" : "178acfbe-b7e1-4ef5-a48a-0f4b1beabb80"
+        "name" : "Weight",
+        "uuid" : "8d947379-7a1d-48b2-8760-88fff6add987"
       },
-      "displayOrder" : 3.0,
+      "displayOrder" : 1.0,
       "type" : "SingleSelect",
-      "mandatory" : true
-    }, {
-      "name" : "Is the child still breastfeeding",
-      "uuid" : "4ee2e653-958c-459a-b77e-c9fa43f8e558",
-      "keyValues" : [ ],
-      "concept" : {
-        "name" : "Is baby exclusively breastfeeding",
-        "uuid" : "8a7cfa70-2e10-4ff9-88b1-516c94c8efbb"
-      },
-      "displayOrder" : 8.0,
-      "type" : "SingleSelect",
-      "mandatory" : true
-    }, {
-      "name" : "Any disabilities?",
-      "uuid" : "08c3d480-56a7-41b2-97c7-9167216cc811",
-      "keyValues" : [ ],
-      "concept" : {
-        "name" : "Is there any developmental delay or disability seen?",
-        "uuid" : "7b84dc32-b074-43f0-b9e8-9bfaf3742dc3"
-      },
-      "displayOrder" : 9.0,
-      "type" : "SingleSelect",
-      "mandatory" : true
-    }, {
-      "name" : "Please select the disabilities",
-      "uuid" : "e87e4fa5-65b1-4ce0-a621-df59ef77678b",
-      "keyValues" : [ ],
-      "concept" : {
-        "name" : "Child Disabilities",
-        "uuid" : "ebc49a98-a98b-4a78-8f66-f124e91c8d5c"
-      },
-      "displayOrder" : 10.0,
-      "type" : "MultiSelect",
-      "mandatory" : true
-    }, {
-      "name" : "Any chronic illness?",
-      "uuid" : "982788fe-eaa4-41ec-9afb-93346428a61b",
-      "keyValues" : [ ],
-      "concept" : {
-        "name" : "Chronic Illness",
-        "uuid" : "ea57f134-ab0e-417b-a514-2e66e75a13f4"
-      },
-      "displayOrder" : 11.0,
-      "type" : "SingleSelect",
-      "mandatory" : true
-    }, {
-      "name" : "Chronic illness",
-      "uuid" : "cf36e8f3-0603-4084-a8fb-5e79cc0bbb56",
-      "keyValues" : [ ],
-      "concept" : {
-        "name" : "Other Chronic Illness",
-        "uuid" : "460746b0-f290-4d6d-8296-ddf8e2a82648"
-      },
-      "displayOrder" : 12.0,
-      "type" : "SingleSelect",
-      "mandatory" : true
-    }, {
-      "name" : "Day of the month to visit this Phulwari",
-      "uuid" : "0ebb0edb-b7ae-4fa6-8ba9-0097176e9b16",
-      "keyValues" : [ ],
-      "concept" : {
-        "name" : "Day of month for growth monitoring visit",
-        "uuid" : "d1985def-295c-415c-b563-310946a03762"
-      },
-      "displayOrder" : 13.0,
-      "type" : "SingleSelect",
-      "mandatory" : true
+      "mandatory" : false
     } ]
-  } ]
+  } ],
+  "decisionRule" : "",
+  "visitScheduleRule" : "",
+  "validationRule" : "",
+  "checklistsRule" : ""
 }

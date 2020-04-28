@@ -268,7 +268,7 @@
     } ]
   } ],
   "decisionRule" : "",
-  "visitScheduleRule" : "",
+  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\n//Date and time when placenta was out\nconst dateOfDelivery = programEncounter.getObservationValue('Date and time when placenta was out');\n  scheduleBuilder\n    .add({\n      name: \"PNC 1\",\n      encounterType: \"Mother PNC\",\n      earliestDate: programEncounter.encounterDateTime,\n      maxDate: imports.moment(programEncounter.encounterDateTime).add(3, 'days').toDate()\n    }).whenItem( imports.moment(programEncounter.encounterDateTime).isBefore(imports.moment(dateOfDelivery).add(42, 'days'), 'date'))\n    .is.truthy;\n  return scheduleBuilder.getAll();\n};",
   "validationRule" : "",
   "checklistsRule" : ""
 }

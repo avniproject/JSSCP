@@ -385,7 +385,7 @@
     } ]
   } ],
   "decisionRule" : "",
-  "visitScheduleRule" : "",
+  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\n  \n  const visitDate = programEncounter.encounterDateTime; \n  const dateOfAbortion = programEncounter.getObservationValue('Date and time of abortion');\n  const encounterScheduleAbortion = [\n    {\"name\": \"Abortion followup-2\", \"earliest\": 7, \"max\": 11 },\n    {\"name\": \"Abortion followup-3\", \"earliest\": 15, \"max\": 19}    \n];\n   \n var schedule = _.chain(encounterScheduleAbortion).filter(e => imports.moment(visitDate).isSameOrBefore(imports.moment(dateOfAbortion).add(e, 'days'), 'date') === true).filter(e => (programEncounter.programEnrolment.hasEncounter('Abortion followup', e.name)) === false).first().value();\n  \n  if (!_.isEmpty(schedule)) {\n  scheduleBuilder\n    .add({\n      name: schedule.name,\n      encounterType: \"Abortion followup\",\n      earliestDate:  imports.moment(dateOfAbortion).add(schedule.earliest, 'days').toDate() ,\n      maxDate: imports.moment(dateOfAbortion).add(schedule.max, 'days').toDate() \n    });\n  }\n  return scheduleBuilder.getAll();\n};",
   "validationRule" : "",
   "checklistsRule" : ""
 }

@@ -24,7 +24,7 @@
       "uuid" : "92a91ba6-48e9-4197-9d55-86451659c2bb",
       "keyValues" : [ ],
       "concept" : {
-        "name" : "mother suffering from",
+        "name" : "Mother suffering from",
         "uuid" : "11244ced-b169-493d-a160-2dda1e1db195"
       },
       "displayOrder" : 2.0,
@@ -220,7 +220,7 @@
       "uuid" : "47f9d01f-1cad-49fc-9e4f-a67a505945fd",
       "keyValues" : [ ],
       "concept" : {
-        "name" : "other place of referral",
+        "name" : "Other place of referral",
         "uuid" : "d169efa9-49af-4c84-ae09-b1b7296c62da"
       },
       "displayOrder" : 3.0,
@@ -254,7 +254,7 @@
     } ]
   } ],
   "decisionRule" : "",
-  "visitScheduleRule" : "",
+  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\n  const dateOfDelivery = programEncounter.getObservationValue('Date and time when placenta was out');\n  const encounterSchedulePNC = [\n    {\"name\": \"PNC 2\", \"earliest\": 3, \"max\": 6},\n    {\"name\": \"PNC 3\", \"earliest\": 7, \"max\": 10},\n    {\"name\": \"PNC 4\", \"earliest\": 15, \"max\": 18},\n    {\"name\": \"PNC 5\", \"earliest\": 28, \"max\": 31},\n    {\"name\": \"PNC 5\", \"earliest\": 42, \"max\": 45}\n];\n  \n  const visitDate = programEncounter.encounterDateTime; \n   var schedule = _.chain(encounterSchedulePNC).filter(e => imports.moment(visitDate).isSameOrBefore(imports.moment(dateOfDelivery).add(e, 'days'), 'date') === true)\n            .filter(e => (programEncounter.programEnrolment.hasEncounter('Mother PNC', e.name)) === false)\n            .first()\n            .value();\n  \n  if (!_.isEmpty(schedule)) {\n  scheduleBuilder\n    .add({\n      name: schedule.name,\n      encounterType: \"Mother PNC\",\n      earliestDate:  imports.moment(dateOfDelivery).add(schedule.earliest, 'days').toDate() ,\n      maxDate: imports.moment(dateOfDelivery).add(schedule.max, 'days').toDate() \n    });\n  }\n  return scheduleBuilder.getAll();\n};",
   "validationRule" : "",
   "checklistsRule" : ""
 }

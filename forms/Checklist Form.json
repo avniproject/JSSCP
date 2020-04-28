@@ -1,0 +1,39 @@
+{
+  "name" : "Checklist Form",
+  "uuid" : "c04b2361-7bfa-4224-8051-68d048e61407",
+  "formType" : "ChecklistItem",
+  "formElementGroups" : [ {
+    "uuid" : "9249a8c6-ce81-49b3-8e8e-48979ccd5664",
+    "name" : "Details",
+    "displayOrder" : 1.0,
+    "display" : "Details",
+    "formElements" : [ {
+      "name" : "Place of Vaccination",
+      "uuid" : "9cc37e51-a34b-40ba-9516-4b21ba9e91ff",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Place of Vaccination",
+        "uuid" : "92d7f012-fe52-41eb-bbf0-1f0e366f14a1"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Specify Other",
+      "uuid" : "05979687-9240-410e-b7d7-16c84b1ef42a",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Specify Other place of vaccination",
+        "uuid" : "30ccf52f-f0c6-4a45-baa7-c65600516110"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "rule" : "\n'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Place of Vaccination').containsAnswerConceptName(\"Other\");\n  return statusBuilder.build();\n};\n",
+      "mandatory" : true
+    } ]
+  } ],
+  "decisionRule" : "",
+  "visitScheduleRule" : "",
+  "validationRule" : "",
+  "checklistsRule" : ""
+}

@@ -66,29 +66,28 @@
     },
     "name" : "NCD Followup"
   }, {
-    "uuid" : "86fdd07a-ccfd-4424-abe0-da832fa54540",
-    "encounterType" : {
-      "uuid" : "b3745151-361e-4417-871e-7b91e5542423"
-    },
-    "name" : "ANC Home Visit (voided~319)",
-    "voided" : true
-  }, {
     "uuid" : "4f8e0835-ab29-4f6f-8ec9-aa6f1ec50692",
     "encounterType" : {
       "uuid" : "307197bf-6b71-49b1-9a1b-b2c12532e34f"
     },
     "name" : "ANC Home Visit"
   }, {
-    "uuid" : "700cbaba-affd-4f3c-b514-53b4609e376c",
-    "encounterType" : {
-      "uuid" : "aca87935-6b64-49bc-8094-20fb5e25fa4e"
-    },
-    "name" : "Mother PNC followup"
-  }, {
     "uuid" : "f346a977-cc22-478a-9237-a08c4219e592",
     "encounterType" : {
       "uuid" : "0345e233-479c-4dff-a7b9-c1325a5c0493"
     },
     "name" : "Referral Status"
+  }, {
+    "uuid" : "89c40e01-acb2-4c52-aaba-d8c82eb27011",
+    "encounterType" : {
+      "uuid" : "bb2ea3b7-55c8-4bab-8ee5-b71eec633408"
+    },
+    "name" : "Child PNC"
+  }, {
+    "uuid" : "86a2d0cb-62d0-4277-ba07-7a7e8b6c67ce",
+    "encounterType" : {
+      "uuid" : "ab963eab-805d-4714-ad78-1e8a5fa164b2"
+    },
+    "name" : "Child Birth"
   } ]
 }

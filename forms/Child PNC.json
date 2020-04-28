@@ -26,7 +26,7 @@
         "name" : "Duration in hours between birth and first urination",
         "uuid" : "b2c46d0d-6212-45eb-b54e-9c95ccb96435"
       },
-      "displayOrder" : 1.1,
+      "displayOrder" : 2.0,
       "type" : "SingleSelect",
       "mandatory" : true
     }, {
@@ -37,7 +37,7 @@
         "name" : "Child passed meconium since birth",
         "uuid" : "4f30f920-3608-4a07-9aaf-61391c84254b"
       },
-      "displayOrder" : 2.0,
+      "displayOrder" : 3.0,
       "type" : "SingleSelect",
       "mandatory" : true
     }, {
@@ -48,7 +48,7 @@
         "name" : "Duration in hours between birth and meconium",
         "uuid" : "581415c6-6fdc-43f5-806a-2a780639dbf9"
       },
-      "displayOrder" : 2.1,
+      "displayOrder" : 4.0,
       "type" : "SingleSelect",
       "mandatory" : true
     } ]
@@ -120,7 +120,7 @@
         "name" : "Number of days since child passing greenish stool",
         "uuid" : "1d64b09e-7458-4214-8276-0b4368eebb80"
       },
-      "displayOrder" : 5.1,
+      "displayOrder" : 6.0,
       "type" : "SingleSelect",
       "mandatory" : true
     }, {
@@ -131,7 +131,7 @@
         "name" : "Number of days since blood in stool",
         "uuid" : "bddeb845-6105-483b-95c5-e6cdc73d2eae"
       },
-      "displayOrder" : 5.2,
+      "displayOrder" : 7.0,
       "type" : "SingleSelect",
       "mandatory" : true
     }, {
@@ -142,7 +142,7 @@
         "name" : "Number of days since not passing stool",
         "uuid" : "701a863f-cd1c-4b7d-8dfc-8ba086d4b5a0"
       },
-      "displayOrder" : 5.3,
+      "displayOrder" : 8.0,
       "type" : "SingleSelect",
       "mandatory" : true
     }, {
@@ -153,7 +153,7 @@
         "name" : "Number of days since child cries while passing stool",
         "uuid" : "1c7b4c84-ec4f-4afd-9eb8-092b3d722afb"
       },
-      "displayOrder" : 5.4,
+      "displayOrder" : 9.0,
       "type" : "SingleSelect",
       "mandatory" : true
     }, {
@@ -164,7 +164,7 @@
         "name" : "Child PNC activity related complaints",
         "uuid" : "3e6e61a0-4839-4284-a738-6c8974ce06cb"
       },
-      "displayOrder" : 6.0,
+      "displayOrder" : 10.0,
       "type" : "MultiSelect",
       "mandatory" : true
     }, {
@@ -175,7 +175,7 @@
         "name" : "Fever/Chills",
         "uuid" : "74278a4a-3701-41b4-8759-9edfd7303373"
       },
-      "displayOrder" : 7.0,
+      "displayOrder" : 11.0,
       "type" : "SingleSelect",
       "mandatory" : true
     }, {
@@ -186,7 +186,7 @@
         "name" : "Is baby exclusively breastfeeding",
         "uuid" : "8a7cfa70-2e10-4ff9-88b1-516c94c8efbb"
       },
-      "displayOrder" : 8.0,
+      "displayOrder" : 12.0,
       "type" : "SingleSelect",
       "mandatory" : true
     }, {
@@ -197,7 +197,7 @@
         "name" : "Other things fed to the baby",
         "uuid" : "79218eb8-c628-45d8-ab12-9aadc251e3d7"
       },
-      "displayOrder" : 9.0,
+      "displayOrder" : 13.0,
       "type" : "SingleSelect",
       "mandatory" : false
     } ]
@@ -392,5 +392,9 @@
       "type" : "SingleSelect",
       "mandatory" : false
     } ]
-  } ]
+  } ],
+  "decisionRule" : "",
+  "visitScheduleRule" : "",
+  "validationRule" : "",
+  "checklistsRule" : ""
 }

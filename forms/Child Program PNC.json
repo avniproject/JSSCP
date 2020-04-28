@@ -1,5 +1,5 @@
 {
-  "name" : "Child PNC (Child Program)",
+  "name" : "Child Program PNC",
   "uuid" : "b0c9a800-d6d6-49f1-b647-9bc3d95d2718",
   "formType" : "ProgramEncounter",
   "formElementGroups" : [ {
@@ -325,7 +325,7 @@
         "name" : "Counselling Done",
         "uuid" : "fa031cca-7264-420a-b657-0d3d5fc58a9c"
       },
-      "displayOrder" : 2.0,
+      "displayOrder" : 1.0,
       "type" : "SingleSelect",
       "mandatory" : false
     } ]
