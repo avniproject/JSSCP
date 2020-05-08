@@ -1,6 +1,6 @@
 import {AlbendazoleTrackingVisitSchedule} from "./AlbendazoleTrackingVisitSchedule";
 import {RuleFactory, VisitScheduleBuilder} from "rules-config";
-import defCancelForm from '../../forms/Default Program Encounter Cancellation Form';
+import defCancelForm from '../../forms/Program Encounter Cancellation Form';
 import {gmp} from './utils/visitSchedulingUtils';
 import moment from "moment";
 

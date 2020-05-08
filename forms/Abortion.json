@@ -128,21 +128,81 @@
       "displayOrder" : 1.0,
       "type" : "SingleSelect",
       "mandatory" : false
-    }, {
-      "name" : "Does woman require any referral?",
-      "uuid" : "ae0aa944-821b-4cb7-8fb0-387ebcbb69c9",
+    } ]
+  }, {
+    "uuid" : "55a511e2-1d8a-4019-bb05-758fb5f7a8f9",
+    "name" : "Referral details",
+    "displayOrder" : 3.0,
+    "display" : "Referral details",
+    "formElements" : [ {
+      "name" : "Does woman require referral?",
+      "uuid" : "5d8b4e87-f543-4518-8780-a1cf3fd4c204",
       "keyValues" : [ ],
       "concept" : {
         "name" : "Does woman require referral?",
         "uuid" : "77d122e8-0620-4754-8375-b0cbe329003c"
       },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Place of referral",
+      "uuid" : "181e8956-9189-4f6b-aaac-7531ea69c040",
+      "keyValues" : [ {
+        "key" : "ExcludedAnswers",
+        "value" : [ "Medical college", "District Hospital", "Sub Center", "Community Health Centre" ]
+      } ],
+      "concept" : {
+        "name" : "Place of referral",
+        "uuid" : "80fccb06-a62f-43e8-92eb-358bdb600079"
+      },
       "displayOrder" : 2.0,
       "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Does woman require referral?').containsAnswerConceptName('Yes');\n  \nreturn statusBuilder.build();\n};",
+      "mandatory" : false
+    }, {
+      "name" : "Other place of referral",
+      "uuid" : "485ad219-8a3a-432b-bc2f-811b3d2b1c83",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Other place of referral",
+        "uuid" : "d169efa9-49af-4c84-ae09-b1b7296c62da"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Place of referral').containsAnswerConceptName('Other');\n  \nreturn statusBuilder.build();\n};",
+      "mandatory" : false
+    }, {
+      "name" : "Referral reason",
+      "uuid" : "12bd4e8c-d5b6-4107-bf6d-c956e21ea107",
+      "keyValues" : [ {
+        "key" : "ExcludedAnswers",
+        "value" : [ "Delivery/LACS", "Admission at Referral centre", "Sonography", "Consultation with specialist at referral centre" ]
+      } ],
+      "concept" : {
+        "name" : "Referral reason",
+        "uuid" : "8a56f008-a910-4d6f-b028-a95db330dbf2"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Does woman require referral?').containsAnswerConceptName('Yes');\n  \nreturn statusBuilder.build();\n};",
+      "mandatory" : false
+    }, {
+      "name" : "Other referral reason",
+      "uuid" : "5eb95bc3-e27e-4658-bad1-080dd1bd2d13",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Other referral reason",
+        "uuid" : "e048675e-eb86-41c2-a47b-aecfa9a3bb8c"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Referral reason').containsAnswerConceptName('Other');\n  \nreturn statusBuilder.build();\n};",
       "mandatory" : false
     } ]
   } ],
   "decisionRule" : "",
-  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\n\nconst dateOfAbortion = programEncounter.getObservationValue('Date and time of abortion');\nconst followupDate = imports.moment(dateOfAbortion).add(3, 'days').toDate();\n\n  scheduleBuilder\n    .add({\n      name: \"Abortion followup-1\",\n      encounterType: \"Abortion followup\",\n      earliestDate: followupDate,\n      maxDate: imports.moment(followupDate).add(2, 'days').toDate()\n    }).whenItem(imports.moment(programEncounter.encounterDateTime).isBefore(followupDate, 'date'))\n    .is.truthy;\n  return scheduleBuilder.getAll();\n};",
+  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\n\nconst dateOfAbortion = programEncounter.getObservationValue('Date and time of abortion');\nconst followupDate = imports.moment(dateOfAbortion).add(3, 'days').toDate();\n\n  scheduleBuilder\n    .add({\n      name: \"Abortion followup-1\",\n      encounterType: \"Abortion followup\",\n      earliestDate: followupDate,\n      maxDate: imports.moment(followupDate).add(2, 'days').toDate()\n    }).whenItem(imports.moment(programEncounter.encounterDateTime).isBefore(followupDate, 'date'))\n    .is.truthy;\n    \n    const ifReferral = programEncounter.getObservationReadableValue('Does woman require referral?');\n    console.log(\"====>ifReferral\", ifReferral); \n\n    scheduleBuilder\n    .add({\n      name: \"Referral Status-1\",\n      encounterType: \"Referral Status\",\n      earliestDate: imports.moment(programEncounter.encounterDateTime).add(3, 'days').toDate(),\n      maxDate: imports.moment(programEncounter.encounterDateTime).add(5, 'days').toDate()\n    }).whenItem(ifReferral == 'Yes')\n    .is.truthy;\n    \n  return scheduleBuilder.getAll();\n};",
   "validationRule" : "",
   "checklistsRule" : ""
 }

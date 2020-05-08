@@ -17,6 +17,7 @@
       },
       "displayOrder" : 1.0,
       "type" : "MultiSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().whenItem(programEncounter.name == 'Referral Status-1')\n                .is.truthy;\n  \nreturn statusBuilder.build();\n};",
       "mandatory" : false
     }, {
       "name" : "Other status of referral -1",
@@ -46,6 +47,7 @@
       },
       "displayOrder" : 1.0,
       "type" : "MultiSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().whenItem(programEncounter.name == 'Referral Status-2')\n                .is.truthy;\n  \nreturn statusBuilder.build();\n};",
       "mandatory" : false
     }, {
       "name" : "Other status of referral -2",
@@ -62,7 +64,7 @@
     } ]
   } ],
   "decisionRule" : "",
-  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\nconst followupDate = imports.moment(programEncounter.encounterDateTime).add(4, 'days').toDate();\n  scheduleBuilder\n    .add({\n      name: \"Referral Status-2\",\n      encounterType: \"Referral Status\",\n      earliestDate: followupDate,\n      maxDate: imports.moment(followupDate).add(2, 'days').toDate()\n    }).whenItem(programEncounter.name == 'Referral Status-1'))\n    .is.truthy;\n  return scheduleBuilder.getAll();\n};",
+  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\nconst followupDate = imports.moment(programEncounter.encounterDateTime).add(4, 'days').toDate();\n  scheduleBuilder\n    .add({\n      name: \"Referral Status-2\",\n      encounterType: \"Referral Status\",\n      earliestDate: followupDate,\n      maxDate: imports.moment(followupDate).add(2, 'days').toDate()\n    }).whenItem(programEncounter.name == 'Referral Status-1')\n    .is.truthy;\n    \n    \n    \n    \n    \n  return scheduleBuilder.getAll();\n};",
   "validationRule" : "",
   "checklistsRule" : ""
 }

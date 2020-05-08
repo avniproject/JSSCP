@@ -98,7 +98,7 @@
         "name" : "Other Birth Defects",
         "uuid" : "bc265380-55bd-4309-997e-06c3a3ecf679"
       },
-      "displayOrder" : 1.1,
+      "displayOrder" : 2.0,
       "type" : "SingleSelect",
       "mandatory" : true
     }, {
@@ -109,7 +109,7 @@
         "name" : "Colour of child",
         "uuid" : "8d145f65-e269-467c-af05-548ff5595452"
       },
-      "displayOrder" : 2.0,
+      "displayOrder" : 3.0,
       "type" : "SingleSelect",
       "mandatory" : true
     }, {
@@ -120,7 +120,7 @@
         "name" : "Reflex",
         "uuid" : "475f39c6-9551-4611-abef-0f2d80784bc0"
       },
-      "displayOrder" : 3.0,
+      "displayOrder" : 4.0,
       "type" : "SingleSelect",
       "mandatory" : true
     }, {
@@ -131,7 +131,7 @@
         "name" : "Muscle tone",
         "uuid" : "f363fcc6-988f-4115-97a4-cfaf30993801"
       },
-      "displayOrder" : 4.0,
+      "displayOrder" : 5.0,
       "type" : "SingleSelect",
       "mandatory" : true
     }, {
@@ -142,7 +142,7 @@
         "name" : "Jaundice (Icterus)",
         "uuid" : "828da3c7-8564-4cc0-a1c4-76ed6ad9e333"
       },
-      "displayOrder" : 5.0,
+      "displayOrder" : 6.0,
       "type" : "SingleSelect",
       "mandatory" : true
     } ]
@@ -185,12 +185,9 @@
       "type" : "SingleSelect",
       "mandatory" : true
     } ]
-  }, {
-    "uuid" : "39014bcd-2308-47aa-9297-01eaba882331",
-    "name" : "Physical Examination",
-    "displayOrder" : 4.0,
-    "display" : "Physical Examination",
-    "formElements" : [ ],
-    "voided" : true
-  } ]
+  } ],
+  "decisionRule" : "",
+  "visitScheduleRule" : "",
+  "validationRule" : "",
+  "checklistsRule" : ""
 }

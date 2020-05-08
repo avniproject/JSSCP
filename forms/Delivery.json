@@ -65,7 +65,7 @@
       },
       "displayOrder" : 5.0,
       "type" : "SingleSelect",
-      "rule" : "\n'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.show().when.valueInEncounter('Place of delivery').containsAnyAnswerConceptName(\"At In law's place\",\"At mother's place\");\n\n  return statusBuilder.build();\n};",
+      "rule" : "\n'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.show().when.valueInEncounter('Place of delivery').containsAnyAnswerConceptName(\"Other\");\n\n  return statusBuilder.build();\n};",
       "mandatory" : true
     }, {
       "name" : "Type of delivery",
@@ -77,7 +77,7 @@
       },
       "displayOrder" : 6.0,
       "type" : "SingleSelect",
-      "rule" : "'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.skipAnswers('C-section','Assisted delivery').when.valueInEncounter('Place of delivery').containsAnswerConceptName('Other');\n\n  return statusBuilder.build();\n};",
+      "rule" : "'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nconst place = programEncounter.getObservationReadableValue('Place of delivery');\nif(place == \"At In law's place\" || place == \"At mother's place\")\nstatusBuilder.skipAnswers('C-section','Assisted delivery');\n\n\nreturn statusBuilder.build();\n};",
       "mandatory" : true
     }, {
       "name" : "Who conducted delivery",
@@ -124,19 +124,7 @@
       "displayOrder" : 10.0,
       "type" : "SingleSelect",
       "mandatory" : true
-    }, {
-      "name" : "Did any of the following danger sign was there during the process of labour",
-      "uuid" : "8e9724a8-a756-400b-88d9-d3f70362d6fb",
-      "keyValues" : [ ],
-      "concept" : {
-        "name" : "Danger signs during the process of labour",
-        "uuid" : "c45fa5f8-098d-49af-8119-6a5c55012e1b"
-      },
-      "displayOrder" : 11.0,
-      "type" : "MultiSelect",
-      "mandatory" : true,
-      "voided" : true
-    } ]
+    }]
   }, {
     "uuid" : "733739c2-5720-4fcb-9024-765762d2b293",
     "name" : "Other details",

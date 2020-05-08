@@ -32,7 +32,10 @@
     }, {
       "name" : "Diagnosis of baby immediately after birth",
       "uuid" : "20f25b27-ecdc-4fbe-821f-9cd9be598691",
-      "keyValues" : [ ],
+      "keyValues" : [ {
+        "key" : "ExcludedAnswers",
+        "value" : [ "Still birth" ]
+      } ],
       "concept" : {
         "name" : "Diagnosis of baby immediately after birth",
         "uuid" : "734e9cd5-3df4-4cfd-bca4-aa842af2c84e"
@@ -68,6 +71,17 @@
       "displayOrder" : 2.0,
       "type" : "SingleSelect",
       "mandatory" : false
+    }, {
+      "name" : "Newborn movement",
+      "uuid" : "67945e98-5e9d-44b6-bc32-15a10936f2da",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Newborn movement",
+        "uuid" : "5b885356-ac8a-4e5c-bc6d-32ac05079d62"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
     } ]
   }, {
     "uuid" : "cab86429-00cf-4d38-a7c6-f516beb19e23",
@@ -84,7 +98,7 @@
       },
       "displayOrder" : 1.0,
       "type" : "SingleSelect",
-      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('What was the outcome of action').containsAnswerConceptName(\"Baby died\");\n  return statusBuilder.build();\n};",
+      "rule" : "",
       "mandatory" : false
     }, {
       "name" : "Whether mucus extractor used",
@@ -96,7 +110,7 @@
       },
       "displayOrder" : 2.0,
       "type" : "SingleSelect",
-      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('What was the outcome of action').containsAnswerConceptName(\"Baby died\");\n  return statusBuilder.build();\n};",
+      "rule" : "",
       "mandatory" : false
     }, {
       "name" : "What was the outcome of action",
@@ -108,7 +122,7 @@
       },
       "displayOrder" : 3.0,
       "type" : "SingleSelect",
-      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('What was the outcome of action').containsAnswerConceptName(\"Baby died\");\n  return statusBuilder.build();\n};",
+      "rule" : "",
       "mandatory" : true
     } ]
   }, {
@@ -126,7 +140,7 @@
       },
       "displayOrder" : 1.0,
       "type" : "SingleSelect",
-      "rule" : "\n",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('What was the outcome of action').containsAnswerConceptName(\"Baby is alive\");\n  return statusBuilder.build();\n};\n",
       "mandatory" : false
     }, {
       "name" : "Newborn breathing",
@@ -138,7 +152,7 @@
       },
       "displayOrder" : 2.0,
       "type" : "SingleSelect",
-      "rule" : "",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('What was the outcome of action').containsAnswerConceptName(\"Baby is alive\");\n  return statusBuilder.build();\n};\n",
       "mandatory" : false
     }, {
       "name" : "Newborn movement",
@@ -150,12 +164,12 @@
       },
       "displayOrder" : 3.0,
       "type" : "SingleSelect",
-      "rule" : "",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('What was the outcome of action').containsAnswerConceptName(\"Baby is alive\");\n  return statusBuilder.build();\n};\n",
       "mandatory" : false
     } ]
   } ],
   "decisionRule" : "",
-  "visitScheduleRule" : "",
+  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\n const dateOfBirth = programEncounter.individual.dateOfBirth;\n const deathStatus=programEncounter.getObservationReadableValue('What was the outcome of action');\n \n console.log(\"======>deathStatus\",deathStatus);\n if(deathStatus == 'Baby is alive'){\n  scheduleBuilder\n    .add({\n      name: \"Child PNC\",\n      encounterType: \"Child PNC\",\n      earliestDate: imports.moment(programEncounter.enrolmentDateTime).toDate(),\n      maxDate: imports.moment(programEncounter.enrolmentDateTime).add(8, 'days').toDate()\n    }).whenItem( imports.moment(programEncounter.encounterDateTime).isBefore(imports.moment(dateOfBirth).add(42, 'days'), 'date'))\n    .is.truthy;\n   }        \n  return scheduleBuilder.getAll();\n};",
   "validationRule" : "",
   "checklistsRule" : ""
 }

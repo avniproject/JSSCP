@@ -65,13 +65,13 @@
       "uuid" : "fa988057-0a78-4bd2-b4de-b4c9cf0e8055"
     },
     "name" : "NCD Followup"
-  }, {
+  },{
     "uuid" : "4f8e0835-ab29-4f6f-8ec9-aa6f1ec50692",
     "encounterType" : {
       "uuid" : "307197bf-6b71-49b1-9a1b-b2c12532e34f"
     },
     "name" : "ANC Home Visit"
-  }, {
+  },{
     "uuid" : "f346a977-cc22-478a-9237-a08c4219e592",
     "encounterType" : {
       "uuid" : "0345e233-479c-4dff-a7b9-c1325a5c0493"

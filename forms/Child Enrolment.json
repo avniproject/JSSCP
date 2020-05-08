@@ -4,24 +4,13 @@
   "formType" : "ProgramEnrolment",
   "formElementGroups" : [ {
     "uuid" : "ed979541-59c0-4704-9b26-578f4ad5646c",
-    "name" : "Details",
+    "name" : "Dummy",
     "displayOrder" : 1.0,
-    "display" : "Details",
-    "formElements" : [ {
-      "name" : "Weight",
-      "uuid" : "30313647-ba2f-407a-bc50-b53dce61e742",
-      "keyValues" : [ ],
-      "concept" : {
-        "name" : "Weight",
-        "uuid" : "8d947379-7a1d-48b2-8760-88fff6add987"
-      },
-      "displayOrder" : 1.0,
-      "type" : "SingleSelect",
-      "mandatory" : false
-    } ]
+    "display" : "Dummy",
+    "formElements" : [ ]
   } ],
   "decisionRule" : "",
-  "visitScheduleRule" : "",
+  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEnrolment = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEnrolment\n  });\n const dateOfBirth = programEnrolment.individual.dateOfBirth;\n console.log(\"======>dateOfBirth\",dateOfBirth);\n  scheduleBuilder\n    .add({\n      name: \"Child Birth\",\n      encounterType: \"Child Birth\",\n      earliestDate: imports.moment(programEnrolment.enrolmentDateTime).toDate(),\n      maxDate: imports.moment(programEnrolment.enrolmentDateTime).add(8, 'days').toDate()\n    }).whenItem( imports.moment(programEnrolment.enrolmentDateTime).isBefore(imports.moment(dateOfBirth).add(42, 'days'), 'date'))\n    .is.truthy;\n           \n  return scheduleBuilder.getAll();\n};",
   "validationRule" : "",
-  "checklistsRule" : ""
+  "checklistsRule" : "'use strict';\n({params, imports}) => {\n  let vaccination = params.checklistDetails.find(cd => cd.name === 'Vaccination');\n  if (vaccination === undefined) return [];\n  const vaccinationList = {\n    baseDate: params.entity.individual.dateOfBirth,\n    detail: {uuid: vaccination.uuid},\n    items: vaccination.items.map(vi => ({\n      detail: {uuid: vi.uuid}\n    }))\n  };\n  return [vaccinationList];\n};"
 }

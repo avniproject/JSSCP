@@ -27,18 +27,18 @@
     "name" : "Tuberculosis",
     "programSubjectLabel" : "Tuberculosis"
   }, {
-    "uuid" : "bf6c7776-6e85-4700-95b7-429f119d0af5",
-    "program" : {
-      "uuid" : "6bb43253-7611-47be-9c11-bae31de76091"
-    },
-    "name" : "Child Health",
-    "programSubjectLabel" : "Child"
-  }, {
     "uuid" : "13d0b884-ea40-4f62-81ed-0051d71b590c",
     "program" : {
       "uuid" : "d43bd6f0-0b6d-48ec-b710-2c5359f1e611"
     },
     "name" : "Hypertension",
     "programSubjectLabel" : "Hypertension"
+  }, {
+    "uuid" : "bf6c7776-6e85-4700-95b7-429f119d0af5",
+    "program" : {
+      "uuid" : "6bb43253-7611-47be-9c11-bae31de76091"
+    },
+    "name" : "Child",
+    "programSubjectLabel" : "Child"
   } ]
 }

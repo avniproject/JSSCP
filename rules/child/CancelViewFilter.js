@@ -1,5 +1,5 @@
 import {FormElementRule, FormElementsStatusHelper, FormElementStatus,} from 'rules-config/rules';
-import DefCancelForm from '../../forms/Default Program Encounter Cancellation Form';
+import DefCancelForm from '../../forms/Program Encounter Cancellation Form';
 
 @FormElementRule({
     name: 'JSSCP CancellationFormFilters',
