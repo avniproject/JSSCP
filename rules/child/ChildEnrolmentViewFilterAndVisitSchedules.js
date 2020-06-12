@@ -39,6 +39,12 @@ class ChildEnrolmentViewFilter {
     }
 
 
+    otherProperty(programEnrolment, formElement) {
+        const statusBuilder = this._getStatusBuilder(programEnrolment, formElement);
+        statusBuilder.show().when.valueInEnrolment("Property").containsAnswerConceptName("Other");
+        return statusBuilder.build();
+    }
+
     enrolTo(programEnrolment, formElement) {
         const statusBuilder = this._getStatusBuilder(programEnrolment, formElement);
         const allPhulwaries = formElement.concept.getAnswers();
