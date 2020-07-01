@@ -41,6 +41,9 @@ with individual_data as (select id            as ind_id,
      audits as (
          update program_enrolment set observations =
                      observations || (select obs_to_migrate from individual_data i where i.ind_id = individual_id)
+             where program_id = ((select id from program where name='Phulwari'))
+                 and program_exit_date_time isnull
+                 and not is_voided
              returning audit_id
      )
 update audit
