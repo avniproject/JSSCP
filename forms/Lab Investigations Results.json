@@ -1,5 +1,5 @@
 {
-  "name" : "Lab Investigations",
+  "name" : "Lab Investigations Results",
   "uuid" : "0aa18889-65fe-499a-92d0-678f1c1846a9",
   "formType" : "ProgramEncounter",
   "formElementGroups" : [ {
@@ -17,7 +17,8 @@
       },
       "displayOrder" : 1.0,
       "type" : "SingleSelect",
-      "mandatory" : true
+      "mandatory" : true,
+      "voided" : true
     }, {
       "name" : "HIV (Elisa)",
       "uuid" : "85acb9e2-aeb3-493d-a772-45191247f443",
@@ -50,7 +51,8 @@
       },
       "displayOrder" : 4.0,
       "type" : "SingleSelect",
-      "mandatory" : true
+      "mandatory" : true,
+      "voided" : true
     }, {
       "name" : "Hb Electrophoresis",
       "uuid" : "43aee17f-8530-4df5-bbd5-15bc3a0cb85c",
@@ -84,7 +86,8 @@
       },
       "displayOrder" : 7.0,
       "type" : "SingleSelect",
-      "mandatory" : true
+      "mandatory" : true,
+      "voided" : true
     }, {
       "name" : "Glucose test (75gm Glucose)",
       "uuid" : "6c4ae274-dc19-4d9a-b651-bfe3cb236738",
@@ -96,7 +99,8 @@
       "displayOrder" : 8.0,
       "type" : "SingleSelect",
       "rule" : "\"use strict\";\n({params, imports}) => {\n    const programEncounter = params.entity;\n    const formElement = params.formElement;\n    const value = \nruleServiceLibraryInterfaceForSharingModules.motherCalculations.gestationalAgeAsOn(programEncounter.encounterDateTime, programEncounter.programEnrolment);\n\nconsole.log('value',value);  \n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\nstatusBuilder.show().whenItem(value).is.greaterThanOrEqualTo(21).and.is.lessThanOrEqualTo(28);\n\n  return statusBuilder.build();\n};",
-      "mandatory" : false
+      "mandatory" : false,
+      "voided" : true
     }, {
       "name" : "FBS",
       "uuid" : "bb23edf8-4d5c-4ad2-908c-78ff349b0ca3",
@@ -108,7 +112,8 @@
       "displayOrder" : 9.0,
       "type" : "SingleSelect",
       "rule" : "\n'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n \n  statusBuilder.show().when.valueInEncounter('Random Blood Sugar (RBS)').is.lessThan(60)\n  .or.is.greaterThan(160)\n  .or.when.valueInEncounter('Glucose test (75gm Glucose)').is.greaterThan(140);\n\n  return statusBuilder.build();\n};\n\n",
-      "mandatory" : false
+      "mandatory" : false,
+      "voided" : true
     }, {
       "name" : "PP2BS",
       "uuid" : "3059fe85-faff-4df4-bdcc-579de2c0757e",
@@ -120,7 +125,8 @@
       "displayOrder" : 10.0,
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n \n  statusBuilder.show().when.valueInEncounter('Random Blood Sugar (RBS)').is.lessThan(60)\n  .or.is.greaterThan(160)\n  .or.when.valueInEncounter('Glucose test (75gm Glucose)').is.greaterThan(140);\n\n  return statusBuilder.build();\n};",
-      "mandatory" : false
+      "mandatory" : false,
+      "voided" : true
     }, {
       "name" : "HbA1C",
       "uuid" : "0cfdeb8a-d99a-4d6f-84a7-caefad7a5974",
@@ -132,10 +138,11 @@
       "displayOrder" : 11.0,
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n \n  statusBuilder.show().when.valueInEncounter('Random Blood Sugar (RBS)').is.lessThan(60)\n  .or.is.greaterThan(160)\n  .or.when.valueInEncounter('Glucose test (75gm Glucose)').is.greaterThan(140);\n\n  return statusBuilder.build();\n};",
-      "mandatory" : false
+      "mandatory" : false,
+      "voided" : true
     } ]
   } ],
-  "decisionRule" : "\"use strict\";\n({params, imports}) => {\n    const programEncounter = params.entity;\n    const decisions = params.decisions;\n    const complicationsBuilder = new imports.rulesConfig.complicationsBuilder({\n        programEncounter: programEncounter,\n        complicationsConcept: \"High Risk Conditions\"\n    });\n    \n    const recommendationsBuilder = new imports.rulesConfig.complicationsBuilder({\n        programEncounter: programEncounter,\n        complicationsConcept: \"Recommendations\"\n    });\n       \n     complicationsBuilder\n        .addComplication(\"Rh negative blood group\")\n        .when.valueInEncounter(\"Blood group\")\n        .containsAnyAnswerConceptName(\"AB-\", \"O-\", \"A-\", \"B-\");\n     complicationsBuilder\n        .addComplication(\"HIV (Elisa) is positive\")\n        .when.valueInEncounter(\"HIV (Elisa)\")\n        .containsAnswerConceptName(\"Positive\");\n     complicationsBuilder\n        .addComplication(\"Hb Electrophoresis\")\n        .when.valueInEncounter(\"Hb Electrophoresis\")\n        .containsAnswerConceptName(\"SS\");\n     complicationsBuilder\n        .addComplication(\"Hepatitis B is positive\")\n        .when.valueInEncounter(\"Hepatitis B\")\n        .containsAnswerConceptName(\"Positive\");\n     complicationsBuilder\n        .addComplication(\"VDRL is positive\")\n        .when.valueInEncounter(\"VDRL\")\n        .containsAnswerConceptName(\"Positive\");\n        \n        //High Blood Sugar \n      complicationsBuilder\n        .addComplication(\"High Blood Sugar\")        \n        .when.valueInEncounter('Random Blood Sugar (RBS)').is.greaterThan(160);\n       \n      complicationsBuilder\n        .addComplication(\"High Glucose Level\")        \n        .when.valueInEncounter('Glucose test (75gm Glucose)').is.greaterThan(140);\n               \n               //Since RBS is high, refer to subcenter for FBS, PP2BS and HbA1C\n       recommendationsBuilder\n        .addComplication(\"Since RBS is high, refer to subcenter for FBS, PP2BS and HbA1C\")        \n        .when.valueInEncounter('Random Blood Sugar (RBS)').is.greaterThan(160);\n    \n       \n        \n    decisions.encounterDecisions.push(complicationsBuilder.getComplications());\n    decisions.encounterDecisions.push(recommendationsBuilder.getComplications());\n    return decisions;\n};",
+  "decisionRule" : "\"use strict\";\n({params, imports}) => {\n    const programEncounter = params.entity;\n    const decisions = params.decisions;\n    const complicationsBuilder = new imports.rulesConfig.complicationsBuilder({\n        programEncounter: programEncounter,\n        complicationsConcept: \"High Risk Conditions\"\n    });\n       \n     \n     complicationsBuilder\n        .addComplication(\"HIV (Elisa) is positive\")\n        .when.valueInEncounter(\"HIV (Elisa)\")\n        .containsAnswerConceptName(\"Positive\");\n     complicationsBuilder\n        .addComplication(\"Hb Electrophoresis\")\n        .when.valueInEncounter(\"Hb Electrophoresis\")\n        .containsAnswerConceptName(\"SS\");\n     complicationsBuilder\n        .addComplication(\"Hepatitis B is positive\")\n        .when.valueInEncounter(\"Hepatitis B\")\n        .containsAnswerConceptName(\"Positive\");\n     complicationsBuilder\n        .addComplication(\"VDRL is positive\")\n        .when.valueInEncounter(\"VDRL\")\n        .containsAnswerConceptName(\"Positive\");      \n           \n       \n        \n    decisions.encounterDecisions.push(complicationsBuilder.getComplications());\n   \n    return decisions;\n};",
   "visitScheduleRule" : "",
   "validationRule" : "",
   "checklistsRule" : ""

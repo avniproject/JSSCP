@@ -185,6 +185,13 @@
       "type" : "SingleSelect",
       "mandatory" : true
     } ]
+  }, {
+    "uuid" : "39014bcd-2308-47aa-9297-01eaba882331",
+    "name" : "Physical Examination",
+    "displayOrder" : 4.0,
+    "display" : "Physical Examination",
+    "formElements" : [ ],
+    "voided" : true
   } ],
   "decisionRule" : "",
   "visitScheduleRule" : "",

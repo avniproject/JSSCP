@@ -18,7 +18,8 @@
       "displayOrder" : 1.0,
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().whenItem(individual.getAgeInYears()).lessThanOrEqualTo(3);\n  return statusBuilder.build();\n};",
-      "mandatory" : true
+      "mandatory" : true,
+      "voided" : true
     }, {
       "name" : "Father's Name",
       "uuid" : "f798a48a-9d48-485e-a9f8-acba5a51c65e",
@@ -30,7 +31,8 @@
       "displayOrder" : 2.0,
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().whenItem(individual.getAgeInYears()).lessThanOrEqualTo(3);\n  return statusBuilder.build();\n};",
-      "mandatory" : true
+      "mandatory" : true,
+      "voided" : true
     }, {
       "name" : "Father's Occupation",
       "uuid" : "26e18485-b245-4394-8c63-eaf0f377d264",
@@ -42,7 +44,8 @@
       "displayOrder" : 3.0,
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().whenItem(individual.getAgeInYears()).lessThanOrEqualTo(3);\n  return statusBuilder.build();\n};",
-      "mandatory" : false
+      "mandatory" : false,
+      "voided" : true
     }, {
       "name" : "Father's Education",
       "uuid" : "aae9215b-306b-4ebb-96b4-5f8b5c721aad",
@@ -54,7 +57,8 @@
       "displayOrder" : 4.0,
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().whenItem(individual.getAgeInYears()).lessThanOrEqualTo(3);\n  return statusBuilder.build();\n};",
-      "mandatory" : false
+      "mandatory" : false,
+      "voided" : true
     }, {
       "name" : "Mother's Name",
       "uuid" : "c57882fa-8719-40ae-9a49-928cb807dd81",
@@ -66,7 +70,8 @@
       "displayOrder" : 5.0,
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().whenItem(individual.getAgeInYears()).lessThanOrEqualTo(3);\n  return statusBuilder.build();\n};",
-      "mandatory" : true
+      "mandatory" : true,
+      "voided" : true
     }, {
       "name" : "Mother's Occupation",
       "uuid" : "76841378-f43d-4ccb-b4b8-6a7f634bb94e",
@@ -78,7 +83,8 @@
       "displayOrder" : 6.0,
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().whenItem(individual.getAgeInYears()).lessThanOrEqualTo(3);\n  return statusBuilder.build();\n};",
-      "mandatory" : false
+      "mandatory" : false,
+      "voided" : true
     }, {
       "name" : "Mother's Education",
       "uuid" : "afa9c6d4-cfe5-4551-83b8-159cd8b62846",
@@ -90,7 +96,8 @@
       "displayOrder" : 7.0,
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().whenItem(individual.getAgeInYears()).lessThanOrEqualTo(3);\n  return statusBuilder.build();\n};",
-      "mandatory" : false
+      "mandatory" : false,
+      "voided" : true
     }, {
       "name" : "Religion",
       "uuid" : "bd2eb2fc-1d7e-4512-a6f6-6fc9c10a4c61",
@@ -101,7 +108,8 @@
       },
       "displayOrder" : 8.0,
       "type" : "SingleSelect",
-      "mandatory" : true
+      "mandatory" : true,
+      "voided" : true
     }, {
       "name" : "Caste",
       "uuid" : "f2d5671d-85ac-4307-891f-281ea0eca37c",
@@ -112,7 +120,8 @@
       },
       "displayOrder" : 9.0,
       "type" : "SingleSelect",
-      "mandatory" : false
+      "mandatory" : false,
+      "voided" : true
     }, {
       "name" : "Sub caste",
       "uuid" : "e14987bd-1959-47b0-9c99-9c4daefddc76",
@@ -123,7 +132,8 @@
       },
       "displayOrder" : 10.0,
       "type" : "SingleSelect",
-      "mandatory" : false
+      "mandatory" : false,
+      "voided" : true
     }, {
       "name" : "Other sub caste (please specify)",
       "uuid" : "1797426a-2960-42cf-9e21-325a7d4ff671",
@@ -135,8 +145,10 @@
       "displayOrder" : 11.0,
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().when.valueInRegistration(\"Sub caste\")\n            .containsAnswerConceptName(\"Other\");\n  return statusBuilder.build();\n};",
-      "mandatory" : true
-    } ]
+      "mandatory" : true,
+      "voided" : true
+    } ],
+    "voided" : true
   }, {
     "uuid" : "ca39681e-b89e-420f-a72e-3e8527518b78",
     "name" : "Individual information",
@@ -152,6 +164,18 @@
       },
       "displayOrder" : 1.0,
       "type" : "SingleSelect",
+      "mandatory" : true,
+      "voided" : true
+    }, {
+      "name" : "Father/Husband's Name",
+      "uuid" : "32db1eb9-2ad0-4c65-8a90-6393f5a35831",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Father/Husband's Name",
+        "uuid" : "ecdf3c54-2808-494d-87be-8fb744d5c3bc"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
       "mandatory" : true
     }, {
       "name" : "Marital status",
@@ -161,7 +185,7 @@
         "name" : "Marital status",
         "uuid" : "9e995ea6-a5f7-410f-adc2-2d2ce6d5e19b"
       },
-      "displayOrder" : 2.0,
+      "displayOrder" : 3.0,
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().whenItem(individual.getAgeInYears()).is.greaterThanOrEqualTo(16);\n  return statusBuilder.build();\n};",
       "mandatory" : true
@@ -173,9 +197,9 @@
         "name" : "Date of marriage",
         "uuid" : "9d958124-09bb-466c-a4b4-db8d285def1f"
       },
-      "displayOrder" : 3.0,
+      "displayOrder" : 4.0,
       "type" : "SingleSelect",
-      "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().whenItem(individual.getAgeInYears()).is.greaterThanOrEqualTo(16);\n  return statusBuilder.build();\n};",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().whenItem(individual.getAgeInYears()).is.greaterThanOrEqualTo(16).\n  and.when.valueInRegistration('Marital status').containsAnswerConceptNameOtherThan('Unmarried');\n  return statusBuilder.build();\n};",
       "mandatory" : false
     }, {
       "name" : "Education",
@@ -185,9 +209,9 @@
         "name" : "Education",
         "uuid" : "673d65bd-6dc4-4aac-8e1e-1ee355ac081b"
       },
-      "displayOrder" : 4.0,
+      "displayOrder" : 5.0,
       "type" : "SingleSelect",
-      "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().whenItem(individual.getAgeInYears()).is.greaterThan(3);\n  return statusBuilder.build();\n};",
+      "rule" : "",
       "mandatory" : true
     }, {
       "name" : "Occupation",
@@ -197,10 +221,22 @@
         "name" : "Occupation",
         "uuid" : "20ef261a-f110-4eaa-a592-2a1eeb0bf061"
       },
-      "displayOrder" : 5.0,
+      "displayOrder" : 6.0,
       "type" : "SingleSelect",
-      "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().whenItem(individual.getAgeInYears()).is.greaterThan(3);\n  return statusBuilder.build();\n};",
+      "rule" : "",
       "mandatory" : true
+    }, {
+      "name" : "Specify the other occupation",
+      "uuid" : "d2d716b5-0c4b-47a7-a93c-a2710dc54c78",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Other occupation",
+        "uuid" : "4c429211-634e-4c2b-9a31-3f0a395f8f8d"
+      },
+      "displayOrder" : 7.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().valueInRegistration(\"Occupation\").containsAnswerConceptName('Other');\n  return statusBuilder.build();\n};",
+      "mandatory" : false
     }, {
       "name" : "Is sterlization operation done?",
       "uuid" : "25a8fd3d-2f78-43ab-88b5-2bc0cd0c91dd",
@@ -209,10 +245,11 @@
         "name" : "Is sterlization operation done?",
         "uuid" : "852f4e54-4969-4724-94e0-cddef0ac1f66"
       },
-      "displayOrder" : 6.0,
+      "displayOrder" : 8.0,
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().whenItem(individual.getAgeInYears()).is.greaterThanOrEqualTo(16);\n  return statusBuilder.build();\n};",
-      "mandatory" : true
+      "mandatory" : true,
+      "voided" : true
     }, {
       "name" : "Whether any disability",
       "uuid" : "41fb3d1d-55bb-4fbd-b1b4-45b112258be3",
@@ -221,8 +258,20 @@
         "name" : "Whether any disability",
         "uuid" : "bab107f6-fc0e-4be7-ab71-658a92d72f35"
       },
-      "displayOrder" : 7.0,
+      "displayOrder" : 9.0,
       "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Disability",
+      "uuid" : "4abfe22c-5589-4768-bb86-2e6f2812e8b5",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Type of disability",
+        "uuid" : "7061c675-c2ba-4016-886d-eeb432548378"
+      },
+      "displayOrder" : 10.0,
+      "type" : "MultiSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().valueInRegistration(\"Whether any disability\").is.yes;\n  return statusBuilder.build();\n};",
       "mandatory" : true
     }, {
       "name" : "Disability",
@@ -232,10 +281,11 @@
         "name" : "Disability",
         "uuid" : "eda07a4c-14c9-49af-b1d6-deaa695a5d36"
       },
-      "displayOrder" : 8.0,
+      "displayOrder" : 11.0,
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const individual = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({individual, formElement});\n  statusBuilder.show().valueInRegistration(\"Whether any disability\").is.yes;\n  return statusBuilder.build();\n};",
-      "mandatory" : true
+      "mandatory" : true,
+      "voided" : true
     }, {
       "name" : "Religion",
       "uuid" : "71583e64-d2a0-4a9f-bc4f-2be063cb9ebe",
@@ -244,7 +294,7 @@
         "name" : "Religion",
         "uuid" : "b2c60cb8-983c-4e0e-a90d-4b21e87e10bd"
       },
-      "displayOrder" : 9.0,
+      "displayOrder" : 12.0,
       "type" : "SingleSelect",
       "mandatory" : true,
       "voided" : true
@@ -256,9 +306,20 @@
         "name" : "Status of the individual",
         "uuid" : "d333f2a2-717e-478f-acbc-173bc7374d66"
       },
-      "displayOrder" : 10.0,
+      "displayOrder" : 13.0,
       "type" : "SingleSelect",
       "mandatory" : true
+    }, {
+      "name" : "Aadhaar number",
+      "uuid" : "114fe964-f3eb-4264-84a8-fd6822a25d8e",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Aadhaar ID",
+        "uuid" : "681fce2b-ea38-4651-a0b8-2cddd307ade7"
+      },
+      "displayOrder" : 14.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
     }, {
       "name" : "Aadhaar ID",
       "uuid" : "82ae5f08-f53d-4b55-99f6-0bb7e290b28a",
@@ -267,9 +328,10 @@
         "name" : "Aadhaar ID",
         "uuid" : "681fce2b-ea38-4651-a0b8-2cddd307ade7"
       },
-      "displayOrder" : 11.0,
+      "displayOrder" : 15.0,
       "type" : "SingleSelect",
-      "mandatory" : false
+      "mandatory" : false,
+      "voided" : true
     }, {
       "name" : "Contact Number",
       "uuid" : "270d44e9-6d3e-4613-a3fc-1d4798499e87",
@@ -278,8 +340,9 @@
         "name" : "Contact Number",
         "uuid" : "0a725832-b21c-4151-b017-7e6af770ba54"
       },
-      "displayOrder" : 12.0,
+      "displayOrder" : 16.0,
       "type" : "SingleSelect",
+      "rule" : "",
       "mandatory" : false
     }, {
       "name" : "Smart card (Insurance)",
@@ -289,7 +352,7 @@
         "name" : "Smart card (Insurance)",
         "uuid" : "2a445ac8-56e7-4eda-8756-0a9c4fa9a77b"
       },
-      "displayOrder" : 13.0,
+      "displayOrder" : 17.0,
       "type" : "SingleSelect",
       "mandatory" : false
     }, {
@@ -300,9 +363,10 @@
         "name" : "Electricity in house",
         "uuid" : "e23ef639-5d54-46bc-811c-ee1886bce81f"
       },
-      "displayOrder" : 14.0,
+      "displayOrder" : 18.0,
       "type" : "SingleSelect",
-      "mandatory" : false
+      "mandatory" : false,
+      "voided" : true
     } ]
   }, {
     "uuid" : "53b260f8-a5a9-4062-a3f7-a117ade6daee",
@@ -319,7 +383,8 @@
       },
       "displayOrder" : 1.0,
       "type" : "SingleSelect",
-      "mandatory" : true
+      "mandatory" : true,
+      "voided" : true
     }, {
       "name" : "Land area",
       "uuid" : "9f7853d8-3976-4be0-8f4e-ba0cf6258678",
@@ -330,7 +395,8 @@
       },
       "displayOrder" : 2.0,
       "type" : "SingleSelect",
-      "mandatory" : false
+      "mandatory" : false,
+      "voided" : true
     }, {
       "name" : "Type of residence",
       "uuid" : "8b624986-6f0d-4079-88ad-54ca75d66f17",
@@ -341,7 +407,8 @@
       },
       "displayOrder" : 3.0,
       "type" : "SingleSelect",
-      "mandatory" : false
+      "mandatory" : false,
+      "voided" : true
     }, {
       "name" : "Economic Status",
       "uuid" : "f7b35aff-ca3d-4fa4-a8e0-ce532f51e0c3",
@@ -352,7 +419,8 @@
       },
       "displayOrder" : 4.0,
       "type" : "SingleSelect",
-      "mandatory" : false
+      "mandatory" : false,
+      "voided" : true
     }, {
       "name" : "Any property?",
       "uuid" : "bd4e6595-12c8-4667-9abb-c254dcfbd396",
@@ -363,7 +431,8 @@
       },
       "displayOrder" : 5.0,
       "type" : "MultiSelect",
-      "mandatory" : true
+      "mandatory" : true,
+      "voided" : true
     }, {
       "name" : "Other property (please specify)",
       "uuid" : "78fac891-e4a4-4f9c-a139-bfa212b73ace",
@@ -374,8 +443,10 @@
       },
       "displayOrder" : 6.0,
       "type" : "SingleSelect",
-      "mandatory" : true
-    } ]
+      "mandatory" : true,
+      "voided" : true
+    } ],
+    "voided" : true
   } ],
   "decisionRule" : "",
   "visitScheduleRule" : "",

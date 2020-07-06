@@ -18,7 +18,8 @@
       "displayOrder" : 1.0,
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.latestValueInPreviousEncounters('Height').is.notDefined;\n  \nreturn statusBuilder.build();\n};",
-      "mandatory" : true
+      "mandatory" : true,
+      "voided" : true
     }, {
       "name" : "Weight",
       "uuid" : "eb107ada-6cf7-445c-a2fc-d07c14a58eae",
@@ -29,7 +30,8 @@
       },
       "displayOrder" : 2.0,
       "type" : "SingleSelect",
-      "mandatory" : true
+      "mandatory" : true,
+      "voided" : true
     }, {
       "name" : "BMI",
       "uuid" : "21857fab-3f3f-4cc5-86a6-3b9d81f81058",
@@ -44,8 +46,10 @@
       "displayOrder" : 3.0,
       "type" : "SingleSelect",
       "rule" : "\"use strict\";\n({params, imports}) => {\n    const programEncounter = params.entity;\n    const formElement = params.formElement;\n    \nlet height = programEncounter.findLatestObservationInEntireEnrolment(\"Height\", programEncounter);\nlet weight = programEncounter.findObservation(\"Weight\");\n        height = height && height.getValue();\n        weight = weight && weight.getValue();\n        console.log('height',height);\n        console.log('weight',weight);\n        let value = '';\n        if (_.isFinite(weight) && _.isFinite(height)) {\n         value = ruleServiceLibraryInterfaceForSharingModules.common.calculateBMI(weight, height);\n       }\n       \n        console.log('value',value);\n        \n    return new imports.rulesConfig.FormElementStatus(formElement.uuid, true, value);\n  };",
-      "mandatory" : true
-    } ]
+      "mandatory" : true,
+      "voided" : true
+    } ],
+    "voided" : true
   }, {
     "uuid" : "cf115593-97ba-4d3b-bd5d-e1540f3e8f38",
     "name" : "Basic Details",
@@ -126,6 +130,19 @@
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.show().when.valueInEncounter('New complaint').containsAnswerConceptName('Other');\n\n  return statusBuilder.build();\n};",
       "mandatory" : true
+    }, {
+      "name" : "Whether mother found with pregnancy induced disease",
+      "uuid" : "bed97917-8694-4164-993e-f359609709c0",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Mother found with pregnancy induced disease",
+        "uuid" : "2a3a4f97-0ca7-4498-b7ec-37225ba3d4c5"
+      },
+      "displayOrder" : 3.0,
+      "type" : "MultiSelect",
+      "rule" : "\"use strict\";\n({params, imports}) => {\n    const programEncounter = params.entity;\n    const formElement = params.formElement;\n  \nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\nstatusBuilder.show().whenItem(programEncounter.programEnrolment.getEncounters(true).filter(encounter => encounter.encounterType.name === \"ANC Home Visit\").length).is.greaterThan(1);\n\n  return statusBuilder.build();\n};",
+      "mandatory" : true,
+      "voided" : true
     }, {
       "name" : "Oedema",
       "uuid" : "35cb93ea-5a6c-42e0-9f33-3a8dc17001c3",
@@ -241,11 +258,52 @@
       "mandatory" : false
     } ]
   }, {
+    "uuid" : "5710560e-494f-45dc-8463-cdc5fbf7172c",
+    "name" : "JSS Visit Details",
+    "displayOrder" : 6.0,
+    "display" : "JSS Visit Details",
+    "formElements" : [ {
+      "name" : "Have you visited any facility for antenatal check other than JSS?",
+      "uuid" : "c28dabe8-5101-44cd-b332-5ef923e72cc4",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Have you visited any facility for antenatal check other than JSS?",
+        "uuid" : "84d74870-1c84-4438-ab87-060352eb47cd"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "If yes, what are those facilities?",
+      "uuid" : "1b5381a3-16a4-4966-b659-716b6e3a4c12",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Other facilities visited for antenatal check other than JSS",
+        "uuid" : "788f3cf0-d125-400f-99e5-86cebb16bc66"
+      },
+      "displayOrder" : 2.0,
+      "type" : "MultiSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.show().when.valueInEncounter('Have you visited any facility for antenatal check other than JSS?').containsAnswerConceptName('Yes');\n\n  return statusBuilder.build();\n};",
+      "mandatory" : false
+    } ]
+  }, {
     "uuid" : "36fef80f-ed88-4e87-badb-7c9bf1de6f57",
     "name" : "Referral",
-    "displayOrder" : 6.0,
+    "displayOrder" : 7.0,
     "display" : "Referral",
     "formElements" : [ {
+      "name" : "Does woman require referral?",
+      "uuid" : "8b0a636f-e6b0-44b4-b943-54e7ebc3a8fa",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Woman requires referral",
+        "uuid" : "24d80dab-d769-4925-b852-98c0ed8cf069"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true,
+      "voided" : true
+    }, {
       "name" : "Does woman require referral?",
       "uuid" : "8e4c14ce-84cd-4d5c-b46f-63a379d22f16",
       "keyValues" : [ ],
@@ -312,7 +370,7 @@
   }, {
     "uuid" : "02febebb-46fa-4cfa-92b9-08266e9f0cb2",
     "name" : "Details of next visit",
-    "displayOrder" : 7.0,
+    "displayOrder" : 8.0,
     "display" : "Details of next visit",
     "formElements" : [ {
       "name" : "Date of next ANC Visit",
@@ -324,11 +382,13 @@
       },
       "displayOrder" : 1.0,
       "type" : "SingleSelect",
-      "mandatory" : true
-    } ]
+      "mandatory" : true,
+      "voided" : true
+    } ],
+    "voided" : true
   } ],
   "decisionRule" : "\"use strict\";\n({params, imports}) => {\n    const programEncounter = params.entity;\n    const decisions = params.decisions;\n    const complicationsBuilder = new imports.rulesConfig.complicationsBuilder({\n        programEncounter: programEncounter,\n        complicationsConcept: \"High Risk Conditions\"\n    });\n    //Height is less than 140 cm\n     complicationsBuilder\n        .addComplication(\"Height is less than 140 cm\")\n        .when.valueInEncounter(\"Height\")\n        .is.lessThan(140);\n    //Weight is less than 35 kg\n     complicationsBuilder\n        .addComplication(\"Weight is less than 35 kg\")\n        .when.valueInEncounter(\"Weight\")\n        .is.lessThan(35);\n    //High Blood Pressure\n     complicationsBuilder\n        .addComplication(\"High Blood Pressure\")\n        .when.valueInEncounter(\"Blood Pressure (Diastolic)\")\n        .is.greaterThanOrEqualTo(90)\n        .or.when.valueInEncounter(\"Blood Pressure (systolic)\")\n        .is.greaterThanOrEqualTo(140);\n   //no foetal movement\n    complicationsBuilder\n        .addComplication(\"No foetal movement\")\n        .when.valueInEncounter(\"Foetus movement\")\n        .containsAnyAnswerConceptName(\"No foetal movement\");\n     \n   \n    complicationsBuilder\n        .addComplication(\"Oedema\")\n        .when.valueInEncounter(\"Oedema\")\n        .containsAnyAnswerConceptName(\"Face\",\"Vulval\",\"Entire body\");\n     \n    complicationsBuilder\n        .addComplication(\"Urine Albumin Present\")\n        .when.valueInEncounter(\"Urine Albumin\")\n        .containsAnyAnswerConceptName(\"1+\",\"2+\",\"3+\",\"4+\");\n    complicationsBuilder\n        .addComplication(\"Urine sugar present\")\n        .when.valueInEncounter(\"Urine sugar\")\n        .containsAnyAnswerConceptName(\"1+\",\"2+\",\"3+\",\"4+\");\n        \n     complicationsBuilder\n        .addComplication(\"Bleeding PV\")\n        .when.valueInEncounter(\"New complaint\")\n        .containsAnswerConceptName(\"Bleeding PV\");\n     complicationsBuilder\n        .addComplication(\"Breathing difficulty\")\n        .when.valueInEncounter(\"New complaint\")\n        .containsAnswerConceptName(\"Breathing difficulty\");\n     complicationsBuilder\n        .addComplication(\"Fetus is not moving\")\n        .when.valueInEncounter(\"New complaint\")\n        .containsAnswerConceptName(\"Fetus is not moving\");\n     complicationsBuilder\n        .addComplication(\"Headache\")\n        .when.valueInEncounter(\"New complaint\")\n        .containsAnswerConceptName(\"Headache\");\n     complicationsBuilder\n        .addComplication(\"Pain in abdomen\")\n        .when.valueInEncounter(\"New complaint\")\n        .containsAnswerConceptName(\"Pain in abdomen\");\n     complicationsBuilder\n        .addComplication(\"Swelling on face/vulva/abdomen/whole body\")\n        .when.valueInEncounter(\"New complaint\")\n        .containsAnswerConceptName(\"Swelling on face/vulva/abdomen/whole body\");\n     complicationsBuilder\n        .addComplication(\"Burning micturition\")\n        .when.valueInEncounter(\"New complaint\")\n        .containsAnswerConceptName(\"Burning micturition\");\n     complicationsBuilder\n        .addComplication(\"Fever\")\n        .when.valueInEncounter(\"New complaint\")\n        .containsAnswerConceptName(\"Fever\");\n        \n        \n    decisions.encounterDecisions.push(complicationsBuilder.getComplications());\n    return decisions;\n};",
-  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\n\nconst nextANCDate = programEncounter.getObservationReadableValue('Date of next ANC Visit');\nconsole.log(\"====>nextANCDate\", nextANCDate);\nconst ifReferral = programEncounter.getObservationReadableValue('Does woman require referral?');\nconsole.log(\"====>ifReferral\", ifReferral); \nconst edd = programEncounter.programEnrolment.getObservationValue('EDD');\n console.log(\"====>EDD\",edd);\n const labEarliestDate=imports.moment(programEncounter.encounterDateTime).add(4,'days').toDate();\n console.log(\"======>labEarliestDate\",labEarliestDate)\nif(imports.moment(edd).isSameOrBefore(imports.moment(nextANCDate), 'date')){\nif((programEncounter.programEnrolment.hasEncounter('Delivery', 'Delivery')) === false)\n scheduleBuilder\n    .add({\n      name: \"Delivery\",\n      encounterType: \"Delivery\",\n      earliestDate: imports.moment(edd).toDate(),\n      maxDate: imports.moment(edd).add(0, 'days').toDate()\n    });\n    }\nelse{\nscheduleBuilder\n    .add({\n      name: \"ANC Home Visit\",\n      encounterType: \"ANC Home Visit\",\n      earliestDate: imports.moment(nextANCDate).toDate(),\n      maxDate: imports.moment(nextANCDate).add(8, 'days').toDate()\n    }); \n    }\n    \n     //Lab Investigations \n     if((programEncounter.programEnrolment.hasEncounter('Lab Investigations', 'Lab Investigations')) === false){\n      scheduleBuilder\n    .add({\n     name: \"Lab Investigations\",\n      encounterType: \"Lab Investigations\",\n      earliestDate: labEarliestDate,\n      maxDate: imports.moment(labEarliestDate).add(8, 'days').toDate()\n    }); \n    }\n    scheduleBuilder\n    .add({\n      name: \"Referral Status-1\",\n      encounterType: \"Referral Status\",\n      earliestDate: imports.moment(programEncounter.encounterDateTime).add(3, 'days').toDate(),\n      maxDate: imports.moment(programEncounter.encounterDateTime).add(5, 'days').toDate()\n    }).whenItem(ifReferral == 'Yes')\n    .is.truthy;\n    \n  return scheduleBuilder.getAll();\n};",
+  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\n\nconst ifReferral = programEncounter.getObservationReadableValue('Does woman require referral?');\nconsole.log(\"====>ifReferral\", ifReferral); \nconst edd = programEncounter.programEnrolment.getObservationValue('EDD');\n console.log(\"====>EDD\",edd);\n const labEarliestDate=imports.moment(programEncounter.encounterDateTime).add(4,'days').toDate();\n console.log(\"======>labEarliestDate\",labEarliestDate)\n \nif(imports.moment(edd).isSameOrBefore(imports.moment(nextANCDate), 'date')){\nif((programEncounter.programEnrolment.hasEncounter('Delivery', 'Delivery')) === false)\n scheduleBuilder\n    .add({\n      name: \"Delivery\",\n      encounterType: \"Delivery\",\n      earliestDate: imports.moment(edd).toDate(),\n      maxDate: imports.moment(edd).add(0, 'days').toDate()\n    });\n    }\n    \n     //Lab Investigations \n     if((programEncounter.programEnrolment.hasEncounter('Lab Investigations', 'Lab Investigations')) === false){\n      scheduleBuilder\n    .add({\n     name: \"Lab Investigations\",\n      encounterType: \"Lab Investigations\",\n      earliestDate: labEarliestDate,\n      maxDate: imports.moment(labEarliestDate).add(8, 'days').toDate()\n    }); \n    }\n    scheduleBuilder\n    .add({\n      name: \"Referral Status-1\",\n      encounterType: \"Referral Status\",\n      earliestDate: imports.moment(programEncounter.encounterDateTime).add(3, 'days').toDate(),\n      maxDate: imports.moment(programEncounter.encounterDateTime).add(5, 'days').toDate()\n    }).whenItem(ifReferral == 'Yes')\n    .is.truthy;\n    \n    const referralReason = programEncounter.getObservationReadableValue('Referral reason');\n  scheduleBuilder\n    .add({\n      name: \"USG Report\",\n      encounterType: \"USG Report\",\n      earliestDate: imports.moment(programEncounter.encounterDateTime).toDate(),\n      maxDate: imports.moment(programEncounter.encounterDateTime).add(4, 'days').toDate()\n    }).whenItem(referralReason[0] == 'Sonography' || _.contains(referralReason,'Sonography'))\n    .is.truthy;\n    \n  return scheduleBuilder.getAll();\n};",
   "validationRule" : "",
   "checklistsRule" : ""
 }

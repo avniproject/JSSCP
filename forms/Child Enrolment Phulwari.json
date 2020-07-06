@@ -85,6 +85,140 @@
       "type" : "SingleSelect",
       "mandatory" : true
     } ]
+  }, {
+    "uuid" : "794fffc0-4f8e-44b3-95b5-a2866f592cc4",
+    "name" : "Personal Details",
+    "displayOrder" : 2.0,
+    "display" : "Personal Details",
+    "formElements" : [ {
+      "name" : "Birth Order",
+      "uuid" : "69700600-fe00-48a5-b0c6-9e88fb8af5ca",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Birth Order",
+        "uuid" : "821ba930-505c-4fd3-9f24-66b60ed45bac"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Father's Occupation",
+      "uuid" : "25e72a72-8ebf-4833-8f14-a299557874d2",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Father's Occupation",
+        "uuid" : "bf564151-63f9-4176-917f-f37de34b9bae"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Father's education Level",
+      "uuid" : "95f813db-1dd8-4096-8498-f39b3a92737a",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Father's education Level",
+        "uuid" : "b1001c4d-0449-464a-947f-a04c4fdcc651"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Mother's Occupation",
+      "uuid" : "79eb139c-d59e-496b-8124-50bfb887b427",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Mother's Occupation",
+        "uuid" : "ea760e4f-c12f-490b-9865-9c6e4510ce64"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Mother's education Level",
+      "uuid" : "25a93e67-ca7c-4a9a-9291-c8369d2bcfb1",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Mother's education Level",
+        "uuid" : "d98aae1a-ce33-4e51-b031-66e13bc0ba11"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    } ]
+  }, {
+    "uuid" : "b2f4fee5-7fdf-4fe0-b48b-6d90f5afc2d6",
+    "name" : "Socio-Economic Details",
+    "displayOrder" : 3.0,
+    "display" : "Socio-Economic Details",
+    "formElements" : [ {
+      "name" : "Any owned land?",
+      "uuid" : "9a76720c-0618-46f6-93b2-79a308b5297d",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Land possession",
+        "uuid" : "b984ad33-05d8-4621-adf3-152e72a0db1b"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Land Area",
+      "uuid" : "ce00d49d-5d75-4646-8510-4ca4456ecce5",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Land Area",
+        "uuid" : "430ebb19-831d-470d-80eb-7969814f13e4"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Type of residence",
+      "uuid" : "1300098c-278c-4057-8efd-2ba23cf3ea75",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Type of residence",
+        "uuid" : "c5d2673b-0f5c-48bf-93e4-f1a1ae820732"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Economic Status",
+      "uuid" : "e9c37f1d-a286-4f7f-ba0c-e4b7b2434f81",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Economic Status",
+        "uuid" : "0c0fc0ee-47ec-4187-9f36-3476f7b67d47"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Any property?",
+      "uuid" : "3b22fe4d-113f-4123-9aaf-73961a1b1cbe",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Property",
+        "uuid" : "aa88dba4-4f5d-4d35-9dc1-2390969cc5f3"
+      },
+      "displayOrder" : 5.0,
+      "type" : "MultiSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Other property (please specify)",
+      "uuid" : "c297fd16-8383-437d-b1da-e0c37230a4db",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Other property",
+        "uuid" : "32609e0f-f3c8-4dcb-af7c-5e8a96e8e89d"
+      },
+      "displayOrder" : 6.0,
+      "type" : "SingleSelect",
+      "rule" : "",
+      "mandatory" : false
+    } ]
   } ],
   "decisionRule" : "",
   "visitScheduleRule" : "",

@@ -7,10 +7,34 @@
     "name" : "Dummy",
     "displayOrder" : 1.0,
     "display" : "Dummy",
-    "formElements" : [ ]
+    "formElements" : [ {
+      "name" : "Weight",
+      "uuid" : "30313647-ba2f-407a-bc50-b53dce61e742",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Weight",
+        "uuid" : "8d947379-7a1d-48b2-8760-88fff6add987"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : false,
+      "voided" : true
+    }, {
+      "name" : "Dummy",
+      "uuid" : "c6c6ec84-1742-4ea1-86df-11b2c9ada74c",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Dummy",
+        "uuid" : "1d10820b-79ba-4398-bb33-2cda489c16a1"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : false,
+      "voided" : true
+    } ]
   } ],
   "decisionRule" : "",
-  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEnrolment = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEnrolment\n  });\n const dateOfBirth = programEnrolment.individual.dateOfBirth;\n console.log(\"======>dateOfBirth\",dateOfBirth);\n  scheduleBuilder\n    .add({\n      name: \"Child Birth\",\n      encounterType: \"Child Birth\",\n      earliestDate: imports.moment(programEnrolment.enrolmentDateTime).toDate(),\n      maxDate: imports.moment(programEnrolment.enrolmentDateTime).add(8, 'days').toDate()\n    }).whenItem( imports.moment(programEnrolment.enrolmentDateTime).isBefore(imports.moment(dateOfBirth).add(42, 'days'), 'date'))\n    .is.truthy;\n           \n  return scheduleBuilder.getAll();\n};",
+  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEnrolment = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEnrolment\n  });\n const dateOfBirth = programEnrolment.individual.dateOfBirth;\n console.log(\"======>dateOfBirth\",dateOfBirth);\n \nif(programEnrolment.hasEncounterOfType('Child Birth') === false){\n   \nif(imports.moment(programEnrolment.enrolmentDateTime).isBefore(imports.moment(dateOfBirth).add(42, 'days'), 'date'))\n  scheduleBuilder\n    .add({\n      name: \"Child Birth\",\n      encounterType: \"Child Birth\",\n      earliestDate: imports.moment(programEnrolment.enrolmentDateTime).toDate(),\n      maxDate: imports.moment(programEnrolment.enrolmentDateTime).add(8, 'days').toDate()\n    });\n  }\n           \n  return scheduleBuilder.getAll();\n};",
   "validationRule" : "",
-  "checklistsRule" : "'use strict';\n({params, imports}) => {\n  let vaccination = params.checklistDetails.find(cd => cd.name === 'Vaccination');\n  if (vaccination === undefined) return [];\n  const vaccinationList = {\n    baseDate: params.entity.individual.dateOfBirth,\n    detail: {uuid: vaccination.uuid},\n    items: vaccination.items.map(vi => ({\n      detail: {uuid: vi.uuid}\n    }))\n  };\n  return [vaccinationList];\n};"
+  "checklistsRule" : "'use strict';\n({params, imports}) => {\n  let vaccination = params.checklistDetails.find(cd => cd.name === 'Vaccination');\n  if (vaccination === undefined) return [];\n  \n \n  const vaccinationList = {\n    baseDate: params.entity.individual.dateOfBirth,\n    detail: {uuid: vaccination.uuid},\n    items: vaccination.items.map(vi => ({\n      detail: {uuid: vi.uuid}\n    }))\n  };\n  return [vaccinationList];\n};\n"
 }

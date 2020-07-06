@@ -8,6 +8,20 @@
     "displayOrder" : 1.0,
     "display" : "General Information",
     "formElements" : [ {
+      "name" : "ANC Enrolment ID",
+      "uuid" : "7ccb9330-8ac4-4760-9a58-255d50349928",
+      "keyValues" : [ {
+        "key" : "IdSourceUUID",
+        "value" : "b470c8bc-ce36-4fbb-8409-7dd5333033ee"
+      } ],
+      "concept" : {
+        "name" : "ANC Enrolment ID",
+        "uuid" : "c2e127a0-ddb2-4a17-b826-e7398e6e0d3c"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
       "name" : "Relation with village",
       "uuid" : "c11f9219-a461-4812-96a8-b08bdc288ccf",
       "keyValues" : [ ],
@@ -15,8 +29,20 @@
         "name" : "Relation with village",
         "uuid" : "58d0a437-17ef-4d58-a36f-9a36b608f5a4"
       },
-      "displayOrder" : 1.0,
+      "displayOrder" : 2.0,
       "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Other relation with village",
+      "uuid" : "830f61b0-613c-4d2f-b92f-10bf8b3d4af2",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Other relation with village",
+        "uuid" : "aaac11d9-1237-41ac-9cf9-239c1226048a"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEnrolment = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEnrolment, formElement});\n  statusBuilder.show().when.valueInEnrolment('Relation with village').containsAnswerConceptName('Other');\n  return statusBuilder.build();\n};",
       "mandatory" : true
     } ]
   }, {
@@ -120,6 +146,18 @@
       "rule" : "'use strict';\n({params, imports}) => {\n  const programEnrolment = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEnrolment, formElement});\n  statusBuilder.show().when.valueInEnrolment('Gravida').is.greaterThan(1);\n  return statusBuilder.build();\n};",
       "mandatory" : true
     }, {
+      "name" : "Do you know the exact LMP date?",
+      "uuid" : "bb1ec3b8-7105-4612-a11d-92d5f7e47076",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Do you know the exact LMP date?",
+        "uuid" : "2e153301-bd70-4f74-9cb0-75889bc38b72"
+      },
+      "displayOrder" : 9.0,
+      "type" : "SingleSelect",
+      "mandatory" : true,
+      "voided" : true
+    }, {
       "name" : "LMP",
       "uuid" : "fc6963f0-6c21-4272-ac13-59c48cf0ea7e",
       "keyValues" : [ ],
@@ -131,7 +169,20 @@
       "type" : "SingleSelect",
       "rule" : "",
       "mandatory" : true
-    },  {
+    }, {
+      "name" : "LMP (estimated)",
+      "uuid" : "ffaa524d-af2b-411c-a501-baabc2cb7396",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "LMP (estimated)",
+        "uuid" : "c7cb9599-398c-4381-89f2-5f5c933be8e7"
+      },
+      "displayOrder" : 11.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEnrolment = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEnrolment, formElement});\n  statusBuilder.show().when.valueInEnrolment('Do you know the exact LMP date?').containsAnswerConceptName(\"No\");\n  return statusBuilder.build();//this method returns FormElementStatus object with visibility true if the conditions given above matches\n};",
+      "mandatory" : true,
+      "voided" : true
+    }, {
       "name" : "EDD",
       "uuid" : "83bc61b2-be1b-4a63-8171-855862ff6eab",
       "keyValues" : [ {
@@ -161,6 +212,18 @@
       "type" : "SingleSelect",
       "rule" : "\"use strict\";\n({params, imports}) => {\n    const programEnrolment = params.entity;\n    const formElement = params.formElement;\n    const lmpDate = programEnrolment.getObservationValue('Last menstrual period');\n    //const value =  imports.moment(today).diff(lmpDate, 'months');\n    const value = \nruleServiceLibraryInterfaceForSharingModules.motherCalculations.currentTrimester(programEnrolment,programEnrolment.enrolmentDateTime);\n   \n    var isRegisterredWithinThreeMonths;\n  if(value > 1)\n    isRegisterredWithinThreeMonths = 'No'; \n  else \n    isRegisterredWithinThreeMonths = 'Yes';\n    \n    return new imports.rulesConfig.FormElementStatus(formElement.uuid, true, isRegisterredWithinThreeMonths);\n};",
       "mandatory" : false
+    }, {
+      "name" : "Registered within 3 months?",
+      "uuid" : "6b3d7c34-d1c8-425b-bdbf-132206093aba",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Registered within 3 months",
+        "uuid" : "2952824c-da18-46b0-b4c7-35328395133d"
+      },
+      "displayOrder" : 14.0,
+      "type" : "SingleSelect",
+      "mandatory" : false,
+      "voided" : true
     } ]
   }, {
     "uuid" : "3e536be5-fe31-4242-b989-bb46a7c8d0e2",
@@ -179,7 +242,23 @@
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const programEnrolment = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEnrolment, formElement});\n  statusBuilder.show().when.valueInEnrolment('Gravida').is.greaterThan(1);\n  return statusBuilder.build();\n};",
       "mandatory" : false
-    },  {
+    }, {
+      "name" : "Last Delivery (estimated)",
+      "uuid" : "4e93b2ae-8553-45de-9f5e-1824f944ef0e",
+      "keyValues" : [ {
+        "key" : "durationOptions",
+        "value" : [ "months", "years" ]
+      } ],
+      "concept" : {
+        "name" : "Last Delivery (estimated)",
+        "uuid" : "fba78a48-2465-4840-81ec-61138e0a3817"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEnrolment = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEnrolment, formElement});\n  statusBuilder.show().when.valueInEnrolment('Gravida').is.greaterThan(1);\n  return statusBuilder.build();\n};",
+      "mandatory" : false,
+      "voided" : true
+    }, {
       "name" : "Last delivery place",
       "uuid" : "6990778f-0252-43a3-b5d0-fda959922787",
       "keyValues" : [ ],
@@ -250,7 +329,32 @@
       "displayOrder" : 8.0,
       "type" : "MultiSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const programEnrolment = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEnrolment, formElement});\n  statusBuilder.show().when.valueInEnrolment('Gravida').is.greaterThan(1).and\n  .valueInEnrolment('Any High risk condition in previous pregnancy').containsAnswerConceptName(\"Yes\");\n  return statusBuilder.build();\n};",
-      "mandatory" : false
+      "mandatory" : true
+    }, {
+      "name" : "Specify other high risk condition in previous pregnancy",
+      "uuid" : "bf94db76-3180-4019-8af9-e6215547fb10",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Other high risk condition in previous pregnancy",
+        "uuid" : "6bdfb87a-fefc-48ea-bcab-8bd05cbae73d"
+      },
+      "displayOrder" : 9.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEnrolment = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEnrolment, formElement});\n  statusBuilder.show().when.valueInEnrolment('High risk condition in previous pregnancy').containsAnswerConceptName('Other');\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Does woman want to continue this pregnancy?",
+      "uuid" : "880d6115-d07d-490a-959f-df263a8edd17",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Does woman want to continue this pregnancy?",
+        "uuid" : "1aac0eaf-1c9e-4284-93c3-7212c06a3286"
+      },
+      "displayOrder" : 10.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEnrolment = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEnrolment, formElement});\n  statusBuilder.show().when.valueInEnrolment('Gravida').is.greaterThan(1);\n  return statusBuilder.build();\n};",
+      "mandatory" : false,
+      "voided" : true
     } ]
   }, {
     "uuid" : "ccde20b5-79dd-4cba-80ab-754c12600237",
@@ -267,7 +371,7 @@
       },
       "displayOrder" : 1.0,
       "type" : "SingleSelect",
-      "mandatory" : false
+      "mandatory" : true
     }, {
       "name" : "Name of chronic disease",
       "uuid" : "d7551c77-8b94-4c24-b390-55c09d5976a8",
@@ -279,12 +383,44 @@
       "displayOrder" : 2.0,
       "type" : "MultiSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const programEnrolment = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEnrolment, formElement});\n  statusBuilder.show().when.valueInEnrolment('Taking medicine for chronic disease').containsAnswerConceptName('Yes');\n  return statusBuilder.build();\n};",
-      "mandatory" : false
+      "mandatory" : true
+    }, {
+      "name" : "Specify the other chronic disease",
+      "uuid" : "a371247d-559a-4ae8-b6dd-e3509e41fb62",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Other chronic disease",
+        "uuid" : "a54d0c2c-a054-45a5-a143-9f6c9db3fbbd"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEnrolment = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEnrolment, formElement});\n  statusBuilder.show().when.valueInEnrolment('Name of chronic disease').containsAnswerConceptName('Other');\n  return statusBuilder.build();\n};",
+      "mandatory" : true
     } ]
+  }, {
+    "uuid" : "fd46a601-47bd-4cc8-b423-03e75bb6c029",
+    "name" : "Details of ANC Visit",
+    "displayOrder" : 5.0,
+    "display" : "Details of ANC Visit",
+    "formElements" : [ {
+      "name" : "Date of ANC Visit",
+      "uuid" : "336d2a33-bfa0-4cbe-9ede-3829c1d727a8",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Date of next ANC Visit",
+        "uuid" : "6e50431c-6cb0-495f-9735-dd431c9970ff"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEnrolment = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEnrolment, formElement});\n  statusBuilder.show().when.valueInEnrolment('Does woman want to continue this pregnancy?').containsAnswerConceptName(\"Yes\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true,
+      "voided" : true
+    } ],
+    "voided" : true
   }, {
     "uuid" : "a18d6f6a-4594-4f95-a2c6-4c3b5b62cf9c",
     "name" : "Counselling",
-    "displayOrder" : 5.0,
+    "displayOrder" : 6.0,
     "display" : "Counselling",
     "formElements" : [ {
       "name" : "Does woman want to continue this pregnancy?",
@@ -296,17 +432,17 @@
       },
       "displayOrder" : 1.0,
       "type" : "SingleSelect",
-      "rule" : "'use strict';\n({params, imports}) => {\n  const programEnrolment = params.entity;\n  const formElement = params.formElement;\n  const edd = programEnrolment.getObservationValue('EDD');\n  \n  const value =  ruleServiceLibraryInterfaceForSharingModules.motherCalculations.gestationalAgeForEDD(edd,programEnrolment.enrolmentDateTime);\n\n  \n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEnrolment, formElement});\n  statusBuilder.show().when.whenItem(value).lessThan(25);\n  return statusBuilder.build();\n};\n",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEnrolment = params.entity;\n  const formElement = params.formElement;\n  const edd = programEnrolment.getObservationValue('EDD');\n  \n  const value =  ruleServiceLibraryInterfaceForSharingModules.motherCalculations.gestationalAgeForEDD(edd,programEnrolment.enrolmentDateTime);\n\n  \n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEnrolment, formElement});\n  statusBuilder.show().whenItem(value).lessThan(25);\n  return statusBuilder.build();\n};\n",
       "mandatory" : false
     }, {
-      "name" : "Send her to hospital for ANC",
+      "name" : "Send her to nearest antenatal clinic",
       "uuid" : "8a580cbd-4d6d-413f-96c9-8d6d12806842",
       "keyValues" : [ {
         "key" : "ExcludedAnswers",
         "value" : [ "Counselling point" ]
       } ],
       "concept" : {
-        "name" : "Send her to hospital for ANC",
+        "name" : "Send her to nearest antenatal clinic",
         "uuid" : "b5ebc472-0f32-4128-97f3-0e2571daeaae"
       },
       "displayOrder" : 2.0,
@@ -314,24 +450,36 @@
       "rule" : "'use strict';\n({params, imports}) => {\n  const programEnrolment = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEnrolment, formElement});\n  statusBuilder.show().when.valueInEnrolment('Does woman want to continue this pregnancy?').containsAnswerConceptName(\"Yes\");\n  return statusBuilder.build();\n};\n\n",
       "mandatory" : false
     }, {
-      "name" : "Send to Hospital for abortion",
+      "name" : "Date of ANC Visit",
+      "uuid" : "b02272cf-25f8-43cd-989f-2682008de20b",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Date of next ANC Visit",
+        "uuid" : "6e50431c-6cb0-495f-9735-dd431c9970ff"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEnrolment = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEnrolment, formElement});\n  \n\n  statusBuilder.show().when.valueInEnrolment('Does woman want to continue this pregnancy?').containsAnswerConceptNameOtherThan(\"No\").or.when.valueInEnrolment('Does woman want to continue this pregnancy?').is.notDefined;;\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Send her to hospital for abortion",
       "uuid" : "d251a5f5-26fc-4078-a1f7-4c26504d265a",
       "keyValues" : [ {
         "key" : "ExcludedAnswers",
         "value" : [ "Counselling point" ]
       } ],
       "concept" : {
-        "name" : "Send to Hospital for abortion",
+        "name" : "Send her to hospital for abortion",
         "uuid" : "b6f45def-e3f4-4e7b-97ed-68c539b82fa2"
       },
-      "displayOrder" : 3.0,
+      "displayOrder" : 4.0,
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const programEnrolment = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEnrolment, formElement});\n  statusBuilder.show().when.valueInEnrolment('Does woman want to continue this pregnancy?').containsAnswerConceptNameOtherThan(\"Yes\");\n  return statusBuilder.build();\n};\n",
       "mandatory" : false
     } ]
   } ],
   "decisionRule" : "\"use strict\";\n({params, imports}) => {\n    const programEnrolment = params.entity;\n    const decisions = params.decisions;\n    const complicationsBuilder = new imports.rulesConfig.complicationsBuilder({\n        programEnrolment: programEnrolment,\n        complicationsConcept: \"High Risk Conditions\"\n    });\n    complicationsBuilder\n        .addComplication(\"Gravida/pregnancies more than 5\")\n        .when.valueInEnrolment(\"Gravida\")\n        .is.greaterThan(5);\n    complicationsBuilder\n        .addComplication(\"Diabetes\")\n        .when.valueInEnrolment(\"Name of chronic disease\")\n        .containsAnswerConceptName(\"Diabetes\");\n    complicationsBuilder\n        .addComplication(\"Hypertension\")\n        .when.valueInEnrolment(\"Name of chronic disease\")\n        .containsAnswerConceptName(\"Hypertension\");\n    complicationsBuilder\n        .addComplication(\"TB\")\n        .when.valueInEnrolment(\"Name of chronic disease\")\n        .containsAnswerConceptName(\"TB\");\n    complicationsBuilder\n        .addComplication(\"Heart disease\")\n        .when.valueInEnrolment(\"Name of chronic disease\")\n        .containsAnswerConceptName(\"Heart disease\");    \n    complicationsBuilder\n        .addComplication(\"Sickle cell disease\")\n        .when.valueInEnrolment(\"Name of chronic disease\")\n        .containsAnswerConceptName(\"Sickle cell disease\");  \n    complicationsBuilder\n        .addComplication(\"Leprosy\")\n        .when.valueInEnrolment(\"Name of chronic disease\")\n        .containsAnswerConceptName(\"Leprosy\");  \n    decisions.enrolmentDecisions.push(complicationsBuilder.getComplications());\n    return decisions;\n};",
-  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEnrolment = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEnrolment\n  });\n  \n  const isAbortion = programEnrolment.getObservationReadableValue('Does woman want to continue this pregnancy?');\n \n if(isAbortion == \"No\")\n   scheduleBuilder\n    .add({\n      name: \"Abortion\",\n      encounterType: \"Abortion\",\n      earliestDate: imports.moment(programEnrolment.enrolmentDateTime).toDate(),\n      maxDate: imports.moment(programEnrolment.enrolmentDateTime).toDate()\n    });\n else\n  scheduleBuilder\n    .add({\n      name: \"ANC Clinic Visit\",\n      encounterType: \"ANC Clinic Visit\",\n      earliestDate: imports.moment(programEnrolment.enrolmentDateTime).toDate(),\n      maxDate: imports.moment(programEnrolment.enrolmentDateTime).add(8,'days').toDate()\n    });\n   \n    //Lab Investigations \n    //   scheduleBuilder\n   // .add({\n     // name: \"Lab Investigations\",\n     // encounterType: \"Lab Investigations\",\n     // earliestDate: imports.moment(programEnrolment.enrolmentDateTime).toDate(),\n     // maxDate: imports.moment(programEnrolment.enrolmentDateTime).add(8, 'days').toDate()\n   // }); \n   \n        \n  return scheduleBuilder.getAll();\n};",
+  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEnrolment = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEnrolment\n  });\n  \n  const isAbortion = programEnrolment.getObservationReadableValue('Does woman want to continue this pregnancy?');\nconst edd = programEnrolment.getObservationValue('EDD');\nconsole.log('edd',edd);\nconst nextANCDate = programEnrolment.getObservationValue('Date of next ANC Visit');\nconsole.log('nextANCDate',nextANCDate);\n\n \n if(isAbortion == \"No\")\n   scheduleBuilder\n    .add({\n      name: \"Abortion\",\n      encounterType: \"Abortion\",\n      earliestDate: imports.moment(programEnrolment.enrolmentDateTime).toDate(),\n      maxDate: imports.moment(programEnrolment.enrolmentDateTime).toDate()\n    });\n else if(imports.moment(edd).isSameOrBefore(imports.moment(nextANCDate), 'date')){\nif((programEnrolment.hasEncounter('Delivery', 'Delivery')) === false)\n scheduleBuilder\n    .add({\n      name: \"Delivery\",\n      encounterType: \"Delivery\",\n      earliestDate: imports.moment(edd).toDate(),\n      maxDate: imports.moment(edd).add(0, 'days').toDate()\n    });\n  }\nelse{\n  scheduleBuilder\n    .add({\n      name: \"ANC Clinic Visit\",\n      encounterType: \"ANC Clinic Visit\",\n      earliestDate: imports.moment(nextANCDate).toDate(),\n      maxDate: imports.moment(nextANCDate).add(8, 'days').toDate()\n    }).whenItem(!_.isEmpty(nextANCDate))\n    .is.not.truthy;\n    }\n           \n  return scheduleBuilder.getAll();\n};",
   "validationRule" : "'use strict';\n({params, imports}) => {\n  const validationResults = [];\n  \n  const programEnrolment = params.entity;\n  if(programEnrolment.getObservationReadableValue('Parity') >   \n  programEnrolment.getObservationReadableValue('Gravida')) {\n    validationResults.push(imports.common.createValidationError('Para Cannot be greater than Gravida'));\n  }\n  \n // const individual = params.entity;\n  if(!programEnrolment.individual.isFemale() ){\n    validationResults.push(imports.common.createValidationError('Only female can be enrolled in Pregnancy Program'));\n  }\n  \n  if( programEnrolment.individual.getAgeInYears() < 16){\n    validationResults.push(imports.common.createValidationError(\"Can't enrol in pregnancy program as age is less than 16 years\"));\n  }\n  \n  \n  return validationResults;\n};",
   "checklistsRule" : ""
 }

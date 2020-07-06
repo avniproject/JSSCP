@@ -17,6 +17,7 @@
       },
       "displayOrder" : 1.0,
       "type" : "SingleSelect",
+      "rule" : "",
       "mandatory" : true
     }, {
       "name" : "Date of Death",
@@ -28,7 +29,7 @@
       },
       "displayOrder" : 2.0,
       "type" : "SingleSelect",
-      "rule" : "'use strict';\n({params, imports}) => {\n  const programExit = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programExit, formElement});\n  statusBuilder.show().when.valueInExit('Reason for exit').containsAnswerConceptName('Death');\n  \nreturn statusBuilder.build();\n};",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programExit = params.entity;\n  const formElement = params.formElement;\n  const exitReason = programExit.findExitObservation('Reason for exit');\n  const readableValue = _.isNil(exitReason) ? undefined : exitReason.getReadableValue();\n  return new imports.rulesConfig.FormElementStatus(formElement.uuid, readableValue === 'Death', null);;\n};",
       "mandatory" : true
     }, {
       "name" : "Cause of Death",
@@ -40,7 +41,7 @@
       },
       "displayOrder" : 3.0,
       "type" : "SingleSelect",
-      "rule" : "'use strict';\n({params, imports}) => {\n  const programExit = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programExit, formElement});\n  statusBuilder.show().when.valueInExit('Reason for exit').containsAnswerConceptName('Death');\n  \nreturn statusBuilder.build();\n};",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programExit = params.entity;\n  const formElement = params.formElement;\n  const exitReason = programExit.findExitObservation('Reason for exit');\n  const readableValue = _.isNil(exitReason) ? undefined : exitReason.getReadableValue();\n  return new imports.rulesConfig.FormElementStatus(formElement.uuid, readableValue === 'Death', null);;\n};",
       "mandatory" : true
     }, {
       "name" : "Place of Death",
@@ -52,7 +53,7 @@
       },
       "displayOrder" : 4.0,
       "type" : "SingleSelect",
-      "rule" : "'use strict';\n({params, imports}) => {\n  const programExit = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programExit, formElement});\n  statusBuilder.show().when.valueInExit('Reason for exit').containsAnswerConceptName('Death');\n  \nreturn statusBuilder.build();\n};",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programExit = params.entity;\n  const formElement = params.formElement;\n  const exitReason = programExit.findExitObservation('Reason for exit');\n  const readableValue = _.isNil(exitReason) ? undefined : exitReason.getReadableValue();\n  return new imports.rulesConfig.FormElementStatus(formElement.uuid, readableValue === 'Death', null);;\n};",
       "mandatory" : false
     }, {
       "name" : "Other reason (Please specify)",
@@ -64,7 +65,7 @@
       },
       "displayOrder" : 5.0,
       "type" : "SingleSelect",
-      "rule" : "'use strict';\n({params, imports}) => {\n  const programExit = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programExit, formElement});\n  statusBuilder.show().when.valueInExit('Reason for exit').containsAnswerConceptName('Other');\n  \nreturn statusBuilder.build();\n};",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programExit = params.entity;\n  const formElement = params.formElement;\n  const exitReason = programExit.findExitObservation('Reason for exit');\n  const readableValue = _.isNil(exitReason) ? undefined : exitReason.getReadableValue();\n  return new imports.rulesConfig.FormElementStatus(formElement.uuid, readableValue === 'Other', null);;\n};",
       "mandatory" : true
     } ]
   } ],

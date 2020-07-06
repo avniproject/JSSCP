@@ -8,6 +8,17 @@
     "displayOrder" : 1.0,
     "display" : "General",
     "formElements" : [ {
+      "name" : "Birth Weight",
+      "uuid" : "58d2d130-c177-4020-958f-adea4b4d60bf",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Birth Weight",
+        "uuid" : "24a9549b-05fc-4899-b861-b5c0e54b7340"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
       "name" : "Whether baby cleaned and dried immediately after birth",
       "uuid" : "c56bcb8a-ee84-4dbb-8dfd-97eeb1487545",
       "keyValues" : [ ],
@@ -15,7 +26,7 @@
         "name" : "Whether baby cleaned and dried immediately after birth",
         "uuid" : "7cecaf08-1a00-41a6-965b-015b89aa66ba"
       },
-      "displayOrder" : 1.0,
+      "displayOrder" : 2.0,
       "type" : "SingleSelect",
       "mandatory" : true
     }, {
@@ -26,21 +37,18 @@
         "name" : "Whether baby wrapped in warm clothes",
         "uuid" : "cdd45c89-b7be-4131-a6c0-48e8b82926c4"
       },
-      "displayOrder" : 2.0,
+      "displayOrder" : 3.0,
       "type" : "SingleSelect",
       "mandatory" : true
     }, {
       "name" : "Diagnosis of baby immediately after birth",
       "uuid" : "20f25b27-ecdc-4fbe-821f-9cd9be598691",
-      "keyValues" : [ {
-        "key" : "ExcludedAnswers",
-        "value" : [ "Still birth" ]
-      } ],
+      "keyValues" : [ ],
       "concept" : {
         "name" : "Diagnosis of baby immediately after birth",
         "uuid" : "734e9cd5-3df4-4cfd-bca4-aa842af2c84e"
       },
-      "displayOrder" : 3.0,
+      "displayOrder" : 4.0,
       "type" : "SingleSelect",
       "mandatory" : false
     } ]
@@ -82,6 +90,30 @@
       "displayOrder" : 3.0,
       "type" : "SingleSelect",
       "mandatory" : false
+    }, {
+      "name" : "If baby was not breathing for 30 seconds, was any action taken",
+      "uuid" : "f8a9a854-86bf-4900-a08a-4f18f3777461",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "If baby was not breathing for 30 seconds, was any action taken",
+        "uuid" : "e2282953-329a-400f-aa12-7b1065a42f7a"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Newborn cry').containsAnyAnswerConceptName(\"Did not cry\",\"Weak cry\").or.when.valueInEncounter('Newborn breathing').containsAnyAnswerConceptName(\"Did not breath\",\"Gasping\");\n  return statusBuilder.build();\n};\n",
+      "mandatory" : false
+    }, {
+      "name" : "If baby was not breathing for 30 seconds, was any action taken?",
+      "uuid" : "ec3b0daa-9b50-470a-bd9a-dba39ff65457",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "If baby was not breathing for 30 seconds, was any action taken?",
+        "uuid" : "3b236506-33ee-4f91-9d72-ec11840fb131"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "mandatory" : false,
+      "voided" : true
     } ]
   }, {
     "uuid" : "cab86429-00cf-4d38-a7c6-f516beb19e23",
@@ -99,7 +131,8 @@
       "displayOrder" : 1.0,
       "type" : "SingleSelect",
       "rule" : "",
-      "mandatory" : false
+      "mandatory" : false,
+      "voided" : true
     }, {
       "name" : "Whether mucus extractor used",
       "uuid" : "94f55467-051a-448f-b935-56a03e127e00",
@@ -122,7 +155,7 @@
       },
       "displayOrder" : 3.0,
       "type" : "SingleSelect",
-      "rule" : "",
+      "rule" : "'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.show().when.valueInEncounter('Whether mucus extractor used').containsAnswerConceptName('Yes');\n\n  return statusBuilder.build();\n};",
       "mandatory" : true
     } ]
   }, {
@@ -140,7 +173,7 @@
       },
       "displayOrder" : 1.0,
       "type" : "SingleSelect",
-      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('What was the outcome of action').containsAnswerConceptName(\"Baby is alive\");\n  return statusBuilder.build();\n};\n",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  \n  const isMucusExtractorUsed = programEncounter.getObservationReadableValue('Whether mucus extractor used');\n  \n  if(_.isEqual(isMucusExtractorUsed,'Yes'))\n    statusBuilder.show().when.valueInEncounter('What was the outcome of action').containsAnswerConceptNameOtherThan(\"Baby died\");\n  else statusBuilder.show().when.valueInEncounter('Diagnosis of baby immediately after birth').containsAnswerConceptNameOtherThan(\"Still birth\");\n  \n  return statusBuilder.build();\n};\n",
       "mandatory" : false
     }, {
       "name" : "Newborn breathing",
@@ -152,7 +185,7 @@
       },
       "displayOrder" : 2.0,
       "type" : "SingleSelect",
-      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('What was the outcome of action').containsAnswerConceptName(\"Baby is alive\");\n  return statusBuilder.build();\n};\n",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('What was the outcome of action').containsAnswerConceptName(\"Baby is alive\").or.when.valueInEncounter('Diagnosis of baby immediately after birth').containsAnswerConceptNameOtherThan(\"Still birth\");\n  return statusBuilder.build();\n};",
       "mandatory" : false
     }, {
       "name" : "Newborn movement",
@@ -164,12 +197,12 @@
       },
       "displayOrder" : 3.0,
       "type" : "SingleSelect",
-      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('What was the outcome of action').containsAnswerConceptName(\"Baby is alive\");\n  return statusBuilder.build();\n};\n",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('What was the outcome of action').containsAnswerConceptName(\"Baby is alive\").or.when.valueInEncounter('Diagnosis of baby immediately after birth').containsAnswerConceptNameOtherThan(\"Still birth\");\n  return statusBuilder.build();\n};",
       "mandatory" : false
     } ]
   } ],
   "decisionRule" : "",
-  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\n const dateOfBirth = programEncounter.individual.dateOfBirth;\n const deathStatus=programEncounter.getObservationReadableValue('What was the outcome of action');\n \n console.log(\"======>deathStatus\",deathStatus);\n if(deathStatus == 'Baby is alive'){\n  scheduleBuilder\n    .add({\n      name: \"Child PNC\",\n      encounterType: \"Child PNC\",\n      earliestDate: imports.moment(programEncounter.enrolmentDateTime).toDate(),\n      maxDate: imports.moment(programEncounter.enrolmentDateTime).add(8, 'days').toDate()\n    }).whenItem( imports.moment(programEncounter.encounterDateTime).isBefore(imports.moment(dateOfBirth).add(42, 'days'), 'date'))\n    .is.truthy;\n   }        \n  return scheduleBuilder.getAll();\n};",
+  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\n const dateOfBirth = programEncounter.individual.dateOfBirth;\n const visitDate = programEncounter.encounterDateTime; \n //let deathStatus = 'NA';\n let deathStatus = '';\n let diagnosisAfterBirth = '';\n \n deathStatus= programEncounter.getObservationReadableValue('What was the outcome of action');\n diagnosisAfterBirth= programEncounter.getObservationReadableValue('Diagnosis of baby immediately after birth');\n \n console.log('====>',deathStatus);\n console.log('====>',diagnosisAfterBirth);\n\n \n  let isAlive = true;\n  if((deathStatus && _.isEqual(deathStatus, 'Baby died') ) || (diagnosisAfterBirth && _.isEqual(diagnosisAfterBirth, 'Still birth')) )\n  isAlive = false;\n  \n//  if(_.isEqual(deathStatus, 'Baby died') || _.isEqual(diagnosisAfterBirth, 'Still birth')\n  //    isAlive = false;\n  \n  const encounterSchedulePNC = [\n    {\"name\": \"PNC 1\", \"earliest\": 0, \"max\": 2},\n    {\"name\": \"PNC 2\", \"earliest\": 3, \"max\": 6},\n    {\"name\": \"PNC 3\", \"earliest\": 7, \"max\": 10},\n    {\"name\": \"PNC 4\", \"earliest\": 15, \"max\": 18},\n    {\"name\": \"PNC 5\", \"earliest\": 28, \"max\": 31},\n    {\"name\": \"PNC 6\", \"earliest\": 42, \"max\": 45}\n];\n  \n \n if(isAlive && programEncounter.programEnrolment.hasEncounterOfType('Child PNC') === false){\n    var schedule = _.chain(encounterSchedulePNC).filter(e => imports.moment(visitDate).isSameOrBefore(imports.moment(dateOfBirth).add(e.earliest, 'days'), 'date') === true)\n            .filter(e => (programEncounter.programEnrolment.hasEncounter('Child PNC', e.name)) === false)\n            .first()\n            .value();\n  \n  if (!_.isEmpty(schedule)) {\n  scheduleBuilder\n    .add({\n      name: schedule.name,\n      encounterType: \"Child PNC\",\n      earliestDate:  imports.moment(dateOfBirth).add(schedule.earliest, 'days').toDate() ,\n      maxDate: imports.moment(dateOfBirth).add(schedule.max, 'days').toDate() \n    });\n   }\n}\n \n   \n        \n  return scheduleBuilder.getAll();\n};",
   "validationRule" : "",
   "checklistsRule" : ""
 }

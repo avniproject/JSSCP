@@ -7,7 +7,19 @@
     "name" : "Basic Details",
     "displayOrder" : 1.0,
     "display" : "Basic Details",
-    "formElements" : [  {
+    "formElements" : [ {
+      "name" : "Birth Weight",
+      "uuid" : "e64dbef0-c8b0-49a3-a112-79ae6eea71f2",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Weight",
+        "uuid" : "8d947379-7a1d-48b2-8760-88fff6add987"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : false,
+      "voided" : true
+    }, {
       "name" : "Is mother suffering from any of the following?",
       "uuid" : "92a91ba6-48e9-4197-9d55-86451659c2bb",
       "keyValues" : [ ],
@@ -19,6 +31,18 @@
       "type" : "MultiSelect",
       "mandatory" : true
     }, {
+      "name" : "Specify the other problem mother is suffering from",
+      "uuid" : "4d4187a8-1a02-48b7-ab62-f411110587dd",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Other problem mother is suffering from",
+        "uuid" : "70fa7289-d90e-4c07-a4db-3382cce4daf5"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Mother suffering from').containsAnswerConceptName(\"Other\");\n  return statusBuilder.build();\n};",
+      "mandatory" : false
+    }, {
       "name" : "Refer the mother immediately to hospital. Did arrangement was made?",
       "uuid" : "c6a212c7-258d-4e84-8d02-2606fcd60e0e",
       "keyValues" : [ ],
@@ -26,7 +50,7 @@
         "name" : "Refer the mother immediately to hospital. Did arrangement was made",
         "uuid" : "9a31b9a0-18bf-4b3b-87cf-fad47128596b"
       },
-      "displayOrder" : 3.0,
+      "displayOrder" : 4.0,
       "type" : "MultiSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Mother suffering from').containsAnswerConceptNameOtherThan(\"No\");\n  return statusBuilder.build();\n};",
       "mandatory" : true
@@ -36,7 +60,19 @@
     "name" : "Mother's examination",
     "displayOrder" : 2.0,
     "display" : "Mother's examination",
-    "formElements" : [  {
+    "formElements" : [ {
+      "name" : "Temperature",
+      "uuid" : "02b3ce0d-319e-4888-a401-9abfe62e36e3",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Temperature",
+        "uuid" : "544438f2-4eeb-41a6-9017-d2895d4d76ef"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true,
+      "voided" : true
+    }, {
       "name" : "Temperature",
       "uuid" : "dd862804-aac3-4f36-a2d6-dcb4f7bf301d",
       "keyValues" : [ ],
@@ -46,6 +82,7 @@
       },
       "displayOrder" : 2.0,
       "type" : "SingleSelect",
+      "rule" : "",
       "validFormat" : {
         "regex" : "^[0-9]{1,2}(\\.[0-9])??$",
         "descriptionKey" : "requiredFormatxxDotx"
@@ -61,6 +98,7 @@
       },
       "displayOrder" : 3.0,
       "type" : "SingleSelect",
+      "rule" : "",
       "mandatory" : true
     }, {
       "name" : "Blood Pressure (systolic)",
@@ -72,6 +110,7 @@
       },
       "displayOrder" : 4.0,
       "type" : "SingleSelect",
+      "rule" : "",
       "mandatory" : true
     }, {
       "name" : "Blood Pressure (Diastolic)",
@@ -83,6 +122,7 @@
       },
       "displayOrder" : 5.0,
       "type" : "SingleSelect",
+      "rule" : "",
       "mandatory" : true
     }, {
       "name" : "Is there foul smelling discharge PV",
@@ -94,6 +134,7 @@
       },
       "displayOrder" : 6.0,
       "type" : "SingleSelect",
+      "rule" : "",
       "mandatory" : true
     }, {
       "name" : "Does mother has seizures?",
@@ -105,6 +146,7 @@
       },
       "displayOrder" : 7.0,
       "type" : "SingleSelect",
+      "rule" : "",
       "mandatory" : true
     }, {
       "name" : "Does mother has less breast milk?",
@@ -116,6 +158,7 @@
       },
       "displayOrder" : 8.0,
       "type" : "SingleSelect",
+      "rule" : "",
       "mandatory" : true
     }, {
       "name" : "Does mother has any breast related issue like swelling, cracked nipple etc?",
@@ -127,6 +170,7 @@
       },
       "displayOrder" : 9.0,
       "type" : "SingleSelect",
+      "rule" : "",
       "mandatory" : false
     } ]
   }, {
@@ -144,6 +188,7 @@
       },
       "displayOrder" : 1.0,
       "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.latestValueInPreviousEncounters('mother get the benefit of JSY scheme').containsAnswerConceptNameOtherThan(\"Yes\");\n  \nreturn statusBuilder.build();\n};",
       "mandatory" : false
     }, {
       "name" : "Date of recieving the benefit",
@@ -162,10 +207,27 @@
       "mandatory" : false
     } ]
   }, {
-    "uuid" : "7c88c74c-feb1-48b3-8ebe-d8238b58dced",
+    "uuid" : "5f3c262a-a344-4f97-a633-4a389c653164",
     "name" : "Counselling",
     "displayOrder" : 4.0,
-    "display" : "Counselling",
+    "display" : "Counselling ",
+    "formElements" : [ {
+      "name" : "Counselling done",
+      "uuid" : "57f2f74f-ee12-42e2-a161-3827be58efaa",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Counselling",
+        "uuid" : "0ac30adc-5107-4e30-9b8a-c3ef65904cf5"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    } ]
+  }, {
+    "uuid" : "7c88c74c-feb1-48b3-8ebe-d8238b58dced",
+    "name" : "Counselling details",
+    "displayOrder" : 5.0,
+    "display" : "Counselling details",
     "formElements" : [ {
       "name" : "Counselling done",
       "uuid" : "f7c1bb08-e15a-49d1-93f9-c580bf274abb",
@@ -176,7 +238,8 @@
       },
       "displayOrder" : 1.0,
       "type" : "SingleSelect",
-      "mandatory" : false
+      "mandatory" : false,
+      "voided" : true
     }, {
       "name" : "Baby warming",
       "uuid" : "a5249a09-7e6e-4879-a1da-6afee8821f57",
@@ -205,6 +268,36 @@
       "displayOrder" : 3.0,
       "type" : "SingleSelect",
       "mandatory" : false
+    }, {
+      "name" : "Keeping baby warm",
+      "uuid" : "7ae3d4b4-aef5-4db5-ae3e-1f8ff8005e69",
+      "keyValues" : [ {
+        "key" : "ExcludedAnswers",
+        "value" : [ "Counselling point" ]
+      } ],
+      "concept" : {
+        "name" : "Keeping Baby Warm",
+        "uuid" : "17225eec-e8af-49b7-95a4-5e5293976902"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "mandatory" : false,
+      "voided" : true
+    }, {
+      "name" : "Breastfeeding",
+      "uuid" : "d01f152d-daee-4556-b3e8-312e8e124f59",
+      "keyValues" : [ {
+        "key" : "ExcludedAnswers",
+        "value" : [ "Counselling point" ]
+      } ],
+      "concept" : {
+        "name" : "Breastfeeding (counselling)",
+        "uuid" : "6ae137dd-2b6d-4562-aeea-252b7ae6b869"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "mandatory" : false,
+      "voided" : true
     }, {
       "name" : "Breastfeeding (counselling)",
       "uuid" : "36aaad14-3c0e-42e3-9cab-018e589ce8a3",
@@ -331,7 +424,8 @@
       "displayOrder" : 14.0,
       "type" : "SingleSelect",
       "rule" : "\n'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Is there foul smelling discharge PV').containsAnswerConceptName(\"Yes\")\n  .and.when.valueInEncounter(\"Temperature(celcius)\").is.greaterThan(37.5);\n  return statusBuilder.build();\n};",
-      "mandatory" : false
+      "mandatory" : false,
+      "voided" : true
     }, {
       "name" : "refer the mother to SC/Ganiyari",
       "uuid" : "d61462cd-433c-4fb8-88dd-f6db6b4a54e9",
@@ -346,14 +440,45 @@
       "displayOrder" : 15.0,
       "type" : "SingleSelect",
       "rule" : "\n'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Does mother has seizures?').containsAnswerConceptName(\"Yes\");\n  return statusBuilder.build();\n};\n",
-      "mandatory" : false
+      "mandatory" : false,
+      "voided" : true
     } ]
   }, {
     "uuid" : "fc32cae8-3962-49d8-9590-dc0777407ae1",
     "name" : "Referral",
-    "displayOrder" : 5.0,
+    "displayOrder" : 6.0,
     "display" : "Referral",
     "formElements" : [ {
+      "name" : "refer the woman to SC or ask the SHW to make a home visit",
+      "uuid" : "249c85f6-2c98-4da9-81e9-2a7dacc2dd91",
+      "keyValues" : [ {
+        "key" : "ExcludedAnswers",
+        "value" : [ "Counselling point" ]
+      } ],
+      "concept" : {
+        "name" : "refer the woman to SC or ask the SHW to make a home visit",
+        "uuid" : "ca2af807-ec9f-4b33-8ffa-e17075979996"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "rule" : "\n'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Is there foul smelling discharge PV').containsAnswerConceptName(\"Yes\")\n  .and.when.valueInEncounter(\"Temperature(celcius)\").is.greaterThan(37.5);\n  return statusBuilder.build();\n};",
+      "mandatory" : false
+    }, {
+      "name" : "refer the mother to SC/Ganiyari",
+      "uuid" : "bc773de5-3bb1-4f0e-af1d-b8c56485bb13",
+      "keyValues" : [ {
+        "key" : "ExcludedAnswers",
+        "value" : [ "Counselling point" ]
+      } ],
+      "concept" : {
+        "name" : "refer the mother to SC/Ganiyari",
+        "uuid" : "c3f8600a-aebf-44ea-967e-ff93c11a5946"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "rule" : "\n'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Does mother has seizures?').containsAnswerConceptName(\"Yes\");\n  return statusBuilder.build();\n};\n",
+      "mandatory" : false
+    }, {
       "name" : "Referral needed to mother?",
       "uuid" : "090c0d98-6c3b-40fe-8986-e4374a8318eb",
       "keyValues" : [ ],
@@ -361,9 +486,9 @@
         "name" : "Referral needed to mother?",
         "uuid" : "c75a610f-27c3-4fad-9c26-04887c15436e"
       },
-      "displayOrder" : 1.0,
+      "displayOrder" : 3.0,
       "type" : "SingleSelect",
-      "rule" : "",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.latestValueInPreviousEncounters('Referral needed to mother?').is.notDefined;\n  \nreturn statusBuilder.build();\n};",
       "mandatory" : true
     }, {
       "name" : "Place of referral",
@@ -373,19 +498,19 @@
         "name" : "place of referral",
         "uuid" : "c470cb18-f902-4b2b-844b-4b6286e36b8d"
       },
-      "displayOrder" : 2.0,
+      "displayOrder" : 4.0,
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Referral needed to mother?').containsAnswerConceptName(\"Yes\");\n  return statusBuilder.build();\n};",
       "mandatory" : false
     }, {
-      "name" : "Other",
+      "name" : "Other place of referral",
       "uuid" : "47f9d01f-1cad-49fc-9e4f-a67a505945fd",
       "keyValues" : [ ],
       "concept" : {
         "name" : "Other place of referral",
         "uuid" : "d169efa9-49af-4c84-ae09-b1b7296c62da"
       },
-      "displayOrder" : 3.0,
+      "displayOrder" : 5.0,
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('place of referral').containsAnswerConceptName(\"Other\");\n  return statusBuilder.build();\n};",
       "mandatory" : false
@@ -397,26 +522,26 @@
         "name" : "Referral reason",
         "uuid" : "8a56f008-a910-4d6f-b028-a95db330dbf2"
       },
-      "displayOrder" : 4.0,
+      "displayOrder" : 6.0,
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Referral needed to mother?').containsAnswerConceptName(\"Yes\");\n  return statusBuilder.build();\n};",
       "mandatory" : false
     }, {
-      "name" : "Other",
+      "name" : "Other referral reason",
       "uuid" : "fd1ce620-3448-4af2-9955-5603da75cfe6",
       "keyValues" : [ ],
       "concept" : {
         "name" : "Other referral reason",
         "uuid" : "e048675e-eb86-41c2-a47b-aecfa9a3bb8c"
       },
-      "displayOrder" : 5.0,
+      "displayOrder" : 7.0,
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Referral reason').containsAnswerConceptName(\"Other\");\n  return statusBuilder.build();\n};",
       "mandatory" : false
     } ]
   } ],
   "decisionRule" : "",
-  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\n  const dateOfDelivery = programEncounter.getObservationValue('Date and time when placenta was out');\n  const encounterSchedulePNC = [\n    {\"name\": \"PNC 2\", \"earliest\": 3, \"max\": 6},\n    {\"name\": \"PNC 3\", \"earliest\": 7, \"max\": 10},\n    {\"name\": \"PNC 4\", \"earliest\": 15, \"max\": 18},\n    {\"name\": \"PNC 5\", \"earliest\": 28, \"max\": 31},\n    {\"name\": \"PNC 5\", \"earliest\": 42, \"max\": 45}\n];\n  \n  const visitDate = programEncounter.encounterDateTime; \n   var schedule = _.chain(encounterSchedulePNC).filter(e => imports.moment(visitDate).isSameOrBefore(imports.moment(dateOfDelivery).add(e.earliest, 'days'), 'date') === true)\n            .filter(e => (programEncounter.programEnrolment.hasEncounter('Mother PNC', e.name)) === false)\n            .first()\n            .value();\n  \n  if (!_.isEmpty(schedule)) {\n  scheduleBuilder\n    .add({\n      name: schedule.name,\n      encounterType: \"Mother PNC\",\n      earliestDate:  imports.moment(dateOfDelivery).add(schedule.earliest, 'days').toDate() ,\n      maxDate: imports.moment(dateOfDelivery).add(schedule.max, 'days').toDate() \n    });\n  }\n  return scheduleBuilder.getAll();\n};",
+  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\n  const dateOfDelivery = programEncounter.getObservationValue('Date and time when placenta was out');\n  const encounterSchedulePNC = [\n    {\"name\": \"PNC 2\", \"earliest\": 3, \"max\": 6},\n    {\"name\": \"PNC 3\", \"earliest\": 7, \"max\": 10},\n    {\"name\": \"PNC 4\", \"earliest\": 15, \"max\": 18},\n    {\"name\": \"PNC 5\", \"earliest\": 28, \"max\": 31},\n    {\"name\": \"PNC 5\", \"earliest\": 42, \"max\": 45}\n];\n  \n  const visitDate = programEncounter.encounterDateTime; \n   var schedule = _.chain(encounterSchedulePNC).filter(e => imports.moment(visitDate).isSameOrBefore(imports.moment(dateOfDelivery).add(e.earliest, 'days'), 'date') === true)\n            .filter(e => (programEncounter.programEnrolment.hasEncounter('Mother PNC', e.name)) === false)\n            .first()\n            .value();\n  \n  if (!_.isEmpty(schedule)) {\n  scheduleBuilder\n    .add({\n      name: schedule.name,\n      encounterType: \"Mother PNC\",\n      earliestDate:  imports.moment(dateOfDelivery).add(schedule.earliest, 'days').toDate() ,\n      maxDate: imports.moment(dateOfDelivery).add(schedule.max, 'days').toDate() \n    });\n  }\n  \n  \nconst ifReferral = programEncounter.getObservationReadableValue('Referral needed to mother?');\nconsole.log('ifReferral',ifReferral);\n\n  scheduleBuilder\n    .add({\n      name: \"Referral Status-1\",\n      encounterType: \"Referral Status\",\n      earliestDate: imports.moment(programEncounter.encounterDateTime).add(3, 'days').toDate(),\n      maxDate: imports.moment(programEncounter.encounterDateTime).add(5, 'days').toDate()\n    }).whenItem(ifReferral == 'Yes')\n    .is.truthy;\n    \n  return scheduleBuilder.getAll();\n};",
   "validationRule" : "",
   "checklistsRule" : ""
 }

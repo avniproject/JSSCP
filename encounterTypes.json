@@ -1,59 +1,81 @@
 [ {
   "name" : "Albendazole",
-  "uuid" : "72ddfc20-fa6a-4e64-9167-c9bbc28f21fc"
+  "uuid" : "72ddfc20-fa6a-4e64-9167-c9bbc28f21fc",
+  "active" : true
 }, {
   "name" : "Anthropometry Assessment",
-  "uuid" : "e9aa15b8-e9b5-4b5d-9fbb-4d7a89283741"
+  "uuid" : "e9aa15b8-e9b5-4b5d-9fbb-4d7a89283741",
+  "active" : true
 }, {
   "name" : "Birth",
-  "uuid" : "596691e8-7b2d-4b27-b7d6-17a6e1d74f9c"
+  "uuid" : "596691e8-7b2d-4b27-b7d6-17a6e1d74f9c",
+  "active" : true
 }, {
   "name" : "Child PNC",
-  "uuid" : "8aa68bd2-1fd8-46e8-b475-a2dafb4b177b"
+  "uuid" : "8aa68bd2-1fd8-46e8-b475-a2dafb4b177b",
+  "active" : true
 }, {
   "name" : "Mother PNC",
-  "uuid" : "e35551ec-811b-4291-8eb3-f36dbaa79c48"
+  "uuid" : "e35551ec-811b-4291-8eb3-f36dbaa79c48",
+  "active" : true
 }, {
   "name" : "Abortion",
-  "uuid" : "9c7d7e6a-d4ee-49c8-b798-bfa2ee16343b"
+  "uuid" : "9c7d7e6a-d4ee-49c8-b798-bfa2ee16343b",
+  "active" : true
 }, {
   "name" : "Abortion followup",
-  "uuid" : "0619e2bc-5f08-4553-b9fc-a059bd847a9f"
+  "uuid" : "0619e2bc-5f08-4553-b9fc-a059bd847a9f",
+  "active" : true
 }, {
   "name" : "TB followup",
-  "uuid" : "335c35ba-9de4-4e08-9494-2975e3f046c9"
+  "uuid" : "335c35ba-9de4-4e08-9494-2975e3f046c9",
+  "active" : true
 }, {
   "name" : "NCD Followup",
-  "uuid" : "fa988057-0a78-4bd2-b4de-b4c9cf0e8055"
+  "uuid" : "fa988057-0a78-4bd2-b4de-b4c9cf0e8055",
+  "active" : true
 }, {
   "name" : "ANC Clinic Visit",
-  "uuid" : "84e99d1e-de73-41aa-85c6-3e1b780dd52b"
+  "uuid" : "84e99d1e-de73-41aa-85c6-3e1b780dd52b",
+  "active" : true
 }, {
   "name" : "USG Report",
   "uuid" : "1d8ccbb2-f4bb-4b19-979e-730ccd1514d2",
-  "encounterEligibilityCheckRule" : ""
+  "encounterEligibilityCheckRule" : "",
+  "active" : true
 }, {
   "name" : "Lab Investigations",
   "uuid" : "86ab0906-ec4c-49b7-adbc-da75197a7f6b",
-  "encounterEligibilityCheckRule" : ""
+  "encounterEligibilityCheckRule" : "",
+  "active" : true
 }, {
   "name" : "ANC Home Visit",
   "uuid" : "307197bf-6b71-49b1-9a1b-b2c12532e34f",
-  "encounterEligibilityCheckRule" : ""
+  "encounterEligibilityCheckRule" : "",
+  "active" : true
 }, {
   "name" : "Referral Status",
   "uuid" : "0345e233-479c-4dff-a7b9-c1325a5c0493",
-  "encounterEligibilityCheckRule" : ""
+  "encounterEligibilityCheckRule" : "",
+  "active" : true
 }, {
   "name" : "Child PNC",
   "uuid" : "bb2ea3b7-55c8-4bab-8ee5-b71eec633408",
-  "encounterEligibilityCheckRule" : ""
+  "encounterEligibilityCheckRule" : "",
+  "active" : true
 }, {
   "name" : "Child Birth",
   "uuid" : "ab963eab-805d-4714-ad78-1e8a5fa164b2",
-  "encounterEligibilityCheckRule" : ""
+  "encounterEligibilityCheckRule" : "",
+  "active" : true
 }, {
   "name" : "Delivery",
   "uuid" : "856c06ea-1f1a-4316-80e3-23cd8eea810f",
-  "encounterEligibilityCheckRule" : ""
+  "encounterEligibilityCheckRule" : "",
+  "active" : true
+}, {
+  "name" : "Lab Investigations Results for pregnancy induced diabetes",
+  "uuid" : "98dc3b51-c3d6-4e40-aebc-58e6ec051200",
+  "encounterEligibilityCheckRule" : "",
+  "active" : true
 } ]

@@ -89,6 +89,18 @@
       "rule" : "'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.show().when.valueInEncounter('Abortion done by').containsAnswerConceptName('Self medication');\n\n  return statusBuilder.build();\n};",
       "mandatory" : true
     }, {
+      "name" : "Specify the other place from where woman got the medicine",
+      "uuid" : "1b30391b-1f03-4f5a-8070-551356b26f86",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Other place from where woman got the medicine",
+        "uuid" : "ad707cd2-4ddd-4d5e-89ba-6a9eea4e792d"
+      },
+      "displayOrder" : 8.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.show().when.valueInEncounter('If self medication, where did woman get the medicine from').containsAnswerConceptName('Other');\n\n  return statusBuilder.build();\n};",
+      "mandatory" : false
+    }, {
       "name" : "Did woman face any complication due to abortion?",
       "uuid" : "5659b221-0a6a-4f04-ab58-a2379eb87166",
       "keyValues" : [ ],
@@ -96,7 +108,7 @@
         "name" : "Complication due to abortion",
         "uuid" : "3fc12cff-0b61-45f5-af60-93b0f19570da"
       },
-      "displayOrder" : 8.0,
+      "displayOrder" : 9.0,
       "type" : "MultiSelect",
       "mandatory" : false
     }, {
@@ -107,7 +119,7 @@
         "name" : "Other complication faced due to abortion",
         "uuid" : "39633d82-8da1-458e-a759-1d558d3a3a92"
       },
-      "displayOrder" : 9.0,
+      "displayOrder" : 10.0,
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.show().when.valueInEncounter('Complication due to abortion').containsAnswerConceptName('Other');\n\n  return statusBuilder.build();\n};",
       "mandatory" : false
@@ -128,6 +140,18 @@
       "displayOrder" : 1.0,
       "type" : "SingleSelect",
       "mandatory" : false
+    }, {
+      "name" : "Does woman require any referral?",
+      "uuid" : "ae0aa944-821b-4cb7-8fb0-387ebcbb69c9",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Does woman require referral?",
+        "uuid" : "77d122e8-0620-4754-8375-b0cbe329003c"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : false,
+      "voided" : true
     } ]
   }, {
     "uuid" : "55a511e2-1d8a-4019-bb05-758fb5f7a8f9",
@@ -199,10 +223,25 @@
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Referral reason').containsAnswerConceptName('Other');\n  \nreturn statusBuilder.build();\n};",
       "mandatory" : false
+    }, {
+      "name" : "Place of referral",
+      "uuid" : "93d4d156-5e93-4753-9a9f-91b2c762286e",
+      "keyValues" : [ {
+        "key" : "ExcludedAnswers",
+        "value" : [ "Medical college", "District Hospital", "Sub Center", "Community Health Centre" ]
+      } ],
+      "concept" : {
+        "name" : "Place of referral",
+        "uuid" : "80fccb06-a62f-43e8-92eb-358bdb600079"
+      },
+      "displayOrder" : 6.0,
+      "type" : "SingleSelect",
+      "mandatory" : false,
+      "voided" : true
     } ]
   } ],
   "decisionRule" : "",
-  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\n\nconst dateOfAbortion = programEncounter.getObservationValue('Date and time of abortion');\nconst followupDate = imports.moment(dateOfAbortion).add(3, 'days').toDate();\n\n  scheduleBuilder\n    .add({\n      name: \"Abortion followup-1\",\n      encounterType: \"Abortion followup\",\n      earliestDate: followupDate,\n      maxDate: imports.moment(followupDate).add(2, 'days').toDate()\n    }).whenItem(imports.moment(programEncounter.encounterDateTime).isBefore(followupDate, 'date'))\n    .is.truthy;\n    \n    const ifReferral = programEncounter.getObservationReadableValue('Does woman require referral?');\n    console.log(\"====>ifReferral\", ifReferral); \n\n    scheduleBuilder\n    .add({\n      name: \"Referral Status-1\",\n      encounterType: \"Referral Status\",\n      earliestDate: imports.moment(programEncounter.encounterDateTime).add(3, 'days').toDate(),\n      maxDate: imports.moment(programEncounter.encounterDateTime).add(5, 'days').toDate()\n    }).whenItem(ifReferral == 'Yes')\n    .is.truthy;\n    \n  return scheduleBuilder.getAll();\n};",
+  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\n\n  \n      const visitDate = programEncounter.encounterDateTime; \n  const dateOfAbortion = programEncounter.getObservationValue('Date and time of abortion');\n  const encounterScheduleAbortion = [\n     {\"name\": \"Abortion followup-1\", \"earliest\": 3, \"max\": 5 },\n    {\"name\": \"Abortion followup-2\", \"earliest\": 7, \"max\": 11 },\n    {\"name\": \"Abortion followup-3\", \"earliest\": 15, \"max\": 19}    \n];\n   \n var schedule = _.chain(encounterScheduleAbortion).filter(e => imports.moment(visitDate).isSameOrBefore(imports.moment(dateOfAbortion).add(e.earliest, 'days'), 'date') === true).filter(e => (programEncounter.programEnrolment.hasEncounter('Abortion followup', e.name)) === false).first().value();\n  \n  if (!_.isEmpty(schedule)) {\n  scheduleBuilder\n    .add({\n      name: schedule.name,\n      encounterType: \"Abortion followup\",\n      earliestDate:  imports.moment(dateOfAbortion).add(schedule.earliest, 'days').toDate() ,\n      maxDate: imports.moment(dateOfAbortion).add(schedule.max, 'days').toDate() \n    });\n  }\n       \n    const ifReferral = programEncounter.getObservationReadableValue('Does woman require referral?');\n    console.log(\"====>ifReferral\", ifReferral); \n\n    scheduleBuilder\n    .add({\n      name: \"Referral Status-1\",\n      encounterType: \"Referral Status\",\n      earliestDate: imports.moment(programEncounter.encounterDateTime).add(3, 'days').toDate(),\n      maxDate: imports.moment(programEncounter.encounterDateTime).add(5, 'days').toDate()\n    }).whenItem(ifReferral == 'Yes')\n    .is.truthy;\n    \n  return scheduleBuilder.getAll();\n};",
   "validationRule" : "",
   "checklistsRule" : ""
 }

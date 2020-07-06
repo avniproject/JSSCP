@@ -19,11 +19,11 @@
       "type" : "SingleSelect",
       "mandatory" : true
     }, {
-      "name" : "Date and time when placenta was out",
+      "name" : "Date and time when baby was out",
       "uuid" : "7475d67e-231d-4eaa-a114-e90ce7f7ac1b",
       "keyValues" : [ ],
       "concept" : {
-        "name" : "Date and time when placenta was out",
+        "name" : "Date and time when baby was out",
         "uuid" : "75f66882-8186-4a8c-b1f3-1f6b2386fef6"
       },
       "displayOrder" : 2.0,
@@ -124,7 +124,19 @@
       "displayOrder" : 10.0,
       "type" : "SingleSelect",
       "mandatory" : true
-    }]
+    }, {
+      "name" : "Did any of the following danger sign was there during the process of labour",
+      "uuid" : "8e9724a8-a756-400b-88d9-d3f70362d6fb",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Danger signs during the process of labour",
+        "uuid" : "c45fa5f8-098d-49af-8119-6a5c55012e1b"
+      },
+      "displayOrder" : 11.0,
+      "type" : "MultiSelect",
+      "mandatory" : true,
+      "voided" : true
+    } ]
   }, {
     "uuid" : "733739c2-5720-4fcb-9024-765762d2b293",
     "name" : "Other details",
