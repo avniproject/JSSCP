@@ -1,5 +1,6 @@
 [ {
   "name" : "Individual",
   "uuid" : "c3e43b29-2a63-49bf-870b-8365d2dd9251",
-  "voided" : false
+  "voided" : false,
+  "type": "Person"
 } ]
