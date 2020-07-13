@@ -83,7 +83,8 @@ create view jsscp_pregnancy_view as (
            individual.date_of_birth_verified                                                          "Ind.date_of_birth_verified",
            individual.registration_date                                                               "Ind.registration_date",
            individual.facility_id                                                                     "Ind.facility_id",
-           a.title                                                                                    "Ind.Area",
+           village.title                                                                              "Ind.village",
+           cluster.title                                                                              "Ind.cluster",
            individual.is_voided                                                                       "Ind.is_voided",
            op.name                                                                                    "Enl.Program Name",
            programEnrolment.id                                                                        "Enl.Id",
@@ -153,7 +154,8 @@ create view jsscp_pregnancy_view as (
              LEFT OUTER JOIN operational_program op ON op.program_id = programEnrolment.program_id
              LEFT OUTER JOIN individual individual ON programEnrolment.individual_id = individual.id
              LEFT OUTER JOIN gender g ON g.id = individual.gender_id
-             LEFT OUTER JOIN address_level a ON individual.address_id = a.id
+             left join address_level village ON individual.address_id = village.id
+             left join address_level cluster on village.parent_id = cluster.id
     WHERE op.uuid = '369dc9d1-ea43-47cf-9a32-5e98a81b2de4'
       AND programEnrolment.enrolment_date_time IS NOT NULL
 );
