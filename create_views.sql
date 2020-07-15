@@ -90,6 +90,7 @@ create view jsscp_pregnancy_view as (
            op.name                                                                                    "Enl.Program Name",
            programEnrolment.id                                                                        "Enl.Id",
            programEnrolment.uuid                                                                      "Enl.uuid",
+           programEnrolment.enrolment_date_time                                                        "Enl.enrolment_date_time",
            programEnrolment.is_voided                                                                 "Enl.is_voided",
            (individual.observations ->> 'ecdf3c54-2808-494d-87be-8fb744d5c3bc')::TEXT              as "Ind.Father/Husband's Name",
            single_select_coded(
