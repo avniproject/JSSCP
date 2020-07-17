@@ -664,8 +664,8 @@ create view jsscp_delivery_view as (
            (programEnrolment.observations ->> '6e50431c-6cb0-495f-9735-dd431c9970ff')::DATE        as "Enl.Date of next ANC Visit",
            single_select_coded(
                    programEnrolment.observations ->> 'b6f45def-e3f4-4e7b-97ed-68c539b82fa2')::TEXT as "Enl.Send her to hospital for abortion",
-           (programEncounter.observations ->> '3584ab7c-061d-472f-996e-8082bc7ee5b4')::DATE        as "Enc.Date and time of labour pain started",
-           (programEncounter.observations ->> '75f66882-8186-4a8c-b1f3-1f6b2386fef6')::DATE        as "Enc.Date and time when baby was out",
+           (programEncounter.observations ->> '3584ab7c-061d-472f-996e-8082bc7ee5b4')::timestamp        as "Enc.Date and time of labour pain started",
+           (programEncounter.observations ->> '75f66882-8186-4a8c-b1f3-1f6b2386fef6')::timestamp        as "Enc.Date and time when baby was out",
            (programEncounter.observations ->> '0bcf8d88-f9c5-4e9a-89bb-10f31cfff0a3')::TEXT        as "Enc.Gestational age category",
            single_select_coded(
                    programEncounter.observations ->> 'dea1a2d3-2583-4a77-8723-e64d9e10079e')::TEXT as "Enc.Place of delivery",
