@@ -1245,6 +1245,7 @@ create view jsscp_child_pnc_view as(
                                        single_select_coded(programEncounter.observations->>'dde1da1e-56c5-42ad-8577-6b3096948330')::TEXT as "Enc.start treatment of hypothermia and look for sign of sepsis",
                                        single_select_coded(programEncounter.observations->>'b5c8113e-ea16-414c-8d67-82fa0177a909')::TEXT as "Enc.apply GV paint",
                                        single_select_coded(programEncounter.observations->>'c3046ee8-0992-4459-b713-555a947ab6f3')::TEXT as "Enc.refer the baby to Subcenter for yellow skin or eyes",
+                                       multi_select_coded(programEncounter.observations->'23664b77-05e2-4baa-8522-68c02314ec21')::TEXT as "Enc.Diagnosis of sepsis",
                                        programEncounter.cancel_date_time "EncCancel.cancel_date_time",
                                        single_select_coded(programEncounter.observations->>'bf400e7f-8e1b-4052-af49-b0db47b3eb5a')::TEXT as "EncCancel.Visit cancel reason",
                                        (programEncounter.observations->>'d038a9c4-fe96-4c09-b883-c80691427b60')::TEXT as "EncCancel.Other reason for cancelling",
