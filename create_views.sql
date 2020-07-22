@@ -1536,3 +1536,80 @@ create view jsscp_anc_clinic_and_home_view as (
                                       AND oet.uuid = 'a1021d7f-7d93-4fa2-b766-09ec2733c9ff'
                                       AND programEncounter.encounter_date_time IS NOT NULL
                                       AND programEnrolment.enrolment_date_time IS NOT NULL);
+
+
+drop view if exists jsscp_child_birth_view;
+create view jsscp_child_birth_view as (
+    SELECT  individual.id "Ind.Id",
+            individual.address_id "Ind.address_id",
+            individual.uuid "Ind.uuid",  
+            individual.first_name "Ind.first_name",
+            individual.last_name "Ind.last_name",
+            g.name "Ind.Gender",
+            individual.date_of_birth "Ind.date_of_birth",
+            individual.date_of_birth_verified "Ind.date_of_birth_verified",
+            individual.registration_date "Ind.registration_date",
+            individual.facility_id  "Ind.facility_id",
+            village.title      "Ind.village",
+            cluster.title      "Ind.cluster",
+            u.name    "Enc.username",
+            individual.is_voided "Ind.is_voided",
+            op.name "Enl.Program Name",
+            programEnrolment.id  "Enl.Id",
+            programEnrolment.uuid  "Enl.uuid",
+            programEnrolment.is_voided "Enl.is_voided",
+            programEnrolment.program_exit_date_time "Enl.program_exit_date_time",
+            oet.name "Enc.Type",
+            programEncounter.id "Enc.Id",
+            programEncounter.earliest_visit_date_time "Enc.earliest_visit_date_time",
+            programEncounter.encounter_date_time "Enc.encounter_date_time",
+            programEncounter.program_enrolment_id "Enc.program_enrolment_id",
+            programEncounter.uuid "Enc.uuid",  programEncounter.name "Enc.name",
+            programEncounter.max_visit_date_time "Enc.max_visit_date_time",
+            programEncounter.is_voided "Enc.is_voided",
+            (individual.observations->>'0aec1658-5ae8-4517-be2d-81a89974d143')::TEXT as "Ind.Non programme village name",
+            (individual.observations->>'ecdf3c54-2808-494d-87be-8fb744d5c3bc')::TEXT as "Ind.Father/Husband's Name",
+            single_select_coded(individual.observations->>'9e995ea6-a5f7-410f-adc2-2d2ce6d5e19b')::TEXT as "Ind.Marital status",
+            (individual.observations->>'9d958124-09bb-466c-a4b4-db8d285def1f')::DATE as "Ind.Date of marriage",
+            single_select_coded(individual.observations->>'673d65bd-6dc4-4aac-8e1e-1ee355ac081b')::TEXT as "Ind.Education",
+            single_select_coded(individual.observations->>'20ef261a-f110-4eaa-a592-2a1eeb0bf061')::TEXT as "Ind.Occupation",
+            (individual.observations->>'4c429211-634e-4c2b-9a31-3f0a395f8f8d')::TEXT as "Ind.Other occupation",
+            single_select_coded(individual.observations->>'bab107f6-fc0e-4be7-ab71-658a92d72f35')::TEXT as "Ind.Whether any disability",
+            multi_select_coded(individual.observations->'7061c675-c2ba-4016-886d-eeb432548378')::TEXT as "Ind.Type of disability",
+            single_select_coded(individual.observations->>'d333f2a2-717e-478f-acbc-173bc7374d66')::TEXT as "Ind.Status of the individual",
+            (individual.observations->>'681fce2b-ea38-4651-a0b8-2cddd307ade7')::TEXT as "Ind.Aadhaar ID",
+            (individual.observations->>'0a725832-b21c-4151-b017-7e6af770ba54')::TEXT as "Ind.Contact Number",
+            single_select_coded(individual.observations->>'2a445ac8-56e7-4eda-8756-0a9c4fa9a77b')::TEXT as "Ind.Smart card (Insurance)",
+            (programEncounter.observations->>'24a9549b-05fc-4899-b861-b5c0e54b7340')::TEXT as "Enc.Birth Weight",
+            single_select_coded(programEncounter.observations->>'7cecaf08-1a00-41a6-965b-015b89aa66ba')::TEXT as "Enc.Whether baby cleaned and dried immediately after birth",
+            single_select_coded(programEncounter.observations->>'cdd45c89-b7be-4131-a6c0-48e8b82926c4')::TEXT as "Enc.Whether baby wrapped in warm clothes",
+            single_select_coded(programEncounter.observations->>'734e9cd5-3df4-4cfd-bca4-aa842af2c84e')::TEXT as "Enc.Diagnosis of baby immediately after birth",
+            single_select_coded(programEncounter.observations->>'426f1fbd-6211-47dc-9b58-05a94d8dd713')::TEXT as "Enc.Newborn cry",
+            single_select_coded(programEncounter.observations->>'63495af0-0150-48a0-b52d-9656a8671f1b')::TEXT as "Enc.Newborn breathing",
+            single_select_coded(programEncounter.observations->>'5b885356-ac8a-4e5c-bc6d-32ac05079d62')::TEXT as "Enc.Newborn movement",
+            single_select_coded(programEncounter.observations->>'e2282953-329a-400f-aa12-7b1065a42f7a')::TEXT as "Enc.If baby was not breathing for 30 seconds, was any action taken",
+            single_select_coded(programEncounter.observations->>'a11eea1e-4529-4bf1-a8b2-734e38a590bb')::TEXT as "Enc.Whether mucus extractor used",
+            single_select_coded(programEncounter.observations->>'62fa4db7-448a-48fe-b5d4-5feb00752153')::TEXT as "Enc.What was the outcome of action",
+            single_select_coded(programEncounter.observations->>'e4d30772-e360-4824-9acb-e417bb5b264e')::TEXT as "Enc.Newborn cried",
+            single_select_coded(programEncounter.observations->>'f23c5d63-f73c-40e7-a4d0-9ebecf2a701c')::TEXT as "Enc.Newborn breath",
+            single_select_coded(programEncounter.observations->>'0c06c507-6676-4083-a862-2b0d80327262')::TEXT as "Enc.Newborn movements",
+            programEncounter.cancel_date_time "EncCancel.cancel_date_time",
+            single_select_coded(programEncounter.observations->>'bf400e7f-8e1b-4052-af49-b0db47b3eb5a')::TEXT as "EncCancel.Visit cancel reason",
+            (programEncounter.observations->>'d038a9c4-fe96-4c09-b883-c80691427b60')::TEXT as "EncCancel.Other reason for cancelling"
+            
+            FROM program_encounter programEncounter  
+            LEFT OUTER JOIN operational_encounter_type oet on programEncounter.encounter_type_id = oet.encounter_type_id  
+            LEFT OUTER JOIN program_enrolment programEnrolment ON programEncounter.program_enrolment_id = programEnrolment.id  
+            LEFT OUTER JOIN operational_program op ON op.program_id = programEnrolment.program_id  
+            LEFT OUTER JOIN individual individual ON programEnrolment.individual_id = individual.id  
+            LEFT OUTER JOIN gender g ON g.id = individual.gender_id  left join address_level village ON individual.address_id = village.id
+             left join address_level cluster on village.parent_id = cluster.id
+             LEFT JOIN audit a ON programEncounter.audit_id = a.id
+             LEFT JOIN users u ON a.created_by_id = u.id
+ 
+            
+            WHERE op.uuid = 'bf6c7776-6e85-4700-95b7-429f119d0af5'  
+            AND oet.uuid = '86a2d0cb-62d0-4277-ba07-7a7e8b6c67ce'  
+            AND programEncounter.encounter_date_time IS NOT NULL  
+            AND programEnrolment.enrolment_date_time IS NOT NULL
+);
