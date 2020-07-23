@@ -1613,3 +1613,65 @@ create view jsscp_child_birth_view as (
             AND programEncounter.encounter_date_time IS NOT NULL  
             AND programEnrolment.enrolment_date_time IS NOT NULL
 );
+
+drop view if exists jsscp_child_referral_status_view;
+create view jsscp_child_referral_status_view as (
+                                                SELECT
+                                                    individual.id "Ind.Id",
+                                                    individual.address_id "Ind.address_id",
+                                                    individual.uuid "Ind.uuid",
+                                                    individual.first_name "Ind.first_name",
+                                                    individual.last_name "Ind.last_name",
+                                                    g.name "Ind.Gender",
+                                                    individual.date_of_birth "Ind.date_of_birth",
+                                                    individual.date_of_birth_verified "Ind.date_of_birth_verified",
+                                                    individual.registration_date "Ind.registration_date",
+                                                    individual.facility_id  "Ind.facility_id",
+                                                    a.title "Ind.Area",
+                                                    individual.is_voided "Ind.is_voided",
+                                                    op.name "Enl.Program Name",
+                                                    programEnrolment.id  "Enl.Id",
+                                                    programEnrolment.uuid  "Enl.uuid",
+                                                    programEnrolment.is_voided "Enl.is_voided",
+                                                    oet.name "Enc.Type",
+                                                    programEncounter.id "Enc.Id",
+                                                    programEncounter.earliest_visit_date_time "Enc.earliest_visit_date_time",
+                                                    programEncounter.encounter_date_time "Enc.encounter_date_time",
+                                                    programEncounter.program_enrolment_id "Enc.program_enrolment_id",
+                                                    programEncounter.uuid "Enc.uuid",
+                                                    programEncounter.name "Enc.name",
+                                                    programEncounter.max_visit_date_time "Enc.max_visit_date_time",
+                                                    programEncounter.is_voided "Enc.is_voided",
+                                                    (individual.observations->>'ecdf3c54-2808-494d-87be-8fb744d5c3bc')::TEXT as "Ind.Father/Husband's Name",
+                                                    single_select_coded(individual.observations->>'9e995ea6-a5f7-410f-adc2-2d2ce6d5e19b')::TEXT as "Ind.Marital status",
+                                                    (individual.observations->>'9d958124-09bb-466c-a4b4-db8d285def1f')::DATE as "Ind.Date of marriage",
+                                                    single_select_coded(individual.observations->>'673d65bd-6dc4-4aac-8e1e-1ee355ac081b')::TEXT as "Ind.Education",
+                                                    single_select_coded(individual.observations->>'20ef261a-f110-4eaa-a592-2a1eeb0bf061')::TEXT as "Ind.Occupation",
+                                                    (individual.observations->>'4c429211-634e-4c2b-9a31-3f0a395f8f8d')::TEXT as "Ind.Other occupation",
+                                                    single_select_coded(individual.observations->>'bab107f6-fc0e-4be7-ab71-658a92d72f35')::TEXT as "Ind.Whether any disability",
+                                                    multi_select_coded(individual.observations->'7061c675-c2ba-4016-886d-eeb432548378')::TEXT as "Ind.Type of disability",
+                                                    single_select_coded(individual.observations->>'d333f2a2-717e-478f-acbc-173bc7374d66')::TEXT as "Ind.Status of the individual",
+                                                    (individual.observations->>'681fce2b-ea38-4651-a0b8-2cddd307ade7')::TEXT as "Ind.Aadhaar ID",
+                                                    (individual.observations->>'0a725832-b21c-4151-b017-7e6af770ba54')::TEXT as "Ind.Contact Number",
+                                                    single_select_coded(individual.observations->>'2a445ac8-56e7-4eda-8756-0a9c4fa9a77b')::TEXT as "Ind.Smart card (Insurance)",
+
+                                                    multi_select_coded(programEncounter.observations->'4671094b-4fe9-42d4-a933-6cc7d0320209')::TEXT as "Enc.Status of referral -1",
+                                                    (programEncounter.observations->>'e76c8b20-7de0-4cdb-ab9f-3df35452ad27')::TEXT as "Enc.Other status of referral -1",
+                                                    multi_select_coded(programEncounter.observations->'9c049865-30c3-4a1f-958f-76e39714e1cd')::TEXT as "Enc.Status of referral -2",
+                                                    (programEncounter.observations->>'35a163f3-8632-48d9-9a8c-1b369839942c')::TEXT as "Enc.Other status of referral -2",
+                                                    programEncounter.cancel_date_time "EncCancel.cancel_date_time",
+                                                    single_select_coded(programEncounter.observations->>'bf400e7f-8e1b-4052-af49-b0db47b3eb5a')::TEXT as "EncCancel.Visit cancel reason",
+                                                    (programEncounter.observations->>'d038a9c4-fe96-4c09-b883-c80691427b60')::TEXT as "EncCancel.Other reason for cancelling",
+                                                    (programEncounter.observations->>'6e50431c-6cb0-495f-9735-dd431c9970ff')::DATE as "EncCancel.Date of next ANC Visit"
+                                                FROM program_encounter programEncounter
+                                                         LEFT OUTER JOIN operational_encounter_type oet on programEncounter.encounter_type_id = oet.encounter_type_id
+                                                         LEFT OUTER JOIN program_enrolment programEnrolment ON programEncounter.program_enrolment_id = programEnrolment.id
+                                                         LEFT OUTER JOIN operational_program op ON op.program_id = programEnrolment.program_id
+                                                         LEFT OUTER JOIN individual individual ON programEnrolment.individual_id = individual.id
+                                                         LEFT OUTER JOIN gender g ON g.id = individual.gender_id
+                                                         LEFT OUTER JOIN address_level a ON individual.address_id = a.id
+                                                WHERE op.uuid = 'bf6c7776-6e85-4700-95b7-429f119d0af5'
+                                                  AND oet.uuid = 'f346a977-cc22-478a-9237-a08c4219e592'
+                                                  AND programEncounter.encounter_date_time IS NOT NULL
+                                                  AND programEnrolment.enrolment_date_time IS NOT NULL
+                                                    )
