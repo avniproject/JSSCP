@@ -441,6 +441,8 @@ create view jsscp_anc_clinic_view as (
            multi_select_coded(
                    programEncounter.observations -> '8a56f008-a910-4d6f-b028-a95db330dbf2')::TEXT  as "Enc.Referral reason",
            (programEncounter.observations ->> 'e048675e-eb86-41c2-a47b-aecfa9a3bb8c')::TEXT        as "Enc.Other referral reason",
+           multi_select_coded(
+                      programEncounter.observations -> '390483c2-fd5f-4044-bfd1-81732b4f6c71')::TEXT  as "Enc.High Risk Conditions",
            programEncounter.cancel_date_time                                                          "EncCancel.cancel_date_time",
            single_select_coded(
                    programEncounter.observations ->> 'bf400e7f-8e1b-4052-af49-b0db47b3eb5a')::TEXT as "EncCancel.Visit cancel reason",
