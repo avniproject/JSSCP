@@ -151,7 +151,8 @@ create view jsscp_pregnancy_view as (
                    programEnrolment.observations ->> 'b5ebc472-0f32-4128-97f3-0e2571daeaae')::TEXT as "Enl.Send her to nearest antenatal clinic",
            (programEnrolment.observations ->> '6e50431c-6cb0-495f-9735-dd431c9970ff')::DATE        as "Enl.Date of next ANC Visit",
            single_select_coded(
-                   programEnrolment.observations ->> 'b6f45def-e3f4-4e7b-97ed-68c539b82fa2')::TEXT as "Enl.Send her to hospital for abortion"
+                   programEnrolment.observations ->> 'b6f45def-e3f4-4e7b-97ed-68c539b82fa2')::TEXT as "Enl.Send her to hospital for abortion",
+           (programEnrolment.program_exit_observations ->> '338953ea-6d7e-423e-96d6-f52d5aa37072')::DATE as "EnlExit.Date of Death"
     FROM program_enrolment programEnrolment
              LEFT OUTER JOIN operational_program op ON op.program_id = programEnrolment.program_id
              LEFT OUTER JOIN individual individual ON programEnrolment.individual_id = individual.id
@@ -1598,8 +1599,8 @@ create view jsscp_child_birth_view as (
             single_select_coded(programEncounter.observations->>'0c06c507-6676-4083-a862-2b0d80327262')::TEXT as "Enc.Newborn movements",
             programEncounter.cancel_date_time "EncCancel.cancel_date_time",
             single_select_coded(programEncounter.observations->>'bf400e7f-8e1b-4052-af49-b0db47b3eb5a')::TEXT as "EncCancel.Visit cancel reason",
-            (programEncounter.observations->>'d038a9c4-fe96-4c09-b883-c80691427b60')::TEXT as "EncCancel.Other reason for cancelling"
-            
+            (programEncounter.observations->>'d038a9c4-fe96-4c09-b883-c80691427b60')::TEXT as "EncCancel.Other reason for cancelling",
+            (programEnrolment.program_exit_observations ->> '338953ea-6d7e-423e-96d6-f52d5aa37072')::DATE as "EnlExit.Date of Death"
             FROM program_encounter programEncounter  
             LEFT OUTER JOIN operational_encounter_type oet on programEncounter.encounter_type_id = oet.encounter_type_id  
             LEFT OUTER JOIN program_enrolment programEnrolment ON programEncounter.program_enrolment_id = programEnrolment.id  
