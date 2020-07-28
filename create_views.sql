@@ -1448,7 +1448,7 @@ create view jsscp_anc_clinic_and_home_view as (
          AND (oet.name = 'ANC Clinic Visit'or oet.name = 'ANC Home Visit')
          AND programEncounter.encounter_date_time IS NOT NULL
          AND programEnrolment.enrolment_date_time IS NOT NULL
-)
+);
 
   drop view if exists   jsscp_usg_report_view ;
  create view jsscp_usg_report_view as(
@@ -1883,4 +1883,50 @@ create view jsscp_abortion_followup_view as (
                                                  WHERE op.uuid = '369dc9d1-ea43-47cf-9a32-5e98a81b2de4'
                                                    AND oet.uuid = '15357ea0-b858-430f-9001-6effa4b76414'
                                                    AND programEncounter.encounter_date_time IS NOT NULL
-                                                   AND programEnrolment.enrolment_date_time IS NOT NULL  )
+                                                   AND programEnrolment.enrolment_date_time IS NOT NULL  );
+
+drop view if exists jsscp_child_enrolment_view;
+create view jsscp_child_enrolment_view as (
+       SELECT  individual.id "Ind.Id",
+               individual.address_id "Ind.address_id",
+               individual.uuid "Ind.uuid",
+               individual.first_name "Ind.first_name",
+               individual.last_name "Ind.last_name",
+               g.name "Ind.Gender",
+               individual.date_of_birth "Ind.date_of_birth",
+               individual.date_of_birth_verified "Ind.date_of_birth_verified",
+               individual.registration_date "Ind.registration_date",
+               individual.facility_id  "Ind.facility_id",
+               village.title      "Ind.village",
+               cluster.title      "Ind.cluster",
+               u.name    "Enl.username",
+               individual.is_voided "Ind.is_voided",
+               op.name "Enl.Program Name",
+               programEnrolment.id  "Enl.Id",
+               programEnrolment.uuid  "Enl.uuid",
+               programEnrolment.is_voided "Enl.is_voided",
+               programEnrolment.program_exit_date_time "Enl.program_exit_date_time",
+               (individual.observations->>'0aec1658-5ae8-4517-be2d-81a89974d143')::TEXT as "Ind.Non programme village name",
+               (individual.observations->>'ecdf3c54-2808-494d-87be-8fb744d5c3bc')::TEXT as "Ind.Father/Husband's Name",
+               single_select_coded(individual.observations->>'9e995ea6-a5f7-410f-adc2-2d2ce6d5e19b')::TEXT as "Ind.Marital status",
+               (individual.observations->>'9d958124-09bb-466c-a4b4-db8d285def1f')::DATE as "Ind.Date of marriage",
+               single_select_coded(individual.observations->>'673d65bd-6dc4-4aac-8e1e-1ee355ac081b')::TEXT as "Ind.Education",
+               single_select_coded(individual.observations->>'20ef261a-f110-4eaa-a592-2a1eeb0bf061')::TEXT as "Ind.Occupation",
+               (individual.observations->>'4c429211-634e-4c2b-9a31-3f0a395f8f8d')::TEXT as "Ind.Other occupation",
+               single_select_coded(individual.observations->>'bab107f6-fc0e-4be7-ab71-658a92d72f35')::TEXT as "Ind.Whether any disability",
+               multi_select_coded(individual.observations->'7061c675-c2ba-4016-886d-eeb432548378')::TEXT as "Ind.Type of disability",
+               single_select_coded(individual.observations->>'d333f2a2-717e-478f-acbc-173bc7374d66')::TEXT as "Ind.Status of the individual",
+               (individual.observations->>'681fce2b-ea38-4651-a0b8-2cddd307ade7')::TEXT as "Ind.Aadhaar ID",
+               (individual.observations->>'0a725832-b21c-4151-b017-7e6af770ba54')::TEXT as "Ind.Contact Number",
+               single_select_coded(individual.observations->>'2a445ac8-56e7-4eda-8756-0a9c4fa9a77b')::TEXT as "Ind.Smart card (Insurance)",
+               (programEnrolment.program_exit_observations ->> '338953ea-6d7e-423e-96d6-f52d5aa37072')::DATE as "EnlExit.Date of Death"
+       FROM program_enrolment programEnrolment
+                   LEFT OUTER JOIN operational_program op ON op.program_id = programEnrolment.program_id
+                   LEFT OUTER JOIN individual individual ON programEnrolment.individual_id = individual.id
+                   LEFT OUTER JOIN gender g ON g.id = individual.gender_id  left join address_level village ON individual.address_id = village.id
+                   left join address_level cluster on village.parent_id = cluster.id
+                   LEFT JOIN audit a ON programEnrolment.audit_id = a.id
+                   LEFT JOIN users u ON a.created_by_id = u.id
+       WHERE op.uuid = 'bf6c7776-6e85-4700-95b7-429f119d0af5'
+         AND programEnrolment.enrolment_date_time IS NOT NULL
+);
