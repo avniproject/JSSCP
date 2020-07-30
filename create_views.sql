@@ -705,7 +705,8 @@ create view jsscp_delivery_view as (
            single_select_coded(
                    programEncounter.observations ->> 'bf400e7f-8e1b-4052-af49-b0db47b3eb5a')::TEXT as "EncCancel.Visit cancel reason",
            (programEncounter.observations ->> 'd038a9c4-fe96-4c09-b883-c80691427b60')::TEXT        as "EncCancel.Other reason for cancelling",
-           (programEncounter.observations ->> '6e50431c-6cb0-495f-9735-dd431c9970ff')::DATE        as "EncCancel.Date of next ANC Visit"
+           (programEncounter.observations ->> '6e50431c-6cb0-495f-9735-dd431c9970ff')::DATE        as "EncCancel.Date of next ANC Visit",
+           (programEnrolment.program_exit_date_time)::DATE                                         as "Enl.exit_date_time"
     FROM program_encounter programEncounter
              LEFT OUTER JOIN operational_encounter_type oet
                              on programEncounter.encounter_type_id = oet.encounter_type_id
