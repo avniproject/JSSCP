@@ -1432,7 +1432,10 @@ create view jsscp_anc_clinic_and_home_view as (
               single_select_coded(
                          programEncounter.observations ->> 'bf400e7f-8e1b-4052-af49-b0db47b3eb5a')::TEXT as "EncCancel.Visit cancel reason",
               (programEncounter.observations ->> 'd038a9c4-fe96-4c09-b883-c80691427b60')::TEXT        as "EncCancel.Other reason for cancelling",
-              (programEncounter.observations ->> '6e50431c-6cb0-495f-9735-dd431c9970ff')::DATE        as "EncCancel.Date of next ANC Visit"
+              (programEncounter.observations ->> '6e50431c-6cb0-495f-9735-dd431c9970ff')::DATE        as "EncCancel.Date of next ANC Visit",
+              abs(TRUNC(DATE_PART('day',
+                              encounter_date_time - (programEnrolment.observations ->> '814f1780-aa3d-4c46-b881-71face696220')::timestamp) /
+                    7))                                                                         as ga_weeks
        FROM program_encounter programEncounter
                    LEFT OUTER JOIN operational_encounter_type oet
                                    on programEncounter.encounter_type_id = oet.encounter_type_id
@@ -1547,7 +1550,7 @@ drop view if exists jsscp_child_birth_view;
 create view jsscp_child_birth_view as (
     SELECT  individual.id "Ind.Id",
             individual.address_id "Ind.address_id",
-            individual.uuid "Ind.uuid",  
+            individual.uuid "Ind.uuid",
             individual.first_name "Ind.first_name",
             individual.last_name "Ind.last_name",
             g.name "Ind.Gender",
@@ -1602,20 +1605,20 @@ create view jsscp_child_birth_view as (
             single_select_coded(programEncounter.observations->>'bf400e7f-8e1b-4052-af49-b0db47b3eb5a')::TEXT as "EncCancel.Visit cancel reason",
             (programEncounter.observations->>'d038a9c4-fe96-4c09-b883-c80691427b60')::TEXT as "EncCancel.Other reason for cancelling",
             (programEnrolment.program_exit_observations ->> '338953ea-6d7e-423e-96d6-f52d5aa37072')::DATE as "EnlExit.Date of Death"
-            FROM program_encounter programEncounter  
-            LEFT OUTER JOIN operational_encounter_type oet on programEncounter.encounter_type_id = oet.encounter_type_id  
-            LEFT OUTER JOIN program_enrolment programEnrolment ON programEncounter.program_enrolment_id = programEnrolment.id  
-            LEFT OUTER JOIN operational_program op ON op.program_id = programEnrolment.program_id  
-            LEFT OUTER JOIN individual individual ON programEnrolment.individual_id = individual.id  
+            FROM program_encounter programEncounter
+            LEFT OUTER JOIN operational_encounter_type oet on programEncounter.encounter_type_id = oet.encounter_type_id
+            LEFT OUTER JOIN program_enrolment programEnrolment ON programEncounter.program_enrolment_id = programEnrolment.id
+            LEFT OUTER JOIN operational_program op ON op.program_id = programEnrolment.program_id
+            LEFT OUTER JOIN individual individual ON programEnrolment.individual_id = individual.id
             LEFT OUTER JOIN gender g ON g.id = individual.gender_id  left join address_level village ON individual.address_id = village.id
              left join address_level cluster on village.parent_id = cluster.id
              LEFT JOIN audit a ON programEncounter.audit_id = a.id
              LEFT JOIN users u ON a.created_by_id = u.id
- 
-            
-            WHERE op.uuid = 'bf6c7776-6e85-4700-95b7-429f119d0af5'  
-            AND oet.uuid = '86a2d0cb-62d0-4277-ba07-7a7e8b6c67ce'  
-            AND programEncounter.encounter_date_time IS NOT NULL  
+
+
+            WHERE op.uuid = 'bf6c7776-6e85-4700-95b7-429f119d0af5'
+            AND oet.uuid = '86a2d0cb-62d0-4277-ba07-7a7e8b6c67ce'
+            AND programEncounter.encounter_date_time IS NOT NULL
             AND programEnrolment.enrolment_date_time IS NOT NULL
 );
 
