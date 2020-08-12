@@ -1292,6 +1292,7 @@ create view jsscp_anc_clinic_and_home_view as (
               programEnrolment.id                                                                        "Enl.Id",
               programEnrolment.uuid                                                                      "Enl.uuid",
               programEnrolment.is_voided                                                                 "Enl.is_voided",
+              programenrolment.program_exit_date_time                                                    "Enl.program_exit_date_time",
               oet.name                                                                                   "Enc.Type",
               programEncounter.id                                                                        "Enc.Id",
               programEncounter.earliest_visit_date_time                                                  "Enc.earliest_visit_date_time",
