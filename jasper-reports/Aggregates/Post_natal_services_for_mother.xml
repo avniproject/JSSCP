@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reportUnit exportedWithPermissions="false">
+    <folder>/JSSCP/Reports/Aggregates</folder>
+    <name>Post_natal_services_for_mother</name>
+    <version>62</version>
+    <label>Post natal mothers</label>
+    <description></description>
+    <creationDate>2020-07-13T00:54:08.407+05:30</creationDate>
+    <updateDate>2020-09-03T13:24:12.026+05:30</updateDate>
+    <mainReport>
+        <localResource
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            exportedWithPermissions="false" dataFile="main_jrxml.data" xsi:type="fileResource">
+            <folder>/JSSCP/Reports/Aggregates/Post_natal_services_for_mother_files</folder>
+            <name>main_jrxml</name>
+            <version>1</version>
+            <label>Main jrxml</label>
+            <creationDate>2020-07-17T22:48:38.129+05:30</creationDate>
+            <updateDate>2020-07-17T22:48:38.129+05:30</updateDate>
+            <fileType>jrxml</fileType>
+        </localResource>
+    </mainReport>
+    <dataSource>
+        <uri>/JSSCP/Data_Sources/jsscp</uri>
+    </dataSource>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_DATE_START</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_DATE_END</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_CLUSTER_NAME</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_VILLAGE_NAME</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_USER_NAME</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_AGE_GROUP</uri>
+    </inputControl>
+    <resource>
+        <localResource
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            exportedWithPermissions="false"
+            dataFile="AggregateReportStyles.jrtx.data" xsi:type="fileResource">
+            <folder>/JSSCP/Reports/Aggregates/Post_natal_services_for_mother_files</folder>
+            <name>AggregateReportStyles.jrtx</name>
+            <version>57</version>
+            <label>AggregateReportStyles.jrtx</label>
+            <creationDate>2020-07-13T00:54:08.407+05:30</creationDate>
+            <updateDate>2020-07-13T00:54:08.407+05:30</updateDate>
+            <fileType>jrtx</fileType>
+        </localResource>
+    </resource>
+    <inputControlRenderingView></inputControlRenderingView>
+    <alwaysPromptControls>false</alwaysPromptControls>
+    <controlsLayout>4</controlsLayout>
+</reportUnit>

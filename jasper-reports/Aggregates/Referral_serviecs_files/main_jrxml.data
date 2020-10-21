@@ -1,0 +1,1003 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.14.0.final using JasperReports Library version 6.11.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Referral serviecs" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8749b3c1-29c9-4661-9823-b7c57378e387">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="prod DB"/>
+	<property name="ireport.jasperserver.url" value="https://reporting-jasper.avniproject.org/jasperserver/"/>
+	<property name="ireport.jasperserver.user" value="hirent"/>
+	<property name="ireport.jasperserver.report.resource" value="/JSSCP/Reports/Aggregates/Referral_serviecs_files/main_jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/JSSCP/Reports/Aggregates/Referral_serviecs"/>
+	<template><![CDATA["repo:AggregateReportStyles.jrtx"]]></template>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="child" uuid="68b6744e-fa58-4f13-aa1b-d05b9141557d">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Staging (Avani)"/>
+		<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="671"/>
+		<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="320"/>
+		<parameter name="PARAM_DATE_START" class="java.sql.Timestamp"/>
+		<parameter name="PARAM_DATE_END" class="java.sql.Timestamp"/>
+		<parameter name="PARAM_CLUSTER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+		<parameter name="PARAM_VILLAGE_NAME" class="java.util.List" nestedType="java.lang.String"/>
+		<parameter name="PARAM_USER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+		<parameter name="Exited" class="java.util.List" nestedType="java.lang.String"/>
+		<queryString language="SQL">
+			<![CDATA[with all_data as (
+    select  pnc."Ind.Id"                          ind_id,
+           pnc."Enl.Id"                          enl_id,
+          case
+                 when
+                     pnc."Enl.program_exit_date_time" is null then 'No'
+                 else 'Yes' end
+                                                                                                                     exit_status,
+           count(distinct pnc."Enc.Id") total_enc,
+           count(distinct pnc."Enc.Id")filter ( where pnc."Enc.Referral needed to newborn" ='Yes') referral,
+           count(distinct pnc."Enc.Id")filter ( where pnc."Enc.Referral reason for newborn"='Sepsis') newborn_sepsis,
+           count(distinct ch."Enc.Id")filter ( where ch."Enc.Status of referral -1" notnull ) total_ref_enc
+            
+
+    from jsscp_child_pnc_view pnc left outer join jsscp_child_referral_status_view ch on pnc."Enl.Id"=ch."Enl.Id"
+    where $X{IN,pnc."Ind.cluster" ,PARAM_CLUSTER_NAME}
+            and $X{IN,pnc."Ind.village",PARAM_VILLAGE_NAME}
+            and $X{IN,pnc."Enc.username",PARAM_USER_NAME}
+            and $X{BETWEEN,pnc."Enc.encounter_date_time",PARAM_DATE_START, PARAM_DATE_END}
+group by 1,2,3
+   )
+select unnest(array [
+    'Newborn Referrels',
+      'Newborn referrals with sepsis'
+    ]) as "Characteristics",
+       unnest(array [
+           coalesce((sum(referral)),0),
+           coalesce((sum(newborn_sepsis)),0)
+           ]) as "Number",
+       unnest(array [
+           'NA',
+           nullif((sum(newborn_sepsis)*100/nullif(sum(referral),0)),0)::text
+           ]) as "Proportion"
+ from all_data where    $X{IN, exit_status,Exited}
+;]]>
+		</queryString>
+		<field name="Characteristics" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Characteristics"/>
+		</field>
+		<field name="Number" class="java.lang.Long">
+			<property name="com.jaspersoft.studio.field.label" value="Number"/>
+		</field>
+		<field name="Proportion" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Proportion"/>
+		</field>
+		<variable name="DYNAMIC_WHERE" class="java.lang.String">
+			<variableExpression><![CDATA[$F{Characteristics}.equals("Newborn Referrels") ? "referral_needed = 'Yes'" :
+$F{Characteristics}.equals("Referrals used by newborn children") ? "ref_enc notnull" :
+$F{Characteristics}.equals("Newborn referrals with sepsis") ? "referral_reason='Sepsis'" :
+"1=1"]]></variableExpression>
+		</variable>
+	</subDataset>
+	<subDataset name="pregnancy" uuid="de18b927-7381-4508-aeab-92905e8c8a36">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Staging (Avani)"/>
+		<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="900"/>
+		<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="90"/>
+		<parameter name="PARAM_DATE_START" class="java.sql.Timestamp"/>
+		<parameter name="PARAM_DATE_END" class="java.sql.Timestamp"/>
+		<parameter name="PARAM_CLUSTER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+		<parameter name="PARAM_VILLAGE_NAME" class="java.util.List" nestedType="java.lang.String"/>
+		<parameter name="PARAM_USER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+		<parameter name="Exited" class="java.util.List" nestedType="java.lang.String"/>
+		<queryString language="SQL">
+			<![CDATA[with all_data as (
+    select pnc."Ind.Id"                                                                                 ind_id,
+           pnc."Enl.Id"                                                                                 enl_id,
+            case
+                 when
+                     pnc."Enl.program_exit_date_time" is null then 'No'
+                 else 'Yes' end
+                                                                                                                     exit_status,
+           count(distinct pnc."Enc.Id")                                                                 total_enc,
+           count(distinct pnc."Enc.Id") filter ( where pnc."Enc.Referral needed to mother?" = 'Yes')    referral,
+           count(distinct pnc."Enc.Id")
+           filter ( where pnc."Enc.Referral reason" = 'Infection')                                      mother_sepsis,
+           count(distinct referral."Enc.Id")
+           filter ( where referral."Enc.Status of referral -1" notnull )                                total_ref_enc,
+           count(distinct jav."Enc.Id")
+           filter ( where jav."Enc.Does woman require referral?" = 'Yes' )                              abortion_referal,
+           count(distinct jav."Enc.Id")
+           filter ( where jav."Enc.Referral reason" = 'Infection' )                                     abortion_sepsis,
+           count(distinct jafv."Enc.Id")
+           filter ( where jafv."Enc.Does woman require referral?" = 'Yes')                              abortion_followup_referal,
+           count(distinct jafv."Enc.Id")
+           filter ( where jafv."Enc.Referral reason" = 'Infection' )                                    abortion_followup_sepsis,
+           count(distinct jacahv."Enc.Id")
+           filter ( where jacahv."Enc.Does woman require referral?" = 'Yes' )                           anc_referral,
+           count(distinct jacahv."Enc.Id") filter ( where jacahv."Enc.Referral reason" = 'Sonography' ) anc_usg
+           
+
+  from jsscp_pregnancy_view preg
+
+       left outer join  jsscp_mother_pnc_visit_view pnc on pnc."Enl.Id"=preg."Enl.Id"
+             left outer join jsscp_mother_referral_status_view referral on pnc."Enl.Id" = referral."Enl.Id"
+             left outer join jsscp_abortion_view jav on preg."Enl.Id" = jav."Enl.Id"
+             left outer join jsscp_abortion_followup_view jafv on preg."Enl.Id" = jafv."Enl.Id"
+             left outer join jsscp_anc_clinic_and_home_view jacahv on preg."Enl.Id" = jacahv."Enl.Id"
+             
+       where      $X{IN,pnc."Ind.cluster" ,PARAM_CLUSTER_NAME}
+            and $X{IN,pnc."Ind.village",PARAM_VILLAGE_NAME}
+            and $X{IN,pnc."Enc.username",PARAM_USER_NAME}
+            and $X{BETWEEN,pnc."Enc.encounter_date_time",PARAM_DATE_START, PARAM_DATE_END}
+    group by 1, 2,3
+)
+
+select unnest(array [
+    'Post Natal mother referrals',
+    'Referrals used by women enrolled in pregnancy program',
+    'Post Natal mother referrals with Sepsis'
+    ])        as "Characteristics",
+       unnest(array [
+           coalesce((sum(referral)), 0),
+           coalesce((sum(total_ref_enc)), 0),
+           coalesce((sum(mother_sepsis)), 0)
+
+           ]) as "Number",
+       unnest(array [
+           'NA',
+           nullif(((sum(total_ref_enc) * 100) / nullif(sum(referral) + sum(abortion_referal)+sum(abortion_followup_referal)+sum(anc_referral), 0)), 0)::text,
+           nullif((sum(mother_sepsis) * 100 / nullif(sum(referral), 0)), 0)::text
+           ]) as "Proportion"
+from all_data  where   $X{IN, exit_status,Exited}
+;]]>
+		</queryString>
+		<field name="Characteristics" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Characteristics"/>
+		</field>
+		<field name="Number" class="java.lang.Long">
+			<property name="com.jaspersoft.studio.field.label" value="Number"/>
+		</field>
+		<field name="Proportion" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Proportion"/>
+		</field>
+		<variable name="DYNAMIC_WHERE" class="java.lang.String">
+			<variableExpression><![CDATA[$F{Characteristics}.equals("Post Natal mother referrals") ? "referral = 'Yes'" :
+$F{Characteristics}.equals("Referrals used by women enrolled in pregnancy program") ? "referral_status notnull" :
+$F{Characteristics}.equals("Post Natal mother referrals with Sepsis") ? "mother_sepsis='Infection'" :
+$F{Characteristics}.equals("Abortion or Post Abortion referrals") ? "abortion_referral = 'Yes' or abortion_followup_referral='Yes'" :
+$F{Characteristics}.equals("Abortion or Post Abortion referrals with Sepsis") ? "abortion_sepsis='Infection' or  abortion_followup_sepsis='Infection' " :
+$F{Characteristics}.equals("ANC Referrals") ? "anc_referral='Yes'" :
+$F{Characteristics}.equals("ANC Referrals for USG") ? "anc_referral_reason='Sonography'" :
+"1=1"]]></variableExpression>
+		</variable>
+		<variable name="DYNAMIC_DISTINCT" class="java.lang.String">
+			<variableExpression><![CDATA[$F{Characteristics}.equals("Referrals used by women enrolled in pregnancy program") ? "referral" :
+"pnc"]]></variableExpression>
+		</variable>
+	</subDataset>
+	<subDataset name="child_referral" uuid="04d82b89-0ae1-4e4e-a888-71220304b5a5">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Staging (Avani)"/>
+		<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="669"/>
+		<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="321"/>
+		<parameter name="PARAM_DATE_START" class="java.sql.Timestamp"/>
+		<parameter name="PARAM_DATE_END" class="java.sql.Timestamp"/>
+		<parameter name="PARAM_CLUSTER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+		<parameter name="PARAM_VILLAGE_NAME" class="java.util.List" nestedType="java.lang.String"/>
+		<parameter name="PARAM_USER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+		<parameter name="Exited" class="java.util.List" nestedType="java.lang.String"/>
+		<queryString language="SQL">
+			<![CDATA[with all_data as (
+    select  pnc."Ind.Id"                          ind_id,
+           pnc."Enl.Id"                          enl_id,
+           case
+                 when
+                     pnc."Enl.program_exit_date_time" is null then 'No'
+                 else 'Yes' end
+                                                                                                                     exit_status,
+          
+           count(distinct pnc."Enc.Id") total_enc,
+           count(distinct pnc."Enc.Id")filter ( where pnc."Enc.Referral needed to newborn" ='Yes') referral,
+           count(distinct pnc."Enc.Id")filter ( where pnc."Enc.Referral reason for newborn"='Sepsis') newborn_sepsis,
+           count(distinct ch."Enc.Id")filter ( where ch."Enc.Status of referral -1" notnull ) total_ref_enc
+
+    from jsscp_child_pnc_view pnc left outer join jsscp_child_referral_status_view ch on pnc."Enl.Id"=ch."Enl.Id"
+    where $X{IN,pnc."Ind.cluster" ,PARAM_CLUSTER_NAME}
+            and $X{IN,pnc."Ind.village",PARAM_VILLAGE_NAME}
+            and $X{IN,pnc."Enc.username",PARAM_USER_NAME}
+            and $X{BETWEEN,pnc."Enc.encounter_date_time",PARAM_DATE_START, PARAM_DATE_END}
+group by 1,2,3
+   )
+select unnest(array [
+    'Referrals used by newborn children'
+    ]) as "Characteristics",
+       unnest(array [
+          
+           coalesce((sum(total_ref_enc)),0)
+           ]) as "Number",
+       unnest(array [
+          
+           nullif(((sum(total_ref_enc)*100)/nullif(sum(referral),0)),0)::text         
+           ]) as "Proportion"
+ from all_data where   $X{IN, exit_status,Exited}
+;]]>
+		</queryString>
+		<field name="Characteristics" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Characteristics"/>
+		</field>
+		<field name="Number" class="java.lang.Long">
+			<property name="com.jaspersoft.studio.field.label" value="Number"/>
+		</field>
+		<field name="Proportion" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Proportion"/>
+		</field>
+		<variable name="DYNAMIC_WHERE" class="java.lang.String">
+			<variableExpression><![CDATA[$F{Characteristics}.equals("Referrals used by newborn children") ? "ref_enc notnull" :
+"1=1"]]></variableExpression>
+		</variable>
+	</subDataset>
+	<subDataset name="abortion" uuid="98a1cdc9-b8cc-4fff-9057-c0c7fb12abed">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Staging (Avani)"/>
+		<parameter name="PARAM_DATE_START" class="java.sql.Timestamp"/>
+		<parameter name="PARAM_DATE_END" class="java.sql.Timestamp"/>
+		<parameter name="PARAM_CLUSTER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+		<parameter name="PARAM_VILLAGE_NAME" class="java.util.List" nestedType="java.lang.String"/>
+		<parameter name="PARAM_USER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+		<parameter name="Exited" class="java.util.List" nestedType="java.lang.String"/>
+		<queryString language="SQL">
+			<![CDATA[with all_data as (
+    select enc."Ind.Id"                                                                                 ind_id,
+           enc."Enl.Id"                                                                                 enl_id,
+           case
+                 when
+                     enc."Enl.program_exit_date_time" is null then 'No'
+                 else 'Yes' end
+                                                                                                                     exit_status,
+           count(distinct enc."Enc.Id")                                                                 total_enc,
+           count(distinct enc."Enc.Id")
+           filter ( where enc."Enc.Does woman require referral?" = 'Yes' )                              abortion_referal,
+           count(distinct enc."Enc.Id")
+           filter ( where enc."Enc.Referral reason" = 'Infection' )                                     abortion_sepsis,
+           count(distinct followup."Enc.Id")
+           filter ( where followup."Enc.Does woman require referral?" = 'Yes')                              abortion_followup_referal,
+           count(distinct followup."Enc.Id")
+           filter ( where followup."Enc.Referral reason" = 'Infection' )                                    abortion_followup_sepsis
+            
+
+    from jsscp_abortion_view enc left outer join jsscp_abortion_followup_view followup on enc."Ind.Id" = followup."Ind.Id"
+
+   where      $X{IN,enc."Ind.cluster" ,PARAM_CLUSTER_NAME}
+       and $X{IN,enc."Ind.village",PARAM_VILLAGE_NAME}
+       and $X{IN,enc."Enc.username",PARAM_USER_NAME}
+       and $X{BETWEEN,enc."Enc.encounter_date_time",PARAM_DATE_START, PARAM_DATE_END}
+    group by 1, 2,3
+)
+
+select unnest(array [
+    'Abortion or Post Abortion referrals',
+    'Abortion or Post Abortion referrals with Sepsis'
+    ])        as "Characteristics",
+       unnest(array [
+
+           coalesce((sum(abortion_referal) + sum(abortion_followup_referal)), 0),
+           coalesce((sum(abortion_sepsis) + sum(abortion_followup_sepsis)), 0)
+
+           ]) as "Number",
+       unnest(array [
+
+           'NA',
+                         nullif(((sum(abortion_sepsis) + sum(abortion_followup_sepsis))*100 / nullif((sum(abortion_referal) + sum(abortion_followup_referal)), 0)), 0)::text
+
+           ]) as "Proportion"
+from all_data  where   $X{IN, exit_status,Exited}
+;]]>
+		</queryString>
+		<field name="Characteristics" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Characteristics"/>
+		</field>
+		<field name="Number" class="java.lang.Long">
+			<property name="com.jaspersoft.studio.field.label" value="Number"/>
+		</field>
+		<field name="Proportion" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Proportion"/>
+		</field>
+		<variable name="DYNAMIC_WHERE" class="java.lang.String">
+			<variableExpression><![CDATA[$F{Characteristics}.equals("Abortion or Post Abortion referrals") ? "(referral = 'Yes' or followup_referral='Yes')" :
+$F{Characteristics}.equals("Abortion or Post Abortion referrals with Sepsis") ? "reason='Infection' or  followup_sepsis='Infection' " :"1=1"]]></variableExpression>
+		</variable>
+	</subDataset>
+	<subDataset name="anc" uuid="64480161-3ac3-4759-8874-d77b55a58814">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="prod DB"/>
+		<parameter name="PARAM_DATE_START" class="java.sql.Timestamp"/>
+		<parameter name="PARAM_DATE_END" class="java.sql.Timestamp"/>
+		<parameter name="PARAM_CLUSTER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+		<parameter name="PARAM_VILLAGE_NAME" class="java.util.List" nestedType="java.lang.String"/>
+		<parameter name="PARAM_USER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+		<parameter name="Exited" class="java.util.List" nestedType="java.lang.String"/>
+		<queryString language="SQL">
+			<![CDATA[with all_data as (
+    select enc."Ind.Id"                                                                                 ind_id,
+           enc."Enl.Id"                                                                                 enl_id,
+            case
+                 when
+                     enc."Enl.program_exit_date_time" is null then 'No'
+                 else 'Yes' end
+                                                                                                                     exit_status,
+           count(distinct enc."Enc.Id")                                                                 total_enc,
+            count(distinct enc."Enc.Id")
+           filter ( where enc."Enc.Does woman require referral?" = 'Yes' )                           anc_referral,
+           count(distinct enc."Enc.Id") filter ( where enc."Enc.Referral reason" = 'Sonography' ) anc_usg
+           
+
+    from jsscp_anc_clinic_and_home_view enc
+        where      $X{IN,enc."Ind.cluster" ,PARAM_CLUSTER_NAME}
+      and $X{IN,enc."Ind.village",PARAM_VILLAGE_NAME}
+      and $X{IN,enc."Enc.username",PARAM_USER_NAME}
+      and $X{BETWEEN,enc."Enc.encounter_date_time",PARAM_DATE_START, PARAM_DATE_END}
+    
+    
+  group by 1, 2,3
+)
+
+select unnest(array [
+
+    'ANC Referrals',
+    'ANC Referrals for USG'
+    ])        as "Characteristics",
+       unnest(array [
+
+           coalesce((sum(anc_referral)), 0),
+           coalesce((sum(anc_usg)), 0)
+
+           ]) as "Number",
+       unnest(array [
+
+           'NA',
+           nullif((sum(anc_usg) * 100 / nullif(sum(anc_referral), 0)), 0)::text
+
+           ]) as "Proportion" 
+from all_data  where   $X{IN, exit_status,Exited}
+;]]>
+		</queryString>
+		<field name="Characteristics" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Characteristics"/>
+		</field>
+		<field name="Number" class="java.lang.Long">
+			<property name="com.jaspersoft.studio.field.label" value="Number"/>
+		</field>
+		<field name="Proportion" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Proportion"/>
+		</field>
+		<variable name="DYNAMIC_WHERE" class="java.lang.String">
+			<variableExpression><![CDATA[$F{Characteristics}.equals("ANC Referrals") ? "referral = 'Yes' " :
+$F{Characteristics}.equals("ANC Referrals for USG") ? "reason='Sonography' " :"1=1"]]></variableExpression>
+		</variable>
+	</subDataset>
+	<parameter name="PARAM_DATE_START" class="java.sql.Timestamp"/>
+	<parameter name="PARAM_DATE_END" class="java.sql.Timestamp"/>
+	<parameter name="PARAM_CLUSTER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+	<parameter name="PARAM_VILLAGE_NAME" class="java.util.List" nestedType="java.lang.String"/>
+	<parameter name="PARAM_USER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+	<parameter name="Exited" class="java.util.List" nestedType="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select 1]]>
+	</queryString>
+	<field name="?column?" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="?column?"/>
+	</field>
+	<background>
+		<band height="240" splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="61">
+			<staticText>
+				<reportElement style="ReportTitle" x="110" y="30" width="278" height="30" uuid="b63ca62e-2cb6-4e62-b276-a1232df1874b"/>
+				<text><![CDATA[Referral serviecs report ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<summary>
+		<band height="562">
+			<componentElement>
+				<reportElement x="0" y="150" width="550" height="30" uuid="415a83f0-7e21-44bb-a470-d609a1fb4141">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 1_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 1_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table 1_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="pregnancy" uuid="36485c9c-99a3-4aaf-b710-b803e53a9175">
+						<datasetParameter name="PARAM_DATE_START">
+							<datasetParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_DATE_END">
+							<datasetParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_CLUSTER_NAME">
+							<datasetParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_VILLAGE_NAME">
+							<datasetParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_USER_NAME">
+							<datasetParameterExpression><![CDATA[$P{PARAM_USER_NAME}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="Exited">
+							<datasetParameterExpression><![CDATA[$P{Exited}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="380" uuid="f69c69ab-503c-4d37-b121-9a716c984a7f">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:detailCell height="30">
+							<textField>
+								<reportElement style="DataRowTextElement" stretchType="RelativeToTallestObject" x="0" y="0" width="380" height="30" uuid="7fbbd9a2-ff90-43bb-8934-dd5438c5554e"/>
+								<textElement>
+									<font size="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Characteristics}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="120" uuid="2130b2aa-1aab-4b16-8750-aeee1ff4d4da">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:detailCell height="30">
+							<textField hyperlinkType="ReportExecution">
+								<reportElement style="DataRowNumericElement" x="0" y="0" width="120" height="30" uuid="c40d64ca-800a-42e2-9281-90b3b880e7b3"/>
+								<textElement>
+									<font size="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Number}]]></textFieldExpression>
+								<hyperlinkWhenExpression><![CDATA[$F{Number} > 0]]></hyperlinkWhenExpression>
+								<hyperlinkTooltipExpression><![CDATA["Click for the line list"]]></hyperlinkTooltipExpression>
+								<hyperlinkParameter name="_report">
+									<hyperlinkParameterExpression><![CDATA["/JSSCP/Reports/Linelists/Referral_services_mother_Linelist"]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_DATE_END">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_DATE_START">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_CLUSTER_NAME">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_VILLAGE_NAME">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_USER_NAME">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_USER_NAME}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_DYNAMIC_WHERE">
+									<hyperlinkParameterExpression><![CDATA[$V{DYNAMIC_WHERE}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="Exited">
+									<hyperlinkParameterExpression><![CDATA[$P{Exited}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="DYNAMIC_DISTINCT">
+									<hyperlinkParameterExpression><![CDATA[$V{DYNAMIC_DISTINCT}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="120" uuid="8990c125-6ede-43e6-be3c-d57ac5235cfc">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:detailCell height="30">
+							<textField>
+								<reportElement style="DataRowPreCalculatedPercentageElement" stretchType="RelativeToTallestObject" x="0" y="0" width="120" height="30" uuid="ff550ae0-db65-48c9-95ed-769940d9890c"/>
+								<textElement>
+									<font size="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Proportion} == null ? "0%" : $F{Proportion}.equals("NA") ? "NA" : Double.valueOf($F{Proportion})]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<componentElement>
+				<reportElement x="0" y="30" width="550" height="60" uuid="7180c6da-9676-46cf-a9f9-d87e52f3cd0b">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="child" uuid="dac70280-44d2-4119-ba80-046a16742ed6">
+						<datasetParameter name="PARAM_DATE_START">
+							<datasetParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_DATE_END">
+							<datasetParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_CLUSTER_NAME">
+							<datasetParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_VILLAGE_NAME">
+							<datasetParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_USER_NAME">
+							<datasetParameterExpression><![CDATA[$P{PARAM_USER_NAME}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="Exited">
+							<datasetParameterExpression><![CDATA[$P{Exited}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="380" uuid="71b39038-d589-46bc-9c21-c8728e85250a">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement style="ColumnHeader" x="0" y="0" width="380" height="30" uuid="15803e66-94b2-43a7-809c-e01cb1639415">
+									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+								</reportElement>
+								<textElement>
+									<font size="16"/>
+								</textElement>
+								<text><![CDATA[Characteristics]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement style="DataRowTextElement" stretchType="RelativeToTallestObject" x="0" y="0" width="380" height="30" uuid="39afea9c-d611-4ce6-9e29-36733b88655a">
+									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+								</reportElement>
+								<textElement>
+									<font size="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Characteristics}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="120" uuid="5a29397b-202d-48d6-9470-551f6cfcc902">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement style="ColumnHeader" x="0" y="0" width="120" height="30" uuid="9872083a-53e1-4aeb-a579-836029001965"/>
+								<textElement>
+									<font size="16"/>
+								</textElement>
+								<text><![CDATA[Number]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField hyperlinkType="ReportExecution">
+								<reportElement style="DataRowNumericElement" x="0" y="0" width="120" height="30" uuid="5e39e183-5785-4a56-a2eb-962001824081"/>
+								<textElement>
+									<font size="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Number}]]></textFieldExpression>
+								<hyperlinkWhenExpression><![CDATA[$F{Number} > 0]]></hyperlinkWhenExpression>
+								<hyperlinkTooltipExpression><![CDATA["Click for the line list"]]></hyperlinkTooltipExpression>
+								<hyperlinkParameter name="_report">
+									<hyperlinkParameterExpression><![CDATA["/JSSCP/Reports/Linelists/Referral_services_child_Linelist"]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_DATE_END">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_DATE_START">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_CLUSTER_NAME">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_VILLAGE_NAME">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_USER_NAME">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_USER_NAME}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_DYNAMIC_WHERE">
+									<hyperlinkParameterExpression><![CDATA[$V{DYNAMIC_WHERE}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="Exited">
+									<hyperlinkParameterExpression><![CDATA[$P{Exited}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="120" uuid="2bcf21a2-68cf-4c5d-a79e-433aee51e7c9">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement style="ColumnHeader" x="0" y="0" width="120" height="30" uuid="685e197a-a903-4621-892a-08ec5d4c73d4"/>
+								<textElement>
+									<font size="16"/>
+								</textElement>
+								<text><![CDATA[Proportion]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement style="DataRowPreCalculatedPercentageElement" x="0" y="0" width="120" height="30" uuid="829e9465-5882-4db0-81d3-323c21bb0b7d"/>
+								<textElement>
+									<font size="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Proportion} == null ? "0%" : $F{Proportion}.equals("NA") ? "NA" : Double.valueOf($F{Proportion})]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<componentElement>
+				<reportElement x="0" y="120" width="559" height="30" uuid="fbaf78b2-6ede-4b54-9105-7bdd93a66e26">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 2_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 2_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table 2_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="child_referral" uuid="924ce2a3-30f1-44b0-992b-05eb6de4666f">
+						<datasetParameter name="PARAM_DATE_START">
+							<datasetParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_DATE_END">
+							<datasetParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_CLUSTER_NAME">
+							<datasetParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_VILLAGE_NAME">
+							<datasetParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_USER_NAME">
+							<datasetParameterExpression><![CDATA[$P{PARAM_USER_NAME}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="Exited">
+							<datasetParameterExpression><![CDATA[$P{Exited}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="380" uuid="5c7a3bd3-08c7-4bdd-a4c4-48c567eb5737">
+						<jr:detailCell style="Table 2_TD" height="30">
+							<textField>
+								<reportElement style="DataRowTextElement" x="0" y="0" width="380" height="30" uuid="5f3e3a60-2a1b-4246-ad61-c6524205c90a"/>
+								<textElement>
+									<font size="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Characteristics}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="120" uuid="652b7505-6aeb-4c00-b989-4a463617ec9f">
+						<jr:detailCell style="Table 2_TD" height="30">
+							<textField hyperlinkType="ReportExecution">
+								<reportElement style="DataRowNumericElement" x="0" y="0" width="120" height="30" uuid="743a63a5-51db-43ae-88af-dd3de09fe790"/>
+								<textElement>
+									<font size="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Number}]]></textFieldExpression>
+								<hyperlinkWhenExpression><![CDATA[$F{Number} > 0]]></hyperlinkWhenExpression>
+								<hyperlinkTooltipExpression><![CDATA["Click for the line list"]]></hyperlinkTooltipExpression>
+								<hyperlinkParameter name="_report">
+									<hyperlinkParameterExpression><![CDATA["/JSSCP/Reports/Linelists/Referral_services_child_referral_Linelist"]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_DATE_END">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_DATE_START">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_CLUSTER_NAME">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_VILLAGE_NAME">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_USER_NAME">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_USER_NAME}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_DYNAMIC_WHERE">
+									<hyperlinkParameterExpression><![CDATA[$V{DYNAMIC_WHERE}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="Exited">
+									<hyperlinkParameterExpression><![CDATA[$P{Exited}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="120" uuid="06154802-65d5-4dd1-9277-c7239f8744bc">
+						<jr:detailCell style="Table 2_TD" height="30">
+							<textField>
+								<reportElement style="DataRowPreCalculatedPercentageElement" x="0" y="0" width="120" height="30" uuid="8f235377-d10a-442e-b175-f3d092cf92b4"/>
+								<textElement>
+									<font size="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Proportion} == null ? "0%" : $F{Proportion}.equals("NA") ? "NA" : Double.valueOf($F{Proportion})]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<componentElement>
+				<reportElement x="0" y="240" width="550" height="29" uuid="e29d8d2a-4ec8-4c9c-8698-945039b2ebc8">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 3_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 3_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table 3_TD"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="abortion" uuid="9b463aec-edd9-4fa9-b441-eacb3330673c">
+						<datasetParameter name="PARAM_DATE_START">
+							<datasetParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_DATE_END">
+							<datasetParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_CLUSTER_NAME">
+							<datasetParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_VILLAGE_NAME">
+							<datasetParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_USER_NAME">
+							<datasetParameterExpression><![CDATA[$P{PARAM_USER_NAME}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="Exited">
+							<datasetParameterExpression><![CDATA[$P{Exited}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="380" uuid="0c4e0067-8495-47f8-898b-1899a1ef1796">
+						<jr:detailCell style="Table 3_TD" height="30">
+							<textField>
+								<reportElement style="DataRowTextElement" stretchType="RelativeToTallestObject" x="0" y="0" width="380" height="30" uuid="49439efd-3a05-4701-bc25-b2cdcf6f25b7">
+									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+								</reportElement>
+								<textElement>
+									<font size="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Characteristics}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="120" uuid="efabf190-1d62-4e69-a416-41ce92231ecb">
+						<jr:detailCell style="Table 3_TD" height="30">
+							<textField hyperlinkType="ReportExecution">
+								<reportElement style="DataRowNumericElement" x="0" y="0" width="120" height="30" uuid="6f4cdc80-7175-4f01-9c77-42d364fc32cd"/>
+								<textElement>
+									<font size="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Number}]]></textFieldExpression>
+								<hyperlinkWhenExpression><![CDATA[$F{Number} > 0]]></hyperlinkWhenExpression>
+								<hyperlinkTooltipExpression><![CDATA["Click for the line list"]]></hyperlinkTooltipExpression>
+								<hyperlinkParameter name="_report">
+									<hyperlinkParameterExpression><![CDATA["/JSSCP/Reports/Linelists/referal_services_abortion_Linelist"]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_DATE_END">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_DATE_START">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_CLUSTER_NAME">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_VILLAGE_NAME">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_USER_NAME">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_USER_NAME}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_DYNAMIC_WHERE">
+									<hyperlinkParameterExpression><![CDATA[$V{DYNAMIC_WHERE}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="Exited">
+									<hyperlinkParameterExpression><![CDATA[$P{Exited}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="120" uuid="c3bc4775-b085-4968-a80d-3bd79e2dd607">
+						<jr:detailCell style="Table 3_TD" height="30">
+							<textField>
+								<reportElement style="DataRowPreCalculatedPercentageElement" x="0" y="0" width="120" height="30" uuid="90909f5b-7dcb-408d-82d7-8ced12ecac4d"/>
+								<textElement>
+									<font size="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Proportion} == null ? "0%" : $F{Proportion}.equals("NA") ? "NA" : Double.valueOf($F{Proportion})]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<componentElement>
+				<reportElement x="0" y="300" width="640" height="60" uuid="d3e28dce-06f0-4c8e-91cd-a126a39c74e8">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 1_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 1_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table 1_TD"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="anc" uuid="7ac03b96-070b-4986-adb6-d4cf769e286e">
+						<datasetParameter name="PARAM_DATE_START">
+							<datasetParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_DATE_END">
+							<datasetParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_CLUSTER_NAME">
+							<datasetParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_VILLAGE_NAME">
+							<datasetParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_USER_NAME">
+							<datasetParameterExpression><![CDATA[$P{PARAM_USER_NAME}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="Exited">
+							<datasetParameterExpression><![CDATA[$P{Exited}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="380" uuid="19fc2f23-e8f8-44d0-9648-6a8db5b8788c">
+						<jr:detailCell style="Table 1_TD" height="30">
+							<textField>
+								<reportElement style="DataRowTextElement" x="0" y="0" width="380" height="30" uuid="68fbaab6-7fbf-4600-9637-0651128230a7"/>
+								<textElement>
+									<font size="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Characteristics}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="120" uuid="5d32d380-2efb-414e-9b9f-67590c096bd0">
+						<jr:detailCell style="Table 1_TD" height="30">
+							<textField hyperlinkType="ReportExecution">
+								<reportElement style="DataRowNumericElement" x="0" y="0" width="120" height="30" uuid="2bdbd505-2559-406c-a238-ea4f02661a4e">
+									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+								</reportElement>
+								<textElement>
+									<font size="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Number}]]></textFieldExpression>
+								<hyperlinkTooltipExpression><![CDATA["Click for the line list"]]></hyperlinkTooltipExpression>
+								<hyperlinkParameter name="_report">
+									<hyperlinkParameterExpression><![CDATA["/JSSCP/Reports/Linelists/referal_services_anc_Linelist"]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_DATE_END">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_DATE_START">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_CLUSTER_NAME">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_VILLAGE_NAME">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_USER_NAME">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_USER_NAME}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_DYNAMIC_WHERE">
+									<hyperlinkParameterExpression><![CDATA[$V{DYNAMIC_WHERE}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="Exited">
+									<hyperlinkParameterExpression><![CDATA[$P{Exited}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="120" uuid="a6540214-5f27-4ed8-9b72-2863e7873e40">
+						<jr:detailCell style="Table 1_TD" height="30">
+							<textField>
+								<reportElement style="DataRowPreCalculatedPercentageElement" x="0" y="0" width="120" height="30" uuid="9b8a6164-5e93-490b-bee2-30be9c958fa0"/>
+								<textElement>
+									<font size="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Proportion} == null ? "0%" : $F{Proportion}.equals("NA") ? "NA" : Double.valueOf($F{Proportion})]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>

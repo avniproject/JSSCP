@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reportUnit exportedWithPermissions="false">
+    <folder>/JSSCP/Reports/Aggregates</folder>
+    <name>Aggregate_Table</name>
+    <version>29</version>
+    <label>High Risk Pregnancy</label>
+    <description></description>
+    <creationDate>2020-07-15T07:33:53.210+05:30</creationDate>
+    <updateDate>2020-09-03T13:23:21.447+05:30</updateDate>
+    <mainReport>
+        <localResource
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            exportedWithPermissions="false" dataFile="main_jrxml.data" xsi:type="fileResource">
+            <folder>/JSSCP/Reports/Aggregates/Aggregate_Table_files</folder>
+            <name>main_jrxml</name>
+            <version>33</version>
+            <label>Main jrxml</label>
+            <creationDate>2020-07-15T11:56:42.582+05:30</creationDate>
+            <updateDate>2020-07-23T10:36:05.082+05:30</updateDate>
+            <fileType>jrxml</fileType>
+        </localResource>
+    </mainReport>
+    <dataSource>
+        <uri>/JSSCP/Data_Sources/jsscp</uri>
+    </dataSource>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_DATE_START</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_DATE_END</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_CLUSTER_NAME</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_VILLAGE_NAME</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_USER_NAME</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_AGE_GROUP</uri>
+    </inputControl>
+    <resource>
+        <localResource
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            exportedWithPermissions="false"
+            dataFile="AggregateReportStyles.jrtx.data" xsi:type="fileResource">
+            <folder>/JSSCP/Reports/Aggregates/Aggregate_Table_files</folder>
+            <name>AggregateReportStyles.jrtx</name>
+            <version>25</version>
+            <label>AggregateReportStyles.jrtx</label>
+            <creationDate>2020-07-15T07:33:53.210+05:30</creationDate>
+            <updateDate>2020-07-15T07:33:53.210+05:30</updateDate>
+            <fileType>jrtx</fileType>
+        </localResource>
+    </resource>
+    <inputControlRenderingView></inputControlRenderingView>
+    <alwaysPromptControls>false</alwaysPromptControls>
+    <controlsLayout>4</controlsLayout>
+</reportUnit>

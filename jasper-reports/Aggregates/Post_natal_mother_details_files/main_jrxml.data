@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.11.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Post natal mother details" pageWidth="1684" pageHeight="720" columnWidth="1080" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fa1a9231-754c-4c0f-8a57-3e034206cd5a">
+	<property name="ireport.jasperserver.url" value="https://reporting-jasper.avniproject.org/jasperserver/"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="JSSCP"/>
+	<property name="ireport.jasperserver.user" value="NupoorK"/>
+	<property name="ireport.jasperserver.reportUnit" value="/JSSCP/Reports/Aggregates/Post_natal_mother_details"/>
+	<template><![CDATA["repo:/Templates/Styles/AggregateReportStyles.jrtx"]]></template>
+	<parameter name="PARAM_DATE_START" class="java.sql.Timestamp"/>
+	<parameter name="PARAM_DATE_END" class="java.sql.Timestamp"/>
+	<parameter name="PARAM_VILLAGE_NAME" class="java.util.List" nestedType="java.lang.String"/>
+	<parameter name="PARAM_CLUSTER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+	<parameter name="PARAM_USER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+	<parameter name="PARAM_AGE_GROUP" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[with data as (
+    select nullif(count(*), 0)                                                                                 total,
+           count(*) filter ( where "Enc.mother get the benefit of JSY scheme" = 'Yes')                         jsy_scheme_availed,
+           count(*) filter (where "Enc.Mother suffering from" like '%Excessive bleeding%')                     excessive_bleeding,
+           count(*) filter (where "Enc.Mother suffering from" like '%Unconscious%')                            unconscious,
+           count(*) filter (where "Enc.Temperature(celcius)"::numeric > 37.5)                                  fever,
+           count(*) filter (where ("Enc.Blood Pressure (systolic)")::numeric >= 140 and
+                                ("Enc.Blood Pressure (Diastolic)")::numeric >= 90)                             raised_bp,
+           count(*) filter ( where  "Enc.Is there foul smelling discharge PV" = 'Yes')                         foul_smelling_discharge,
+           count(*) filter (where ("Enc.Mother suffering from" like '%Seizures%' or 
+           						   "Enc.Does mother has seizures?" ='Yes'))                                     seizures,
+           count(*) filter ( where "Enc.Does mother has any breast related issue like swelling, cracked nipple etc?" = 'Yes')   breast_related_problems, 
+           count(*) filter ( where "Enc.mother have less breast milk" = 'Yes')   less_breat_milk
+    from (select "Enc.mother get the benefit of JSY scheme",
+                 "Enc.Mother suffering from",
+                 "Enc.Temperature(celcius)",
+                 "Enc.Blood Pressure (systolic)",
+                 "Enc.Blood Pressure (Diastolic)",
+                 "Enc.Is there foul smelling discharge PV",
+                 "Enc.Does mother has seizures?",
+                 "Enc.Does mother has any breast related issue like swelling, cracked nipple etc?",
+                 "Enc.mother have less breast milk",
+                 "Ind.uuid"   "uuid",
+                 row_number()
+                 OVER (PARTITION BY "Enl.Id" ORDER BY "Enc.encounter_date_time" desc) as visit_number
+          from jsscp_mother_pnc_visit_view
+          where "Enl.is_voided" = false and "Enc.encounter_date_time" is not null 
+                     and $X{IN,"Ind.cluster" ,PARAM_CLUSTER_NAME}
+            		 and $X{IN,"Ind.village" ,PARAM_VILLAGE_NAME}
+            		 and $X{IN,"Enc.username",PARAM_USER_NAME}
+            		 and $X{BETWEEN,"Enc.encounter_date_time",PARAM_DATE_START, PARAM_DATE_END}
+            		 and (($P{PARAM_AGE_GROUP} notnull and (
+                     extract('year' from age("Ind.date_of_birth")) between split_part($P{PARAM_AGE_GROUP}, '-', 1)::INTEGER
+                     and split_part($P{PARAM_AGE_GROUP}, '-', 2)::INTEGER
+                    )) or ($P{PARAM_AGE_GROUP} isnull)) 
+
+) partitioned_data
+    where visit_number = 1),
+    
+    delivery_data as 
+             (select distinct delivery."Ind.Id" "Ind.Id"
+             from  jsscp_delivery_view delivery         
+             where   delivery."Enl.is_voided" = false and    delivery."Enc.encounter_date_time" is not null
+                     and $X{IN,delivery."Ind.cluster" ,PARAM_CLUSTER_NAME}
+            		 and $X{IN,delivery."Ind.village" ,PARAM_VILLAGE_NAME}
+            		 and $X{IN,delivery."Enc.username",PARAM_USER_NAME}
+            		 and $X{BETWEEN,delivery."Enc.encounter_date_time",PARAM_DATE_START, PARAM_DATE_END}
+            		 and (($P{PARAM_AGE_GROUP} notnull and (
+                     extract('year' from age(delivery."Ind.date_of_birth")) between split_part($P{PARAM_AGE_GROUP}, '-', 1)::INTEGER
+                     and split_part($P{PARAM_AGE_GROUP}, '-', 2)::INTEGER
+                    )) or ($P{PARAM_AGE_GROUP} isnull)) )
+
+select unnest(array ['Eligible mothers who received benefit under JSY',
+					 'Mothers reported with excessive bleeding',
+					 'Mothers reported with unconsciousness',
+					 'Mothers with fever',
+					 'Mothers with raised BP',
+					 'Mothers with foul smelling discharge',
+					 'Mothers with seizures',
+					 'Mothers with any breast related issues',
+					 'Mothers with less breast milk'
+					  ]) as "Characteristics",
+       unnest(array [jsy_scheme_availed,
+       				 excessive_bleeding,
+       				 unconscious,
+       				 fever,
+       				 raised_bp,
+       				 foul_smelling_discharge,
+       				 seizures,
+       				 breast_related_problems,
+       				 less_breat_milk
+       				 ]) 
+       				  as "Number",
+       unnest(array [nullif(((jsy_scheme_availed * 100.0) / (select count("Ind.Id") from delivery_data)), 0),
+       				 nullif(((excessive_bleeding * 100.0) / (select count("Ind.Id") from delivery_data)), 0),
+       				 nullif(((unconscious * 100.0) / (select count("Ind.Id") from delivery_data)), 0),
+       				 nullif(((fever * 100.0) / (select count("Ind.Id") from delivery_data)), 0),
+       				 nullif(((raised_bp * 100.0) / (select count("Ind.Id") from delivery_data)), 0),
+       				 nullif(((foul_smelling_discharge * 100.0) / (select count("Ind.Id") from delivery_data)), 0),
+       				 nullif(((seizures * 100.0) / (select count("Ind.Id") from delivery_data)), 0),
+       				 nullif(((breast_related_problems * 100.0) / (select count("Ind.Id") from delivery_data)), 0),
+       				 nullif(((less_breat_milk * 100.0) / (select count("Ind.Id") from delivery_data)), 0)]) 
+       				 as "Proportion"
+from data;]]>
+	</queryString>
+	<field name="Characteristics" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Characteristics"/>
+	</field>
+	<field name="Number" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="Number"/>
+	</field>
+	<field name="Proportion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Number"/>
+	</field>
+	<variable name="DYNAMIC_WHERE" class="java.lang.String">
+		<variableExpression><![CDATA[$F{Characteristics}.equals("Eligible mothers who received benefit under JSY") ? "\"Mother got the benefit of JSY scheme\" = 'Yes'" :
+$F{Characteristics}.equals("Mothers reported with excessive bleeding") ? "\"Mother suffering from conditions\" like '%Excessive bleeding%'" :
+$F{Characteristics}.equals("Mothers reported with unconsciousness") ? "\"Mother suffering from conditions\" like '%Unconscious%'" :
+$F{Characteristics}.equals("Mothers with fever") ? "\"Temperature\"::numeric > 37.5" :
+$F{Characteristics}.equals("Mothers with foul smelling discharge") ? "\"Is there foul smelling discharge PV\" = 'Yes'" :
+$F{Characteristics}.equals("Mothers with any breast related issues") ? "\"Mother has any breast related issue like swelling, cracked nipple etc\" = 'Yes'" :
+$F{Characteristics}.equals("Mothers with less breast milk") ? "\"Mother have less breast milk\" = 'Yes'" :
+$F{Characteristics}.equals("Mothers with raised BP") ? "(\"Blood Pressure (systolic)\"::numeric >= 140 and \"Blood Pressure (Diastolic)\"::numeric >= 90)" :
+$F{Characteristics}.equals("Mothers with seizures") ? "(\"Mother suffering from conditions\" like '%Seizures%' or \"Mother has seizures\" ='Yes')" :
+"and 1=1"]]></variableExpression>
+	</variable>
+	<background>
+		<band height="100" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</background>
+	<title>
+		<band height="50" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement style="ReportTitle" x="-100" y="0" width="680" height="50" uuid="b41c1dbc-657e-4f9f-93da-2951563f95d4"/>
+				<text><![CDATA[Post natal mother details]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement style="ColumnHeader" x="0" y="0" width="300" height="30" uuid="6bbeb455-a64f-4ad6-98f4-4344d2a69ced"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+				</box>
+				<text><![CDATA[Characteristics]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="300" y="0" width="80" height="30" uuid="6bbeb455-a64f-4ad6-98f4-4344d2a69ced"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+				</box>
+				<text><![CDATA[Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="380" y="0" width="80" height="30" uuid="6bbeb455-a64f-4ad6-98f4-4344d2a69ced"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+				</box>
+				<text><![CDATA[Proportion]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.spreadsheet.SpreadsheetLayout"/>
+			<textField textAdjust="StretchHeight">
+				<reportElement style="DataRowTextElement" stretchType="RelativeToTallestObject" x="0" y="0" width="300" height="30" uuid="a06291a4-1652-4d4c-bc69-494233474439"/>
+				<textFieldExpression><![CDATA[$F{Characteristics}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" hyperlinkType="ReportExecution">
+				<reportElement style="DataRowNumericElement" stretchType="RelativeToTallestObject" x="300" y="0" width="80" height="30" uuid="a06291a4-1652-4d4c-bc69-494233474439"/>
+				<textFieldExpression><![CDATA[$F{Number}]]></textFieldExpression>
+				<hyperlinkWhenExpression><![CDATA[$F{Number} > 0]]></hyperlinkWhenExpression>
+				<hyperlinkParameter name="_report">
+					<hyperlinkParameterExpression><![CDATA["/JSSCP/Reports/Linelists/Linelist_for_post_natal_mother_deatils"]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DATE_END">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DATE_START">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_VILLAGE_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_CLUSTER_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_AGE_GROUP">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_AGE_GROUP}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DYNAMIC_WHERE">
+					<hyperlinkParameterExpression><![CDATA[$V{DYNAMIC_WHERE}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement style="DataRowPreCalculatedPercentageElement" stretchType="RelativeToTallestObject" x="380" y="0" width="80" height="30" uuid="a06291a4-1652-4d4c-bc69-494233474439"/>
+				<textFieldExpression><![CDATA[$F{Proportion} == null ? "0%" : $F{Proportion}.equals("NA") ? "NA" : Double.valueOf($F{Proportion})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

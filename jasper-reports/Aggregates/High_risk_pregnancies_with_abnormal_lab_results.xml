@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reportUnit exportedWithPermissions="false">
+    <folder>/JSSCP/Reports/Aggregates</folder>
+    <name>High_risk_pregnancies_with_abnormal_lab_results</name>
+    <version>9</version>
+    <label>High risk pregnancies with abnormal lab results</label>
+    <description></description>
+    <creationDate>2020-07-10T13:06:41.314+05:30</creationDate>
+    <updateDate>2020-09-03T13:03:40.630+05:30</updateDate>
+    <mainReport>
+        <localResource
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            exportedWithPermissions="false" dataFile="main_jrxml.data" xsi:type="fileResource">
+            <folder>/JSSCP/Reports/Aggregates/High_risk_pregnancies_with_abnormal_lab_results_files</folder>
+            <name>main_jrxml</name>
+            <version>1</version>
+            <label>Main jrxml</label>
+            <creationDate>2020-07-14T18:05:40.399+05:30</creationDate>
+            <updateDate>2020-07-14T18:05:40.399+05:30</updateDate>
+            <fileType>jrxml</fileType>
+        </localResource>
+    </mainReport>
+    <dataSource>
+        <uri>/JSSCP/Data_Sources/jsscp</uri>
+    </dataSource>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_DATE_START</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_DATE_END</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_CLUSTER_NAME</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_VILLAGE_NAME</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_USER_NAME</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_AGE_GROUP</uri>
+    </inputControl>
+    <resource>
+        <localResource
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            exportedWithPermissions="false"
+            dataFile="AggregateReportStyles.jrtx.data" xsi:type="fileResource">
+            <folder>/JSSCP/Reports/Aggregates/High_risk_pregnancies_with_abnormal_lab_results_files</folder>
+            <name>AggregateReportStyles.jrtx</name>
+            <version>12</version>
+            <label>AggregateReportStyles.jrtx</label>
+            <creationDate>2020-07-10T13:06:41.314+05:30</creationDate>
+            <updateDate>2020-07-14T18:05:40.136+05:30</updateDate>
+            <fileType>jrtx</fileType>
+        </localResource>
+    </resource>
+    <inputControlRenderingView></inputControlRenderingView>
+    <alwaysPromptControls>false</alwaysPromptControls>
+    <controlsLayout>4</controlsLayout>
+</reportUnit>

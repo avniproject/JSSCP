@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<folder exportedWithPermissions="false">
+    <parent>/JSSCP/Reports</parent>
+    <name>Linelists</name>
+    <label>Linelists</label>
+    <description></description>
+    <creationDate>2020-07-09T05:19:26.353+05:30</creationDate>
+    <updateDate>2020-07-09T05:19:26.353+05:30</updateDate>
+    <resource>ANC___IFA_and_Calcium_Consumption_Linelist</resource>
+    <resource>High_risk_pregnancies_with_abnormal_lab_results_Line_list_1</resource>
+    <resource>High_risk_pregnancies_with_abnormal_lab_results_Line_list_2</resource>
+    <resource>High_risk_pregnancies_with_abnormal_lab_results_Line_list_3</resource>
+    <resource>High_Risk_Pregnancy_ANC_Clinic_and_Home_Visit_Linelist</resource>
+    <resource>High_Risk_Pregnancy_ANC_Clinic_Visit_Linelist</resource>
+    <resource>High_Risk_Pregnancy_Enrolment_Linelist</resource>
+    <resource>High_Risk_Pregnancy_First_ANC_Clinic_Visit_Linelist</resource>
+    <resource>Intranatal_Services_Line_list</resource>
+    <resource>Linelist_for_ANC_Clinic_Visit_with_delivery_reported</resource>
+    <resource>Linelist_for_Antenatal_services_</resource>
+    <resource>Linelist_for_child_birth_details</resource>
+    <resource>Linelist_for_mother_post_natal_services</resource>
+    <resource>Linelist_for_mother_post_natal_services_delivery</resource>
+    <resource>Linelist_for_Post_natal_children</resource>
+    <resource>Linelist_for_post_natal_mother_deatils</resource>
+    <resource>Linelist_For_Postnatal_Services_Child_</resource>
+    <resource>referal_services_abortion_Linelist</resource>
+    <resource>referal_services_anc_Linelist</resource>
+    <resource>Referral_services_child_Linelist</resource>
+    <resource>Referral_services_child_referral_Linelist</resource>
+    <resource>Referral_services_mother_Linelist</resource>
+</folder>

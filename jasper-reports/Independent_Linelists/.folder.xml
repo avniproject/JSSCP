@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<folder exportedWithPermissions="false">
+    <parent>/JSSCP/Reports</parent>
+    <name>Independent_Linelists</name>
+    <label>Independent Linelists</label>
+    <description></description>
+    <creationDate>2020-09-25T15:46:21.255+05:30</creationDate>
+    <updateDate>2020-09-25T15:46:21.255+05:30</updateDate>
+    <resource>Linelist_for_EDD</resource>
+</folder>

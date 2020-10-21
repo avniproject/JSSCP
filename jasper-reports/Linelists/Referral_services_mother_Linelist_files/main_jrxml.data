@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.11.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Referral services mother Linelist" pageWidth="1684" pageHeight="720" orientation="Landscape" columnWidth="1080" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="05cc1aaf-5713-4062-a0f6-7bab099e5fb6">
+	<property name="ireport.jasperserver.url" value="https://reporting-jasper.avniproject.org/jasperserver/"/>
+	<property name="com.jaspersoft.studio.report.description" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="prod DB"/>
+	<property name="ireport.jasperserver.user" value="sachink"/>
+	<property name="ireport.jasperserver.reportUnit" value="/JSSCP/Reports/Linelists/Referral_services_mother_Linelist"/>
+	<property name="ireport.jasperserver.report.resource" value="/JSSCP/Reports/Linelists/Referral_services_mother_Linelist_files/main_jrxml"/>
+	<template><![CDATA["repo:Linelist.jrtx"]]></template>
+	<parameter name="PARAM_DATE_START" class="java.sql.Timestamp"/>
+	<parameter name="PARAM_DATE_END" class="java.sql.Timestamp"/>
+	<parameter name="PARAM_CLUSTER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+	<parameter name="PARAM_VILLAGE_NAME" class="java.util.List" nestedType="java.lang.String"/>
+	<parameter name="PARAM_USER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+	<parameter name="PARAM_APP_URL" class="java.lang.String">
+		<defaultValueExpression><![CDATA["https://app.avniproject.org/#/app/subject?uuid="]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PARAM_DYNAMIC_WHERE" class="java.lang.String">
+		<defaultValueExpression><![CDATA["1=1"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DYNAMIC_DISTINCT" class="java.lang.String">
+		<defaultValueExpression><![CDATA["pnc"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Exited" class="java.util.List" nestedType="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select row_number() over (order by "Name") as sn, *
+from (select distinct on ( $P!{DYNAMIC_DISTINCT}."Enc.Id") concat(pnc."Ind.first_name", ' ', pnc."Ind.last_name")         "Name",
+                                        pnc."Ind.uuid"                                                 "uuid",
+                                        pnc."Enc.Id"                                                   enc_id,
+                                          to_char(pnc."Ind.date_of_birth", 'dd-mm-yyyy')                                      dob,
+                                       to_char(age(pnc."Ind.date_of_birth"), 'yy')                "Age",
+
+                                        pnc."Ind.cluster"                                              "Cluster",
+                                        pnc."Ind.village"                                              "Village",
+                                        pnc."Ind.Gender"                                               "Gender",
+                                        pnc."Ind.Father/Husband's Name"                                "Father name",
+                                          to_char(pnc."Enc.encounter_date_time", 'dd-mm-yyyy')                                 pnc_date,
+                                        to_char(delivery."Enl.Last menstrual period", 'dd-mm-yyyy') as lmp,
+                                          to_char(delivery."Enc.Date and time when baby was out", 'dd-mm-yyyy')             as delivery_date,
+                                        pnc."Enc.Referral needed to mother?"                           referral,
+                                        referral."Enc.Status of referral -1"                           referral_status,
+                                        pnc."Enc.Referral reason"                                      mother_sepsis,
+                                        jav."Enc.Does woman require referral?"                         abortion_referral,
+                                        jafv."Enc.Does woman require referral?"                        abortion_followup_referral,
+                                        jav."Enc.Referral reason"                                      abortion_sepsis,
+                                        jafv."Enc.Referral reason"                                     abortion_followup_sepsis,
+                                        jacahv."Enc.Does woman require referral?"                      anc_referral,
+                                        jacahv."Enc.Referral reason"                                   anc_referral_reason,
+
+                                       case
+                 when
+                     pnc."Enl.program_exit_date_time" is null then 'No'
+                 else 'Yes' end
+                                                                                                                     exit_status
+
+      from jsscp_mother_pnc_visit_view pnc
+               left outer join jsscp_mother_referral_status_view referral on pnc."Enl.Id" = referral."Enl.Id"
+               left outer join jsscp_abortion_view jav on pnc."Enl.Id" = jav."Enl.Id"
+               left outer join jsscp_abortion_followup_view jafv on pnc."Enl.Id" = jafv."Enl.Id"
+               left outer join jsscp_anc_clinic_and_home_view jacahv on pnc."Enl.Id" = jacahv."Enl.Id"
+               left outer join jsscp_delivery_view delivery on pnc."Enl.Id" = delivery."Enl.Id"
+
+      where 1 = 1
+        and pnc."Enl.is_voided" = false
+        and pnc."Enc.is_voided" = false
+        and pnc."Enc.encounter_date_time" is not null
+        and $X{IN
+           , pnc."Ind.cluster"
+           , PARAM_CLUSTER_NAME}
+         and $X{IN
+           , pnc."Ind.village"
+           , PARAM_VILLAGE_NAME}
+         and $X{IN
+           , pnc."Enc.username"
+           , PARAM_USER_NAME}
+         and $X{BETWEEN
+           , pnc."Enc.encounter_date_time"
+           , PARAM_DATE_START
+           , PARAM_DATE_END}
+
+     ) partitioned_data
+where 1 = 1
+and $P!{PARAM_DYNAMIC_WHERE} and $X{IN, exit_status,Exited};]]>
+	</queryString>
+	<field name="sn" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="sn"/>
+	</field>
+	<field name="Name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Name"/>
+	</field>
+	<field name="dob" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="dob"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jsscp_mother_pnc_visit_view"/>
+	</field>
+	<field name="Age" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Age"/>
+	</field>
+	<field name="Cluster" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Cluster"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jsscp_mother_pnc_visit_view"/>
+	</field>
+	<field name="Village" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Village"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jsscp_mother_pnc_visit_view"/>
+	</field>
+	<field name="Gender" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Gender"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jsscp_mother_pnc_visit_view"/>
+	</field>
+	<field name="Father name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Father name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jsscp_mother_pnc_visit_view"/>
+	</field>
+	<field name="pnc_date" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="pnc_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jsscp_mother_pnc_visit_view"/>
+	</field>
+	<field name="lmp" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="lmp"/>
+	</field>
+	<field name="delivery_date" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="delivery_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jsscp_delivery_view"/>
+	</field>
+	<field name="referral" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="referral"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jsscp_mother_pnc_visit_view"/>
+	</field>
+	<field name="referral_status" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="referral_status"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jsscp_mother_referral_status_view"/>
+	</field>
+	<field name="mother_sepsis" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="mother_sepsis"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jsscp_mother_pnc_visit_view"/>
+	</field>
+	<field name="abortion_referral" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="abortion_referral"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jsscp_abortion_view"/>
+	</field>
+	<field name="abortion_followup_referral" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="abortion_followup_referral"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jsscp_abortion_followup_view"/>
+	</field>
+	<field name="abortion_sepsis" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="abortion_sepsis"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jsscp_abortion_view"/>
+	</field>
+	<field name="abortion_followup_sepsis" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="abortion_followup_sepsis"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jsscp_abortion_followup_view"/>
+	</field>
+	<field name="anc_referral" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="anc_referral"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jsscp_anc_clinic_and_home_view"/>
+	</field>
+	<field name="anc_referral_reason" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="anc_referral_reason"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jsscp_anc_clinic_and_home_view"/>
+	</field>
+	<field name="exit_status" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="exit_date"/>
+	</field>
+	<field name="uuid" class="java.lang.String"/>
+	<background>
+		<band height="100" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</background>
+	<title>
+		<band height="50" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement style="ReportTitle" x="0" y="0" width="1008" height="50" uuid="ccc013a8-2e32-4c97-acca-cfac4c04bef7"/>
+				<text><![CDATA[Referral services linelist ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement style="ColumnHeader" x="0" y="0" width="78" height="30" uuid="fdc1bcff-aa3c-400c-bbc2-b6b674cc8364">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="801961b0-78b2-49dc-8161-70059200e783"/>
+				</reportElement>
+				<text><![CDATA[Sr.no.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="78" y="0" width="202" height="30" uuid="32180385-0f27-404d-b5d7-142ca00c8354">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6f75cb84-4fb6-4b5a-b5ca-719d25453b63"/>
+				</reportElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="280" y="0" width="78" height="30" uuid="0bf2a409-ed47-4056-bbf6-44cdfbec310a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b943c56f-3349-4f77-a0f2-6d2f5791e1ef"/>
+				</reportElement>
+				<text><![CDATA[DOB]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="358" y="0" width="78" height="30" uuid="62c97050-4542-43d4-a76d-ec3674046044">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="feb94797-14a5-4d39-9417-d224740f494d"/>
+				</reportElement>
+				<text><![CDATA[Age]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="436" y="0" width="78" height="30" uuid="a7995a22-f4f4-419d-bd6a-beec80c1116e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b4cbff4f-e830-4708-b562-93db87fb0cc3"/>
+				</reportElement>
+				<text><![CDATA[Cluster]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="514" y="0" width="78" height="30" uuid="7dd1dfd7-3509-4502-9000-57f580310139">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8ed64e9e-c804-4e85-8351-61e973c090e0"/>
+				</reportElement>
+				<text><![CDATA[Village]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="592" y="0" width="78" height="30" uuid="754e63d1-b625-4ef2-abb5-8b39fba616d3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8e324183-70bf-40df-a4b1-6f525792fb40"/>
+				</reportElement>
+				<text><![CDATA[Gender]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="670" y="0" width="130" height="30" uuid="20a9c5e2-9f7a-4bf9-bf07-4e1760a1736b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="66078292-999d-4a8b-8e7f-f99f8b99d220"/>
+				</reportElement>
+				<text><![CDATA[Father name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="800" y="0" width="78" height="30" uuid="b889e00e-96ba-48ba-b0e5-e18ccd106093">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0438afd1-0cba-442d-89f3-c6f4c33962f6"/>
+				</reportElement>
+				<text><![CDATA[PNC Referral Needed]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="878" y="0" width="104" height="30" uuid="5c0eeadd-9ad8-41cb-b9ee-dbaed56b5adf">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e8ecd4e9-c32b-4304-a8fe-c4caf3bb66f4"/>
+				</reportElement>
+				<text><![CDATA[PNC Referral Reason]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="982" y="0" width="78" height="30" uuid="961b4afc-7a8d-4e0f-a95c-97c06073e34d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0443eab6-78ad-46d1-a6af-a45d0f18b1e3"/>
+				</reportElement>
+				<text><![CDATA[Program Exit Status]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.spreadsheet.SpreadsheetLayout"/>
+			<textField isBlankWhenNull="true" textAdjust="StretchHeight">
+				<reportElement style="DataRowElement" stretchType="RelativeToTallestObject" x="0" y="0" width="78" height="30" uuid="be28bb9a-942e-425e-a8b6-25c85b1faa22">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="801961b0-78b2-49dc-8161-70059200e783"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{sn}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true" textAdjust="StretchHeight" hyperlinkType="Reference" hyperlinkTarget="Blank">
+				<reportElement style="DataRowTextElement" stretchType="RelativeToTallestObject" x="78" y="0" width="202" height="30" uuid="6011f38a-6dc4-4d8f-896e-0f8a244e5579">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6f75cb84-4fb6-4b5a-b5ca-719d25453b63"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
+				<hyperlinkReferenceExpression><![CDATA["https://app.avniproject.org/#/app/subject?uuid=".concat($F{uuid})]]></hyperlinkReferenceExpression>
+			</textField>
+			<textField isBlankWhenNull="true" textAdjust="StretchHeight">
+				<reportElement style="DataRowElement" stretchType="RelativeToTallestObject" x="280" y="0" width="78" height="30" uuid="e555123b-59b1-443d-a0f5-01ca4c4bb2d0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b943c56f-3349-4f77-a0f2-6d2f5791e1ef"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{dob}.substring(0,8)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true" textAdjust="StretchHeight">
+				<reportElement style="DataRowNumericElement" stretchType="RelativeToTallestObject" x="358" y="0" width="78" height="30" uuid="3562534a-07b0-4aee-b84e-86ecf4655e31">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="feb94797-14a5-4d39-9417-d224740f494d"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Age}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true" textAdjust="StretchHeight">
+				<reportElement style="DataRowElement" stretchType="RelativeToTallestObject" x="436" y="0" width="78" height="30" uuid="acb0e62d-2d6c-4632-b315-62154f48cb49">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b4cbff4f-e830-4708-b562-93db87fb0cc3"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Cluster}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true" textAdjust="StretchHeight">
+				<reportElement style="DataRowElement" stretchType="RelativeToTallestObject" x="514" y="0" width="78" height="30" uuid="be68ca9f-a52f-4cc7-88f3-1e7656e0a88d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8ed64e9e-c804-4e85-8351-61e973c090e0"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Village}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true" textAdjust="StretchHeight">
+				<reportElement style="DataRowElement" stretchType="RelativeToTallestObject" x="592" y="0" width="78" height="30" uuid="b6f23bcf-d91a-482b-8224-c000abf242ba">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8e324183-70bf-40df-a4b1-6f525792fb40"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Gender}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true" textAdjust="StretchHeight">
+				<reportElement style="DataRowElement" stretchType="RelativeToTallestObject" x="670" y="0" width="130" height="30" uuid="0b922d37-0310-4a3e-a87b-f8a54ed1bbc9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="66078292-999d-4a8b-8e7f-f99f8b99d220"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Father name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true" textAdjust="StretchHeight">
+				<reportElement style="DataRowElement" stretchType="RelativeToTallestObject" x="800" y="0" width="78" height="30" uuid="03ebc1dc-3ab0-416c-b22a-39bfe7eb38b9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0438afd1-0cba-442d-89f3-c6f4c33962f6"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{referral}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true" textAdjust="StretchHeight">
+				<reportElement style="DataRowElement" stretchType="RelativeToTallestObject" x="878" y="0" width="104" height="30" uuid="083cb028-f62a-4008-986f-49c6f0b678a2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e8ecd4e9-c32b-4304-a8fe-c4caf3bb66f4"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{mother_sepsis}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true" textAdjust="StretchHeight">
+				<reportElement style="DataRowElement" stretchType="RelativeToTallestObject" x="982" y="0" width="78" height="30" uuid="78fc9869-bd85-41a4-bbef-55e8bc14a1c1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0443eab6-78ad-46d1-a6af-a45d0f18b1e3"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{exit_status}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

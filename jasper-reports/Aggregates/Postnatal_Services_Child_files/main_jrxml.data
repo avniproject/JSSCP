@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.11.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Postnatal Services Child" pageWidth="1684" pageHeight="720" columnWidth="1080" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fa1a9231-754c-4c0f-8a57-3e034206cd5a">
+	<property name="ireport.jasperserver.url" value="https://reporting-jasper.avniproject.org/jasperserver/"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Staging (Avani)"/>
+	<property name="ireport.jasperserver.user" value="sachink"/>
+	<property name="ireport.jasperserver.report.resource" value="/JSSCP/Reports/Aggregates/Postnatal_Services_Child_files/main_jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/JSSCP/Reports/Aggregates/Postnatal_Services_Child"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="958"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="32"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="264"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="730"/>
+	<template><![CDATA["repo:AggregateReportStyles.jrtx"]]></template>
+	<parameter name="PARAM_DATE_START" class="java.sql.Timestamp"/>
+	<parameter name="PARAM_DATE_END" class="java.sql.Timestamp"/>
+	<parameter name="PARAM_VILLAGE_NAME" class="java.util.List" nestedType="java.lang.String"/>
+	<parameter name="PARAM_CLUSTER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+	<parameter name="PARAM_USER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+	<parameter name="PARAM_GENDER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[with all_data as (
+    select pnc."Enl.Id"                                                       as                      enl_id,
+           pnc."Ind.Id"                                                       as                      ind_id,
+           pnc."Enc.Eye of newborn"                                           as                      newborn_eye,
+           pnc."Enc.Whether newborn has swolen eyes or discharge from eyes"   as                      swolen_eye,
+           pnc."Enc.Temperature of newborn (celcius)"                         as                      temperature,
+           pnc."Enc.Skin - pus filled rashes/boils"                           as                      pus_filled,
+           pnc."Enc.Skin - Redness/crack in skin fold"                        as                      redness_cracks,
+           pnc."Enc.Yellowing of skin/eye"                                    as                      yellow_skin_eye,
+           pnc."Enc.Respiratory Rate"                                         as                      resp_rate,
+           pnc."Enc.Diagnosis of sepsis"                                      as                      sepsis,
+           pnc."Enc.Whether newborn fed other that exclusive breastfeeding"   as                      exclusive_breast_feed,
+           pnc."Enc.Whether mother breastfed her child for min 8 times a day" as                      breast_feed_8_times,
+           pnc."Enc.Look for birth defects"                                   as                      birthDefects,
+           pnc."Ind.first_name",
+           pnc."Enc.encounter_date_time",
+           row_number() over (partition by pnc."Ind.Id" order by pnc."Enc.encounter_date_time" desc ) visit_no
+    from jsscp_child_pnc_view pnc
+    
+     where $X{IN,pnc."Ind.cluster" ,PARAM_CLUSTER_NAME}
+             and $X{IN,pnc."Ind.village" ,PARAM_VILLAGE_NAME}
+             and $X{IN,pnc."Enc.username",PARAM_USER_NAME}
+             and $X{BETWEEN,pnc."Enc.encounter_date_time",PARAM_DATE_START, PARAM_DATE_END}
+            and $X{IN,pnc."Ind.Gender" , PARAM_GENDER_NAME}
+               
+    
+)
+   , dataWithChecklist as (
+    select distinct al.ind_id,
+                    newborn_eye,
+                    swolen_eye,
+                    temperature,
+                    pus_filled,
+                    redness_cracks,
+                    yellow_skin_eye,
+                    sepsis,
+                    exclusive_breast_feed,
+                    breast_feed_8_times,
+                    birthDefects,
+                    resp_rate,
+                    array_agg(ch.item_detail_name) as vaccine_name
+            ,
+                    max(ch.completion_date)           complete_date
+    from all_data al
+             left outer join checklist_item_checklist_view ch
+                             on al.enl_id = ch.program_enrolment_id and completion_date notnull
+where   visit_no=1
+    group by 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
+select unnest(array [
+    'Newborn with swollen eye/eye discharge',
+    'Newborn with fever',
+    'Newborn with Hypothermia',
+    'Newborn with pus filled rashesh/boils',
+    'Newborn with redness/cracks in the skin fold',
+    'Newborn with yellowing of skin/eyes',
+    'Newborn with respiratory rate >60/min',
+    'Newborn with sepsis',
+    
+    'Children with exclusive breast feeding',
+    'Children breastfed 8 times a day',
+    'Disability by birth'
+    ])        as "Characteristics",
+       unnest(array [
+                   count(distinct ind_id) filter ( where newborn_eye != 'Normal' or swolen_eye = 'Yes' ) ,
+           count(distinct ind_id) filter ( where temperature::numeric > 37.8 ),
+                   count(distinct ind_id) filter ( where temperature::numeric < 36 and
+                                                         sepsis like '%Mother says baby is cold or temp. is more than 37.2 DC%' ),
+           count(distinct ind_id) filter ( where pus_filled = 'Yes' ),
+           count(distinct ind_id) filter ( where redness_cracks = 'Yes' ),
+           count(distinct ind_id) filter ( where yellow_skin_eye = 'Yes' ),
+           count(distinct ind_id) filter ( where resp_rate::numeric > 60 ),
+           count(distinct ind_id) filter ( where sepsis != 'None' ),
+                  
+           count(distinct ind_id) filter ( where exclusive_breast_feed = 'Yes' ),
+           count(distinct ind_id) filter ( where breast_feed_8_times = 'Yes' ),
+           count(distinct ind_id) filter ( where birthDefects != 'No birth defect' )
+           ]) as "Number"
+        ,
+       unnest(array [
+           nullif((count(distinct ind_id) filter ( where newborn_eye != 'Normal' or swolen_eye = 'Yes' ) * 100 /nullif(count(distinct ind_id),0)), 0),
+           nullif((count(distinct ind_id) filter ( where temperature::numeric > 37.8 ) * 100 / nullif(count(distinct ind_id),0)), 0),
+           nullif((count(distinct ind_id) filter ( where temperature::numeric < 36 and
+                                                         sepsis like '%Mother says baby is cold or temp. is more than 37.2 DC%' ) *
+                   100 / nullif(count(distinct ind_id),0)), 0),
+           nullif((count(distinct ind_id) filter ( where pus_filled = 'Yes' ) * 100 / nullif(count(distinct ind_id),0)), 0),
+           nullif((count(distinct ind_id) filter ( where redness_cracks = 'Yes' ) * 100 / nullif(count(distinct ind_id),0)), 0),
+           nullif((count(distinct ind_id) filter ( where yellow_skin_eye = 'Yes' ) * 100 / nullif(count(distinct ind_id),0)), 0),
+           nullif((count(distinct ind_id) filter ( where resp_rate::numeric > 60 ) * 100 / nullif(count(distinct ind_id),0)), 0),
+           nullif((count(distinct ind_id) filter ( where sepsis != 'None' ) * 100 / nullif(count(distinct ind_id),0)), 0),
+           
+           nullif((count(distinct ind_id) filter ( where exclusive_breast_feed = 'Yes' ) * 100 /
+                   nullif(count(distinct ind_id),0)), 0),
+           nullif((count(distinct ind_id) filter ( where breast_feed_8_times = 'Yes' ) * 100 / nullif(count(distinct ind_id),0)), 0),
+           nullif((count(distinct ind_id) filter ( where birthDefects != 'No birth defect' ) * 100 /
+                  nullif(count(distinct ind_id),0)), 0)
+           ])as "Proportion"
+
+
+from dataWithChecklist]]>
+	</queryString>
+	<field name="Characteristics" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Characteristics"/>
+	</field>
+	<field name="Number" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="Number"/>
+	</field>
+	<field name="Proportion" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="Proportion"/>
+	</field>
+	<variable name="DYNAMIC_WHERE" class="java.lang.String">
+		<variableExpression><![CDATA[$F{Characteristics}.equals("Newborn with swollen eye/eye discharge") ? "(newborn_eye != 'Normal' or swolen_eye = 'Yes')" :
+$F{Characteristics}.equals("Newborn with fever") ? "temperature::numeric > 37.8" :
+$F{Characteristics}.equals("Newborn with Hypothermia") ? "temperature::numeric < 36 and sepsis like '%Mother says baby is cold or temp. is more than 37.2 DC%' " :
+$F{Characteristics}.equals("Newborn with pus filled rashesh/boils") ? "pus_filled = 'Yes'" :
+$F{Characteristics}.equals("Newborn with redness/cracks in the skin fold") ? "redness_cracks = 'Yes'" :
+$F{Characteristics}.equals("Newborn with yellowing of skin/eyes") ? "yellow_skin_eye = 'Yes'" :
+$F{Characteristics}.equals("Newborn with respiratory rate >60/min") ? "resp_rate::numeric > 60" :
+$F{Characteristics}.equals("Newborn with sepsis") ? " sepsis  != 'None'" :
+$F{Characteristics}.equals("Children with exclusive breast feeding") ? "exclusive_breast_feed = 'Yes'" :
+$F{Characteristics}.equals("Children breastfed 8 times a day") ? " breast_feed_8_times = 'Yes'" :
+$F{Characteristics}.equals("Disability by birth") ? "birthDefects != 'No birth defect'" :
+	
+"and 1=1"]]></variableExpression>
+	</variable>
+	<background>
+		<band height="100" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</background>
+	<title>
+		<band height="50" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement style="ReportTitle" x="0" y="0" width="1000" height="50" uuid="b41c1dbc-657e-4f9f-93da-2951563f95d4"/>
+				<text><![CDATA[Postnatal Services Child]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement style="Group3Header" x="0" y="0" width="480" height="30" uuid="3be396ee-cfa2-4618-89a7-88343f2a3a50">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="08db260e-6a00-4a66-9f69-19d5a1a02010"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+				</box>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Characteristics]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="480" y="0" width="260" height="30" uuid="e4e0b7b1-deb5-45e9-8aa2-6fbc65095386">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="55215946-1374-4346-848a-cb923e6ffcdb"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+				</box>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="740" y="0" width="260" height="30" uuid="7dcefc25-97bb-4fdf-904f-83ca38f1a283">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fa3ea913-4590-469e-b45f-6b4c8cccce09"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+				</box>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Proportion]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.spreadsheet.SpreadsheetLayout"/>
+			<textField textAdjust="StretchHeight">
+				<reportElement style="DataRowTextElement" stretchType="RelativeToTallestObject" x="0" y="0" width="480" height="30" uuid="19c3a304-0758-4665-a47c-cc681a7cc103">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="08db260e-6a00-4a66-9f69-19d5a1a02010"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Characteristics}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" hyperlinkType="ReportExecution">
+				<reportElement style="DataRowNumericElement" stretchType="RelativeToTallestObject" x="480" y="0" width="260" height="30" uuid="6e854f06-a7f1-49fd-b181-51184cb0f8be">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="55215946-1374-4346-848a-cb923e6ffcdb"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Number}]]></textFieldExpression>
+				<hyperlinkParameter name="_report">
+					<hyperlinkParameterExpression><![CDATA["/JSSCP/Reports/Linelists/Linelist_For_Postnatal_Services_Child_"]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DATE_END">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DATE_START">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_VILLAGE_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_CLUSTER_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DYNAMIC_WHERE">
+					<hyperlinkParameterExpression><![CDATA[$V{DYNAMIC_WHERE}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_GENDER_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_GENDER_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement style="DataRowPreCalculatedPercentageElement" stretchType="RelativeToTallestObject" x="740" y="0" width="260" height="30" uuid="481a516d-9e1b-499f-89d1-978b6f9c32a1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fa3ea913-4590-469e-b45f-6b4c8cccce09"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Proportion} == null ? "0%" : $F{Proportion}.equals("NA") ? "NA" : Double.valueOf($F{Proportion})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

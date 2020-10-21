@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.11.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Agg" pageWidth="1684" pageHeight="720" orientation="Landscape" columnWidth="1080" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="05cc1aaf-5713-4062-a0f6-7bab099e5fb6">
+	<property name="ireport.jasperserver.url" value="https://reporting-jasper.avniproject.org/jasperserver/"/>
+	<property name="com.jaspersoft.studio.report.description" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="JSSCPUAT"/>
+	<template><![CDATA["repo:/Templates/Styles/Linelist.jrtx"]]></template>
+	<parameter name="PARAM_DATE_START" class="java.sql.Timestamp"/>
+	<parameter name="PARAM_DATE_END" class="java.sql.Timestamp"/>
+	<parameter name="PARAM_CLUSTER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+	<parameter name="PARAM_VILLAGE_NAME" class="java.util.List" nestedType="java.lang.String"/>
+	<parameter name="PARAM_USER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+	<parameter name="PARAM_AGE_GROUP" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[with data as (
+    select count(distinct individual_id) filter ( where ifa_give = 'Yes' and ga_group = 1)     ifa_1,
+           count(distinct individual_id) filter ( where ifa_give = 'Yes' and ga_group = 2)     ifa_2,
+           count(distinct individual_id) filter ( where ifa_give = 'Yes' and ga_group = 3)     ifa_3,
+           count(distinct individual_id) filter ( where ifa_give = 'Yes' and ga_group = 4)     ifa_4,
+           count(distinct individual_id) filter ( where ifa_give = 'Yes' and ga_group = 5)     ifa_5,
+           count(distinct individual_id) filter ( where ifa_give = 'Yes' and ga_group = 6)     ifa_6,
+           count(distinct individual_id) filter ( where ifa_give = 'Yes' and ga_group = 7)     ifa_7,
+           count(distinct individual_id) filter ( where ifa_give = 'Yes' and ga_group = 8)     ifa_8,
+           count(distinct individual_id) filter ( where calcium_give = 'Yes' and ga_group = 1) cal_1,
+           count(distinct individual_id) filter ( where calcium_give = 'Yes' and ga_group = 2) cal_2,
+           count(distinct individual_id) filter ( where calcium_give = 'Yes' and ga_group = 3) cal_3,
+           count(distinct individual_id) filter ( where calcium_give = 'Yes' and ga_group = 4) cal_4,
+           count(distinct individual_id) filter ( where calcium_give = 'Yes' and ga_group = 5) cal_5,
+           count(distinct individual_id) filter ( where calcium_give = 'Yes' and ga_group = 6) cal_6,
+           count(distinct individual_id) filter ( where calcium_give = 'Yes' and ga_group = 7) cal_7,
+           count(distinct individual_id) filter ( where calcium_give = 'Yes' and ga_group = 8) cal_8,
+           nullif(count(distinct individual_id), 0) as                                         total
+    from (select case
+                     when ga_weeks <= 12 then 1
+                     when ga_weeks between 13 and 16 then 2
+                     when ga_weeks between 17 and 20 then 3
+                     when ga_weeks between 21 and 24 then 4
+                     when ga_weeks between 25 and 28 then 5
+                     when ga_weeks between 29 and 32 then 6
+                     when ga_weeks between 33 and 36 then 7
+                     when ga_weeks > 36 then 8 end as               ga_group,
+                 ga_weeks,
+                 "Enc.encounter_date_time"                          enc_date_time,
+                 "Enc.Whether IFA given"                            ifa_give,
+                 "Enc.Whether Calcium given"                        calcium_give,
+                 pregnancy."Ind.village"                            village,
+                 pregnancy."Ind.cluster"           as               cluster,
+                 "Enc.username"                                     username,
+                 extract('year' from pregnancy."Ind.date_of_birth") age,
+                 pregnancy."Ind.Id"                as               individual_id
+          from jsscp_pregnancy_view pregnancy
+                   left join jsscp_anc_clinic_and_home_view anc_home on pregnancy."Enl.Id" = anc_home."Enl.Id"
+          where 1 = 1
+          	and $X{IN, pregnancy."Ind.cluster", PARAM_CLUSTER_NAME}
+            and $X{IN, pregnancy."Ind.village", PARAM_VILLAGE_NAME}
+            and $X{IN, "Enc.username", PARAM_USER_NAME}
+            and $X{BETWEEN, "Enc.encounter_date_time", PARAM_DATE_START, PARAM_DATE_END}
+            and (($P{PARAM_AGE_GROUP} notnull and (
+              extract('year' from age(pregnancy."Ind.date_of_birth")) between split_part($P{PARAM_AGE_GROUP}, '-', 1)::INTEGER
+            and split_part($P{PARAM_AGE_GROUP}, '-', 2)::INTEGER
+              )) or ($P{PARAM_AGE_GROUP} isnull))
+         ) ga_groups
+)
+select unnest(Array [
+    'Number & Proportion of mothers received IFA tablets during present pregnancy',
+    'Number & Proportion of mothers received calcium tablet during present pregnancy'
+    ])        "Characteristics",
+       unnest(ARRAY [
+           ifa_1,
+           cal_1
+           ]) g1,
+       unnest(ARRAY [
+           nullif(((ifa_1 * 100.0) / total), 0),
+           nullif(((cal_1 * 100.0) / total), 0)
+           ]) g1_p,
+       unnest(ARRAY [
+           ifa_2,
+           cal_2
+           ]) g2,
+       unnest(ARRAY [
+           nullif(((ifa_2 * 100.0) / total), 0),
+           nullif(((cal_2 * 100.0) / total), 0)
+           ]) g2_p,
+       unnest(ARRAY [
+           ifa_3,
+           cal_3
+           ]) g3,
+       unnest(ARRAY [
+           nullif(((ifa_3 * 100.0) / total), 0),
+           nullif(((cal_3 * 100.0) / total), 0)
+           ]) g3_p,
+       unnest(ARRAY [
+           ifa_4,
+           cal_4
+           ]) g4,
+       unnest(ARRAY [
+           nullif(((ifa_4 * 100.0) / total), 0),
+           nullif(((cal_4 * 100.0) / total), 0)
+           ]) g4_p,
+       unnest(ARRAY [
+           ifa_5,
+           cal_5
+           ]) g5,
+       unnest(ARRAY [
+           nullif(((ifa_5 * 100.0) / total), 0),
+           nullif(((cal_5 * 100.0) / total), 0)
+           ]) g5_p,
+       unnest(ARRAY [
+           ifa_6,
+           cal_6
+           ]) g6,
+       unnest(ARRAY [
+           nullif(((ifa_6 * 100.0) / total), 0),
+           nullif(((cal_6 * 100.0) / total), 0)
+           ]) g6_p,
+       unnest(ARRAY [
+           ifa_7,
+           cal_7
+           ]) g7,
+       unnest(ARRAY [
+           nullif(((ifa_7 * 100.0) / total), 0),
+           nullif(((cal_7 * 100.0) / total), 0)
+           ]) g7_p,
+       unnest(ARRAY [
+           ifa_8,
+           cal_8
+           ]) g8,
+       unnest(ARRAY [
+           nullif(((ifa_8 * 100.0) / total), 0),
+           nullif(((cal_8 * 100.0) / total), 0)
+           ]) g8_p
+from data;]]>
+	</queryString>
+	<field name="Characteristics" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Characteristics"/>
+	</field>
+	<field name="g1" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="g1"/>
+	</field>
+	<field name="g1_p" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="g1_p"/>
+	</field>
+	<field name="g2" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="g2"/>
+	</field>
+	<field name="g2_p" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="g2_p"/>
+	</field>
+	<field name="g3" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="g3"/>
+	</field>
+	<field name="g3_p" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="g3_p"/>
+	</field>
+	<field name="g4" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="g4"/>
+	</field>
+	<field name="g4_p" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="g4_p"/>
+	</field>
+	<field name="g5" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="g5"/>
+	</field>
+	<field name="g5_p" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="g5_p"/>
+	</field>
+	<field name="g6" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="g6"/>
+	</field>
+	<field name="g6_p" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="g6_p"/>
+	</field>
+	<field name="g7" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="g7"/>
+	</field>
+	<field name="g7_p" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="g7_p"/>
+	</field>
+	<field name="g8" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="g8"/>
+	</field>
+	<field name="g8_p" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="g8_p"/>
+	</field>
+	<variable name="DYNAMIC_WHERE_1" class="java.lang.String">
+		<variableExpression><![CDATA[$F{Characteristics}.equals("Number & Proportion of mothers received IFA tablets during present pregnancy") ? 
+"and ifa_give = 'Yes' and ga_group = 1" :
+"and calcium_give = 'Yes' and ga_group = 1"]]></variableExpression>
+	</variable>
+	<variable name="DYNAMIC_WHERE_2" class="java.lang.String">
+		<variableExpression><![CDATA[$F{Characteristics}.equals("Number & Proportion of mothers received IFA tablets during present pregnancy") ? 
+"and ifa_give = 'Yes' and ga_group = 2" :
+"and calcium_give = 'Yes' and ga_group = 2"]]></variableExpression>
+	</variable>
+	<variable name="DYNAMIC_WHERE_3" class="java.lang.String">
+		<variableExpression><![CDATA[$F{Characteristics}.equals("Number & Proportion of mothers received IFA tablets during present pregnancy") ? 
+"and ifa_give = 'Yes' and ga_group = 3" :
+"and calcium_give = 'Yes' and ga_group = 3"]]></variableExpression>
+	</variable>
+	<variable name="DYNAMIC_WHERE_4" class="java.lang.String">
+		<variableExpression><![CDATA[$F{Characteristics}.equals("Number & Proportion of mothers received IFA tablets during present pregnancy") ? 
+"and ifa_give = 'Yes' and ga_group = 4" :
+"and calcium_give = 'Yes' and ga_group = 4"]]></variableExpression>
+	</variable>
+	<variable name="DYNAMIC_WHERE_5" class="java.lang.String">
+		<variableExpression><![CDATA[$F{Characteristics}.equals("Number & Proportion of mothers received IFA tablets during present pregnancy") ? 
+"and ifa_give = 'Yes' and ga_group = 5" :
+"and calcium_give = 'Yes' and ga_group = 5"]]></variableExpression>
+	</variable>
+	<variable name="DYNAMIC_WHERE_6" class="java.lang.String">
+		<variableExpression><![CDATA[$F{Characteristics}.equals("Number & Proportion of mothers received IFA tablets during present pregnancy") ? 
+"and ifa_give = 'Yes' and ga_group = 6" :
+"and calcium_give = 'Yes' and ga_group = 6"]]></variableExpression>
+	</variable>
+	<variable name="DYNAMIC_WHERE_7" class="java.lang.String">
+		<variableExpression><![CDATA[$F{Characteristics}.equals("Number & Proportion of mothers received IFA tablets during present pregnancy") ? 
+"and ifa_give = 'Yes' and ga_group = 7" :
+"and calcium_give = 'Yes' and ga_group = 7"]]></variableExpression>
+	</variable>
+	<variable name="DYNAMIC_WHERE_8" class="java.lang.String">
+		<variableExpression><![CDATA[$F{Characteristics}.equals("Number & Proportion of mothers received IFA tablets during present pregnancy") ? 
+"and ifa_give = 'Yes' and ga_group = 8" :
+"and calcium_give = 'Yes' and ga_group = 8"]]></variableExpression>
+	</variable>
+	<background>
+		<band height="100" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</background>
+	<title>
+		<band height="50" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement style="ReportTitle" x="0" y="0" width="1644" height="50" uuid="ccc013a8-2e32-4c97-acca-cfac4c04bef7"/>
+				<text><![CDATA[ANC - IFA and Calcium Consumption]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="60" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement style="ColumnHeader" x="0" y="0" width="96" height="60" uuid="82e0ea9a-23b0-468f-8e38-4ef9f4d9d135">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5281f567-7453-462e-b8f1-ba1336508c6d"/>
+				</reportElement>
+				<text><![CDATA[Characteristics]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="96" y="30" width="96" height="30" uuid="953f7db7-9a0a-4258-b3e3-310f09fae837">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f8de1120-3f6f-4f7c-aeed-201cec65cb3c"/>
+				</reportElement>
+				<text><![CDATA[Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="192" y="30" width="96" height="30" uuid="f3bbf4cf-4b4b-4227-9f04-ce183aa991ae">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2eb53884-a763-4c17-b594-263482985ce3"/>
+				</reportElement>
+				<text><![CDATA[Proportion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="288" y="30" width="96" height="30" uuid="77aa59d0-991b-4189-b181-62a6c9d5856c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2ca280d4-d5c3-41b8-abbc-ec513e0ff46b"/>
+				</reportElement>
+				<text><![CDATA[Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="384" y="30" width="96" height="30" uuid="6d39d96a-109f-4c6d-ba0b-67a2fc5c262d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="276dfba8-9c18-48b4-8ae0-8a058916b1fe"/>
+				</reportElement>
+				<text><![CDATA[Proportion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="480" y="30" width="96" height="30" uuid="26696d6f-4c22-430b-b2c6-68fd11a3782d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3f661857-578f-45d7-b0aa-3503eb5a4496"/>
+				</reportElement>
+				<text><![CDATA[Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="576" y="30" width="96" height="30" uuid="ddca7d0e-de10-4983-92b5-ebdda532d93a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a362ec6f-22d9-488b-be70-3903584886c5"/>
+				</reportElement>
+				<text><![CDATA[Proportion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="672" y="30" width="96" height="30" uuid="0eaf0ed9-412a-4380-bf56-d82636ff1eda">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="34dd4a70-42b7-40f0-8b29-08f3e9126613"/>
+				</reportElement>
+				<text><![CDATA[Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="768" y="30" width="96" height="30" uuid="a29bab22-c212-424f-9bdc-aa39fcec1f9a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="074fef3c-0f60-4c30-a0c2-5515a046191b"/>
+				</reportElement>
+				<text><![CDATA[Proportion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="864" y="30" width="96" height="30" uuid="2f1e9b2d-4805-4e82-8ad5-c6d2b8113681">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6fa1f55b-721a-4ceb-a1d3-038c9e61f488"/>
+				</reportElement>
+				<text><![CDATA[Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="960" y="30" width="96" height="30" uuid="3579a4ba-e439-4d12-b2d6-3f17504b6d3a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="82a86b5e-4851-4aff-8149-af83a4a9b65f"/>
+				</reportElement>
+				<text><![CDATA[Proportion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="1056" y="30" width="96" height="30" uuid="e4c63b3c-3098-489b-ba06-4ba725a5fb66">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1b778a3d-9148-4b64-b168-10ee5be2db82"/>
+				</reportElement>
+				<text><![CDATA[Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="1152" y="30" width="96" height="30" uuid="e30274d3-6a50-42fa-8f19-424b48daae9c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e62b82db-2893-4611-b92f-9fc547fb5fa1"/>
+				</reportElement>
+				<text><![CDATA[Proportion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="1248" y="30" width="96" height="30" uuid="6452ec70-f7e7-43e3-aa1e-8b8a40023406">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8d0a8866-73bd-465b-9389-6702cb6c25be"/>
+				</reportElement>
+				<text><![CDATA[Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="1344" y="30" width="96" height="30" uuid="e79b4b43-821c-4ee3-bac7-eb38bd48b5ec">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="88b26bd6-7517-495e-93aa-5f358e823eba"/>
+				</reportElement>
+				<text><![CDATA[Proportion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="1440" y="30" width="96" height="30" uuid="c926d33e-d8ee-49c7-8f40-ddd318f7e226">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6f3d3118-479f-42e9-9b77-97d4f9d3b444"/>
+				</reportElement>
+				<text><![CDATA[Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="1536" y="30" width="96" height="30" uuid="ce1ceb29-9613-4537-99a9-e05474a9bab2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7f694a25-432e-4402-bd7e-db4e43ad15df"/>
+				</reportElement>
+				<text><![CDATA[Proportion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="96" y="0" width="192" height="30" uuid="e5103451-57e6-4797-8c76-8b84948f5bfe">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f8de1120-3f6f-4f7c-aeed-201cec65cb3c"/>
+				</reportElement>
+				<text><![CDATA[<= 12 weeks]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="288" y="0" width="192" height="30" uuid="40e9e469-c186-4eda-b7d2-41a3332c61ea">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f8de1120-3f6f-4f7c-aeed-201cec65cb3c"/>
+				</reportElement>
+				<text><![CDATA[13-16 weeks]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="480" y="0" width="192" height="30" uuid="a9f0f0c3-b049-4ee9-978d-ca65b61e5164">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f8de1120-3f6f-4f7c-aeed-201cec65cb3c"/>
+				</reportElement>
+				<text><![CDATA[17-20 weeks]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="672" y="0" width="192" height="30" uuid="09997f44-4806-46e0-a1dc-7384d8d5f4f6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f8de1120-3f6f-4f7c-aeed-201cec65cb3c"/>
+				</reportElement>
+				<text><![CDATA[21-24 weeks]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="864" y="0" width="192" height="30" uuid="498cead1-686e-4634-8e28-c448958a4c75">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f8de1120-3f6f-4f7c-aeed-201cec65cb3c"/>
+				</reportElement>
+				<text><![CDATA[25-28 weeks]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="1056" y="0" width="192" height="30" uuid="19456c4a-e70c-4680-a4e4-3f7796618c94">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f8de1120-3f6f-4f7c-aeed-201cec65cb3c"/>
+				</reportElement>
+				<text><![CDATA[29-32 weeks]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="1248" y="0" width="192" height="30" uuid="43b252f4-a342-47d9-945b-d662b824b000">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f8de1120-3f6f-4f7c-aeed-201cec65cb3c"/>
+				</reportElement>
+				<text><![CDATA[33-36 weeks]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="1440" y="0" width="192" height="30" uuid="a4826bd8-1305-46e6-a271-af163d240eb1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f8de1120-3f6f-4f7c-aeed-201cec65cb3c"/>
+				</reportElement>
+				<text><![CDATA[After 36 weeks]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.spreadsheet.SpreadsheetLayout"/>
+			<textField textAdjust="StretchHeight">
+				<reportElement style="DataRowElement" stretchType="RelativeToTallestObject" x="0" y="0" width="96" height="30" uuid="2374b27b-7285-40ec-a3be-490fe815b0b3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5281f567-7453-462e-b8f1-ba1336508c6d"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Characteristics}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" hyperlinkType="ReportExecution">
+				<reportElement style="DataRowElement" stretchType="RelativeToTallestObject" x="96" y="0" width="96" height="30" uuid="bfc90963-94b4-48fe-b822-7e2f56bc2fd6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f8de1120-3f6f-4f7c-aeed-201cec65cb3c"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{g1}]]></textFieldExpression>
+				<hyperlinkWhenExpression><![CDATA[$F{g1} > 0]]></hyperlinkWhenExpression>
+				<hyperlinkTooltipExpression><![CDATA["Click for the line list"]]></hyperlinkTooltipExpression>
+				<hyperlinkParameter name="_report">
+					<hyperlinkParameterExpression><![CDATA["/JSSCP/Reports/Linelists/ANC___IFA_and_Calcium_Consumption_Linelist"]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DATE_END">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DATE_START">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_CLUSTER_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_VILLAGE_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_USER_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_USER_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_AGE_GROUP">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_AGE_GROUP}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DYNAMIC_WHERE">
+					<hyperlinkParameterExpression><![CDATA[$V{DYNAMIC_WHERE_1}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement style="DataRowPreCalculatedPercentageElement" stretchType="RelativeToTallestObject" x="192" y="0" width="96" height="30" uuid="c149eccf-5493-4aaa-8bb8-4618035efa63">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2eb53884-a763-4c17-b594-263482985ce3"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{g1_p} == null ? "0%" : $F{g1_p}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" hyperlinkType="ReportExecution">
+				<reportElement style="DataRowElement" stretchType="RelativeToTallestObject" x="288" y="0" width="96" height="30" uuid="201564d2-d8fd-473a-90d5-4ec14d703eea">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2ca280d4-d5c3-41b8-abbc-ec513e0ff46b"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{g2}]]></textFieldExpression>
+				<hyperlinkWhenExpression><![CDATA[$F{g2} > 0]]></hyperlinkWhenExpression>
+				<hyperlinkTooltipExpression><![CDATA["Click for the line list"]]></hyperlinkTooltipExpression>
+				<hyperlinkParameter name="_report">
+					<hyperlinkParameterExpression><![CDATA["/JSSCP/Reports/Linelists/ANC___IFA_and_Calcium_Consumption_Linelist"]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DATE_END">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DATE_START">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_CLUSTER_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_VILLAGE_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_USER_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_USER_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_AGE_GROUP">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_AGE_GROUP}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DYNAMIC_WHERE">
+					<hyperlinkParameterExpression><![CDATA[$V{DYNAMIC_WHERE_2}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement style="DataRowPreCalculatedPercentageElement" stretchType="RelativeToTallestObject" x="384" y="0" width="96" height="30" uuid="dc4fed8c-7977-4b49-a277-6787f801f9ee">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="276dfba8-9c18-48b4-8ae0-8a058916b1fe"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{g2_p} == null ? "0%" : $F{g2_p}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" hyperlinkType="ReportExecution">
+				<reportElement style="DataRowElement" stretchType="RelativeToTallestObject" x="480" y="0" width="96" height="30" uuid="d180705e-c3d8-4857-9c45-70ddc0c792ac">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3f661857-578f-45d7-b0aa-3503eb5a4496"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{g3}]]></textFieldExpression>
+				<hyperlinkWhenExpression><![CDATA[$F{g3} > 0]]></hyperlinkWhenExpression>
+				<hyperlinkTooltipExpression><![CDATA["Click for the line list"]]></hyperlinkTooltipExpression>
+				<hyperlinkParameter name="_report">
+					<hyperlinkParameterExpression><![CDATA["/JSSCP/Reports/Linelists/ANC___IFA_and_Calcium_Consumption_Linelist"]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DATE_END">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DATE_START">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_CLUSTER_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_VILLAGE_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_USER_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_USER_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_AGE_GROUP">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_AGE_GROUP}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DYNAMIC_WHERE">
+					<hyperlinkParameterExpression><![CDATA[$V{DYNAMIC_WHERE_3}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement style="DataRowPreCalculatedPercentageElement" stretchType="RelativeToTallestObject" x="576" y="0" width="96" height="30" uuid="b912d13a-dc58-44fb-a4ae-188344665eaf">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a362ec6f-22d9-488b-be70-3903584886c5"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{g3_p} == null ? "0%" : $F{g3_p}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" hyperlinkType="ReportExecution">
+				<reportElement style="DataRowElement" stretchType="RelativeToTallestObject" x="672" y="0" width="96" height="30" uuid="be9c3d2b-7501-41e9-95e9-421b4f034ce3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="34dd4a70-42b7-40f0-8b29-08f3e9126613"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{g4}]]></textFieldExpression>
+				<hyperlinkWhenExpression><![CDATA[$F{g4} > 0]]></hyperlinkWhenExpression>
+				<hyperlinkTooltipExpression><![CDATA["Click for the line list"]]></hyperlinkTooltipExpression>
+				<hyperlinkParameter name="_report">
+					<hyperlinkParameterExpression><![CDATA["/JSSCP/Reports/Linelists/ANC___IFA_and_Calcium_Consumption_Linelist"]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DATE_END">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DATE_START">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_CLUSTER_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_VILLAGE_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_USER_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_USER_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_AGE_GROUP">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_AGE_GROUP}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DYNAMIC_WHERE">
+					<hyperlinkParameterExpression><![CDATA[$V{DYNAMIC_WHERE_4}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement style="DataRowPreCalculatedPercentageElement" stretchType="RelativeToTallestObject" x="768" y="0" width="96" height="30" uuid="e286c99d-595c-41fd-a3d5-acfc6a47ec70">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="074fef3c-0f60-4c30-a0c2-5515a046191b"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{g4_p} == null ? "0%" : $F{g4_p}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" hyperlinkType="ReportExecution">
+				<reportElement style="DataRowElement" stretchType="RelativeToTallestObject" x="864" y="0" width="96" height="30" uuid="413a1f55-a225-4897-af49-1840978081f7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6fa1f55b-721a-4ceb-a1d3-038c9e61f488"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{g5}]]></textFieldExpression>
+				<hyperlinkWhenExpression><![CDATA[$F{g5} > 0]]></hyperlinkWhenExpression>
+				<hyperlinkTooltipExpression><![CDATA["Click for the line list"]]></hyperlinkTooltipExpression>
+				<hyperlinkParameter name="_report">
+					<hyperlinkParameterExpression><![CDATA["/JSSCP/Reports/Linelists/ANC___IFA_and_Calcium_Consumption_Linelist"]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DATE_END">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DATE_START">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_CLUSTER_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_VILLAGE_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_USER_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_USER_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_AGE_GROUP">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_AGE_GROUP}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DYNAMIC_WHERE">
+					<hyperlinkParameterExpression><![CDATA[$V{DYNAMIC_WHERE_5}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement style="DataRowPreCalculatedPercentageElement" stretchType="RelativeToTallestObject" x="960" y="0" width="96" height="30" uuid="b97cc92d-9e2a-4925-8ab6-1b21299db881">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="82a86b5e-4851-4aff-8149-af83a4a9b65f"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{g5_p} == null ? "0%" : $F{g5_p}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" hyperlinkType="ReportExecution">
+				<reportElement style="DataRowElement" stretchType="RelativeToTallestObject" x="1056" y="0" width="96" height="30" uuid="991cd54c-a2f6-45f6-90b5-00938f799c80">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1b778a3d-9148-4b64-b168-10ee5be2db82"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{g6}]]></textFieldExpression>
+				<hyperlinkWhenExpression><![CDATA[$F{g6} > 0]]></hyperlinkWhenExpression>
+				<hyperlinkTooltipExpression><![CDATA["Click for the line list"]]></hyperlinkTooltipExpression>
+				<hyperlinkParameter name="_report">
+					<hyperlinkParameterExpression><![CDATA["/JSSCP/Reports/Linelists/ANC___IFA_and_Calcium_Consumption_Linelist"]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DATE_END">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DATE_START">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_CLUSTER_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_VILLAGE_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_USER_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_USER_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_AGE_GROUP">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_AGE_GROUP}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DYNAMIC_WHERE">
+					<hyperlinkParameterExpression><![CDATA[$V{DYNAMIC_WHERE_6}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement style="DataRowPreCalculatedPercentageElement" stretchType="RelativeToTallestObject" x="1152" y="0" width="96" height="30" uuid="40794b44-d9d8-492c-9338-f09867bc9c8c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e62b82db-2893-4611-b92f-9fc547fb5fa1"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{g6_p} == null ? "0%" : $F{g6_p}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" hyperlinkType="ReportExecution">
+				<reportElement style="DataRowElement" stretchType="RelativeToTallestObject" x="1248" y="0" width="96" height="30" uuid="cb782089-aac1-4fd3-8304-53685291e89c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8d0a8866-73bd-465b-9389-6702cb6c25be"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{g7}]]></textFieldExpression>
+				<hyperlinkWhenExpression><![CDATA[$F{g7} > 0]]></hyperlinkWhenExpression>
+				<hyperlinkTooltipExpression><![CDATA["Click for the line list"]]></hyperlinkTooltipExpression>
+				<hyperlinkParameter name="_report">
+					<hyperlinkParameterExpression><![CDATA["/JSSCP/Reports/Linelists/ANC___IFA_and_Calcium_Consumption_Linelist"]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DATE_END">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DATE_START">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_CLUSTER_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_VILLAGE_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_USER_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_USER_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_AGE_GROUP">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_AGE_GROUP}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DYNAMIC_WHERE">
+					<hyperlinkParameterExpression><![CDATA[$V{DYNAMIC_WHERE_7}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement style="DataRowPreCalculatedPercentageElement" stretchType="RelativeToTallestObject" x="1344" y="0" width="96" height="30" uuid="bf4803e1-69ce-4d4e-a476-afb52cc4e5dd">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="88b26bd6-7517-495e-93aa-5f358e823eba"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{g7_p} == null ? "0%" : $F{g7_p}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" hyperlinkType="ReportExecution">
+				<reportElement style="DataRowElement" stretchType="RelativeToTallestObject" x="1440" y="0" width="96" height="30" uuid="f67d7827-b97b-429a-9b49-50877ae89ac6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6f3d3118-479f-42e9-9b77-97d4f9d3b444"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{g8}]]></textFieldExpression>
+				<hyperlinkWhenExpression><![CDATA[$F{g8} > 0]]></hyperlinkWhenExpression>
+				<hyperlinkTooltipExpression><![CDATA["Click for the line list"]]></hyperlinkTooltipExpression>
+				<hyperlinkParameter name="_report">
+					<hyperlinkParameterExpression><![CDATA["/JSSCP/Reports/Linelists/ANC___IFA_and_Calcium_Consumption_Linelist"]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DATE_END">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DATE_START">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_CLUSTER_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_VILLAGE_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_USER_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_USER_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_AGE_GROUP">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_AGE_GROUP}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DYNAMIC_WHERE">
+					<hyperlinkParameterExpression><![CDATA[$V{DYNAMIC_WHERE_8}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement style="DataRowPreCalculatedPercentageElement" stretchType="RelativeToTallestObject" x="1536" y="0" width="96" height="30" uuid="ae92ac6f-8491-4958-aa58-2822a57c48ed">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7f694a25-432e-4402-bd7e-db4e43ad15df"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{g8_p} == null ? "0%" : $F{g8_p}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

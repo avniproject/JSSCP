@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.11.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Aggregate_3Groups" pageWidth="1684" pageHeight="720" columnWidth="1080" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fa1a9231-754c-4c0f-8a57-3e034206cd5a">
+	<property name="ireport.jasperserver.url" value="https://reporting-jasper.avniproject.org/jasperserver/"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="JSSCP"/>
+	<template><![CDATA["repo:/Templates/Styles/AggregateReportStyles.jrtx"]]></template>
+	<parameter name="PARAM_DATE_START" class="java.sql.Timestamp"/>
+	<parameter name="PARAM_DATE_END" class="java.sql.Timestamp"/>
+	<parameter name="PARAM_VILLAGE_NAME" class="java.util.List" nestedType="java.lang.String"/>
+	<parameter name="PARAM_CLUSTER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+	<parameter name="PARAM_USER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+	<parameter name="PARAM_AGE_GROUP" class="java.lang.String"/>
+	<parameter name="Exited" class="java.util.List" nestedType="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[with antenatal_services_data as  (select count(*) filter (where number_of_visits >= 4 ) as four_visits_completed,
+       count(*) filter (where tt1_given = 'Yes' and tt2_given = 'Yes' ) as tt_completed
+from (select COUNT(*) OVER (PARTITION BY anc."Ind.Id")                                             number_of_visits,
+                anc."Enc.TT 1"  tt1_given,
+                anc."Enc.TT 2"  tt2_given,
+                row_number()
+                OVER (PARTITION BY anc."Ind.Id" ORDER BY anc."Enc.encounter_date_time" ) as visit_number,
+                case when delivery."Enl.exit_date_time" is null then 'No' else 'Yes' end               as exited,
+        * from  jsscp_anc_clinic_view anc
+        left join jsscp_delivery_view delivery on delivery."Ind.Id" = anc."Ind.Id"
+        left join jsscp_abortion_view abortion on abortion."Ind.Id" = anc."Ind.Id"
+        where delivery."Enc.Date and time when baby was out" is not null
+        	 and abortion."Enc.Date and time of abortion"  is null
+             and abortion."Enc.Date and time of abortion" is null
+             and $X{IN, anc."Ind.cluster", PARAM_CLUSTER_NAME}
+             and $X{IN, anc."Ind.village", PARAM_VILLAGE_NAME}
+             and $X{IN, anc."Enc.username", PARAM_USER_NAME}
+             and $X{BETWEEN, delivery."Enc.encounter_date_time", PARAM_DATE_START, PARAM_DATE_END}
+             and (($P{PARAM_AGE_GROUP} notnull and (
+                     extract('year' from age(anc."Ind.date_of_birth")) between split_part($P{PARAM_AGE_GROUP}, '-', 1)::INTEGER
+                     and split_part($P{PARAM_AGE_GROUP}, '-', 2)::INTEGER
+                    )) or ($P{PARAM_AGE_GROUP} isnull)) ) partitioned_data
+    where visit_number = 1 and $X{IN, exited, Exited})
+             
+select unnest(array ['Mothers who made minimum 4 visits to the health facility (ANC clinic) during pregnancy',
+					 'Mothers who received two doses of TT during present pregnancy'
+					  ]) as "Characteristics",
+       unnest(array [ four_visits_completed,
+       				  tt_completed
+       				  ]) 
+       				  as "Number",
+       unnest(array [nullif((four_visits_completed * 100.0 )/ (select count(*) from jsscp_delivery_view),0)::TEXT,
+       				 nullif((tt_completed * 100.0) / (select count(*) from jsscp_delivery_view),0)::TEXT]) 
+       				 as "Proportion"
+from antenatal_services_data;]]>
+	</queryString>
+	<field name="Characteristics" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Characteristics"/>
+	</field>
+	<field name="Number" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="Number"/>
+	</field>
+	<field name="Proportion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Proportion"/>
+	</field>
+	<variable name="DYNAMIC_WHERE" class="java.lang.String">
+		<variableExpression><![CDATA[$F{Characteristics}.equals("Mothers who made minimum 4 visits to the health facility (ANC clinic) during pregnancy") ? "and \"Number of ANC clinic visits\" >= 4" :
+$F{Characteristics}.equals("Mothers who received two doses of TT during present pregnancy") ? "and \"TT 1\" = 'Yes' and \"TT 2\" = 'Yes'" :
+"and 1=1"]]></variableExpression>
+	</variable>
+	<background>
+		<band height="100" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</background>
+	<title>
+		<band height="50" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement style="ReportTitle" x="0" y="0" width="1044" height="50" uuid="b41c1dbc-657e-4f9f-93da-2951563f95d4"/>
+				<text><![CDATA[Antenatal services during pregnancy]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement style="ColumnHeader" x="240" y="0" width="300" height="30" uuid="bcca74b2-d359-4ffa-bb61-cb4a49ca0bde"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+				</box>
+				<text><![CDATA[Characteristics]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="540" y="0" width="80" height="30" uuid="733e9e26-4790-4a99-a16f-4237a3b5eaac"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+				</box>
+				<text><![CDATA[Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="620" y="0" width="80" height="30" uuid="9c483f7e-b1d0-4d46-ae47-4db77284b9ff"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+				</box>
+				<text><![CDATA[Proportion]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement style="DataRowTextElement" stretchType="RelativeToTallestObject" x="240" y="0" width="300" height="30" uuid="181f7e17-75cf-4bb7-9c75-fd7610b870c4"/>
+				<textFieldExpression><![CDATA[$F{Characteristics}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" hyperlinkType="ReportExecution">
+				<reportElement style="DataRowNumericElement" stretchType="RelativeToTallestObject" x="540" y="0" width="80" height="30" uuid="bb6d18e2-9390-49a6-8ee4-9e3cd4870808"/>
+				<textFieldExpression><![CDATA[$F{Number}]]></textFieldExpression>
+				<hyperlinkWhenExpression><![CDATA[$F{Number} > 0]]></hyperlinkWhenExpression>
+				<hyperlinkParameter name="_report">
+					<hyperlinkParameterExpression><![CDATA["/JSSCP/Reports/Linelists/Linelist_for_ANC_Clinic_Visit_with_delivery_reported"]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DATE_END">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DATE_START">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_VILLAGE_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_CLUSTER_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_AGE_GROUP">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_AGE_GROUP}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="Exited">
+					<hyperlinkParameterExpression><![CDATA[$P{Exited}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DYNAMIC_WHERE">
+					<hyperlinkParameterExpression><![CDATA[$V{DYNAMIC_WHERE}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement style="DataRowPreCalculatedPercentageElement" stretchType="RelativeToTallestObject" x="620" y="0" width="80" height="30" uuid="dae5ec1a-9bd0-4522-991d-528f3b29e712"/>
+				<textFieldExpression><![CDATA[$F{Proportion} == null ? "0%" : $F{Proportion}.equals("NA") ? "NA" : Double.valueOf($F{Proportion})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

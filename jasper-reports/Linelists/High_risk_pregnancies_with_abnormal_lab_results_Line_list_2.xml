@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reportUnit exportedWithPermissions="false">
+    <folder>/JSSCP/Reports/Linelists</folder>
+    <name>High_risk_pregnancies_with_abnormal_lab_results_Line_list_2</name>
+    <version>8</version>
+    <label>High risk pregnancies with abnormal lab results ( anc clinic ) Linelist</label>
+    <description></description>
+    <creationDate>2020-09-16T15:10:10.742+05:30</creationDate>
+    <updateDate>2020-09-03T13:25:41.717+05:30</updateDate>
+    <mainReport>
+        <localResource
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            exportedWithPermissions="false" dataFile="main_jrxml.data" xsi:type="fileResource">
+            <folder>/JSSCP/Reports/Linelists/High_risk_pregnancies_with_abnormal_lab_results_Line_list_2_files</folder>
+            <name>main_jrxml</name>
+            <version>1</version>
+            <label>Main jrxml</label>
+            <creationDate>2020-09-16T15:10:10.742+05:30</creationDate>
+            <updateDate>2020-07-16T18:19:47.958+05:30</updateDate>
+            <fileType>jrxml</fileType>
+        </localResource>
+    </mainReport>
+    <dataSource>
+        <uri>/JSSCP/Data_Sources/jsscp</uri>
+    </dataSource>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_DATE_START</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_DATE_END</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_CLUSTER_NAME</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_VILLAGE_NAME</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_USER_NAME</uri>
+    </inputControl>
+    <inputControl>
+        <localResource
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            exportedWithPermissions="false" xsi:type="inputControl">
+            <folder>/JSSCP/Reports/Linelists/High_risk_pregnancies_with_abnormal_lab_results_Line_list_2_files</folder>
+            <name>PARAM_DYNAMIC_WHERE</name>
+            <version>1</version>
+            <label>PARAM_DYNAMIC_WHERE</label>
+            <description></description>
+            <creationDate>2020-09-16T15:10:10.742+05:30</creationDate>
+            <updateDate>2020-07-16T18:19:47.958+05:30</updateDate>
+            <type>2</type>
+            <mandatory>false</mandatory>
+            <readOnly>false</readOnly>
+            <visible>false</visible>
+            <dataType>
+                <localResource exportedWithPermissions="false" xsi:type="dataType">
+                    <folder>/JSSCP/Reports/Linelists/High_risk_pregnancies_with_abnormal_lab_results_Line_list_2_files/PARAM_DYNAMIC_WHERE_files</folder>
+                    <name>myDatatype</name>
+                    <version>0</version>
+                    <label>myDatatype</label>
+                    <description></description>
+                    <creationDate>2020-09-16T15:10:10.742+05:30</creationDate>
+                    <updateDate>2020-07-16T18:19:47.958+05:30</updateDate>
+                    <type>1</type>
+                    <strictMin>false</strictMin>
+                    <strictMax>false</strictMax>
+                </localResource>
+            </dataType>
+        </localResource>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_AGE_GROUP</uri>
+    </inputControl>
+    <inputControlRenderingView></inputControlRenderingView>
+    <alwaysPromptControls>false</alwaysPromptControls>
+    <controlsLayout>4</controlsLayout>
+    <dataSnapshotMetadata>
+        <snapshotDate>2020-07-14T23:13:51.166+05:30</snapshotDate>
+        <parameter single-value="false">
+            <name xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:java="http://java.sun.com" xsi:type="java:java.lang.String">PARAM_USER_NAME</name>
+        </parameter>
+        <parameter single-value="false">
+            <name xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:java="http://java.sun.com" xsi:type="java:java.lang.String">PARAM_VILLAGE_NAME</name>
+        </parameter>
+        <parameter single-value="true">
+            <values
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:java="http://java.sun.com" xsi:type="java:java.lang.String">and 1=1</values>
+            <name xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:java="http://java.sun.com" xsi:type="java:java.lang.String">PARAM_DYNAMIC_WHERE</name>
+            <value-type>single</value-type>
+        </parameter>
+        <parameter single-value="false">
+            <name xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:java="http://java.sun.com" xsi:type="java:java.lang.String">PARAM_CLUSTER_NAME</name>
+        </parameter>
+    </dataSnapshotMetadata>
+</reportUnit>

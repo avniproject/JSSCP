@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reportUnit exportedWithPermissions="false">
+    <folder>/JSSCP/Reports/Linelists</folder>
+    <name>High_Risk_Pregnancy_ANC_Clinic_and_Home_Visit_Linelist</name>
+    <version>14</version>
+    <label>High Risk Pregnancy ANC Clinic and Home Visit Linelist</label>
+    <description></description>
+    <creationDate>2020-09-16T15:10:11.047+05:30</creationDate>
+    <updateDate>2020-09-03T13:29:47.555+05:30</updateDate>
+    <mainReport>
+        <localResource
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            exportedWithPermissions="false" dataFile="main_jrxml.data" xsi:type="fileResource">
+            <folder>/JSSCP/Reports/Linelists/High_Risk_Pregnancy_ANC_Clinic_and_Home_Visit_Linelist_files</folder>
+            <name>main_jrxml</name>
+            <version>1</version>
+            <label>Main jrxml</label>
+            <creationDate>2020-09-16T15:10:11.047+05:30</creationDate>
+            <updateDate>2020-07-21T12:57:07.628+05:30</updateDate>
+            <fileType>jrxml</fileType>
+        </localResource>
+    </mainReport>
+    <dataSource>
+        <uri>/JSSCP/Data_Sources/jsscp</uri>
+    </dataSource>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_DATE_START</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_DATE_END</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_CLUSTER_NAME</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_VILLAGE_NAME</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_USER_NAME</uri>
+    </inputControl>
+    <inputControl>
+        <localResource
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            exportedWithPermissions="false" xsi:type="inputControl">
+            <folder>/JSSCP/Reports/Linelists/High_Risk_Pregnancy_ANC_Clinic_and_Home_Visit_Linelist_files</folder>
+            <name>PARAM_DYNAMIC_WHERE</name>
+            <version>1</version>
+            <label>PARAM_DYNAMIC_WHERE</label>
+            <creationDate>2020-09-16T15:10:11.047+05:30</creationDate>
+            <updateDate>2020-07-21T12:57:07.911+05:30</updateDate>
+            <type>2</type>
+            <mandatory>false</mandatory>
+            <readOnly>false</readOnly>
+            <visible>true</visible>
+            <dataType>
+                <localResource exportedWithPermissions="false" xsi:type="dataType">
+                    <folder>/JSSCP/Reports/Linelists/High_Risk_Pregnancy_ANC_Clinic_and_Home_Visit_Linelist_files/PARAM_DYNAMIC_WHERE_files</folder>
+                    <name>myDatatype</name>
+                    <version>0</version>
+                    <label>myDatatype</label>
+                    <creationDate>2020-09-16T15:10:11.047+05:30</creationDate>
+                    <updateDate>2020-07-21T12:57:07.911+05:30</updateDate>
+                    <type>1</type>
+                    <strictMin>false</strictMin>
+                    <strictMax>false</strictMax>
+                </localResource>
+            </dataType>
+        </localResource>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_AGE_GROUP</uri>
+    </inputControl>
+    <resource>
+        <localResource
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            exportedWithPermissions="false"
+            dataFile="Linelist.jrtx.data" xsi:type="fileResource">
+            <folder>/JSSCP/Reports/Linelists/High_Risk_Pregnancy_ANC_Clinic_and_Home_Visit_Linelist_files</folder>
+            <name>Linelist.jrtx</name>
+            <version>1</version>
+            <label>Linelist.jrtx</label>
+            <creationDate>2020-09-16T15:10:11.047+05:30</creationDate>
+            <updateDate>2020-07-13T12:53:24.331+05:30</updateDate>
+            <fileType>jrtx</fileType>
+        </localResource>
+    </resource>
+    <inputControlRenderingView></inputControlRenderingView>
+    <alwaysPromptControls>false</alwaysPromptControls>
+    <controlsLayout>4</controlsLayout>
+</reportUnit>

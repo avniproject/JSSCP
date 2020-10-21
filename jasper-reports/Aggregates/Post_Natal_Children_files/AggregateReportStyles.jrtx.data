@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio -->
+<jasperTemplate xmlns="http://jasperreports.sourceforge.net/jasperreports/template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/template http://jasperreports.sourceforge.net/xsd/jaspertemplate.xsd">
+	<style name="ReportTitle" mode="Opaque" forecolor="#49857C" backcolor="#FFFFFF" hTextAlign="Center" hImageAlign="Center" vTextAlign="Middle" vImageAlign="Middle" pattern="" fontName="Serif" fontSize="20" isBold="true"/>
+	<style name="GroupHeader" mode="Opaque" forecolor="#0D0303" backcolor="#FFFFFF" hTextAlign="Left" hImageAlign="Center" vTextAlign="Middle" vImageAlign="Middle" pattern="" fontName="Serif" fontSize="14" isBold="true"/>
+	<style name="Group1Header" style="GroupHeader" forecolor="#0D0303" backcolor="#FFFFFF" fontName="Serif" fontSize="17">
+		<box leftPadding="2"/>
+	</style>
+	<style name="Group2Header" style="GroupHeader" forecolor="#0D0303" backcolor="#FFFFFF" fontName="Serif" fontSize="17">
+		<box leftPadding="4"/>
+	</style>
+	<style name="Group3Header" style="GroupHeader" forecolor="#0D0303" backcolor="#FFFFFF" fontSize="12">
+		<box leftPadding="6"/>
+	</style>
+	<style name="ColumnHeader" mode="Opaque" forecolor="#0D0303" backcolor="#FFFFFF" hTextAlign="Center" hImageAlign="Center" vTextAlign="Middle" vImageAlign="Middle" pattern="" fontName="Serif" fontSize="11" isBold="true"/>
+	<style name="DataRowElement" forecolor="#0D0303" backcolor="#FFFFFF" hTextAlign="Center" vTextAlign="Middle" pattern="">
+		<box padding="2">
+			<pen lineWidth="0.25"/>
+		</box>
+	</style>
+	<style name="DataRowTextElement" style="DataRowElement" forecolor="#0D0303" backcolor="#FFFFFF" hTextAlign="Left" pattern=""/>
+	<style name="DataRowNumericElement" style="DataRowElement" forecolor="#0D0303" backcolor="#FFFFFF" pattern="#,##0.###;(#,##0.###-)"/>
+	<style name="DataRowDerivedPercentageElement" style="DataRowElement" forecolor="#0D0303" backcolor="#FFFFFF" pattern="#,###.00%"/>
+	<style name="DataRowPreCalculatedPercentageElement" style="DataRowElement" forecolor="#0D0303" backcolor="#FFFFFF" pattern="#,###.00&apos;%&apos;"/>
+</jasperTemplate>

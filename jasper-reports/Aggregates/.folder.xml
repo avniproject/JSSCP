@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<folder exportedWithPermissions="false">
+    <parent>/JSSCP/Reports</parent>
+    <name>Aggregates</name>
+    <label>Aggregates</label>
+    <description></description>
+    <creationDate>2020-07-09T02:03:43.415+05:30</creationDate>
+    <updateDate>2020-07-09T02:03:43.415+05:30</updateDate>
+    <resource>Aggregate_Table</resource>
+    <resource>ANC___IFA_and_Calcium_Consumption</resource>
+    <resource>Antenatal_services_during_pregnancy</resource>
+    <resource>Birth_and_Death_Rates</resource>
+    <resource>Child_Birth</resource>
+    <resource>High_risk_pregnancies_with_abnormal_lab_results</resource>
+    <resource>Intranatal_Services</resource>
+    <resource>Post_Natal_Children</resource>
+    <resource>Post_natal_mother_details</resource>
+    <resource>Post_natal_services_for_mother</resource>
+    <resource>Postnatal_Services_Child</resource>
+    <resource>Referral_serviecs</resource>
+</folder>

@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.11.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="High risk pregnancies with abnormal lab results" pageWidth="1500" pageHeight="2000" columnWidth="555" leftMargin="200" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b5d0c957-a6d2-411d-a68a-0216e1c6b4b0">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="JSSCPUAT"/>
+	<template><![CDATA["repo:AggregateReportStyles.jrtx"]]></template>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="lab_investigation" uuid="83b144fc-99df-460a-9389-6182d5202e4f">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="224"/>
+		<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="764"/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="JSSCPUAT"/>
+		<parameter name="PARAM_DATE_START" class="java.sql.Timestamp"/>
+		<parameter name="PARAM_DATE_END" class="java.sql.Timestamp"/>
+		<parameter name="PARAM_CLUSTER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+		<parameter name="PARAM_VILLAGE_NAME" class="java.util.List" nestedType="java.lang.String"/>
+		<parameter name="PARAM_USER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+		<parameter name="PARAM_AGE_GROUP" class="java.lang.String"/>
+		<queryString language="SQL">
+			<![CDATA[with data as (
+    select count(*) filter ( where "Enc.HIV (Elisa)" = 'Positive')     hiv_positive,
+           count(*) filter ( where "Enc.VDRL" = 'Positive')            vdrl_positive,
+           count(*) filter ( where "Enc.Hb Electrophoresis" = 'SS')    ss,
+           count(*) filter ( where "Enc.Hepatitis B" = 'Positive')     hepatitis_b,
+           (select count(distinct "Ind.Id") from jsscp_pregnancy_view) total_enrolment
+    from (select "Enc.HIV (Elisa)",
+                 "Enc.VDRL",
+                 "Enc.Hb Electrophoresis",
+                 "Enc.Hepatitis B",
+                 row_number()
+                 OVER (PARTITION BY lab."Ind.Id" ORDER BY lab."Enc.encounter_date_time" desc) as visit_number
+          from jsscp_lab_investigation_view lab
+                   left join jsscp_abortion_view abortion on abortion."Enl.Id" = lab."Enl.Id"
+                   left join jsscp_delivery_view delivery on delivery."Enl.Id" = lab."Enl.Id"
+          where 1 = 1
+          and (abortion."Enc.Date and time of abortion" isnull OR
+                 ($P{PARAM_DATE_START}::date notnull and
+                  abortion."Enc.Date and time of abortion"::date not between $P{PARAM_DATE_START}::date and $P{PARAM_DATE_END}::date)
+              )
+            and (delivery."Enc.Date and time when baby was out" isnull OR
+                 ($P{PARAM_DATE_START}::date notnull and
+                  delivery."Enc.Date and time when baby was out"::date not between $P{PARAM_DATE_START}::date and $P{PARAM_DATE_END}::date)
+              )
+            and $X{IN,lab."Ind.cluster" ,PARAM_CLUSTER_NAME}
+            and $X{IN,lab."Ind.village",PARAM_VILLAGE_NAME}
+            and $X{IN,lab."Enc.username",PARAM_USER_NAME}
+            and $X{BETWEEN,lab."Enc.encounter_date_time",PARAM_DATE_START, PARAM_DATE_END}
+            and (($P{PARAM_AGE_GROUP} notnull and (
+                     extract('year' from age(lab."Ind.date_of_birth")) between split_part($P{PARAM_AGE_GROUP}, '-', 1)::INTEGER
+                     and split_part($P{PARAM_AGE_GROUP}, '-', 2)::INTEGER
+                    )) or ($P{PARAM_AGE_GROUP} isnull))
+            ) partitioned_data
+    where visit_number = 1
+)
+select unnest(
+               array [
+                   'HIV +ve',
+                   'VDRL +ve',
+                   'Sickle cell disease (SS)',
+                   'Hepatitis B +ve'
+                   ]) as "Characteristics",
+       unnest(
+               array [
+                   hiv_positive,
+                   vdrl_positive,
+                   ss,
+                   hepatitis_b
+                   ]) as "Number",
+       unnest(array [
+           nullif(((hiv_positive * 100.0) / total_enrolment), 0),
+           nullif(((vdrl_positive * 100.0) / total_enrolment), 0),
+           nullif(((ss * 100.0) / total_enrolment), 0),
+           nullif(((hepatitis_b * 100.0) / total_enrolment), 0)
+           ])         as "Proportion"
+from data;]]>
+		</queryString>
+		<field name="Characteristics" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Characteristics"/>
+		</field>
+		<field name="Number" class="java.lang.Long">
+			<property name="com.jaspersoft.studio.field.label" value="Number"/>
+		</field>
+		<field name="Proportion" class="java.math.BigDecimal">
+			<property name="com.jaspersoft.studio.field.label" value="Proportion"/>
+		</field>
+		<variable name="DYNAMIC_WHERE" class="java.lang.String">
+			<variableExpression><![CDATA[$F{Characteristics}.equals("HIV +ve") ? "and hiv = 'Positive'" :
+$F{Characteristics}.equals("VDRL +ve") ? "and vdrl = 'Positive'" :
+$F{Characteristics}.equals("Sickle cell disease (SS)") ? "and electrophoresis='SS'" :
+$F{Characteristics}.equals("Hepatitis B +ve") ? "and hepatitis_b='Positive'" : "and 1=1"]]></variableExpression>
+		</variable>
+	</subDataset>
+	<subDataset name="anc_clinic" uuid="bd241165-a4ad-4736-9b90-d43d3e8cc33e">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="224"/>
+		<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="764"/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="JSSCPUAT"/>
+		<parameter name="PARAM_DATE_START" class="java.sql.Timestamp"/>
+		<parameter name="PARAM_DATE_END" class="java.sql.Timestamp"/>
+		<parameter name="PARAM_CLUSTER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+		<parameter name="PARAM_VILLAGE_NAME" class="java.util.List" nestedType="java.lang.String"/>
+		<parameter name="PARAM_USER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+		<parameter name="PARAM_AGE_GROUP" class="java.lang.String"/>
+		<queryString language="SQL">
+			<![CDATA[with data as (
+    select count(*) filter ( where "Enc.Blood group" in ('Ab-', 'O-', 'A-', 'B-'))                 blood_group,
+           count(*) filter ( where "Enc.Random Blood Sugar (RBS)"::numeric not between 60 and 160) blood_sugar,
+           count(*) filter ( where "Enc.Glucose test (75gm Glucose)"::numeric > 140)               glucose,
+
+           (select count(distinct "Ind.Id") from jsscp_pregnancy_view)                             total_enrolment
+    from (select "Enc.Blood group",
+                 "Enc.Random Blood Sugar (RBS)",
+                 "Enc.Glucose test (75gm Glucose)",
+                 row_number()
+                 OVER (PARTITION BY anc."Ind.Id" ORDER BY anc."Enc.encounter_date_time") as visit_number
+          from jsscp_anc_clinic_view anc
+                   left join jsscp_abortion_view abortion on abortion."Enl.Id" = anc."Enl.Id"
+                   left join jsscp_delivery_view delivery on delivery."Enl.Id" = anc."Enl.Id"
+          where 1 = 1
+          and (abortion."Enc.Date and time of abortion" isnull OR
+                 ($P{PARAM_DATE_START}::date notnull and
+                  abortion."Enc.Date and time of abortion"::date not between $P{PARAM_DATE_START}::date and $P{PARAM_DATE_END}::date)
+              )
+            and (delivery."Enc.Date and time when baby was out" isnull OR
+                 ($P{PARAM_DATE_START}::date notnull and
+                  delivery."Enc.Date and time when baby was out"::date not between $P{PARAM_DATE_START}::date and $P{PARAM_DATE_END}::date)
+              )
+            and $X{IN,anc."Ind.cluster" ,PARAM_CLUSTER_NAME}
+            and $X{IN,anc."Ind.village",PARAM_VILLAGE_NAME}
+            and $X{IN,anc."Enc.username",PARAM_USER_NAME}
+            and $X{BETWEEN,anc."Enc.encounter_date_time",PARAM_DATE_START, PARAM_DATE_END}
+            and (($P{PARAM_AGE_GROUP} notnull and (
+                     extract('year' from age(anc."Ind.date_of_birth")) between split_part($P{PARAM_AGE_GROUP}, '-', 1)::INTEGER
+                     and split_part($P{PARAM_AGE_GROUP}, '-', 2)::INTEGER
+                    )) or ($P{PARAM_AGE_GROUP} isnull))
+           ) partitioned_data
+    where visit_number = 1
+)
+select unnest(
+               array [
+                   'Blood group with Rh Negative',
+                   'Random Blood Sugar (RBS)',
+                   'Glucose test '
+                   ]) as "Characteristics",
+       unnest(
+               array [
+                   blood_group,
+                   blood_sugar,
+                   glucose
+                   ]) as "Number",
+       unnest(array [
+           nullif(((blood_group * 100.0) / total_enrolment), 0),
+           nullif(((blood_sugar * 100.0) / total_enrolment), 0),
+           nullif(((glucose * 100.0) / total_enrolment), 0)
+           ])         as "Proportion"
+from data;]]>
+		</queryString>
+		<field name="Characteristics" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Characteristics"/>
+		</field>
+		<field name="Number" class="java.lang.Long">
+			<property name="com.jaspersoft.studio.field.label" value="Number"/>
+		</field>
+		<field name="Proportion" class="java.math.BigDecimal">
+			<property name="com.jaspersoft.studio.field.label" value="Proportion"/>
+		</field>
+		<variable name="DYNAMIC_WHERE" class="java.lang.String">
+			<variableExpression><![CDATA[$F{Characteristics}.equals("Blood group with Rh Negative") ? "and blood_group in ('Ab-', 'O-', 'A-', 'B-')" :
+$F{Characteristics}.equals("Random Blood Sugar (RBS)") ? "and blood_sugar not between 60 and 160" :
+$F{Characteristics}.equals("Glucose test ") ? "and glucose > 140" : "and 1=1"]]></variableExpression>
+		</variable>
+	</subDataset>
+	<subDataset name="lab_investigation_result_for_pregnancy_included_diabetes" uuid="9fb35d2d-55cc-46ad-b01b-ad317f056745">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="224"/>
+		<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="764"/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="JSSCPUAT"/>
+		<parameter name="PARAM_DATE_START" class="java.sql.Timestamp"/>
+		<parameter name="PARAM_DATE_END" class="java.sql.Timestamp"/>
+		<parameter name="PARAM_CLUSTER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+		<parameter name="PARAM_VILLAGE_NAME" class="java.util.List" nestedType="java.lang.String"/>
+		<parameter name="PARAM_USER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+		<parameter name="PARAM_AGE_GROUP" class="java.lang.String"/>
+		<queryString language="SQL">
+			<![CDATA[with data as (
+    select count(*) filter ( where "Enc.FBS"::numeric not between 80 and 120)    fbs,
+           count(*) filter ( where "Enc.PP2BS"::numeric not between 120 and 150) pp2bs,
+           count(*) filter ( where "Enc.HbA1C"::numeric not between 7 and 8)     hba1c,
+           (select count(distinct "Ind.Id") from jsscp_pregnancy_view)           total_enrolment
+    from (select "Enc.FBS",
+                 "Enc.PP2BS",
+                 "Enc.HbA1C",
+                 row_number()
+                 OVER (PARTITION BY lab."Ind.Id" ORDER BY lab."Enc.encounter_date_time" desc) as visit_number
+          from jsscp_lab_investigation_result_for_pregnancy_included_diabetes lab
+                   left join jsscp_abortion_view abortion on abortion."Enl.Id" = lab."Enl.Id"
+                   left join jsscp_delivery_view delivery on delivery."Enl.Id" = lab."Enl.Id"
+          where 1 = 1
+          and (abortion."Enc.Date and time of abortion" isnull OR
+                 ($P{PARAM_DATE_START}::date notnull and
+                  abortion."Enc.Date and time of abortion"::date not between $P{PARAM_DATE_START}::date and $P{PARAM_DATE_END}::date)
+              )
+            and (delivery."Enc.Date and time when baby was out" isnull OR
+                 ($P{PARAM_DATE_START}::date notnull and
+                  delivery."Enc.Date and time when baby was out"::date not between $P{PARAM_DATE_START}::date and $P{PARAM_DATE_END}::date)
+              )
+            and $X{IN,lab."Ind.cluster" ,PARAM_CLUSTER_NAME}
+            and $X{IN,lab."Ind.village",PARAM_VILLAGE_NAME}
+            and $X{IN,lab."Enc.username",PARAM_USER_NAME}
+            and $X{BETWEEN,lab."Enc.encounter_date_time",PARAM_DATE_START, PARAM_DATE_END}
+            and (($P{PARAM_AGE_GROUP} notnull and (
+                     extract('year' from age(lab."Ind.date_of_birth")) between split_part($P{PARAM_AGE_GROUP}, '-', 1)::INTEGER
+                     and split_part($P{PARAM_AGE_GROUP}, '-', 2)::INTEGER
+                    )) or ($P{PARAM_AGE_GROUP} isnull))
+           ) partitioned_data
+    where visit_number = 1
+)
+select unnest(
+               array [
+                   'Abnormal FBS',
+                   'Abnormal PP2BS',
+                   'Abnormal HbA1C'
+                   ]) as "Characteristics",
+       unnest(
+               array [
+                   fbs,
+                   pp2bs,
+                   hba1c
+                   ]) as "Number",
+       unnest(array [
+           nullif(((fbs * 100.0) / total_enrolment), 0),
+           nullif(((pp2bs * 100.0) / total_enrolment), 0),
+           nullif(((hba1c * 100.0) / total_enrolment), 0)
+           ])         as "Proportion"
+from data;]]>
+		</queryString>
+		<field name="Characteristics" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Characteristics"/>
+		</field>
+		<field name="Number" class="java.lang.Long">
+			<property name="com.jaspersoft.studio.field.label" value="Number"/>
+		</field>
+		<field name="Proportion" class="java.math.BigDecimal">
+			<property name="com.jaspersoft.studio.field.label" value="Proportion"/>
+		</field>
+		<variable name="DYNAMIC_WHERE" class="java.lang.String">
+			<variableExpression><![CDATA[$F{Characteristics}.equals("Abnormal FBS") ? "and fbs not between 80 and 120" :
+$F{Characteristics}.equals("Abnormal PP2BS") ? "and pp2bs not between 120 and 150" :
+$F{Characteristics}.equals("Abnormal HbA1C") ? "and hba1c not between 7 and 8" : "and 1=1"]]></variableExpression>
+		</variable>
+	</subDataset>
+	<parameter name="PARAM_DATE_START" class="java.sql.Timestamp"/>
+	<parameter name="PARAM_DATE_END" class="java.sql.Timestamp"/>
+	<parameter name="PARAM_CLUSTER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+	<parameter name="PARAM_VILLAGE_NAME" class="java.util.List" nestedType="java.lang.String"/>
+	<parameter name="PARAM_USER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+	<parameter name="PARAM_AGE_GROUP" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select 1]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement style="ReportTitle" x="-11" y="0" width="1000" height="75" uuid="30d1b560-62c5-4aa5-8c67-7c1073afc71a"/>
+				<text><![CDATA[High risk pregnancies with abnormal lab results]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement style="ColumnHeader" x="213" y="0" width="400" height="30" uuid="2e96520d-06e5-4d88-84b6-5a988ccb1cb4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8d7f8578-9a4e-4ef0-9f2c-78b13aa5ee9a"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+				</box>
+				<text><![CDATA[Indicator]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="613" y="0" width="80" height="30" uuid="0ad1ea82-584b-4f3b-a492-7b92522eec7c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="335541e7-550d-4197-95b3-1414708e283d"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+				</box>
+				<text><![CDATA[Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="693" y="0" width="80" height="30" uuid="802fa7db-d67b-4584-b612-6581c12fa45a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9bd0c808-4dee-46af-a016-43711761f5e8"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+				</box>
+				<text><![CDATA[Proportion]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<summary>
+		<band height="715" splitType="Stretch">
+			<componentElement>
+				<reportElement x="213" y="0" width="566" height="30" uuid="be9f70d1-eb85-471a-8e08-5317742fc484">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="lab_investigation" uuid="df475dac-b6b8-43f4-9757-ed12c6d80e38">
+						<datasetParameter name="PARAM_DATE_START">
+							<datasetParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_DATE_END">
+							<datasetParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_CLUSTER_NAME">
+							<datasetParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_VILLAGE_NAME">
+							<datasetParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_USER_NAME">
+							<datasetParameterExpression><![CDATA[$P{PARAM_USER_NAME}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_AGE_GROUP">
+							<datasetParameterExpression><![CDATA[$P{PARAM_AGE_GROUP}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="400" uuid="6489cb62-e93a-450c-870b-93f8a3c7cb55">
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement style="DataRowTextElement" x="0" y="0" width="400" height="30" uuid="f74d7915-8f42-4437-be42-f6523fe53828"/>
+								<textFieldExpression><![CDATA[$F{Characteristics}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="80" uuid="20927061-df82-4321-887d-d00f23e1d3a8">
+						<jr:detailCell style="Table_TD" height="30">
+							<textField hyperlinkType="ReportExecution">
+								<reportElement style="DataRowNumericElement" x="0" y="0" width="80" height="30" uuid="0d994209-87fa-4e44-be73-66012af593aa"/>
+								<textFieldExpression><![CDATA[$F{Number}]]></textFieldExpression>
+								<hyperlinkWhenExpression><![CDATA[$F{Number} > 0]]></hyperlinkWhenExpression>
+								<hyperlinkTooltipExpression><![CDATA["Click for the line list"]]></hyperlinkTooltipExpression>
+								<hyperlinkParameter name="_report">
+									<hyperlinkParameterExpression><![CDATA["/JSSCP/Reports/Linelists/High_risk_pregnancies_with_abnormal_lab_results_Line_list_1"]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_DATE_END">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_DATE_START">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_CLUSTER_NAME">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_VILLAGE_NAME">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_USER_NAME">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_USER_NAME}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_AGE_GROUP">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_AGE_GROUP}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_DYNAMIC_WHERE">
+									<hyperlinkParameterExpression><![CDATA[$V{DYNAMIC_WHERE}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="80" uuid="a2481dec-10d5-4cf1-ad88-0ebf04e54723">
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement style="DataRowPreCalculatedPercentageElement" x="0" y="0" width="80" height="30" uuid="c3cd2df2-6a8a-4499-a945-ca34c9156f99"/>
+								<textFieldExpression><![CDATA[$F{Proportion} == null ? "0%" : $F{Proportion}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<componentElement>
+				<reportElement x="213" y="120" width="566" height="30" uuid="9f5519d0-5e0e-4572-b570-0558e7668068">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="anc_clinic" uuid="385de970-ceab-4d87-a478-589d7a3974cc">
+						<datasetParameter name="PARAM_DATE_START">
+							<datasetParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_DATE_END">
+							<datasetParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_CLUSTER_NAME">
+							<datasetParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_VILLAGE_NAME">
+							<datasetParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_USER_NAME">
+							<datasetParameterExpression><![CDATA[$P{PARAM_USER_NAME}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_AGE_GROUP">
+							<datasetParameterExpression><![CDATA[$P{PARAM_AGE_GROUP}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="400" uuid="ef039d49-6b69-434d-b33c-e200e2ee5f7a">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement style="DataRowTextElement" x="0" y="0" width="400" height="30" uuid="0af9c5b7-3df3-4b6f-aa06-a4e50567a879"/>
+								<textFieldExpression><![CDATA[$F{Characteristics}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="80" uuid="f7669a01-6c6e-4c7d-9a9c-973c48e9366d">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField hyperlinkType="ReportExecution">
+								<reportElement style="DataRowNumericElement" x="0" y="0" width="80" height="30" uuid="5a193b3e-6ea1-4954-b392-bbb0c74645f9"/>
+								<textFieldExpression><![CDATA[$F{Number}]]></textFieldExpression>
+								<hyperlinkWhenExpression><![CDATA[$F{Number} > 0]]></hyperlinkWhenExpression>
+								<hyperlinkTooltipExpression><![CDATA["Click for the line list"]]></hyperlinkTooltipExpression>
+								<hyperlinkParameter name="_report">
+									<hyperlinkParameterExpression><![CDATA["/JSSCP/Reports/Linelists/High_risk_pregnancies_with_abnormal_lab_results_Line_list_2"]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_DATE_END">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_DATE_START">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_CLUSTER_NAME">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_VILLAGE_NAME">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_USER_NAME">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_USER_NAME}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_AGE_GROUP">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_AGE_GROUP}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_DYNAMIC_WHERE">
+									<hyperlinkParameterExpression><![CDATA[$V{DYNAMIC_WHERE}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="80" uuid="ac06689c-6bb8-4411-9712-a0ca842906e2">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement style="DataRowPreCalculatedPercentageElement" x="0" y="0" width="80" height="30" uuid="201aaddb-322e-4efb-928b-2d116e3a1017"/>
+								<textFieldExpression><![CDATA[$F{Proportion} == null ? "0%" : $F{Proportion}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<componentElement>
+				<reportElement x="213" y="210" width="566" height="30" uuid="5cb1f923-3b2f-4f5a-bd76-703c40b4f9b8">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="lab_investigation_result_for_pregnancy_included_diabetes" uuid="8cd32d84-dcd6-4e17-9ecd-169497940b80">
+						<datasetParameter name="PARAM_DATE_START">
+							<datasetParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_DATE_END">
+							<datasetParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_CLUSTER_NAME">
+							<datasetParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_VILLAGE_NAME">
+							<datasetParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_USER_NAME">
+							<datasetParameterExpression><![CDATA[$P{PARAM_USER_NAME}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PARAM_AGE_GROUP">
+							<datasetParameterExpression><![CDATA[$P{PARAM_AGE_GROUP}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="400" uuid="27c610ce-014c-4f10-952c-e0f2e99e28da">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement style="DataRowTextElement" x="0" y="0" width="400" height="30" uuid="a8f7b11a-b5cd-45a2-af15-0efd4ab2534d"/>
+								<textFieldExpression><![CDATA[$F{Characteristics}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="80" uuid="e843e3f4-6694-42c6-ac48-f29d3fb63f45">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField hyperlinkType="ReportExecution">
+								<reportElement style="DataRowNumericElement" x="0" y="0" width="80" height="30" uuid="fcad6788-4333-4390-82c3-ed7591f5c70e"/>
+								<textFieldExpression><![CDATA[$F{Number}]]></textFieldExpression>
+								<hyperlinkWhenExpression><![CDATA[$F{Number} > 0]]></hyperlinkWhenExpression>
+								<hyperlinkTooltipExpression><![CDATA["Click for the line list"]]></hyperlinkTooltipExpression>
+								<hyperlinkParameter name="_report">
+									<hyperlinkParameterExpression><![CDATA["/JSSCP/Reports/Linelists/High_risk_pregnancies_with_abnormal_lab_results_Line_list_3"]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_DATE_END">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_DATE_START">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_CLUSTER_NAME">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_VILLAGE_NAME">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_USER_NAME">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_USER_NAME}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_AGE_GROUP">
+									<hyperlinkParameterExpression><![CDATA[$P{PARAM_AGE_GROUP}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="PARAM_DYNAMIC_WHERE">
+									<hyperlinkParameterExpression><![CDATA[$V{DYNAMIC_WHERE}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="80" uuid="8ef89568-67d4-4f0d-afdb-e124662d491a">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement style="DataRowPreCalculatedPercentageElement" x="0" y="0" width="80" height="30" uuid="05d08481-4db1-42da-bbb5-fc1804a13493"/>
+								<textFieldExpression><![CDATA[$F{Proportion} == null ? "0%" : $F{Proportion}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.11.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Post Natal Children" pageWidth="1684" pageHeight="720" columnWidth="1080" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fa1a9231-754c-4c0f-8a57-3e034206cd5a">
+	<property name="ireport.jasperserver.url" value="https://reporting-jasper.avniproject.org/jasperserver/"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Staging (Avani)"/>
+	<property name="ireport.jasperserver.user" value="sachink"/>
+	<property name="ireport.jasperserver.report.resource" value="/JSSCP/Reports/Aggregates/Post_Natal_Children_files/main_jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/JSSCP/Reports/Aggregates/Post_Natal_Children"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="361"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="634"/>
+	<template><![CDATA["repo:AggregateReportStyles.jrtx"]]></template>
+	<parameter name="PARAM_DATE_START" class="java.sql.Timestamp"/>
+	<parameter name="PARAM_DATE_END" class="java.sql.Timestamp"/>
+	<parameter name="PARAM_VILLAGE_NAME" class="java.util.List" nestedType="java.lang.String"/>
+	<parameter name="PARAM_CLUSTER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+	<parameter name="PARAM_USER_NAME" class="java.util.List" nestedType="java.lang.String"/>
+	<parameter name="PARAM_AGE_GROUP" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[with pnc_data as
+         (select distinct pnc."Ind.Id" "Ind.Id",
+                          COUNT(*) OVER(PARTITION BY  pnc."Ind.Id") number_of_visits,
+                          ROW_NUMBER() OVER (PARTITION BY pnc."Ind.Id"  ORDER BY  pnc."Enc.encounter_date_time" ) row_num,
+                           date_part('day', "Enl.enrolment_date_time"::timestamptz - "Ind.date_of_birth"::timestamptz)  as enl_days,
+                         "Enc.Id"                                                             as encounter
+          from  jsscp_child_pnc_view pnc
+                     where   pnc."Enl.is_voided" = false and    pnc."Enc.encounter_date_time" is not null and pnc."Enc.is_voided" = false
+                                 and $X{IN,pnc."Ind.cluster" ,PARAM_CLUSTER_NAME}
+            and $X{IN,pnc."Ind.village" ,PARAM_VILLAGE_NAME}
+            and $X{IN,pnc."Enc.username",PARAM_USER_NAME}
+            and $X{BETWEEN,pnc."Enc.encounter_date_time",PARAM_DATE_START, PARAM_DATE_END}
+            and (($P{PARAM_AGE_GROUP} notnull and (
+              extract('year' from age(pnc."Ind.date_of_birth")) between split_part($P{PARAM_AGE_GROUP}, '-', 1)::INTEGER
+            and split_part($P{PARAM_AGE_GROUP}, '-', 2)::INTEGER
+              )) or ($P{PARAM_AGE_GROUP} isnull))
+
+             )
+
+select unnest(array ['Total PNC visits for Child conducted by MCHW',
+    'Total Children enrolled within 42 days of age',
+    'Total No of children having PNC visits',
+    'Children completed 1 Visit',
+    'Children completed 2 Visit',
+    'Children completed 3 Visit',
+    'Children completed 4 Visit',
+    'Children completed 5 Visit',
+    'Children completed 6 Visit'
+    ]) as "Characteristics",
+       unnest(array [count(encounter),
+                     count(distinct "Ind.Id")filter ( where enl_days <= 42 )    ,
+                     count(distinct "Ind.Id"),
+                   count(*) filter (where number_of_visits ='1' and row_num ='1'),
+       				 count(*) filter (where number_of_visits ='2' and row_num ='2'),
+       				 count(*) filter (where number_of_visits ='3' and row_num ='3'),
+       				 count(*) filter (where number_of_visits ='4' and row_num ='4'),
+       				 count(*) filter (where number_of_visits ='5' and row_num ='5'),
+       				 count(*) filter (where number_of_visits ='6' and row_num ='6')
+           ] )
+       as "Number" ,
+       unnest(array ['NA',
+           'NA','NA',
+              nullif( ((count(*) filter (where number_of_visits = '1' and row_num ='1' ) * 100.0) / NULLIF(count(distinct "Ind.Id"), 0)), 0)::text,
+               nullif(((count(*) filter (where number_of_visits = '2' and row_num ='2') * 100.0) / NULLIF(count(distinct "Ind.Id"), 0)), 0)::text,
+              nullif( ((count(*) filter (where number_of_visits = '3' and row_num ='3') * 100.0) / NULLIF(count(distinct "Ind.Id"), 0)), 0)::text,
+               nullif(((count(*) filter (where number_of_visits = '4' and row_num ='4') * 100.0) / NULLIF(count(distinct "Ind.Id"), 0)), 0)::text,
+               nullif(((count(*) filter (where number_of_visits = '5' and row_num ='5') * 100.0) / NULLIF(count(distinct "Ind.Id"), 0)), 0)::text,
+               nullif(((count(*) filter (where number_of_visits = '6' and row_num ='6') * 100.0) / NULLIF(count(distinct "Ind.Id"), 0)), 0)::text])
+       as "Proportion"
+from pnc_data ;]]>
+	</queryString>
+	<field name="Characteristics" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Characteristics"/>
+	</field>
+	<field name="Number" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="Number"/>
+	</field>
+	<field name="Proportion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Proportion"/>
+	</field>
+	<variable name="DYNAMIC_WHERE" class="java.lang.String">
+		<variableExpression><![CDATA[$F{Characteristics}.equals("Total PNC visits for Child conducted by MCHW") ? "1 = 1" :
+$F{Characteristics}.equals("Total Children enrolled within 42 days of age") ? "enl_days <= 42" :
+$F{Characteristics}.equals("Total No of children having PNC visits") ? "1=1" :
+$F{Characteristics}.equals("Children completed 1 Visit") ? "number_of_visits ='1'" :
+$F{Characteristics}.equals("Children completed 2 Visit") ? "number_of_visits ='2'" :
+$F{Characteristics}.equals("Children completed 3 Visit") ? "number_of_visits ='3'" :
+$F{Characteristics}.equals("Children completed 4 Visit") ? "number_of_visits ='4'" :
+$F{Characteristics}.equals("Children completed 5 Visit") ? "number_of_visits ='5'" :
+$F{Characteristics}.equals("Children completed 6 Visit") ? "number_of_visits ='6'" :
+"and 1=1"]]></variableExpression>
+	</variable>
+	<background>
+		<band height="100" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</background>
+	<title>
+		<band height="50" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement style="ReportTitle" x="0" y="0" width="821" height="50" uuid="b41c1dbc-657e-4f9f-93da-2951563f95d4"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#49857C"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#49857C"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#49857C"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#49857C"/>
+				</box>
+				<text><![CDATA[Post Natal Children]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement style="Group2Header" x="0" y="0" width="340" height="30" uuid="3ac02e0f-2aca-40b9-8b07-10c8c43c0441">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="da320634-b6bb-46e5-b00a-a5ac5c58acbf"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+				</box>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Characteristics]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="340" y="0" width="241" height="30" uuid="a7d25c1e-f495-43c0-8ecf-fa16aab6dafb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6a685be9-7902-4c67-b560-ebbcd4978ba2"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+				</box>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ColumnHeader" x="581" y="0" width="240" height="30" uuid="6d18173e-dc1c-41f6-9211-fd66ef19a878">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9c954de2-679f-483d-b652-f6514eba13c1"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#0D0303"/>
+				</box>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Proportion]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.spreadsheet.SpreadsheetLayout"/>
+			<textField textAdjust="StretchHeight">
+				<reportElement style="DataRowTextElement" stretchType="RelativeToTallestObject" x="0" y="0" width="340" height="30" uuid="9f0d052c-46a9-4973-a4c9-915840b73a84">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="da320634-b6bb-46e5-b00a-a5ac5c58acbf"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Characteristics}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" hyperlinkType="ReportExecution">
+				<reportElement style="DataRowNumericElement" stretchType="RelativeToTallestObject" x="340" y="0" width="241" height="30" uuid="5db3ea32-fc62-416c-ab90-f118d6fb85e1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6a685be9-7902-4c67-b560-ebbcd4978ba2"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Number}]]></textFieldExpression>
+				<hyperlinkParameter name="_report">
+					<hyperlinkParameterExpression><![CDATA["/JSSCP/Reports/Linelists/Linelist_for_Post_natal_children"]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DATE_END">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_END}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DATE_START">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_DATE_START}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_VILLAGE_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_VILLAGE_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_CLUSTER_NAME">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_CLUSTER_NAME}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_AGE_GROUP">
+					<hyperlinkParameterExpression><![CDATA[$P{PARAM_AGE_GROUP}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="PARAM_DYNAMIC_WHERE">
+					<hyperlinkParameterExpression><![CDATA[$V{DYNAMIC_WHERE}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement style="DataRowPreCalculatedPercentageElement" stretchType="RelativeToTallestObject" x="581" y="0" width="240" height="30" uuid="4e8e77eb-2df0-4dd0-a3a9-48bfe2498cf8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9c954de2-679f-483d-b652-f6514eba13c1"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Proportion} == null ? "0%" : $F{Proportion}.equals("NA") ? "NA" : Double.valueOf($F{Proportion})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

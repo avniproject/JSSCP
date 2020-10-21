@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reportUnit exportedWithPermissions="false">
+    <folder>/JSSCP/Reports/Linelists</folder>
+    <name>Linelist_for_ANC_Clinic_Visit_with_delivery_reported</name>
+    <version>12</version>
+    <label>Linelist for ANC Clinic Visit with delivery reported</label>
+    <description></description>
+    <creationDate>2020-09-16T15:10:11.975+05:30</creationDate>
+    <updateDate>2020-09-03T13:31:28.685+05:30</updateDate>
+    <mainReport>
+        <localResource
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            exportedWithPermissions="false" dataFile="main_jrxml.data" xsi:type="fileResource">
+            <folder>/JSSCP/Reports/Linelists/Linelist_for_ANC_Clinic_Visit_with_delivery_reported_files</folder>
+            <name>main_jrxml</name>
+            <version>1</version>
+            <label>Main jrxml</label>
+            <creationDate>2020-09-16T15:10:11.975+05:30</creationDate>
+            <updateDate>2020-08-12T16:57:58.684+05:30</updateDate>
+            <fileType>jrxml</fileType>
+        </localResource>
+    </mainReport>
+    <dataSource>
+        <uri>/JSSCP/Data_Sources/jsscp</uri>
+    </dataSource>
+    <inputControl>
+        <localResource
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            exportedWithPermissions="false" xsi:type="inputControl">
+            <folder>/JSSCP/Reports/Linelists/Linelist_for_ANC_Clinic_Visit_with_delivery_reported_files</folder>
+            <name>PARAM_DYNAMIC_WHERE</name>
+            <version>1</version>
+            <label>PARAM_DYNAMIC_WHERE</label>
+            <description></description>
+            <creationDate>2020-09-16T15:10:11.975+05:30</creationDate>
+            <updateDate>2020-08-12T16:57:58.684+05:30</updateDate>
+            <type>2</type>
+            <mandatory>false</mandatory>
+            <readOnly>false</readOnly>
+            <visible>false</visible>
+            <dataType>
+                <localResource exportedWithPermissions="false" xsi:type="dataType">
+                    <folder>/JSSCP/Reports/Linelists/Linelist_for_ANC_Clinic_Visit_with_delivery_reported_files/PARAM_DYNAMIC_WHERE_files</folder>
+                    <name>myDatatype</name>
+                    <version>0</version>
+                    <label>myDatatype</label>
+                    <description></description>
+                    <creationDate>2020-09-16T15:10:11.975+05:30</creationDate>
+                    <updateDate>2020-08-12T16:57:58.684+05:30</updateDate>
+                    <type>1</type>
+                    <strictMin>false</strictMin>
+                    <strictMax>false</strictMax>
+                </localResource>
+            </dataType>
+        </localResource>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_DATE_START</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_DATE_END</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_CLUSTER_NAME</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_VILLAGE_NAME</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_USER_NAME</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/PARAM_AGE_GROUP</uri>
+    </inputControl>
+    <inputControl>
+        <uri>/JSSCP/Input_Controls/Exited</uri>
+    </inputControl>
+    <resource>
+        <localResource
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            exportedWithPermissions="false"
+            dataFile="Linelist.jrtx.data" xsi:type="fileResource">
+            <folder>/JSSCP/Reports/Linelists/Linelist_for_ANC_Clinic_Visit_with_delivery_reported_files</folder>
+            <name>Linelist.jrtx</name>
+            <version>1</version>
+            <label>Linelist.jrtx</label>
+            <creationDate>2020-09-16T15:10:11.975+05:30</creationDate>
+            <updateDate>2020-08-12T14:19:12.267+05:30</updateDate>
+            <fileType>jrtx</fileType>
+        </localResource>
+    </resource>
+    <inputControlRenderingView></inputControlRenderingView>
+    <alwaysPromptControls>false</alwaysPromptControls>
+    <controlsLayout>4</controlsLayout>
+</reportUnit>
