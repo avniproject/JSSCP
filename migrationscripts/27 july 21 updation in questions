@@ -1,0 +1,152 @@
+--Migration of Urine albumin JSSCP
+set role jsscp;
+
+
+select enl.id, concat(ind.first_name, ' ', last_name) as name, enl."Urin albumin"
+from jsscp.jsscp_individual_diabetes enl
+         left join jsscp.jsscp_individual ind on ind.id = enl.individual_id
+
+
+-- Update type
+with audis as (
+    update concept set data_type = 'Coded' where uuid = '974fac7b-1294-4e29-bc30-56444e7f3619' returning audit_id
+)
+update audit
+set last_modified_date_time=current_timestamp
+where id in (select audit_id from audis);
+
+
+select enl.id, concat(ind.first_name, ' ', last_name) as name, enl."Urin albumin"
+from jsscp.jsscp_individual_diabetes enl
+         left join jsscp.jsscp_individual ind on ind.id = enl.individual_id
+where enl.id not in
+      (134670, 140803, 141638, 141707, 137685, 137686, 137629, 139621, 137628, 137687, 135983, 137626, 137760,
+       137468, 137811, 137808, 137759, 137627, 137625, 137785, 137688, 137783, 137786, 138335, 139359, 139656,
+       139654, 139583, 137810, 137623, 137598, 137599, 137624, 141779, 141778);
+
+
+
+with audits as (
+    update program_enrolment
+        set observations = case
+                               when (observations ->> '974fac7b-1294-4e29-bc30-56444e7f3619')::numeric > 60 then
+                                   jsonb_set(observations, '{974fac7b-1294-4e29-bc30-56444e7f3619}',
+                                             '"ba904c8d-502d-4979-bc99-cfa077678279"')
+                               when (observations ->> '974fac7b-1294-4e29-bc30-56444e7f3619')::numeric <= 60 and
+                                    (observations ->> '974fac7b-1294-4e29-bc30-56444e7f3619')::numeric > 20 then
+                                   jsonb_set(observations, '{974fac7b-1294-4e29-bc30-56444e7f3619}',
+                                             '"d791406f-86bd-47ef-8c23-22accc521558"')
+                               when (observations ->> '974fac7b-1294-4e29-bc30-56444e7f3619')::numeric <= 20 and
+                                    (observations ->> '974fac7b-1294-4e29-bc30-56444e7f3619')::numeric > 0 then
+                                   jsonb_set(observations, '{974fac7b-1294-4e29-bc30-56444e7f3619}',
+                                             '"ae92d882-9ca4-448b-9cbf-f7459548bd55"')
+                               when (observations ->> '974fac7b-1294-4e29-bc30-56444e7f3619')::numeric = 0 then
+                                   jsonb_set(observations, '{974fac7b-1294-4e29-bc30-56444e7f3619}',
+                                             '"e4588a0c-c75a-4580-83d1-8fe3a20d4b00"')
+            end
+        where id in
+              (134670, 140803, 141638, 141707, 137685, 137686, 137629, 139621, 137628, 137687, 135983, 137626, 137760,
+               137468, 137811, 137808, 137759, 137627, 137625, 137785, 137688, 137783, 137786, 138335, 139359, 139656,
+               139654, 139583, 137810, 137623, 137598, 137599, 137624, 141779, 141778) returning audit_id)
+update audit
+set last_modified_date_time = current_timestamp
+where id in (select audit_id from audits);
+
+
+----- for epilepsy
+
+set role jsscp_uat;
+with audits as (
+    update concept set data_type = 'Numeric' where uuid in ('af513564-2a90-4ae5-b778-a06a3ea92837',
+                                                            'a1f42a41-31e2-4522-9901-56d691299a50',
+                                                            '7866634b-f02b-402f-85d3-cf52965b9149',
+                                                            'ead21767-26dc-47bc-a29c-d4881ff99698') returning audit_id
+)
+update audit
+set last_modified_date_time=current_timestamp
+where id in (select audit_id from audits);
+
+-- Update the enrolment data
+
+with audits as (
+    update program_enrolment
+        set observations = case
+--             Phenobarbitone dose
+                               when single_select_coded(observations ->> 'af513564-2a90-4ae5-b778-a06a3ea92837') =
+                                    '15 mg' then
+                                   jsonb_set(observations, '{af513564-2a90-4ae5-b778-a06a3ea92837}',
+                                             '15')
+                               when single_select_coded(observations ->> 'af513564-2a90-4ae5-b778-a06a3ea92837') =
+                                    '30 mg' then jsonb_set(observations, '{af513564-2a90-4ae5-b778-a06a3ea92837}',
+                                                           '30')
+                               when single_select_coded(observations ->> 'af513564-2a90-4ae5-b778-a06a3ea92837') =
+                                    '40 mg' then jsonb_set(observations, '{af513564-2a90-4ae5-b778-a06a3ea92837}',
+                                                           '40')
+                               when single_select_coded(observations ->> 'af513564-2a90-4ae5-b778-a06a3ea92837') =
+                                    '60 mg' then jsonb_set(observations, '{af513564-2a90-4ae5-b778-a06a3ea92837}',
+                                                           '60')
+
+            -- Carbamezepine dose    'a1f42a41-31e2-4522-9901-56d691299a50'
+
+                               when single_select_coded(observations ->> 'a1f42a41-31e2-4522-9901-56d691299a50') =
+                                    '50 mg' then
+                                   jsonb_set(observations, '{a1f42a41-31e2-4522-9901-56d691299a50}',
+                                             '50')
+
+                               when single_select_coded(observations ->> 'a1f42a41-31e2-4522-9901-56d691299a50') =
+                                    '100 mg' then
+                                   jsonb_set(observations, '{a1f42a41-31e2-4522-9901-56d691299a50}',
+                                             '100')
+                               when single_select_coded(observations ->> 'a1f42a41-31e2-4522-9901-56d691299a50') =
+                                    '200 mg' then
+                                   jsonb_set(observations, '{a1f42a41-31e2-4522-9901-56d691299a50}',
+                                             '200')
+
+
+            -- Phenytoin dose    '7866634b-f02b-402f-85d3-cf52965b9149'
+                               when single_select_coded(observations ->> '7866634b-f02b-402f-85d3-cf52965b9149') =
+                                    '50 mg' then
+                                   jsonb_set(observations, '{7866634b-f02b-402f-85d3-cf52965b9149}',
+                                             '50')
+                               when single_select_coded(observations ->> '7866634b-f02b-402f-85d3-cf52965b9149') =
+                                    '75 mg' then
+                                   jsonb_set(observations, '{7866634b-f02b-402f-85d3-cf52965b9149}',
+                                             '75')
+                               when single_select_coded(observations ->> '7866634b-f02b-402f-85d3-cf52965b9149') =
+                                    '100 mg' then
+                                   jsonb_set(observations, '{7866634b-f02b-402f-85d3-cf52965b9149}',
+                                             '100')
+                               when single_select_coded(observations ->> '7866634b-f02b-402f-85d3-cf52965b9149') =
+                                    '200 mg' then
+                                   jsonb_set(observations, '{7866634b-f02b-402f-85d3-cf52965b9149}',
+                                             '200')
+                               when single_select_coded(observations ->> '7866634b-f02b-402f-85d3-cf52965b9149') =
+                                    '300 mg' then
+                                   jsonb_set(observations, '{7866634b-f02b-402f-85d3-cf52965b9149}',
+                                             '300')
+            end
+        where program_id = 178 returning audit_id)
+update audit
+set last_modified_date_time = current_timestamp
+where id in (select audit_id from audits);
+
+
+with audits as (
+    update program_enrolment
+        set observations =
+                jsonb_set(observations, '{ead21767-26dc-47bc-a29c-d4881ff99698}',
+                          '200')
+        where id in (
+                     127426, 127920, 119656, 127366, 127495
+            ) returning audit_id)
+update audit
+set last_modified_date_time = current_timestamp
+where id in (select audit_id from audits);
+
+
+
+
+
+
+
+
