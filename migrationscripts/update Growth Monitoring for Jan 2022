@@ -20,7 +20,7 @@ from program_enrolment pe
 where enc.program_enrolment_id  = pe.id
   and enc.program_enrolment_id in (select penc.program_enrolment_id from program_encounter penc where penc.name ='Growth Monitoring Visit' and penc.earliest_visit_date_time::date between '2021-12-01' and '2021-12-31'
                                                                      and penc.encounter_date_time is not null)
-  and enc.earliest_visit_date_time::date between '2021-01-01' and '2021-01-30'
+  and enc.earliest_visit_date_time::date between '2021-01-01' and '2021-01-31'
   and enc.encounter_date_time is null
   and enc.cancel_date_time is null
   and enc.name ='Growth Monitoring Visit';
