@@ -24,3 +24,28 @@ where enc.program_enrolment_id  = pe.id
   and enc.encounter_date_time is null
   and enc.cancel_date_time is null
   and enc.name ='Growth Monitoring Visit';
+
+
+--Script to update Feb 2021 visits to Feb 2022 which were created due to above wrong Jan 2021 visits
+
+update program_encounter enc
+set
+    earliest_visit_date_time = ('2022-02-' || (phulwari.observations -> 'd1985def-295c-415c-b563-310946a03762'::text)::numeric || ' 10:00:11.000000')::timestamptz,
+    max_visit_date_time = ('2022-02-' || (phulwari.observations -> 'd1985def-295c-415c-b563-310946a03762'::text)::numeric +3 || ' 10:00:11.000000' )::timestamptz,
+    last_modified_by_id = (select id from users where username = 'nupoork@jsscp'),
+    last_modified_date_time = current_timestamp + ((enc.id / 1000) * interval '1 millisecond')
+
+from program_enrolment pe
+
+         left join individual i  on i.id = pe.individual_id
+
+         join group_subject on group_subject.member_subject_id = i.id
+         left join individual phulwari on group_subject.group_subject_id = phulwari.id
+
+where enc.program_enrolment_id  = pe.id
+   and (phulwari.observations -> 'd1985def-295c-415c-b563-310946a03762'::text)::numeric is not null
+  and enc.encounter_date_time is null
+  and enc.cancel_date_time is null
+  and enc.name ='Growth Monitoring Visit'
+  and enc.earliest_visit_date_time::date between '2021-02-01' and '2021-02-28'
+  and enc.created_date_time::date between '2021-12-01' and '2021-12-31'
