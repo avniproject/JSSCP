@@ -1,14 +1,14 @@
 {
-  "name" : "Referral Status",
-  "uuid" : "06116860-2c71-4a7e-94f1-be53f653f0f3",
+  "name" : "Sickle cell referral status",
+  "uuid" : "e44c0956-f7ec-4170-97a2-250d6951c2b3",
   "formType" : "ProgramEncounter",
   "formElementGroups" : [ {
-    "uuid" : "acb56d44-dab1-4e68-b1cf-015b48197654",
+    "uuid" : "5b96e08e-fbf5-44cd-86fa-ad6ea5fbb4c5",
     "name" : "Referral Status-1 Details",
     "displayOrder" : 1.0,
     "formElements" : [ {
       "name" : "Status of referral -1",
-      "uuid" : "882b826d-549f-4cca-9922-9f12228a2b6c",
+      "uuid" : "2cdd5ce6-9c81-4150-97cf-9b2a80912664",
       "keyValues" : [ ],
       "concept" : {
         "name" : "Status of referral -1",
@@ -98,12 +98,12 @@
         "keyValues" : [ ]
       },
       "displayOrder" : 1.0,
-      "type" : "MultiSelect",
+      "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().whenItem(programEncounter.name == 'Referral Status-1').is.truthy;\n  \nreturn statusBuilder.build();\n};",
       "mandatory" : false
     }, {
       "name" : "Other status of referral -1",
-      "uuid" : "08e818cc-2330-4063-802c-4e410676c938",
+      "uuid" : "96725710-bbe7-4226-a5cb-356218c65738",
       "keyValues" : [ ],
       "concept" : {
         "name" : "Other status of referral -1",
@@ -121,12 +121,12 @@
     "display" : "Referral Status-1 Details",
     "timed" : false
   }, {
-    "uuid" : "b74b3408-5035-4525-ade0-a7defc9d2bd7",
+    "uuid" : "ffac3d7a-894d-47e9-82cd-83d78a55e425",
     "name" : "Referral Status-2 Details",
     "displayOrder" : 2.0,
     "formElements" : [ {
       "name" : "Status of referral -2",
-      "uuid" : "0d96c705-7247-4587-b32b-5b33f5a1c2d1",
+      "uuid" : "36d85da3-17bb-4b7b-b8db-c026bd89481b",
       "keyValues" : [ ],
       "concept" : {
         "name" : "Status of referral -2",
@@ -184,12 +184,12 @@
         "keyValues" : [ ]
       },
       "displayOrder" : 1.0,
-      "type" : "MultiSelect",
+      "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().whenItem(programEncounter.name == 'Referral Status-2')\n                .is.truthy;\n  \nreturn statusBuilder.build();\n};",
       "mandatory" : false
     }, {
       "name" : "Other status of referral -2",
-      "uuid" : "20737708-f780-4bee-aa55-b89c872eca55",
+      "uuid" : "93f20c9b-97ff-41a4-898d-b272ea41fbc4",
       "keyValues" : [ ],
       "concept" : {
         "name" : "Other status of referral -2",
@@ -208,7 +208,7 @@
     "timed" : false
   } ],
   "decisionRule" : "",
-  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\nconst followupDate = imports.moment(programEncounter.encounterDateTime).add(4, 'days').toDate();\n  scheduleBuilder\n    .add({\n      name: \"Referral Status-2\",\n      encounterType: \"Referral Status\",\n      earliestDate: followupDate,\n      maxDate: imports.moment(followupDate).add(2, 'days').toDate()\n    }).whenItem(programEncounter.name == 'Referral Status-1')\n    .is.truthy;\n    \n    \n    \n    \n    \n  return scheduleBuilder.getAll();\n};",
+  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\nconst followupDate = imports.moment(programEncounter.encounterDateTime).add(4, 'days').toDate();\n  scheduleBuilder\n    .add({\n      name: \"Referral Status-2\",\n      encounterType: \"Sickle cell referral status\",\n      earliestDate: followupDate,\n      maxDate: imports.moment(followupDate).add(2, 'days').toDate()\n    }).whenItem(programEncounter.name == 'Referral Status-1')\n    .is.truthy;\n    \n    \n    \n    \n    \n  return scheduleBuilder.getAll();\n};",
   "validationRule" : "",
   "checklistsRule" : "",
   "decisionConcepts" : [ ]

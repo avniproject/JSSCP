@@ -1,14 +1,14 @@
 {
-  "name" : "Referral Status",
-  "uuid" : "06116860-2c71-4a7e-94f1-be53f653f0f3",
+  "name" : "Hypertension referral status",
+  "uuid" : "ee3acac6-f9f0-4a08-8bd2-0d97e0f44933",
   "formType" : "ProgramEncounter",
   "formElementGroups" : [ {
-    "uuid" : "acb56d44-dab1-4e68-b1cf-015b48197654",
+    "uuid" : "559168d6-e34e-490b-9fcd-fa1ea8c79dc5",
     "name" : "Referral Status-1 Details",
     "displayOrder" : 1.0,
     "formElements" : [ {
       "name" : "Status of referral -1",
-      "uuid" : "882b826d-549f-4cca-9922-9f12228a2b6c",
+      "uuid" : "dc71add2-9558-42d7-8947-365c3f658c50",
       "keyValues" : [ ],
       "concept" : {
         "name" : "Status of referral -1",
@@ -98,12 +98,12 @@
         "keyValues" : [ ]
       },
       "displayOrder" : 1.0,
-      "type" : "MultiSelect",
-      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().whenItem(programEncounter.name == 'Referral Status-1').is.truthy;\n  \nreturn statusBuilder.build();\n};",
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().whenItem(programEncounter.name == 'Hypertension referral status-1').is.truthy;\n  \nreturn statusBuilder.build();\n};",
       "mandatory" : false
     }, {
       "name" : "Other status of referral -1",
-      "uuid" : "08e818cc-2330-4063-802c-4e410676c938",
+      "uuid" : "c52c049c-7be0-46c9-b571-d1fb1d4f0e7d",
       "keyValues" : [ ],
       "concept" : {
         "name" : "Other status of referral -1",
@@ -121,12 +121,12 @@
     "display" : "Referral Status-1 Details",
     "timed" : false
   }, {
-    "uuid" : "b74b3408-5035-4525-ade0-a7defc9d2bd7",
+    "uuid" : "5d47cd50-680d-45d1-b226-d20ef4cb8b3f",
     "name" : "Referral Status-2 Details",
     "displayOrder" : 2.0,
     "formElements" : [ {
       "name" : "Status of referral -2",
-      "uuid" : "0d96c705-7247-4587-b32b-5b33f5a1c2d1",
+      "uuid" : "547ea4c6-d011-433e-9159-9223788c9678",
       "keyValues" : [ ],
       "concept" : {
         "name" : "Status of referral -2",
@@ -184,12 +184,12 @@
         "keyValues" : [ ]
       },
       "displayOrder" : 1.0,
-      "type" : "MultiSelect",
-      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().whenItem(programEncounter.name == 'Referral Status-2')\n                .is.truthy;\n  \nreturn statusBuilder.build();\n};",
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().whenItem(programEncounter.name == 'Hypertension referral status-2')\n                .is.truthy;\n  \nreturn statusBuilder.build();\n};",
       "mandatory" : false
     }, {
       "name" : "Other status of referral -2",
-      "uuid" : "20737708-f780-4bee-aa55-b89c872eca55",
+      "uuid" : "ea58a5df-0c63-4a23-8fe2-6c000464e8e0",
       "keyValues" : [ ],
       "concept" : {
         "name" : "Other status of referral -2",
@@ -208,7 +208,7 @@
     "timed" : false
   } ],
   "decisionRule" : "",
-  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\nconst followupDate = imports.moment(programEncounter.encounterDateTime).add(4, 'days').toDate();\n  scheduleBuilder\n    .add({\n      name: \"Referral Status-2\",\n      encounterType: \"Referral Status\",\n      earliestDate: followupDate,\n      maxDate: imports.moment(followupDate).add(2, 'days').toDate()\n    }).whenItem(programEncounter.name == 'Referral Status-1')\n    .is.truthy;\n    \n    \n    \n    \n    \n  return scheduleBuilder.getAll();\n};",
+  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\nconst followupDate = imports.moment(programEncounter.encounterDateTime).add(4, 'days').toDate();\n  scheduleBuilder\n    .add({\n      name: \"Hypertension referral status-2\",\n      encounterType: \"Hypertension referral status\",\n      earliestDate: followupDate,\n      maxDate: imports.moment(followupDate).add(2, 'days').toDate()\n    }).whenItem(programEncounter.name == 'Hypertension referral status-1')\n    .is.truthy;\n    \n    \n    \n    \n    \n  return scheduleBuilder.getAll();\n};",
   "validationRule" : "",
   "checklistsRule" : "",
   "decisionConcepts" : [ ]
