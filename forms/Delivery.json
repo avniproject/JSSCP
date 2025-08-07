@@ -6,14 +6,17 @@
     "uuid" : "fa5a9a81-1772-4a3b-bc75-5d04d72f0fb7",
     "name" : "Delivery Details",
     "displayOrder" : 1.0,
-    "display" : "Delivery Details",
     "formElements" : [ {
       "name" : "Date and time of labour pain started",
       "uuid" : "878c6870-52f4-4f72-86e9-49fef636ba89",
       "keyValues" : [ ],
       "concept" : {
         "name" : "Date and time of labour pain started",
-        "uuid" : "3584ab7c-061d-472f-996e-8082bc7ee5b4"
+        "uuid" : "3584ab7c-061d-472f-996e-8082bc7ee5b4",
+        "dataType" : "DateTime",
+        "answers" : [ ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 1.0,
       "type" : "SingleSelect",
@@ -24,7 +27,11 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Date and time when baby was out",
-        "uuid" : "75f66882-8186-4a8c-b1f3-1f6b2386fef6"
+        "uuid" : "75f66882-8186-4a8c-b1f3-1f6b2386fef6",
+        "dataType" : "DateTime",
+        "answers" : [ ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 2.0,
       "type" : "SingleSelect",
@@ -38,11 +45,15 @@
       } ],
       "concept" : {
         "name" : "Gestational age category",
-        "uuid" : "0bcf8d88-f9c5-4e9a-89bb-10f31cfff0a3"
+        "uuid" : "0bcf8d88-f9c5-4e9a-89bb-10f31cfff0a3",
+        "dataType" : "Text",
+        "answers" : [ ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 3.0,
       "type" : "SingleSelect",
-      "rule" : "\"use strict\";\n({params, imports}) => {\n    const programEncounter = params.entity;\n    const formElement = params.formElement;\n    const deliveryDate = programEncounter.getObservationValue('Date and time of labour pain started');\n    //const value =  imports.moment(today).diff(lmpDate, 'months');\n    const value = \nruleServiceLibraryInterfaceForSharingModules.motherCalculations.gestationalAgeCategoryAsOn(deliveryDate,programEncounter.programEnrolment);\n\n    \n    return new imports.rulesConfig.FormElementStatus(formElement.uuid, true, value);\n};",
+      "rule" : "\"use strict\";\n({params, imports}) => {\n    const programEncounter = params.entity;\n    const formElement = params.formElement;\n    const deliveryDate = programEncounter.getObservationValue('Date and time when baby was out');\n    const ddate = imports.moment(deliveryDate).toDate();\n    let value = imports.motherCalculations.gestationalAgeCategoryAsOn(ddate, programEncounter.programEnrolment);\n    return new imports.rulesConfig.FormElementStatus(formElement.uuid, true, value);\n};",
       "mandatory" : true
     }, {
       "name" : "Place of delivery",
@@ -50,7 +61,94 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Place of delivery",
-        "uuid" : "dea1a2d3-2583-4a77-8723-e64d9e10079e"
+        "uuid" : "dea1a2d3-2583-4a77-8723-e64d9e10079e",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "Other",
+          "uuid" : "798b7942-cf58-4d4e-a529-5972942e0a7e",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 11.0,
+          "active" : true
+        }, {
+          "name" : "District Hospital",
+          "uuid" : "602e1362-0c44-49d8-ac94-42a741c6273b",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 6.0,
+          "active" : true
+        }, {
+          "name" : "Medical college",
+          "uuid" : "3ab10f93-7267-4469-b81d-1f3d6c6bdc99",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 7.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "JSS subcenter",
+          "uuid" : "b704eaf7-3cfb-4016-a884-456e1f0b7e62",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "At mother's place",
+          "uuid" : "8a6fb293-0da1-4103-a7e9-99c986281e40",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "At In law's place",
+          "uuid" : "50e4f70d-634d-487f-9cf4-2e965cc83165",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Private hospital",
+          "uuid" : "05d34f29-d6fa-4cc2-bc33-32bfaf2fc140",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 8.0,
+          "active" : true
+        }, {
+          "name" : "JSS Ganiyari hospital",
+          "uuid" : "b03ca67b-390c-4223-9084-577ac737100a",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 10.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Sub Center- Govt",
+          "uuid" : "92ef8513-ef65-49c0-9bd2-a284f7656b52",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 3.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Community Health Centre",
+          "uuid" : "9699d4fd-a67f-4f45-8d3c-df491f27db60",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 5.0,
+          "active" : true
+        }, {
+          "name" : "Primary Health Center",
+          "uuid" : "a9b35608-e850-4414-b3e9-c3f9b306c17e",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 4.0,
+          "active" : true
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 4.0,
       "type" : "SingleSelect",
@@ -61,7 +159,11 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Other place of delivery",
-        "uuid" : "ebdc6d6b-4510-4659-b595-a090186d1832"
+        "uuid" : "ebdc6d6b-4510-4659-b595-a090186d1832",
+        "dataType" : "Text",
+        "answers" : [ ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 5.0,
       "type" : "SingleSelect",
@@ -73,7 +175,42 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Type of delivery",
-        "uuid" : "c48b5ece-3daf-4f19-9754-11bd898020fc"
+        "uuid" : "c48b5ece-3daf-4f19-9754-11bd898020fc",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "Normal",
+          "uuid" : "ec89cb1f-491b-46de-95c1-3009effa9041",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "active" : true
+        }, {
+          "name" : "Normal with episiotomy",
+          "uuid" : "cf845903-bae0-4157-bfef-2e31d012834c",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Assisted delivery",
+          "uuid" : "87808f03-7424-46e5-9db2-95d2f189e498",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 3.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "C-section",
+          "uuid" : "6984e037-93fc-4df0-9bce-ea7e8f44d1aa",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "active" : true,
+          "keyValues" : [ ]
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 6.0,
       "type" : "SingleSelect",
@@ -85,7 +222,88 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Delivery conducted by",
-        "uuid" : "11bfa900-973e-49ff-bc2b-cab409d6e938"
+        "uuid" : "11bfa900-973e-49ff-bc2b-cab409d6e938",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "Other",
+          "uuid" : "798b7942-cf58-4d4e-a529-5972942e0a7e",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 9.0,
+          "active" : true
+        }, {
+          "name" : "VHW",
+          "uuid" : "355143bf-b812-4ec8-93e6-6795fe4f7dc9",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Any member of house/village",
+          "uuid" : "af225e01-3cfb-41be-8335-2eb773c4da61",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 4.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Trained TBA",
+          "uuid" : "acbb5c72-be42-4ed9-b169-949262319d10",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Untrained TBA",
+          "uuid" : "e7087fb1-9a18-4518-a3b4-58b2e1258c1f",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 3.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "SHW",
+          "uuid" : "7ac0d9a2-ff82-41e6-9f38-134904d476f9",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Mitanin",
+          "uuid" : "6b8c76ee-a089-4154-8579-d16677e3fd29",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 7.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Nurse (ANM/GNM)",
+          "uuid" : "3627adf0-c083-4af2-a0a2-c5007540a19b",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 5.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Doctor",
+          "uuid" : "d7265308-9843-4d5f-859f-1585c119c8cb",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 6.0,
+          "active" : true
+        }, {
+          "name" : "Self",
+          "uuid" : "03c3c21c-6e8c-4210-a15e-fbb181c266b9",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 8.0,
+          "active" : true
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 7.0,
       "type" : "SingleSelect",
@@ -96,7 +314,11 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Other who conducted delivery",
-        "uuid" : "03ae48d3-6d4e-4e39-8194-cb2653c0eaf7"
+        "uuid" : "03ae48d3-6d4e-4e39-8194-cb2653c0eaf7",
+        "dataType" : "Text",
+        "answers" : [ ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 8.0,
       "type" : "SingleSelect",
@@ -108,7 +330,11 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Name of person who conducted delivery",
-        "uuid" : "99ab36e9-ca7f-4627-b0a4-2ca5bef6c4ad"
+        "uuid" : "99ab36e9-ca7f-4627-b0a4-2ca5bef6c4ad",
+        "dataType" : "Text",
+        "answers" : [ ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 9.0,
       "type" : "SingleSelect",
@@ -119,7 +345,11 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Name of village where woman delivered",
-        "uuid" : "0c0158a5-f13d-4eed-8c9c-56f5a5b37817"
+        "uuid" : "0c0158a5-f13d-4eed-8c9c-56f5a5b37817",
+        "dataType" : "Text",
+        "answers" : [ ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 10.0,
       "type" : "SingleSelect",
@@ -130,25 +360,122 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Danger signs during the process of labour",
-        "uuid" : "c45fa5f8-098d-49af-8119-6a5c55012e1b"
+        "uuid" : "c45fa5f8-098d-49af-8119-6a5c55012e1b",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "Other than head- other parts of foetus delivered first",
+          "uuid" : "dcdca252-bd54-40cb-a504-9d167311a61d",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "abnormal" : true,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Mother is unconscious or has seizures",
+          "uuid" : "9a2a2343-a19d-426a-b7eb-d5f52f7cc449",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 3.0,
+          "abnormal" : true,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "None",
+          "uuid" : "8b77f487-c885-4b54-8925-153733913b10",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 4.0,
+          "unique" : true,
+          "active" : true
+        }, {
+          "name" : "Placenta did not delivered within 30 mins",
+          "uuid" : "0754c0d6-d0fd-44ff-85a6-e17a969f99f2",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "abnormal" : true,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Delivered in more than 24 hours after starting the labour pain",
+          "uuid" : "92e4897b-9ced-47b2-bce6-7b7682a84378",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "abnormal" : true,
+          "active" : true,
+          "keyValues" : [ ]
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 11.0,
       "type" : "MultiSelect",
-      "mandatory" : true,
-      "voided" : true
-    } ]
+      "voided" : true,
+      "mandatory" : true
+    } ],
+    "display" : "Delivery Details",
+    "timed" : false
   }, {
     "uuid" : "733739c2-5720-4fcb-9024-765762d2b293",
     "name" : "Other details",
     "displayOrder" : 2.0,
-    "display" : "Other details",
     "formElements" : [ {
       "name" : "Did any of the following danger sign was there during the process of labour",
       "uuid" : "c736697c-3e3e-4fc3-afcc-9212bfc04b91",
       "keyValues" : [ ],
       "concept" : {
         "name" : "Danger signs during the process of labour",
-        "uuid" : "c45fa5f8-098d-49af-8119-6a5c55012e1b"
+        "uuid" : "c45fa5f8-098d-49af-8119-6a5c55012e1b",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "Other than head- other parts of foetus delivered first",
+          "uuid" : "dcdca252-bd54-40cb-a504-9d167311a61d",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "abnormal" : true,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Mother is unconscious or has seizures",
+          "uuid" : "9a2a2343-a19d-426a-b7eb-d5f52f7cc449",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 3.0,
+          "abnormal" : true,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "None",
+          "uuid" : "8b77f487-c885-4b54-8925-153733913b10",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 4.0,
+          "unique" : true,
+          "active" : true
+        }, {
+          "name" : "Placenta did not delivered within 30 mins",
+          "uuid" : "0754c0d6-d0fd-44ff-85a6-e17a969f99f2",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "abnormal" : true,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Delivered in more than 24 hours after starting the labour pain",
+          "uuid" : "92e4897b-9ced-47b2-bce6-7b7682a84378",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "abnormal" : true,
+          "active" : true,
+          "keyValues" : [ ]
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 1.0,
       "type" : "MultiSelect",
@@ -159,7 +486,43 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Part of foetus that came first",
-        "uuid" : "68891675-51d5-4a64-9cd6-e19ca54f2c1f"
+        "uuid" : "68891675-51d5-4a64-9cd6-e19ca54f2c1f",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "Cord",
+          "uuid" : "5c25726f-6868-4f2b-acbc-005bbec2360b",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Hand",
+          "uuid" : "b11a0220-efce-49e4-ba86-5c86069cc264",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 3.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Head",
+          "uuid" : "ae3c860c-aed4-4144-9e46-f46c221caf5a",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Leg",
+          "uuid" : "d12701be-90db-4c66-ab00-3035886eb6a3",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "active" : true,
+          "keyValues" : [ ]
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 2.0,
       "type" : "SingleSelect",
@@ -170,7 +533,34 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Colour of amniotic fluid",
-        "uuid" : "51477c5d-3d96-4b5b-abe0-9350fdcdbd83"
+        "uuid" : "51477c5d-3d96-4b5b-abe0-9350fdcdbd83",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "Yellow/Green",
+          "uuid" : "8a546fe8-0851-4794-b333-e5a47494aa97",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Watery",
+          "uuid" : "d5155392-dcbc-4744-b3fa-7e6dcf210cb9",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Other",
+          "uuid" : "798b7942-cf58-4d4e-a529-5972942e0a7e",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "active" : true
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 3.0,
       "type" : "SingleSelect",
@@ -181,7 +571,11 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Other colour of amniotic fluid",
-        "uuid" : "ac9f7563-ad2b-4df2-aa1f-6df3a9c50c21"
+        "uuid" : "ac9f7563-ad2b-4df2-aa1f-6df3a9c50c21",
+        "dataType" : "Text",
+        "answers" : [ ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 4.0,
       "type" : "SingleSelect",
@@ -193,7 +587,32 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Was mother given tab. Misoprostol (3 tabs)/ Inj. Oxytocin (on thigh) within 1 minute after the birth?",
-        "uuid" : "8a2fa4f0-e202-47a7-ba55-31e8b1649818"
+        "uuid" : "8a2fa4f0-e202-47a7-ba55-31e8b1649818",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "Don't know",
+          "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "active" : true
+        }, {
+          "name" : "Yes",
+          "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "active" : true
+        }, {
+          "name" : "No",
+          "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "active" : true
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 5.0,
       "type" : "SingleSelect",
@@ -204,7 +623,32 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Was placenta delivered by pulling",
-        "uuid" : "0291dab0-0e30-485c-b8b2-16570e3ef7bd"
+        "uuid" : "0291dab0-0e30-485c-b8b2-16570e3ef7bd",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "No",
+          "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "active" : true
+        }, {
+          "name" : "Don't know",
+          "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "active" : true
+        }, {
+          "name" : "Yes",
+          "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "active" : true
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 6.0,
       "type" : "SingleSelect",
@@ -215,7 +659,32 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Was mother given anything to drink?",
-        "uuid" : "8a096d3f-a966-4930-b137-619fd13183d2"
+        "uuid" : "8a096d3f-a966-4930-b137-619fd13183d2",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "Don't know",
+          "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "active" : true
+        }, {
+          "name" : "Yes",
+          "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "active" : true
+        }, {
+          "name" : "No",
+          "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "active" : true
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 7.0,
       "type" : "SingleSelect",
@@ -226,7 +695,32 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Did mother breastfed the baby within 1 hour after the birth",
-        "uuid" : "16c71db0-bdaa-42d0-b247-e9d573f62866"
+        "uuid" : "16c71db0-bdaa-42d0-b247-e9d573f62866",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "No",
+          "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "active" : true
+        }, {
+          "name" : "Yes",
+          "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "active" : true
+        }, {
+          "name" : "Don't know",
+          "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "active" : true
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 8.0,
       "type" : "SingleSelect",
@@ -237,7 +731,32 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Was safe delivery kit used for conducting delivery",
-        "uuid" : "e693e145-db22-4dca-a5a8-f6f455a52248"
+        "uuid" : "e693e145-db22-4dca-a5a8-f6f455a52248",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "Don't know",
+          "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "active" : true
+        }, {
+          "name" : "Yes",
+          "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "active" : true
+        }, {
+          "name" : "No",
+          "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "active" : true
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 9.0,
       "type" : "SingleSelect",
@@ -248,7 +767,32 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Did woman receive vitamin A",
-        "uuid" : "22ec084c-7141-4828-99c7-2dc56fe11153"
+        "uuid" : "22ec084c-7141-4828-99c7-2dc56fe11153",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "No",
+          "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "active" : true
+        }, {
+          "name" : "Don't know",
+          "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "active" : true
+        }, {
+          "name" : "Yes",
+          "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "active" : true
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 10.0,
       "type" : "SingleSelect",
@@ -259,16 +803,37 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Were stitches taken for episiotomy",
-        "uuid" : "d5f2dd94-46c0-4397-88bf-92db83e381d1"
+        "uuid" : "d5f2dd94-46c0-4397-88bf-92db83e381d1",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "No",
+          "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "active" : true
+        }, {
+          "name" : "Yes",
+          "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "active" : true
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 11.0,
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.show().when.valueInEncounter('Type of delivery').containsAnswerConceptName('Normal with episiotomy');\n\n  return statusBuilder.build();\n};",
       "mandatory" : false
-    } ]
+    } ],
+    "display" : "Other details",
+    "timed" : false
   } ],
   "decisionRule" : "",
-  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\n//Date and time when placenta was out\nconst dateOfDelivery = programEncounter.getObservationValue('Date and time when placenta was out');\n  scheduleBuilder\n    .add({\n      name: \"PNC 1\",\n      encounterType: \"Mother PNC\",\n      earliestDate: programEncounter.encounterDateTime,\n      maxDate: imports.moment(programEncounter.encounterDateTime).add(3, 'days').toDate()\n    }).whenItem( imports.moment(programEncounter.encounterDateTime).isBefore(imports.moment(dateOfDelivery).add(42, 'days'), 'date'))\n    .is.truthy;\n  return scheduleBuilder.getAll();\n};",
+  "visitScheduleRule" : "\"use strict\";\n({params, imports}) => {\n    const programEncounter = params.entity;\n    const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n        programEncounter\n    });\n//Date and time when placenta was out\n    const dateOfDelivery = programEncounter.getObservationValue('Date and time when baby was out');\n    if (!_.isEqual(programEncounter.individual.lowestAddressLevel.name, 'Non programme village')) {\n        scheduleBuilder\n            .add({\n                name: \"PNC 1\",\n                encounterType: \"Mother PNC\",\n                earliestDate: programEncounter.encounterDateTime,\n                maxDate: programEncounter.encounterDateTime\n            }).whenItem(imports.moment(programEncounter.encounterDateTime).isBefore(imports.moment(dateOfDelivery).add(42, 'days'), 'date'))\n            .is.truthy;\n    }\n    return scheduleBuilder.getAll();\n};",
   "validationRule" : "",
-  "checklistsRule" : ""
+  "checklistsRule" : "",
+  "decisionConcepts" : [ ]
 }

@@ -6,14 +6,17 @@
     "uuid" : "924fcbfe-4d70-454e-9acd-c1dc9c08d099",
     "name" : "General",
     "displayOrder" : 1.0,
-    "display" : "General",
     "formElements" : [ {
       "name" : "Birth Weight",
       "uuid" : "58d2d130-c177-4020-958f-adea4b4d60bf",
       "keyValues" : [ ],
       "concept" : {
         "name" : "Birth Weight",
-        "uuid" : "24a9549b-05fc-4899-b861-b5c0e54b7340"
+        "uuid" : "24a9549b-05fc-4899-b861-b5c0e54b7340",
+        "dataType" : "Numeric",
+        "answers" : [ ],
+        "lowNormal" : 2.5,
+        "active" : true
       },
       "displayOrder" : 1.0,
       "type" : "SingleSelect",
@@ -24,7 +27,33 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Whether baby cleaned and dried immediately after birth",
-        "uuid" : "7cecaf08-1a00-41a6-965b-015b89aa66ba"
+        "uuid" : "7cecaf08-1a00-41a6-965b-015b89aa66ba",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "Don't know",
+          "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "active" : true
+        }, {
+          "name" : "Yes",
+          "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "active" : true
+        }, {
+          "name" : "No",
+          "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "abnormal" : true,
+          "active" : true
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 2.0,
       "type" : "SingleSelect",
@@ -35,7 +64,33 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Whether baby wrapped in warm clothes",
-        "uuid" : "cdd45c89-b7be-4131-a6c0-48e8b82926c4"
+        "uuid" : "cdd45c89-b7be-4131-a6c0-48e8b82926c4",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "Yes",
+          "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "active" : true
+        }, {
+          "name" : "Don't know",
+          "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "active" : true
+        }, {
+          "name" : "No",
+          "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "abnormal" : true,
+          "active" : true
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 3.0,
       "type" : "SingleSelect",
@@ -46,27 +101,99 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Diagnosis of baby immediately after birth",
-        "uuid" : "734e9cd5-3df4-4cfd-bca4-aa842af2c84e"
+        "uuid" : "734e9cd5-3df4-4cfd-bca4-aa842af2c84e",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "Asphyxiated baby",
+          "uuid" : "239b687a-4816-452d-986f-f020d03411f7",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "abnormal" : true,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Live birth",
+          "uuid" : "47bb4fbd-729b-48db-995c-4464e26dd3f3",
+          "dataType" : "Numeric",
+          "answers" : [ ],
+          "order" : 0.0,
+          "lowAbsolute" : 0.0,
+          "highAbsolute" : 9.0,
+          "lowNormal" : 0.0,
+          "highNormal" : 5.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Still birth",
+          "uuid" : "36de4090-db75-4eca-96fa-93535053b568",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "abnormal" : true,
+          "active" : true
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 4.0,
       "type" : "SingleSelect",
       "mandatory" : false
-    } ]
+    } ],
+    "display" : "General",
+    "timed" : false
   }, {
     "uuid" : "7b8d2606-900c-497a-9577-d63cd2307d29",
     "name" : "Newborn observations within 30 seconds",
     "displayOrder" : 2.0,
-    "display" : "Newborn observations within 30 seconds",
     "formElements" : [ {
       "name" : "Newborn cry",
       "uuid" : "e31d2514-3369-4235-9944-26e7ce071da6",
       "keyValues" : [ ],
       "concept" : {
         "name" : "Newborn cry",
-        "uuid" : "426f1fbd-6211-47dc-9b58-05a94d8dd713"
+        "uuid" : "426f1fbd-6211-47dc-9b58-05a94d8dd713",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "Don't know",
+          "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 3.0,
+          "active" : true
+        }, {
+          "name" : "Did not cry",
+          "uuid" : "8b278371-111f-4ae8-9f22-8f3f748be46b",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "abnormal" : true,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Weak cry",
+          "uuid" : "4c6855c4-a66f-4f72-a4b1-c5ac6d19b783",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "abnormal" : true,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Good cry",
+          "uuid" : "6a73b9f6-6f92-4f90-a0c6-8aa36f5c6000",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "active" : true,
+          "keyValues" : [ ]
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 1.0,
       "type" : "SingleSelect",
+      "rule" : "//SAMPLE RULE EXAMPLE\n'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  //read the value of form element using programEncounter.getObservationValue(CONCEPT_NAME);\n  const formElementValue1 = \"1\";\n  const formElementValue2 = \"1\";\n  //form element will be shown only when below condition is true\n  const showCondition = formElementValue1 === formElementValue2;\n  statusBuilder.show().whenItem(showCondition).is.truthy;\n  //for form element validation error\n  if(!showCondition){\n  statusBuilder.validationError(\"Values are not equal\");\n  }\n  return statusBuilder.build();\n};",
       "mandatory" : false
     }, {
       "name" : "Newborn breathing",
@@ -74,7 +201,44 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Newborn breathing",
-        "uuid" : "63495af0-0150-48a0-b52d-9656a8671f1b"
+        "uuid" : "63495af0-0150-48a0-b52d-9656a8671f1b",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "Breathing normally",
+          "uuid" : "ac563b37-f695-4267-bd6d-3532ef444fc5",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Did not breath",
+          "uuid" : "b19e4c95-8cf4-49e3-8cd9-ec0207df52ec",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "abnormal" : true,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Don't know",
+          "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 3.0,
+          "active" : true
+        }, {
+          "name" : "Gasping",
+          "uuid" : "74fa911d-1893-4c0d-8b02-12b76bd94a26",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "abnormal" : true,
+          "active" : true,
+          "keyValues" : [ ]
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 2.0,
       "type" : "SingleSelect",
@@ -85,7 +249,44 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Newborn movement",
-        "uuid" : "5b885356-ac8a-4e5c-bc6d-32ac05079d62"
+        "uuid" : "5b885356-ac8a-4e5c-bc6d-32ac05079d62",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "Don't know",
+          "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 3.0,
+          "active" : true
+        }, {
+          "name" : "Weak movements",
+          "uuid" : "228a3475-35ce-47e7-9750-e12a5d851d55",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "abnormal" : true,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "No movements",
+          "uuid" : "1461b263-0c31-49c3-baa4-21f3a210c5f8",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "abnormal" : true,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Good movements",
+          "uuid" : "5c6a10a5-6fd3-48ff-bebe-c32ca76b0614",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "active" : true,
+          "keyValues" : [ ]
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 3.0,
       "type" : "SingleSelect",
@@ -96,7 +297,33 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "If baby was not breathing for 30 seconds, was any action taken",
-        "uuid" : "e2282953-329a-400f-aa12-7b1065a42f7a"
+        "uuid" : "e2282953-329a-400f-aa12-7b1065a42f7a",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "No",
+          "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "abnormal" : true,
+          "active" : true
+        }, {
+          "name" : "Don't know",
+          "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "active" : true
+        }, {
+          "name" : "Yes",
+          "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "active" : true
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 4.0,
       "type" : "SingleSelect",
@@ -108,38 +335,114 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "If baby was not breathing for 30 seconds, was any action taken?",
-        "uuid" : "3b236506-33ee-4f91-9d72-ec11840fb131"
+        "uuid" : "3b236506-33ee-4f91-9d72-ec11840fb131",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "Yes",
+          "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "active" : true
+        }, {
+          "name" : "Don't know",
+          "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "active" : true
+        }, {
+          "name" : "No",
+          "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "active" : true
+        } ],
+        "active" : true
       },
       "displayOrder" : 5.0,
       "type" : "SingleSelect",
-      "mandatory" : false,
-      "voided" : true
-    } ]
+      "voided" : true,
+      "mandatory" : false
+    } ],
+    "display" : "Newborn observations within 30 seconds",
+    "timed" : false
   }, {
     "uuid" : "cab86429-00cf-4d38-a7c6-f516beb19e23",
     "name" : "Details",
     "displayOrder" : 3.0,
-    "display" : "Details",
     "formElements" : [ {
       "name" : "If baby was not breathing for 30 seconds, was any action taken",
       "uuid" : "1b856c69-51c5-4dcb-8bc4-0a5f3c44d619",
       "keyValues" : [ ],
       "concept" : {
         "name" : "If baby was not breathing for 30 seconds, was any action taken",
-        "uuid" : "e2282953-329a-400f-aa12-7b1065a42f7a"
+        "uuid" : "e2282953-329a-400f-aa12-7b1065a42f7a",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "No",
+          "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "abnormal" : true,
+          "active" : true
+        }, {
+          "name" : "Don't know",
+          "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "active" : true
+        }, {
+          "name" : "Yes",
+          "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "active" : true
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 1.0,
       "type" : "SingleSelect",
       "rule" : "",
-      "mandatory" : false,
-      "voided" : true
+      "voided" : true,
+      "mandatory" : false
     }, {
       "name" : "Whether mucus extractor used",
       "uuid" : "94f55467-051a-448f-b935-56a03e127e00",
       "keyValues" : [ ],
       "concept" : {
         "name" : "Whether mucus extractor used",
-        "uuid" : "a11eea1e-4529-4bf1-a8b2-734e38a590bb"
+        "uuid" : "a11eea1e-4529-4bf1-a8b2-734e38a590bb",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "No",
+          "uuid" : "f88da2e8-6ab4-44b5-b762-233485cd25f9",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "active" : true
+        }, {
+          "name" : "Yes",
+          "uuid" : "57e20de7-10de-4391-b7ce-87b2f40d19a2",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "active" : true
+        }, {
+          "name" : "Don't know",
+          "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "active" : true
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 2.0,
       "type" : "SingleSelect",
@@ -151,29 +454,87 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "What was the outcome of action",
-        "uuid" : "62fa4db7-448a-48fe-b5d4-5feb00752153"
+        "uuid" : "62fa4db7-448a-48fe-b5d4-5feb00752153",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "Baby died",
+          "uuid" : "8c9f4a00-21f0-4288-bb3d-de2a81908467",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Baby is alive",
+          "uuid" : "c8977d90-fd59-43a9-a0ac-baa6b1ddf855",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "active" : true,
+          "keyValues" : [ ]
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 3.0,
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\nconst programEncounter = params.entity;\nconst formElement = params.formElement;\n\nconst statusBuilder = new imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n\nstatusBuilder.show().when.valueInEncounter('Whether mucus extractor used').containsAnswerConceptName('Yes');\n\n  return statusBuilder.build();\n};",
       "mandatory" : true
-    } ]
+    } ],
+    "display" : "Details",
+    "timed" : false
   }, {
     "uuid" : "74ed830f-5110-4224-8d47-f8708b97061c",
     "name" : "Newborn observations after 5 mins",
     "displayOrder" : 4.0,
-    "display" : "Newborn observations after 5 mins ",
     "formElements" : [ {
       "name" : "Newborn cry",
       "uuid" : "fef0aee4-13d0-4dbd-aef4-60ccc0b53dc4",
       "keyValues" : [ ],
       "concept" : {
         "name" : "Newborn cried",
-        "uuid" : "e4d30772-e360-4824-9acb-e417bb5b264e"
+        "uuid" : "e4d30772-e360-4824-9acb-e417bb5b264e",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "Did not cry",
+          "uuid" : "8b278371-111f-4ae8-9f22-8f3f748be46b",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "abnormal" : true,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Weak cry",
+          "uuid" : "4c6855c4-a66f-4f72-a4b1-c5ac6d19b783",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "abnormal" : true,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Good cry",
+          "uuid" : "6a73b9f6-6f92-4f90-a0c6-8aa36f5c6000",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Don't know",
+          "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 3.0,
+          "active" : true
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 1.0,
       "type" : "SingleSelect",
-      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  \n  const isMucusExtractorUsed = programEncounter.getObservationReadableValue('Whether mucus extractor used');\n  \n  if(_.isEqual(isMucusExtractorUsed,'Yes'))\n    statusBuilder.show().when.valueInEncounter('What was the outcome of action').containsAnswerConceptNameOtherThan(\"Baby died\");\n  else statusBuilder.show().when.valueInEncounter('Diagnosis of baby immediately after birth').containsAnswerConceptNameOtherThan(\"Still birth\");\n  \n  return statusBuilder.build();\n};\n",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const _ = imports.lodash;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  \n  const isMucusExtractorUsed = programEncounter.getObservationReadableValue('Whether mucus extractor used');\n  \n  if(_.isEqual(isMucusExtractorUsed,'Yes'))\n    statusBuilder.show().when.valueInEncounter('What was the outcome of action').containsAnswerConceptNameOtherThan(\"Baby died\");\n  else statusBuilder.show().when.valueInEncounter('Diagnosis of baby immediately after birth').containsAnswerConceptNameOtherThan(\"Still birth\");\n  \n  return statusBuilder.build();\n};\n",
       "mandatory" : false
     }, {
       "name" : "Newborn breathing",
@@ -181,7 +542,44 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Newborn breath",
-        "uuid" : "f23c5d63-f73c-40e7-a4d0-9ebecf2a701c"
+        "uuid" : "f23c5d63-f73c-40e7-a4d0-9ebecf2a701c",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "Gasping",
+          "uuid" : "74fa911d-1893-4c0d-8b02-12b76bd94a26",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "abnormal" : true,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Did not breath",
+          "uuid" : "b19e4c95-8cf4-49e3-8cd9-ec0207df52ec",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "abnormal" : true,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Breathing normally",
+          "uuid" : "ac563b37-f695-4267-bd6d-3532ef444fc5",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Don't know",
+          "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 3.0,
+          "active" : true
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 2.0,
       "type" : "SingleSelect",
@@ -193,16 +591,56 @@
       "keyValues" : [ ],
       "concept" : {
         "name" : "Newborn movements",
-        "uuid" : "0c06c507-6676-4083-a862-2b0d80327262"
+        "uuid" : "0c06c507-6676-4083-a862-2b0d80327262",
+        "dataType" : "Coded",
+        "answers" : [ {
+          "name" : "Good movements",
+          "uuid" : "5c6a10a5-6fd3-48ff-bebe-c32ca76b0614",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 2.0,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "No movements",
+          "uuid" : "1461b263-0c31-49c3-baa4-21f3a210c5f8",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 0.0,
+          "abnormal" : true,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Weak movements",
+          "uuid" : "228a3475-35ce-47e7-9750-e12a5d851d55",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 1.0,
+          "abnormal" : true,
+          "active" : true,
+          "keyValues" : [ ]
+        }, {
+          "name" : "Don't know",
+          "uuid" : "c483c8de-1e93-40e7-9e9a-dbe1c7e705a1",
+          "dataType" : "NA",
+          "answers" : [ ],
+          "order" : 3.0,
+          "active" : true
+        } ],
+        "active" : true,
+        "keyValues" : [ ]
       },
       "displayOrder" : 3.0,
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new\n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('What was the outcome of action').containsAnswerConceptName(\"Baby is alive\").or.when.valueInEncounter('Diagnosis of baby immediately after birth').containsAnswerConceptNameOtherThan(\"Still birth\");\n  return statusBuilder.build();\n};",
       "mandatory" : false
-    } ]
+    } ],
+    "display" : "Newborn observations after 5 mins",
+    "timed" : false
   } ],
   "decisionRule" : "",
-  "visitScheduleRule" : "\"use strict\";\n({ params, imports }) => {\n  const programEncounter = params.entity;\n  const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n    programEncounter\n  });\n const dateOfBirth = programEncounter.individual.dateOfBirth;\n const visitDate = programEncounter.encounterDateTime; \n //let deathStatus = 'NA';\n let deathStatus = '';\n let diagnosisAfterBirth = '';\n \n deathStatus= programEncounter.getObservationReadableValue('What was the outcome of action');\n diagnosisAfterBirth= programEncounter.getObservationReadableValue('Diagnosis of baby immediately after birth');\n \n console.log('====>',deathStatus);\n console.log('====>',diagnosisAfterBirth);\n\n \n  let isAlive = true;\n  if((deathStatus && _.isEqual(deathStatus, 'Baby died') ) || (diagnosisAfterBirth && _.isEqual(diagnosisAfterBirth, 'Still birth')) )\n  isAlive = false;\n  \n//  if(_.isEqual(deathStatus, 'Baby died') || _.isEqual(diagnosisAfterBirth, 'Still birth')\n  //    isAlive = false;\n  \n  const encounterSchedulePNC = [\n    {\"name\": \"PNC 1\", \"earliest\": 0, \"max\": 2},\n    {\"name\": \"PNC 2\", \"earliest\": 3, \"max\": 6},\n    {\"name\": \"PNC 3\", \"earliest\": 7, \"max\": 10},\n    {\"name\": \"PNC 4\", \"earliest\": 15, \"max\": 18},\n    {\"name\": \"PNC 5\", \"earliest\": 28, \"max\": 31},\n    {\"name\": \"PNC 6\", \"earliest\": 42, \"max\": 45}\n];\n  \n \n if(isAlive && programEncounter.programEnrolment.hasEncounterOfType('Child PNC') === false){\n    var schedule = _.chain(encounterSchedulePNC).filter(e => imports.moment(visitDate).isSameOrBefore(imports.moment(dateOfBirth).add(e.earliest, 'days'), 'date') === true)\n            .filter(e => (programEncounter.programEnrolment.hasEncounter('Child PNC', e.name)) === false)\n            .first()\n            .value();\n  \n  if (!_.isEmpty(schedule)) {\n  scheduleBuilder\n    .add({\n      name: schedule.name,\n      encounterType: \"Child PNC\",\n      earliestDate:  imports.moment(dateOfBirth).add(schedule.earliest, 'days').toDate() ,\n      maxDate: imports.moment(dateOfBirth).add(schedule.max, 'days').toDate() \n    });\n   }\n}\n \n   \n        \n  return scheduleBuilder.getAll();\n};",
+  "visitScheduleRule" : "\n\n\"use strict\";\n({params, imports}) => {\n    const programEncounter = params.entity;\n    const scheduleBuilder = new imports.rulesConfig.VisitScheduleBuilder({\n        programEncounter\n    });\n//Date and time when placenta was out\n\n     const diagnosisOfBaby = programEncounter.getObservationReadableValue('Diagnosis of baby immediately after birth');\n     const outcome = programEncounter.getObservationReadableValue('What was the outcome of action');\n   \n     const dateOfBirth = programEncounter.individual.dateOfBirth;\n    if (!_.isEqual(programEncounter.individual.lowestAddressLevel.name, 'Non programme village')) {\n        scheduleBuilder\n            .add({\n                name: \"PNC 1\",\n                encounterType: \"Child PNC\",\n                earliestDate: programEncounter.encounterDateTime,\n                maxDate: programEncounter.encounterDateTime\n            }).whenItem(imports.moment(programEncounter.encounterDateTime).isBefore(imports.moment(dateOfBirth).add(42, 'days'), 'date'))\n            .is.truthy.and.whenItem(diagnosisOfBaby != 'Still birth')\n                .is.truthy.and.whenItem(outcome != 'Baby died')\n                .is.truthy;\n    }\n    return scheduleBuilder.getAll();\n};",
   "validationRule" : "",
-  "checklistsRule" : ""
+  "checklistsRule" : "",
+  "decisionConcepts" : [ ]
 }
