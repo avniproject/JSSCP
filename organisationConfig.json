@@ -2,6 +2,25 @@
   "uuid" : "e2c8b297-1b6f-491a-b6de-aa97b215fcc8",
   "settings" : {
     "languages" : [ "en", "hi_IN" ],
+    "customRegistrationLocations" : [ {
+      "subjectTypeUUID" : "6b4a3f82-1de6-4743-a380-0d3d1bbe7a45",
+      "locationTypeUUIDs" : [ "0e2cd5f9-5efd-404b-95de-8a7832a4afb8" ]
+    }, {
+      "subjectTypeUUID" : "161956c9-a26a-4b4e-9939-a096f2c84cad",
+      "locationTypeUUIDs" : [ "0e2cd5f9-5efd-404b-95de-8a7832a4afb8" ]
+    }, {
+      "subjectTypeUUID" : "c3e43b29-2a63-49bf-870b-8365d2dd9251",
+      "locationTypeUUIDs" : [ "0e2cd5f9-5efd-404b-95de-8a7832a4afb8" ]
+    } ],
+    "searchResultFields" : [ {
+      "subjectTypeName" : "Individual",
+      "subjectTypeUUID" : "c3e43b29-2a63-49bf-870b-8365d2dd9251",
+      "searchResultConcepts" : [ {
+        "name" : "Father/Husband's Name",
+        "uuid" : "ecdf3c54-2808-494d-87be-8fb744d5c3bc",
+        "displayOrder" : 1
+      } ]
+    } ],
     "searchFilters" : [ {
       "type" : "Name",
       "widget" : "Default",
@@ -28,18 +47,17 @@
       "titleKey" : "Age",
       "subjectTypeUUID" : "c3e43b29-2a63-49bf-870b-8365d2dd9251"
     }, {
-      "type" : "Concept",
-      "scope" : "programEnrolment",
-      "titleKey" : "Phulwari",
-      "conceptName" : "Phulwari",
-      "conceptUUID" : "178acfbe-b7e1-4ef5-a48a-0f4b1beabb80",
-      "conceptDataType" : "Coded",
-      "scopeParameters" : {
-        "programUUIDs" : [ "eb4d392a-87a0-4673-9176-dbd4101505ab" ],
-        "encounterTypeUUIDs" : [ ]
-      },
+      "type" : "Name",
+      "widget" : "Default",
+      "titleKey" : "Household",
+      "subjectTypeUUID" : "a2eee202-b440-4120-ada1-f3a820820f9c"
+    }, {
+      "type" : "EnrolmentDate",
+      "widget" : "Range",
+      "titleKey" : "Programme Enrollment",
       "subjectTypeUUID" : "c3e43b29-2a63-49bf-870b-8365d2dd9251"
     } ],
+    "hideTotalForProgram" : false,
     "myDashboardFilters" : [ {
       "type" : "Address",
       "widget" : "Default",
@@ -58,6 +76,32 @@
         "encounterTypeUUIDs" : [ ]
       },
       "subjectTypeUUID" : "c3e43b29-2a63-49bf-870b-8365d2dd9251"
+    }, {
+      "type" : "Concept",
+      "scope" : "programEncounter",
+      "widget" : "Default",
+      "titleKey" : "WFA Grade",
+      "conceptName" : "Weight for age Grade",
+      "conceptUUID" : "b23561f2-d3c4-40f6-a38d-a30fae484fd9",
+      "conceptDataType" : "Numeric",
+      "scopeParameters" : {
+        "programUUIDs" : [ "eb4d392a-87a0-4673-9176-dbd4101505ab" ],
+        "encounterTypeUUIDs" : [ "e9aa15b8-e9b5-4b5d-9fbb-4d7a89283741" ]
+      },
+      "subjectTypeUUID" : "c3e43b29-2a63-49bf-870b-8365d2dd9251"
+    }, {
+      "type" : "Concept",
+      "scope" : "programEnrolment",
+      "titleKey" : "Pregnancy",
+      "conceptName" : "Pregnancy",
+      "conceptUUID" : "bdcc36df-61af-4840-94ac-6428756f8eff",
+      "conceptDataType" : "NA",
+      "scopeParameters" : {
+        "programUUIDs" : [ "20016e73-3115-439d-8d8b-3bd4ab5c24b1" ],
+        "encounterTypeUUIDs" : [ ]
+      },
+      "subjectTypeUUID" : "c3e43b29-2a63-49bf-870b-8365d2dd9251"
     } ]
-  }
+  },
+  "worklistUpdationRule" : ""
 }
